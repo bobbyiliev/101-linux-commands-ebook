@@ -88,7 +88,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [064-the-gunzip-command.md](ebook/en/content/064-the-gunzip-command.md)
 * TODO: [065-the-hostnamectl-command.md](ebook/en/content/065-the-hostnamectl-command.md)
 * TODO: [066-the-iptable-command.md](ebook/en/content/066-the-iptable-command.md)
-* TODO: [067-the-netstat-command.md](ebook/en/content/067-the-netstat-command.md)
+* [067-the-netstat-command.md](ebook/en/content/067-the-netstat-command.md)
 * TODO: [068-the-lsof-command.md](ebook/en/content/068-the-lsof-command.md)
 * TODO: [069-the-bzip2-command.md](ebook/en/content/069-the-bzip2-command.md)
 * TODO: [070-the-service-command.md](ebook/en/content/070-the-service-command.md)
