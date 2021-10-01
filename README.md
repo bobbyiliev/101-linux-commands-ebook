@@ -14,7 +14,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [002-the-cd-command.md](ebook/en/content/002-the-cd-command.md)
 * TODO: [003-the-cat-tac-command.md](ebook/en/content/003-the-cat-tac-command.md)
 * [004-the-head-command.md](ebook/en/content/004-the-head-command.md)
-* TODO: [005-the-tail-command.md](ebook/en/content/005-the-tail-command.md)
+* [005-the-tail-command.md](ebook/en/content/005-the-tail-command.md)
 * TODO: [006-the-pwd-command.md](ebook/en/content/006-the-pwd-command.md)
 * TODO: [007-the-touch-command.md](ebook/en/content/007-the-touch-command.md)
 * TODO: [008-the-cal-command.md](ebook/en/content/008-the-cal-command.md)
