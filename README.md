@@ -17,7 +17,7 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 * TODO: [011-the-help-command.md](ebook/en/content/011-the-help-command.md)
 * TODO: [012-the-factor-command.md](ebook/en/content/012-the-factor-command.md)
 * TODO: [013-the-uname-command.md](ebook/en/content/013-the-uname-command.md)
-* TODO: [014-the-mkdir-command.md](ebook/en/content/014-the-mkdir-command.md)
+* [014-the-mkdir-command.md](ebook/en/content/014-the-mkdir-command.md)
 * TODO: [015-the-gzip-command.md](ebook/en/content/015-the-gzip-command.md)
 * TODO: [016-the-whatis-command.md](ebook/en/content/016-the-whatis-command.md)
 * TODO: [017-the-who-command.md](ebook/en/content/017-the-who-command.md)
