@@ -4,6 +4,12 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 
 ## List of commands:
 
+If you want to contribute, feel free to pick up a topic marked as `TODO` and submit a pull request 🙌
+
+Feel free to add new topics in case that you don't find one that you like from the current list.
+
+---
+
 * TODO: [001-the-ls-command.md](ebook/en/content/001-the-ls-command.md)
 * TODO: [002-the-cd-command.md](ebook/en/content/002-the-cd-command.md)
 * TODO: [003-the-cat-tac-command.md](ebook/en/content/003-the-cat-tac-command.md)
