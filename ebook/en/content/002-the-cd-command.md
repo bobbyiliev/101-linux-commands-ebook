@@ -4,6 +4,10 @@
 The `cd` command is used to change the current working directory *(i.e., in which the current user is working)*. 
 The "cd" stands for 'change directory.' an it is one of the most frequently used commands in the Linux terminal.
 
+The `cd` command stands for `chdir` (**Ch**ange **Dir**ectory), Often combined with the `ls` command that shows files and folders, `cd` allows you to navigate through folders/directorys, Much like navigating through chapters and pages in a book.
+
+It Normally Lists the files and directories in ascending alphabetical order after typing `cd` and pressing `TAB` 2 times.
+
 ### Examples of uses:
 
 
@@ -24,7 +28,9 @@ cd ~
 ```
 cd ..
 ```
+
 or
+
 ```
 cd -
 ```
@@ -36,6 +42,18 @@ The latter will show you the absolute path of your previous working directory
 ```
 cd /
 ```
+
+6. To navigate through multiple folders:
+
+```
+cd {Directory_Path}
+cd /home/user/101-linux-commands-ebook/ebook/en/content/
+```
+
+### Quick Tips
+
+Adding a `..` as a directory will allow you to move "up" from a folder, this can be done multiple times too!
+eg. `cd ..` to move up one folder or `cd ../../../` to move up 3!
 
 ### Syntax:
 
