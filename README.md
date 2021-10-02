@@ -93,7 +93,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [067-the-netstat-command.md](ebook/en/content/067-the-netstat-command.md)
 * TODO: [068-the-lsof-command.md](ebook/en/content/068-the-lsof-command.md)
 * TODO: [069-the-bzip2-command.md](ebook/en/content/069-the-bzip2-command.md)
-* TODO: [070-the-service-command.md](ebook/en/content/070-the-service-command.md)
+* [070-the-service-command.md](ebook/en/content/070-the-service-command.md)
 * TODO: [071-the-vmstat-command.md](ebook/en/content/071-the-vmstat-command.md)
 * TODO: [072-the-mpstat-command.md](ebook/en/content/072-the-mpstat-command.md)
 * TODO: [073-the-usermod-command.md](ebook/en/content/073-the-usermod-command.md)
