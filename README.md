@@ -47,7 +47,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [021-the-echo-command.md](ebook/en/content/021-the-echo-command.md)
 * TODO: [022-the-finger-command.md](ebook/en/content/022-the-finger-command.md)
 * TODO: [023-the-groups-command.md](ebook/en/content/023-the-groups-command.md)
-* TODO: [024-the-man-command.md](ebook/en/content/024-the-man-command.md)
+* [024-the-man-command.md](ebook/en/content/024-the-man-command.md)
 * TODO: [025-the-passwd-command.md](ebook/en/content/025-the-passwd-command.md)
 * TODO: [026-the-w-command.md](ebook/en/content/026-the-w-command.md)
 * TODO: [027-the-whoami-command.md](ebook/en/content/027-the-whoami-command.md)
