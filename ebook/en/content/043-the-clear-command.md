@@ -1,8 +1,6 @@
-
-# The clear command
+# The `clear` command
 
 In linux, clear command is used to clear terminal screen.
-
 
 ## Example
 
