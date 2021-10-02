@@ -79,7 +79,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [053-the-yum-command.md](ebook/en/content/053-the-yum-command.md)
 * TODO: [054-the-zip-command.md](ebook/en/content/054-the-zip-command.md)
 * TODO: [055-the-unzip-command.md](ebook/en/content/055-the-unzip-command.md)
-* TODO: [056-the-shutdown-command.md](ebook/en/content/056-the-shutdown-command.md)
+* [056-the-shutdown-command.md](ebook/en/content/056-the-shutdown-command.md)
 * TODO: [057-the-dir-command.md](ebook/en/content/057-the-dir-command.md)
 * TODO: [058-the-reboot-command.md](ebook/en/content/058-the-reboot-command.md)
 * TODO: [059-the-sort-command.md](ebook/en/content/059-the-sort-command.md)
