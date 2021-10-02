@@ -51,7 +51,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [025-the-passwd-command.md](ebook/en/content/025-the-passwd-command.md)
 * TODO: [026-the-w-command.md](ebook/en/content/026-the-w-command.md)
 * TODO: [027-the-whoami-command.md](ebook/en/content/027-the-whoami-command.md)
-* TODO: [028-the-history-command.md](ebook/en/content/028-the-history-command.md)
+[028-the-history-command.md](ebook/en/content/028-the-history-command.md)
 * TODO: [029-the-login-command.md](ebook/en/content/029-the-login-command.md)
 * TODO: [030-the-lscpu-command.md](ebook/en/content/030-the-lscpu-command.md)
 * TODO: [031-the-cp-command.md](ebook/en/content/031-the-cp-command.md)
@@ -124,6 +124,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [098-the-cut-command.md](ebook/en/content/098-the-cut-command.md)
 * TODO: [099-the-sed-command.md](ebook/en/content/099-the-sed-command.md)
 * TODO: [100-the-lynx-command.md](ebook/en/content/100-the-lynx-command.md)
+* [101-the-chown-command.md](ebook/en/content/101-the-chown-command.md)
 
 ## 🔗 Links
 
