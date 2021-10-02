@@ -25,7 +25,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 ---
 
 * [001-the-ls-command.md](ebook/en/content/001-the-ls-command.md)
-* TODO: [002-the-cd-command.md](ebook/en/content/002-the-cd-command.md)
+* [002-the-cd-command.md](ebook/en/content/002-the-cd-command.md)
 * TODO: [003-the-cat-tac-command.md](ebook/en/content/003-the-cat-tac-command.md)
 * [004-the-head-command.md](ebook/en/content/004-the-head-command.md)
 * [005-the-tail-command.md](ebook/en/content/005-the-tail-command.md)
