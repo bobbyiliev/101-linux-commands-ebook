@@ -41,7 +41,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [015-the-gzip-command.md](ebook/en/content/015-the-gzip-command.md)
 * TODO: [016-the-whatis-command.md](ebook/en/content/016-the-whatis-command.md)
 * [017-the-who-command.md](ebook/en/content/017-the-who-command.md)
-* TODO: [018-the-free-command.md](ebook/en/content/018-the-free-command.md)
+* [018-the-free-command.md](ebook/en/content/018-the-free-command.md)
 * TODO: [019-the-top-htop-command.md](ebook/en/content/019-the-top-htop-command.md)
 * TODO: [020-the-sl-command.md](ebook/en/content/020-the-sl-command.md)
 * TODO: [021-the-echo-command.md](ebook/en/content/021-the-echo-command.md)
