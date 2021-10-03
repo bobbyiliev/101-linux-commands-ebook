@@ -44,7 +44,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [018-the-free-command.md](ebook/en/content/018-the-free-command.md)
 * TODO: [019-the-top-htop-command.md](ebook/en/content/019-the-top-htop-command.md)
 * TODO: [020-the-sl-command.md](ebook/en/content/020-the-sl-command.md)
-* TODO: [021-the-echo-command.md](ebook/en/content/021-the-echo-command.md)
+* [021-the-echo-command.md](ebook/en/content/021-the-echo-command.md)
 * TODO: [022-the-finger-command.md](ebook/en/content/022-the-finger-command.md)
 * TODO: [023-the-groups-command.md](ebook/en/content/023-the-groups-command.md)
 * [024-the-man-command.md](ebook/en/content/024-the-man-command.md)
