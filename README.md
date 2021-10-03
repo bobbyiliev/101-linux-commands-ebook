@@ -38,7 +38,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [012-the-factor-command.md](ebook/en/content/012-the-factor-command.md)
 * [013-the-uname-command.md](ebook/en/content/013-the-uname-command.md)
 * [014-the-mkdir-command.md](ebook/en/content/014-the-mkdir-command.md)
-* TODO: [015-the-gzip-command.md](ebook/en/content/015-the-gzip-command.md)
+* [015-the-gzip-command.md](ebook/en/content/015-the-gzip-command.md)
 * TODO: [016-the-whatis-command.md](ebook/en/content/016-the-whatis-command.md)
 * [017-the-who-command.md](ebook/en/content/017-the-who-command.md)
 * TODO: [018-the-free-command.md](ebook/en/content/018-the-free-command.md)
