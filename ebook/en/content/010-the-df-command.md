@@ -1,8 +1,6 @@
-010-the-df-command.md
-
 # The `df` command
 The `df` command in Linux/Unix is used to show the disk usage & information.
-
+`df` is an abbreviation for "disk free".
 # Usage
 
 ## Show available disk space
@@ -82,3 +80,21 @@ df -T
 ```
 df -x file_system_type
 ```
+
+### Syntax:
+
+```
+df [-OPTION] [FILE]
+```
+
+### Additional Flags and their Functionalities:
+
+Additional options are OS dependant.
+
+|**Short Flag**   |**Description**   |
+|---|---|
+|`-h`|human readable sizes to power of 1024 (base of 2 for sizes)|
+|`-H`|human readable sizes to power of 1000 (base of 10 for sizes)|
+|`-i`|show inode information instead of block usage|
+|`-l`|limit output to local file systems|
+|`-l`|limit output to local file systems|
