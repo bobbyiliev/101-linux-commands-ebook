@@ -33,7 +33,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [007-the-touch-command.md](ebook/en/content/007-the-touch-command.md)
 * TODO: [008-the-cal-command.md](ebook/en/content/008-the-cal-command.md)
 * TODO: [009-the-bc-command.md](ebook/en/content/009-the-bc-command.md)
-* TODO: [010-the-df-command.md](ebook/en/content/010-the-df-command.md)
+* [010-the-df-command.md](ebook/en/content/010-the-df-command.md)
 * TODO: [011-the-help-command.md](ebook/en/content/011-the-help-command.md)
 * TODO: [012-the-factor-command.md](ebook/en/content/012-the-factor-command.md)
 * [013-the-uname-command.md](ebook/en/content/013-the-uname-command.md)
