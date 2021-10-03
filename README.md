@@ -63,7 +63,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [037-the-printenv-command.md](ebook/en/content/037-the-printenv-command.md)
 * TODO: [038-the-hostname-command.md](ebook/en/content/038-the-hostname-command.md)
 * [039-the-nano-command.md](ebook/en/content/039-the-nano-command.md)
-* TODO: [040-the-rm-command.md](ebook/en/content/040-the-rm-command.md)
+* [040-the-rm-command.md](ebook/en/content/040-the-rm-command.md)
 * TODO: [041-the-ifconfig-command.md](ebook/en/content/041-the-ifconfig-command.md)
 * TODO: [042-the-ip-command.md](ebook/en/content/042-the-ip-command.md)
 * [043-the-clear-command.md](ebook/en/content/043-the-clear-command.md)

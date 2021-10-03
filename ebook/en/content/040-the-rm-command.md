@@ -1,7 +1,6 @@
 # The `rm` command
 
-`rm` Stands for "remove" and it's used to remove *(Delete)* specific files.
-Also, With flags it can remove specific directories.
+`rm` whih stands for "remove" is a command used to remove *(delete)* specific files. It can also be used to remove directories by using the appropriate flag.
 
 ### Example:
 ```
@@ -30,8 +29,8 @@ rm [OPTION] [FILE|DIRECTORY]
 
 
 ***IMPORTANT NOTICE:***
-1. rm doesn't remove directories by default, so use `-r`, `-R`, `--recursive` options to remove each listed directory, along with all of it's contents.
-2. To remove a file whose name starts with '-', for example '-foo', use one of the following commands:
-   `rm -- -foo`
-   `rm./-foo`
-3. For Assurance that the contents are truely unrecoverable, consider using `shred` command
+1. `rm` doesn't remove directories by default, so use `-r`, `-R`, `--recursive` options to remove each listed directory, along with all of its contents.
+2. To remove a file whose name starts with `-` such as `-foo`, use one of the following commands:
+   - `rm -- -foo`
+   - `rm ./-foo`
+3. To ensure that files/directories being deleted are truly unrecoverable, consider using the `shred` command.
