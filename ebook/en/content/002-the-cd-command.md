@@ -17,13 +17,13 @@ It Normally Lists the files and directories in ascending alphabetical order afte
 cd <specified_directory_path>
 ```
 
-3. To change the directory to home directory from the current working directory, execute the command as follows:
+2. To change the directory to home directory from the current working directory, execute the command as follows:
 
 ```
 cd ~
 ```
 
-4. To change to the previous directory from the current working directory, we can execute these two commands:
+3. To change to the previous directory from the current working directory, we can execute these two commands:
 
 ```
 cd ..
@@ -37,13 +37,13 @@ cd -
 
 The latter will show you the absolute path of your previous working directory
 
-5. To navigate to the system's root directory from current working directory, execute the command as follows:
+4. To navigate to the system's root directory from current working directory, execute the command as follows:
 
 ```
 cd /
 ```
 
-6. To navigate through multiple folders:
+5. To navigate through multiple folders:
 
 ```
 cd {Directory_Path}
