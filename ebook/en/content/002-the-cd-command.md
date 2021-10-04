@@ -23,19 +23,19 @@ cd <specified_directory_path>
 cd ~
 ```
 
-3. To change to the previous directory from the current working directory, we can execute these two commands:
+or simply
 
 ```
-cd ..
+cd
 ```
 
-or
+3. To change to the previous directory from the current working directory, we can execute this command:
 
 ```
 cd -
 ```
 
-The latter will show you the absolute path of your previous working directory
+It will also show you the absolute path of your previous working directory
 
 4. To navigate to the system's root directory from current working directory, execute the command as follows:
 
