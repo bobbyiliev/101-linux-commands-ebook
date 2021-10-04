@@ -38,9 +38,14 @@ cp -RT folderName1 folderName2
 
 The general syntax for the cp command is as follows:
 
-`cp [OPTIONS] SOURCE... DESTINATION`
+```
+cp [OPTION] SOURCE DESTINATION
+cp [OPTION] SOURCE DIRECTORY
+cp [OPTION] SOURCE-1 SOURCE-2 SOURCE-3 SOURCE-n DIRECTORY
+```
 
-The SOURCE can contain one or more files or directories as arguments, and the DESTINATION argument can be a single file or directory.
+The first and second syntax is used to copy Source file to Destination file or Directory.
+The third syntax is used to copy multiple Sources(files) to Directory.
 
 #### Some useful options
 
@@ -84,3 +89,14 @@ With -f option, command executed successfully
 ```
 $ cp -f a.txt b.txt
 ```
+
+### Additional Flags and their Functionalities:
+
+|**Short Flag**   |**Long Flag**   |**Description**   |
+|:---|:---|:---|
+|`-i`|<center>--interactive</center>|prompt before overwrite|
+|`-f`|<center>--force</center>|If an existing destination file cannot be opened, remove it and try again|
+|`-b`|<center>-</center>|Creates the backup of the destination file in the same folder with the different name and in different format.|
+|`-r or -R`|`--recursive`|**cp** command shows its recursive behavior by copying the entire directory structure recursively.|
+|`-n`|`--no-clobber`|do not overwrite an existing file (overrides a previous -i option)|
+|`-p`|<center>-</center>|preserve the specified attributes (default: mode,ownership,timestamps), if possible additional attributes: context, links, xattr, all|
