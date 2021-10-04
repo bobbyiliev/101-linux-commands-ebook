@@ -118,7 +118,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [092-the-xargs-command.md](ebook/en/content/092-the-xargs-command.md)
 * TODO: [093-the-nohub-command.md](ebook/en/content/093-the-nohub-command.md)
 * TODO: [094-the-pstree-command.md](ebook/en/content/094-the-pstree-command.md)
-* TODO: [095-the-tree-command.md](ebook/en/content/095-the-tree-command.md)
+* [095-the-tree-command.md](ebook/en/content/095-the-tree-command.md)
 * [096-the-whereis-command.md](ebook/en/content/096-the-whereis-command.md)
 * TODO: [097-the-printf-command.md](ebook/en/content/097-the-printf-command.md)
 * TODO: [098-the-cut-command.md](ebook/en/content/098-the-cut-command.md)
