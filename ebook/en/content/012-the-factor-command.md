@@ -1,5 +1,3 @@
-012-the-factor-command.md
-
 # The `factor` command
 
 The `factor` command prints the prime numbers of a given number.
