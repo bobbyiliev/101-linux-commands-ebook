@@ -59,7 +59,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [033-the-ps-command.md](ebook/en/content/033-the-ps-command.md)
 * [034-the-kill-command.md](ebook/en/content/034-the-kill-command.md)
 * [035-the-killall-command.md](ebook/en/content/035-the-killall-command.md)
-* TODO: [036-the-env-command.md](ebook/en/content/036-the-env-command.md)
+* [036-the-env-command.md](ebook/en/content/036-the-env-command.md)
 * TODO: [037-the-printenv-command.md](ebook/en/content/037-the-printenv-command.md)
 * [038-the-hostname-command.md](ebook/en/content/038-the-hostname-command.md)
 * [039-the-nano-command.md](ebook/en/content/039-the-nano-command.md)
