@@ -102,7 +102,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [076-the-scp-command.md](ebook/en/content/076-the-scp-command.md)
 * [077-the-sleep-command.md](ebook/en/content/077-the-sleep-command.md)
 * [078-the-split-command.md](ebook/en/content/078-the-split-command.md)
-* TODO: [079-the-stat-command.md](ebook/en/content/079-the-stat-command.md)
+* [079-the-stat-command.md](ebook/en/content/079-the-stat-command.md)
 * TODO: [080-the-useradd-command.md](ebook/en/content/080-the-useradd-command.md)
 * TODO: [081-the-userdel-command.md](ebook/en/content/081-the-userdel-command.md)
 * TODO: [082-the-usermod-command.md](ebook/en/content/082-the-usermod-command.md)
