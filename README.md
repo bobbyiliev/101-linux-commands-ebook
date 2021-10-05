@@ -60,7 +60,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [034-the-kill-command.md](ebook/en/content/034-the-kill-command.md)
 * [035-the-killall-command.md](ebook/en/content/035-the-killall-command.md)
 * [036-the-env-command.md](ebook/en/content/036-the-env-command.md)
-* TODO: [037-the-printenv-command.md](ebook/en/content/037-the-printenv-command.md)
+* [037-the-printenv-command.md](ebook/en/content/037-the-printenv-command.md)
 * [038-the-hostname-command.md](ebook/en/content/038-the-hostname-command.md)
 * [039-the-nano-command.md](ebook/en/content/039-the-nano-command.md)
 * [040-the-rm-command.md](ebook/en/content/040-the-rm-command.md)
@@ -126,7 +126,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [100-the-vim-command.md](ebook/en/content/100-the-vim-command.md)
 * [101-the-chown-command.md](ebook/en/content/101-the-chown-command.md)
 * TODO: [102-the-find-command.md](ebook/en/content/102-the-find-command.md)
-* TODO: [103-the-rmdir-command.md](ebook/en/content/103-the-rmdir-command.md)
+* [103-the-rmdir-command.md](ebook/en/content/103-the-rmdir-command.md)
 
 ## 🔗 Links
 
