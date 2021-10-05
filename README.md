@@ -121,7 +121,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [095-the-tree-command.md](ebook/en/content/095-the-tree-command.md)
 * [096-the-whereis-command.md](ebook/en/content/096-the-whereis-command.md)
 * TODO: [097-the-printf-command.md](ebook/en/content/097-the-printf-command.md)
-* TODO: [098-the-cut-command.md](ebook/en/content/098-the-cut-command.md)
+* [098-the-cut-command.md](ebook/en/content/098-the-cut-command.md)
 * TODO: [099-the-sed-command.md](ebook/en/content/099-the-sed-command.md)
 * [100-the-vim-command.md](ebook/en/content/100-the-vim-command.md)
 * [101-the-chown-command.md](ebook/en/content/101-the-chown-command.md)
