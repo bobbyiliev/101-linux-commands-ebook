@@ -56,7 +56,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [030-the-lscpu-command.md](ebook/en/content/030-the-lscpu-command.md)
 * [031-the-cp-command.md](ebook/en/content/031-the-cp-command.md)
 * [032-the-mv-command.md](ebook/en/content/032-the-mv-command.md)
-* TODO: [033-the-ps-command.md](ebook/en/content/033-the-ps-command.md)
+* [033-the-ps-command.md](ebook/en/content/033-the-ps-command.md)
 * [034-the-kill-command.md](ebook/en/content/034-the-kill-command.md)
 * [035-the-killall-command.md](ebook/en/content/035-the-killall-command.md)
 * TODO: [036-the-env-command.md](ebook/en/content/036-the-env-command.md)
