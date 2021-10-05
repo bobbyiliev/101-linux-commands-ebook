@@ -125,6 +125,8 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [099-the-sed-command.md](ebook/en/content/099-the-sed-command.md)
 * [100-the-vim-command.md](ebook/en/content/100-the-vim-command.md)
 * [101-the-chown-command.md](ebook/en/content/101-the-chown-command.md)
+* TODO: [102-the-find-command.md](ebook/en/content/102-the-find-command.md)
+* TODO: [103-the-rmdir-command.md](ebook/en/content/103-the-rmdir-command.md)
 
 ## 🔗 Links
 
