@@ -42,7 +42,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [016-the-whatis-command.md](ebook/en/content/016-the-whatis-command.md)
 * [017-the-who-command.md](ebook/en/content/017-the-who-command.md)
 * [018-the-free-command.md](ebook/en/content/018-the-free-command.md)
-* TODO: [019-the-top-htop-command.md](ebook/en/content/019-the-top-htop-command.md)
+* [019-the-top-htop-command.md](ebook/en/content/019-the-top-htop-command.md)
 * [020-the-sl-command.md](ebook/en/content/020-the-sl-command.md)
 * [021-the-echo-command.md](ebook/en/content/021-the-echo-command.md)
 * [022-the-finger-command.md](ebook/en/content/022-the-finger-command.md)
