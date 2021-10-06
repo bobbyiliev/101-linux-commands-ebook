@@ -71,7 +71,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [045-the-wget-command.md](ebook/en/content/045-the-wget-command.md)
 * [046-the-curl-command.md](ebook/en/content/046-the-curl-command.md)
 * [047-the-yes-command.md](ebook/en/content/047-the-yes-command.md)
-* TODO: [048-the-last-command.md](ebook/en/content/048-the-last-command.md)
+* [048-the-last-command.md](ebook/en/content/048-the-last-command.md)
 * [049-the-locate-command.md](ebook/en/content/049-the-locate-command.md)
 * TODO: [050-the-iostat-command.md](ebook/en/content/050-the-iostat-command.md)
 * [051-the-sudo-command.md](ebook/en/content/051-the-sudo-command.md)
