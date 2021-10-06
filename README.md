@@ -97,7 +97,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * TODO: [071-the-vmstat-command.md](ebook/en/content/071-the-vmstat-command.md)
 * TODO: [072-the-mpstat-command.md](ebook/en/content/072-the-mpstat-command.md)
 * TODO: [073-the-usermod-command.md](ebook/en/content/073-the-usermod-command.md)
-* TODO: [074-the-uniq-command.md](ebook/en/content/074-the-uniq-command.md)
+* [074-the-uniq-command.md](ebook/en/content/074-the-uniq-command.md)
 * TODO: [075-the-rpm-command.md](ebook/en/content/075-the-rpm-command.md)
 * [076-the-scp-command.md](ebook/en/content/076-the-scp-command.md)
 * [077-the-sleep-command.md](ebook/en/content/077-the-sleep-command.md)
