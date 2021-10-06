@@ -127,6 +127,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [101-the-chown-command.md](ebook/en/content/101-the-chown-command.md)
 * TODO: [102-the-find-command.md](ebook/en/content/102-the-find-command.md)
 * [103-the-rmdir-command.md](ebook/en/content/103-the-rmdir-command.md)
+* [104-the-lsblk-command.md](ebook/en/content/104-the-lsblk-command.md)
 
 ## 🔗 Links
 
