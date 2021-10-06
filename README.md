@@ -52,7 +52,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [026-the-w-command.md](ebook/en/content/026-the-w-command.md)
 * [027-the-whoami-command.md](ebook/en/content/027-the-whoami-command.md)
 * [028-the-history-command.md](ebook/en/content/028-the-history-command.md)
-* TODO: [029-the-login-command.md](ebook/en/content/029-the-login-command.md)
+* [029-the-login-command.md](ebook/en/content/029-the-login-command.md)
 * [030-the-lscpu-command.md](ebook/en/content/030-the-lscpu-command.md)
 * [031-the-cp-command.md](ebook/en/content/031-the-cp-command.md)
 * [032-the-mv-command.md](ebook/en/content/032-the-mv-command.md)
