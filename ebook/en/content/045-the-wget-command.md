@@ -2,14 +2,13 @@
 
 The `wget` command is used for downloading files from the Internet. It supports downloading files using HTTP, HTTPS and FTP protocols. It allows you to download several files at once, download in the background, resume downloads, limit the bandwidth, mirror a website, and much more.
 
-
 ## Syntax
 
 The `wget` syntax requires you to define the downloading options and the URL the to be downloaded file is coming from.
+
 ```bash
 $ wget [options] [URL]
 ```
-
 
 ### Examples
 
@@ -33,7 +32,6 @@ wget -c https://mirrors.piconets.webwerks.in/ubuntu-mirror/ubuntu-releases/20.04
 wget -b https://mirrors.piconets.webwerks.in/ubuntu-mirror/ubuntu-releases/20.04.3/ubuntu-20.04.3-desktop-amd64.iso
 ```
 
-
 ## More options
 
 On top of downloading, `wget` provides many more features, such as downloading multiple files, dowloading in the background, limiting download bandwith and resuming stopped downloads. View all `wget` options in its man page.
@@ -42,13 +40,12 @@ On top of downloading, `wget` provides many more features, such as downloading m
 man wget
 ```
 
-
 ### Additional Flags and their Functionalities
 
-|**Short Flag**    |**Description**   |
-|--|--|
-| `-v` |prints version of the wget available on your system  |
-| `-h` |print help message displaying all the possible options  |
-|`-b`|This option is used to send a process to the background as soon as it starts. |
-|`-t`|This option is used to set number of retries to a specified number of times |
-|`-c`|This option is used to resume a partially downloaded file |
+| **Short Flag** | **Description**                                                               |
+| -------------- | ----------------------------------------------------------------------------- |
+| `-v`           | prints version of the wget available on your system                           |
+| `-h`           | print help message displaying all the possible options                        |
+| `-b`           | This option is used to send a process to the background as soon as it starts. |
+| `-t`           | This option is used to set number of retries to a specified number of times   |
+| `-c`           | This option is used to resume a partially downloaded file                     |
