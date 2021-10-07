@@ -106,7 +106,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [080-the-useradd-command.md](ebook/en/content/080-the-useradd-command.md)
 * [081-the-userdel-command.md](ebook/en/content/081-the-userdel-command.md)
 * [082-the-usermod-command.md](ebook/en/content/082-the-usermod-command.md)
-* TODO: [083-the-ionice-command.md](ebook/en/content/083-the-ionice-command.md)
+* [083-the-ionice-command.md](ebook/en/content/083-the-ionice-command.md)
 * [084-the-du-command.md](ebook/en/content/084-the-du-command.md)
 * [085-the-ping-command.md](ebook/en/content/085-the-ping-command.md)
 * TODO: [086-the-rsync-command.md](ebook/en/content/086-the-rsync-command.md)
