@@ -24,6 +24,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 
 ---
 
+
 * [001-the-ls-command.md](ebook/en/content/001-the-ls-command.md)
 * [002-the-cd-command.md](ebook/en/content/002-the-cd-command.md)
 * [003-the-cat-tac-command.md](ebook/en/content/003-the-cat-tac-command.md)
@@ -128,6 +129,8 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [102-the-find-command.md](ebook/en/content/102-the-find-command.md)
 * [103-the-rmdir-command.md](ebook/en/content/103-the-rmdir-command.md)
 * [104-the-lsblk-command.md](ebook/en/content/104-the-lsblk-command.md)
+* [105-the-cmatrix-command.md](ebook/en/content/105-the-cmatrix-command.md)
+
 
 ## 🔗 Links
 
