@@ -109,7 +109,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 * [083-the-ionice-command.md](ebook/en/content/083-the-ionice-command.md)
 * [084-the-du-command.md](ebook/en/content/084-the-du-command.md)
 * [085-the-ping-command.md](ebook/en/content/085-the-ping-command.md)
-* TODO: [086-the-rsync-command.md](ebook/en/content/086-the-rsync-command.md)
+* [086-the-rsync-command.md](ebook/en/content/086-the-rsync-command.md)
 * [087-the-dig-command.md](ebook/en/content/087-the-dig-command.md)
 * [088-the-whois-command.md](ebook/en/content/088-the-whois-command.md)
 * [089-the-ssh-command.md](ebook/en/content/089-the-ssh-command.md)
