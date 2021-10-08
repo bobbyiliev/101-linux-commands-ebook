@@ -1,56 +1,56 @@
 # The `reboot` Command
----
 
-  `halt`, `poweroff`, and `reboot` are commands you can run as root to stop the system hardware.
-
-* `halt` instructs the hardware to stop all CPU functions.
-* `poweroff` sends an ACPI signal which instructs the system to power down.
-* `reboot` instructs the system to reboot.
-
-These commands require superuser `privileges`. If you are not logged in as root, you need to prefix the command with `sudo` or the signal isn't sent.
-
-These programs allow a system administrator to reboot, halt or poweroff the system.
-
-When called with **--force** or when in `runlevel` 0 or 6, this tool invokes the `reboot` system call itself (with REBOOTCOMMAND argument passed) and directly reboots the system. Otherwise, this invokes the `shutdown` tool with the appropriate arguments without passing REBOOTCOMMAND argument.
-
-Before invoking reboot, a shutdown time record is first written to **/var/log/wtmp**
-
-
-## Examples: 
-
-1. If you are logged in as root, issuing the reboot command will immediately initiate a reboot sequence. The system shuts down and then commence a **warm boot.**
-
-```
-reboot
-```
-2. Execute the reboot command as root.
-```
-sudo reboot
-```
-
+The `reboot` command is used to restart a linux system. However it requires elevated permission using the [sudo](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/051-the-sudo-command.md) command. Necessity to use this command usually arises after significant system or network updates have been made to the system.
 
 ## Syntax
 ```
-reboot [OPTION]... [REBOOTCOMMAND]
+reboot [OPTIONS...]
 ```
 
-## Additional Flags and their Functionalities:
+### Options
+- **–help** : This option prints a short help text and exit.
+- **-halt** : This command will stop the machine.
+- **-w**, **–wtmp-only** : This option only writes wtmp shutdown entry, it do not actually halt, power-off, reboot.
 
-|Short Flag |	Long Flag |	Description|
-|---|---|---|
-|`-f `| `--force`	| Does not invoke shutdown and instead performs the actual action you would expect from the name.|
-|`-p` | `--poweroff` |	Instructs the halt command to instead behave as poweroff.|
-|`-w` | `--wtmp-only` |	Does not call shutdown or the reboot system call and instead only writes the shutdown record to /var/log/wtmp.|
-|- |`--verbose`	|Outputs slightly more verbose messages when rebooting, which can be useful for debugging problems with shutdown.|
+### Examples
+1. Basic Usage. Mainly used to restart without any further details
+```
+$ sudo reboot
+```
+However, alternatively the shutdown command with the `-r` option
+```
+$ sudo shutdown -r now
+```
 
+**Note** that the usage of the reboot, halt and poweroff is almost similar in syntax and effect. Run each of these commands with –help to see the details.
 
-## Environment
-|	ENV |	Description|
-|---|---|
-| `RUNLEVEL` |	reboot will read the current runlevel from this environment variable if set in preference to reading from /var/run/utmp.|
-## Files
-|	File |	Description|
-|---|---|
-| `/var/run/utmp` |	File where the current runlevel will be read from; this file also be updated with the runlevel record being replaced by a shutdown time record.|
-| `/var/log/wtmp` |	A new runlevel record for the shutdown time will be appended to this file.|
+2. The `reboot` command has limited usage, and the `shutdown` command is being used instead of reboot command to fulfill much more advance reboot and shutdown requirements. One of those situations is a scheduled restart. Syntax is as follows
+```
+$ sudo shutdown –r [TIME] [MESSAGE]
+```
+Here the TIME has various formats. The simplest one is “now”, already been listed in the previous section, and tells the system to restart immediately. Other valid formats we have are +m, where m is the number of minutes we need to wait until restart and HH:MM which specifies the TIME in a 24hr clock.
 
+**Example to reboot the system in 2 minutes**
+```
+$ sudo shutdown –r +2
+```
+
+**Example of a sheduled restart at 03:00 A.M**
+```
+$ sudo shutdown –r 03:00
+```
+3. Cancelling a Reboot. Usually happens incase one wants to cancel a scheduled restart
+
+**Syntax**
+```
+$ sudo shutdown –c [MESSAGE]
+```
+**Usage**
+```
+$sudo shutdown -c "Scheduled reboot cancelled because the chicken crossed the road"
+```
+
+4. Checking your reboot logs
+```
+$ last reboot
+```
