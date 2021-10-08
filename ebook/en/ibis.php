@@ -9,7 +9,7 @@ return [
     /**
      * The author name.
      */
-    'author' => 'Bobby Iliev',
+    'author' => 'Bobby Iliev and the Hacktoberfest community',
 
     /**
      * The list of fonts to be used in the different themes.
@@ -31,6 +31,6 @@ return [
     /**
      * A notice printed at the final page of a generated sample.
      */
-    'sample_notice' => 'This is a sample from "101 Linux Commands eBook" by Bobby Iliev. <br>
+    'sample_notice' => 'This is a sample from "101 Linux Commands eBook" by Bobby Iliev the Hacktoberfest community. <br>
                         For more information, <a href="https://devdojo.com/">Click here</a>.',
 ];
