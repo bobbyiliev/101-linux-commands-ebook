@@ -16,7 +16,13 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 
 **Make sure to star the repository** ⭐
 
-## List of commands:
+## 🔽 Download links
+
+* [Dark mode](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/export/101-linux-commands-ebook-dark.pdf)
+
+* [Light mode](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/export/101-linux-commands-ebook-light.pdf)
+
+## 📃 List of commands:
 
 If you want to contribute, feel free to pick up a topic marked as `TODO` and submit a pull request 🙌
 
@@ -143,6 +149,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 
 ## 📖 Other eBooks
 
+- [Introduction to SQL](https://github.com/bobbyiliev/introduction-to-sql)
 - [Introduction to Git and GitHub](https://github.com/bobbyiliev/introduction-to-git-and-github-ebook)
 - [Introduction to Bash Scripting](https://github.com/bobbyiliev/introduction-to-bash-scripting)
 - [Laravel tips and tricks](https://github.com/bobbyiliev/laravel-tips-and-tricks-ebook)
