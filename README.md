@@ -1,4 +1,4 @@
-<p align="center"><img src="https://imgur.com/SJKJThl.png" height="450" width="auto"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/bobbyiliev/101-linux-commands-ebook/main/ebook/en/assets/cover.jpg" height="450" width="auto"></p>
 
 <div align="center">
     <p>
