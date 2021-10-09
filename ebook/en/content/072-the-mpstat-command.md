@@ -13,20 +13,20 @@ mpstat [options] [<interval> [<count>]]
 
 ### Options and their Functionalities:
 
-|**Option**   |**Description**   |
-|:---|:---|
-|`-A`|to display all the detailed statistics|
-|`-h`|to display mpstat help|
-|`-I`|to display detailed interrupts statistics|
-|`-n`|to report summary CPU statistics based on NUMA node placement|
-|`-N`|to indicate the NUMA nodes for which statistics are to be reported|
-|`-P`|to indicate the processors for which statistics are to be reported|
-|`-o`|to display the statistics in JSON (Javascript Object Notation) format|
-|`-T`|to display topology elements in the CPU report|
-|`-u`|to report CPU utilization|
-|`-v`|to display utilization statistics at the virtual processor level|
-|`-V`|to display mpstat version|
-|`-ALL`|to display detailed statistics about all CPUs|
+|**Option**   |**Description**                                                       |
+|-------------|----------------------------------------------------------------------|
+|`-A`         |to display all the detailed statistics                                |
+|`-h`         |to display mpstat help                                                |
+|`-I`         |to display detailed interrupts statistics                             |
+|`-n`         |to report summary CPU statistics based on NUMA node placement         |
+|`-N`         |to indicate the NUMA nodes for which statistics are to be reported    |
+|`-P`         |to indicate the processors for which statistics are to be reported    |
+|`-o`         |to display the statistics in JSON (Javascript Object Notation) format |
+|`-T`         |to display topology elements in the CPU report                        |
+|`-u`         |to report CPU utilization                                             |
+|`-v`         |to display utilization statistics at the virtual processor level      |
+|`-V`         |to display mpstat version                                             |
+|`-ALL`       |to display detailed statistics about all CPUs                         |
 
 
 ### Examples:
