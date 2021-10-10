@@ -2,6 +2,8 @@
 
 The `sudo` ("switch user, do") command allows a user with proper permissions to execute a command as another user. By default, sudo executes commands as root.
 
+> WARNING: Be very careful when using the `sudo` command. You can cause irreversible and catastrophic changes while acting as root!
+
 ### Syntax:
 
 ```
