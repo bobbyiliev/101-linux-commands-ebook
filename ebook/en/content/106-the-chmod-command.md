@@ -41,11 +41,11 @@ chmod [OPTIONS] MODE FILE(s)
 ```
 
 - `[OPTIONS]` :
-  -R: recursive, mean all file inside directory
+  `-R`: recursive, mean all file inside directory
 
 - `MODE`: different way to set permissions:
 
-- **symbolic mode explained**
+- **Symbolic mode explained**
 
   - u: user
   - g: group
@@ -56,7 +56,9 @@ chmod [OPTIONS] MODE FILE(s)
   - x: execute
   - example `u=rwx` means user can read write and execute
 
-- **numeric mode explained**:
+- **Numeric mode explained**:
+  
+The **numeric mode** is based off of a binary representation of the permissions for user, group, and others, for more information please look at this [explanation](https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps#types-of-permissions) from Digital Ocean's community section:
 
   - 4 stands for "read",
   - 2 stands for "write",
