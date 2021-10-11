@@ -136,6 +136,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [104-the-lsblk-command.md](ebook/en/content/104-the-lsblk-command.md)
 - [105-the-cmatrix-command.md](ebook/en/content/105-the-cmatrix-command.md)
 - [106-the-chmod-command.md](ebook/en/content/106-the-chmod-command.md)
+- [107-the-grep-command.md](ebook/en/content/107-the-grep-command.md)
 
 ## 🔗 Links
 
