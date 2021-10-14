@@ -1,5 +1,3 @@
-015-the-gzip-command.md
-
 # The `gzip` command
 The `gzip` command in Linux/Unix is used to compress / decompress data.
 
