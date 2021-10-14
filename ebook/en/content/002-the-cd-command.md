@@ -1,59 +1,46 @@
 # The `cd` command
 
+The `cd` command is used to change the current working directory *(i.e., in which the current user is working)*. The "cd" stands for "**c**hange **d**irectory" and it is one of the most frequently used commands in the Linux terminal.
 
-The `cd` command is used to change the current working directory *(i.e., in which the current user is working)*. 
-The "cd" stands for 'change directory.' an it is one of the most frequently used commands in the Linux terminal.
-
-The `cd` command stands for `chdir` (**Ch**ange **Dir**ectory), Often combined with the `ls` command that shows files and folders, `cd` allows you to navigate through folders/directorys, Much like navigating through chapters and pages in a book.
-
-It Normally Lists the files and directories in ascending alphabetical order after typing `cd` and pressing `TAB` 2 times.
+The `cd` command is often combined with the `ls` command (see chapter 1) when navigating through a system, however, you can also press the `TAB` key two times to list the contents of the new directory you just changed to.
 
 ### Examples of uses:
 
-
-1. To change our current working directory, execute the command as follows:
-
+1. Change the current working directory:
 ```
 cd <specified_directory_path>
 ```
 
-2. To change the directory to home directory from the current working directory, execute the command as follows:
-
+2. Change the current working directory to the home directory:
 ```
 cd ~
 ```
-
-or simply
-
+OR
 ```
 cd
 ```
 
-3. To change to the previous directory from the current working directory, we can execute this command:
-
+3. Change to the previous directory:
 ```
 cd -
 ```
+This will also echo the absolute path of the previous directory.
 
-It will also show you the absolute path of your previous working directory
-
-4. To navigate to the system's root directory from current working directory, execute the command as follows:
-
+4. Change the current working directory to the system's root directory:
 ```
 cd /
 ```
 
-5. To navigate through multiple folders:
+### &#x1F4A1; Quick Tips
 
+Adding a `..` as a directory will allow you to move "up" from a folder:
 ```
-cd {Directory_Path}
-cd /home/user/101-linux-commands-ebook/ebook/en/content/
+cd ..
 ```
-
-### Quick Tips
-
-Adding a `..` as a directory will allow you to move "up" from a folder, this can be done multiple times too!
-eg. `cd ..` to move up one folder or `cd ../../../` to move up 3!
+This can also be done multiple times! For example, to move up three folders:
+```
+cd ../../../
+```
 
 ### Syntax:
 
@@ -61,7 +48,7 @@ eg. `cd ..` to move up one folder or `cd ../../../` to move up 3!
 cd [OPTIONS] directory
 ```
 
-### Additional Flags and their Functionalities:
+### Additional Flags and Their Functionalities
 
 |**Short Flag**   |**Long Flag**   |**Description**   |
 |:---|:---|:---|
