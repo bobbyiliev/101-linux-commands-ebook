@@ -25,7 +25,7 @@ If you are adding a new translation, make sure to make a copy of the `./ebook/en
 
 All the Markdown files for the '101 Linux commands' eBook are located within the [`content`](./content) directory for the specific language.
 
-For example if you are adding a Bulgarian transaltion copy the `./ebook/en` folder to `./ebook/bg`, translate the `.md` files in the `content` directory and submit a PR.
+For example if you are adding a Bulgarian translation copy the `./ebook/en` folder to `./ebook/bg`, translate the `.md` files in the `content` directory and submit a PR.
 
 ### PDF Generation
 
