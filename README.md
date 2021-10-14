@@ -616,7 +616,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [090-the-awk-command.md](ebook/en/content/090-the-awk-command.md)
 - [091-the-crontab-command.md](ebook/en/content/091-the-crontab-command.md)
 - [092-the-xargs-command.md](ebook/en/content/092-the-xargs-command.md)
-- [093-the-nohub-command.md](ebook/en/content/093-the-nohub-command.md)
+- [093-the-nohup-command.md](ebook/en/content/093-the-nohup-command.md)
 - [094-the-pstree-command.md](ebook/en/content/094-the-pstree-command.md)
 - [095-the-tree-command.md](ebook/en/content/095-the-tree-command.md)
 - [096-the-whereis-command.md](ebook/en/content/096-the-whereis-command.md)
