@@ -1,24 +1,22 @@
 # The `touch` Command.
 
-Using `touch` Command A FILE argument that does not exist is created empty, unless -c or -h is supplied.
+Using the `touch` command with a file name as an argument, the file will be created unless -c or -h is supplied.  If the file already exists, its modification time
+will be changed.
 
 ---
 ### Examples
-1. To make a new text file use the following command, and if it does not already exist a new file will be created or overwritten otherwise.
+1. To make a new text file use the following command, if it does not already exist a new file will be created. Otherwise it will be overwritten.
 
 ```
 touch file.txt
-
 ```
-2. Touch command to create multiple files: Touch command can be used to create the multiple numbers of files at the same time. These files would be empty while creation.
+2. You can use the touch command to create multiple files. These files will be empty after creation.
 
 ```
 touch File1_name File2_name File3_name 
 ```
 
-
 ---
-
 
 #### **A  FILE  argument string of - is handled specially and causes touch to change the times of the file associated with standard output.**
 
@@ -56,7 +54,6 @@ touch File1_name File2_name File3_name
 
 11. --version
 >output version information and exit
-
 
 
 Note that the -d and -t options accept different time-date formats.

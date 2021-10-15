@@ -1,6 +1,6 @@
 # The `cal` Command
 
-the `cal` command is used to show the calendar
+the `cal` command is used to show the month calendar for the current mont
 
 ### Syntax:
 ```
@@ -8,15 +8,16 @@ cal [OPTION] [MONTH] [YEAR]
 ```
 
 ### Example and Explanation:
-*this command will show the calendar of July 2018:*
+*this command will show the calendar of October 2021:*
 ```
-cal 08 2018
+cal 10 2021
 ```
 
-*this command will show the whole calendar of the year 2018:*
+*this command will show the whole calendar of the year 2021:*
 ```
-cal 2018
+cal 2021
 ```
+
 ### Flags and their Functionalities:
 |Flag|Description|
 |:---|:---|

@@ -1,7 +1,7 @@
 # The `man` command
 
 The `man` command is used to display the manual of any command that we can run on the terminal.
-It provicdes information like: DESCRIPTION, OPTIONS, AUTHORS and more.
+It provides information like: DESCRIPTION, OPTIONS, AUTHORS and more.
 
 ### Examples:
 

@@ -1,7 +1,7 @@
 # The `cp` command
 
 The `cp` is a command-line utility for copying files and directory.
-cp stands for copy. This command is used to copy files or group of files or directory. It creates an exact image of a file on a disk with different file name. cp command require at least two filenames in its arguments.
+`cp` stands for copy. This command is used to copy files or group of files or directory. It creates an exact image of a file on a disk with different file name. cp command require at least two filenames in its arguments.
 
 ### Examples:
 
@@ -11,7 +11,7 @@ cp stands for copy. This command is used to copy files or group of files or dire
 cp sourceFile destFile
 ```
 
-If the destination file doesnt exists then the file is created and then the content is copied to it. If it exists then the file is overwritten. 2. To copy a file to another directory
+If the destination file doesn't exists then the file is created and then the content is copied to it. If it exists then the file is overwritten. 2. To copy a file to another directory
 Specify the absolute or the relative path to the destination directory.
 
 ```

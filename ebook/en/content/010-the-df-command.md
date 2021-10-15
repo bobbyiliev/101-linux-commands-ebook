@@ -1,6 +1,7 @@
 # The `df` command
 The `df` command in Linux/Unix is used to show the disk usage & information.
 `df` is an abbreviation for "disk free".
+
 # Usage
 
 ## Show available disk space
@@ -16,7 +17,7 @@ The `df` command in Linux/Unix is used to show the disk usage & information.
 df
 ```
 
-## Show available disk space in human readable form
+## Show available disk space in human-readable form
 
 **Action:**
 --- Output the available disk space and where the directory is mounted
@@ -29,7 +30,7 @@ df
 df -h
 ```
 
-## Show available disk space for specific file system
+## Show available disk space for the specific file system
 
 **Action:**
 --- Output the available disk space and where the directory is mounted

@@ -15,4 +15,3 @@ sudo apt install sl
 ```
 sl
 ```
-

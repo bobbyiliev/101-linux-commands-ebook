@@ -1,39 +1,39 @@
 # The `cat` command
 ---
 
-The `cat` command allows us to create single or multiple files, view content of a file, concatenate files and redirect output in terminal or files.
+The `cat` command allows us to create single or multiple files, to view the content of a file or to concatenate files and redirect the output to the terminal or files.
 
-The "cat" stands for 'concatenate.' and it is one of the most frequently used commands in the Linux terminal.
+The "cat" stands for 'concatenate.' and it's one of the most frequently used commands in the Linux terminal.
 
 
 ### Examples of uses:
 
 
-1. To display content of a file in terminal:
+1. To display the content of a file in terminal:
 
 ```
 cat <specified_file_name>
 ```
 
-2. To display content of multiple files in terminal:
+2. To display the content of multiple files in terminal:
 
 ```
 cat file1 file2 ...
 ```
 
-3. To create a file with cat command:
+3. To create a file with the cat command:
 
 ```
 cat > filename
 ```
 
-5. To display all the files in current directory:
+5. To display the content of all the files in current directory:
 
 ```
 cat *
 ```
 
-6. To redirect a file to the other file:
+6. To put the output of a given file into another file:
 
 ```
 cat oldfile > newfile
@@ -51,7 +51,7 @@ cat filename | less
 cat file1.txt >> file2.txt
 ```
 
-9. Some implementations of cat, with option -n, can also number lines
+9. Some implementations of cat, with option -n, it's possible to show line numbers
 
 ```
 cat -n file1.txt file2.txt > newnumberedfile.txt
@@ -87,19 +87,19 @@ cat [OPTION] [FILE]...
 
 # The `tac` command
 
-`tac` is a Linux command that allows viewing files line-by-line, beginning from the last line. (tac doesn't reverse the contents of each individual line, only the order in which the lines are presented.) It is named by analogy with `cat`.
+`tac` is a Linux command that allows you to view files line-by-line, beginning from the last line. (tac doesn't reverse the contents of each individual line, only the order in which the lines are presented.) It is named by analogy with `cat`.
 
 
 ### Examples of uses:
 
 
-1. To display content of a file in terminal:
+1. To display the content of a file in terminal:
 
 ```
 tac <specified_file_name>
 ```
 
-2. This option attach the separator before instead of after.
+2. This option attaches the separator before instead of after.
 
 ```
 tac -b concat.txt tacexample.txt
@@ -108,7 +108,7 @@ tac -b concat.txt tacexample.txt
 ```
 tac -r concat.txt tacexample.txt
 ```
-4. This option use STRING as the separator instead of newline.
+4. This option uses STRING as the separator instead of newline.
 ```
 tac -s concat.txt tacexample.txt
 ```

@@ -1,11 +1,10 @@
-
 # The `w` command
 
-The `w`  command displays information about the users currently on the machine and their [processes](https://www.computerhope.com/jargon/p/process.htm).
+The `w`  command displays information about the users that are currently active on the machine and their [processes](https://www.computerhope.com/jargon/p/process.htm).
 
 ### Examples:
 
-1. Running the **w** command with no [arguments](https://www.computerhope.com/jargon/a/argument.htm) shows a list of logged on users and their processes.
+1. Running the `w` command without [arguments](https://www.computerhope.com/jargon/a/argument.htm) shows a list of logged on users and their processes.
 
 ```
 w

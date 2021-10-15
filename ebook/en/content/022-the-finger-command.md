@@ -57,7 +57,7 @@ finger [-l] [-m] [-p] [-s] [username]
 The default format includes the following items:
 
 Login name  
-Full user name  
+Full username  
 Terminal name  
 Write status (an * (asterisk) before the terminal name indicates that write permission is denied)  
 For each user on the host, the default information list also includes, if known, the following items:

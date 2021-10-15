@@ -1,6 +1,6 @@
 # The `head` command
 
-The `head` command prints the first 10 lines by default of a file.  
+The `head` command prints the first 10 lines of a file by default.  
   
 Example:
 
@@ -17,7 +17,7 @@ head [OPTION] [FILENAME]
 
 ### Get a specific number of lines:
 
-Use the `-n` option with a number(should be an integer) of lines to display.
+Use the `-n` option with a number (should be an integer) of lines to display.
 
 Example:
 ```

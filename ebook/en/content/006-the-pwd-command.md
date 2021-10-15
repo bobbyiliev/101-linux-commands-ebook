@@ -1,6 +1,6 @@
 # The `pwd` command
 
-The `pwd` stands for Print Working Directory. It prints the path of the working directory, starting from the root.
+The `pwd` stands for print working directory. It prints the path of the working directory, starting from the root.
   
 Example:
 
@@ -22,7 +22,7 @@ pwd [OPTION]
 
 Tip:
 
-You can also check this by priting out the `$PWD` variable:
+You can also check this by printing out the `$PWD` variable:
 
 ```
 echo $PWD
@@ -37,7 +37,7 @@ The output would be the same as of the `pwd` command.
 
 #### Logical:
 
-Use the `-L` option after the pwd command.
+Use the `-L` option after the `pwd` command.
 
 Syntax:
 ```
@@ -46,11 +46,11 @@ pwd -L
 
 #### Physical:
 
-If environment includes symlinks, use pwd with -P
+If your environment includes symlinks, use `pwd` with `-P`
 
 Syntax:
 ```
 pwd -P
 ```
 
-By default, `pwd' behaves as if `-L' were specified.
+By default, `pwd` behaves as if `-L` were specified.

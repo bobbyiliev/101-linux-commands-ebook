@@ -1,6 +1,6 @@
 # The `history` command
 
-If you type `history` you will get a list of the last 500 commands used. This gives you the possibility to copy paste commands that you executed in the past.
+If you type `history` you will get a list of the last 500 commands used. This gives you the possibility to copy and paste commands that you executed in the past.
 
 This is powerful in combination with grep. So you can search for a command in your command history.
 

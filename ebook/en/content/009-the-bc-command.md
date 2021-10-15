@@ -4,7 +4,6 @@ The `bc` command provides the functionality of being able to perform mathematica
 
 ### Examples:
 
-
 1 . Arithmetic:
 
 ```
@@ -12,16 +11,16 @@ Input : $ echo "11+5" | bc
 Output : 16
 ```
 2 . Increment:
-- var –++ : Post increment operator, result of the variable is used first and then variable is incremented.
-- – ++var : Pre increment operator, variable is increased first and then result of variable is stored.
+- var –++ : Post increment operator, the result of the variable is used first and then the variable is incremented.
+- – ++var : Pre increment operator, the variable is increased first and then the result of the variable is stored.
 
 ```
 Input: $ echo "var=3;++var" | bc
 Output: 4
 ```
 3 . Decrement:
-- var – – : Post decrement operator, result of the variable is used first and then variable is decremented.
-- – – var : Pre decrement operator, variable is decreased first and then result of variable is stored.
+- var – – : Post decrement operator, the result of the variable is used first and then the variable is decremented.
+- – – var : Pre decrement operator, the variable is decreased first and then the result of the variable is stored.
 
 ```
 Input: $ echo "var=3;--var" | bc
@@ -41,7 +40,7 @@ Input: $ echo "var=4;var" | bc
 Output: 4
 ```
 5 . Comparison or Relational:
-- If the comparison is true, then result is 1. Otherwise(false), returns 0
+- If the comparison is true, then the result is 1. Otherwise,(false), returns 0
 - expr1<expr2 : Result is 1, if expr1 is strictly less than expr2.
 - expr1<=expr2 : Result is 1, if expr1 is less than or equal to expr2.
 - expr1>expr2 : Result is 1, if expr1 is strictly greater than expr2.

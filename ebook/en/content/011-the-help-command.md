@@ -8,10 +8,8 @@ In linux, `help` command displays information about the builtin commands.
 
 ```bash
 $ help ls
-
 ```
 
-  
 ## The syntax of `help` command is :
 
 ```bash

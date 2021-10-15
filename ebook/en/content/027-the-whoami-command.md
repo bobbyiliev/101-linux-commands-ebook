@@ -1,6 +1,6 @@
 # The  `whoami` command
 ---
-The whoami command displays the username of the current effective user. In other words it just prints the username of the currently logged in user when executed.
+The `whoami` command displays the username of the current effective user. In other words it just prints the username of the currently logged-in user when executed.
 
 To display your effective user id just type `whoami` in your terminal:
 
@@ -18,7 +18,7 @@ whoami [-OPTION]
 
 There are only two options which can be passed to it :
 
-* `--help`: Used to display the help and exit
+`--help`: Used to display the help and exit
 
 Example:
 
@@ -37,7 +37,7 @@ Same as id -un.
       --version  output version information and exit
 ```
 
-* `--version`: Output version information and exit
+`--version`: Output version information and exit
 
 Example:
 

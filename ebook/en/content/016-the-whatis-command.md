@@ -1,11 +1,9 @@
 # The `whatis` command
 
-
 The `whatis` command is used to display one-line manual page descriptions for commands. 
 It can be used to get a basic understanding of what a (unknown) command is used for.
 
 ### Examples of uses:
-
 
 1. To display what `ls` is used for:
 
@@ -24,7 +22,6 @@ whatis -w make*
 ```
 whatis [-OPTION] [KEYWORD]
 ```
-
 
 ### Additional Flags and their Functionalities:
 

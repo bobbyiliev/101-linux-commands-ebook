@@ -1,7 +1,7 @@
 
 # The `passwd` command
 
-In linux, `passwd` command changes passwords for user accounts. A normal user may only change the password for their own account, but a superuser may change the password for any account.
+In Linux, `passwd` command changes the password of user accounts. A normal user may only change the password for their own account, but a superuser may change the password for any account.
 `passwd` also changes the account or associated password validity period.
 
 

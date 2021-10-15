@@ -1,5 +1,6 @@
 # The `gzip` command
-The `gzip` command in Linux/Unix is used to compress / decompress data.
+
+The `gzip` command in Linux/Unix is used to compress/decompress data.
 
 # Usage
 
@@ -58,7 +59,7 @@ gzip -d archive_01.gz archive_02.gz archive_03.gz
 ## Compress a directory:
 
 **Action:**
---- Compress all of the files in a directory
+--- Compress all the files in a directory
 
 **Details:**
 --- Compress multiple files under a directory in one single archive
@@ -71,7 +72,7 @@ gzip -r directory_name
 ## Decompress a directory:
 
 **Action:**
---- Decompress all of the files in a directory
+--- Decompress all the files in a directory
 
 **Details:**
 --- Decompress multiple files under a directory from one single archive
