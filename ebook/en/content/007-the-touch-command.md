@@ -1,4 +1,4 @@
-# The `touch` Command.
+# The `touch` Command
 
 Using the `touch` command with a file name as an argument, the file will be created unless -c or -h is supplied.  If the file already exists, its modification time
 will be changed.
