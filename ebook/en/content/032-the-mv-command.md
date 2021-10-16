@@ -22,13 +22,13 @@ mv [options] source (file or directory)  destination
 mv old_name.txt new_name.txt
 ```
 
-2. To move a file called _essay.txt_ from current directory to a directory called _assignments_ and rename it _essay1.txt_:
+2. To move a file called _essay.txt_ from the current directory to a directory called _assignments_ and rename it _essay1.txt_:
 
 ```[linux]
 mv essay.txt assignments/essay1.txt
 ```
 
-3. To move a file called _essay.txt_ from current directory to a directory called _assignments_ without renaming it
+3. To move a file called _essay.txt_ from the current directory to a directory called _assignments_ without renaming it
 
 ```[linux]
 mv essay.txt assignments

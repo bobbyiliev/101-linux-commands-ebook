@@ -1,6 +1,4 @@
-
 # The `ionice` command
-
 
 The `ionice` command is used to set or get process I/O scheduling class and priority.
 

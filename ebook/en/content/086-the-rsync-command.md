@@ -28,7 +28,7 @@ And then run:
 rsync -avz user@your-remote-server.com:/home/user/dir/
 ```
 
-The above command would copy all of the files and directories from the current folder on your server to your remote server.
+The above command would copy all the files and directories from the current folder on your server to your remote server.
 
 Rundown of the command:
 

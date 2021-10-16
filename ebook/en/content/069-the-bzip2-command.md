@@ -1,6 +1,6 @@
 # The `bzip2` command
 
-The `bzip2` command lets you to compress and decompress the files i.e. it helps in binding the files into a single file which takes less storage space as the original file use to take.
+The `bzip2` command lets you compress and decompress the files i.e. it helps in binding the files into a single file which takes less storage space as the original file use to take.
 
 ### Syntax:
 

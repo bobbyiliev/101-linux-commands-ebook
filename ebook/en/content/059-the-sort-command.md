@@ -1,6 +1,6 @@
 # The `sort` command
 
-SORT command is used to sort a file, arranging the records in a particular order. By default, the sort command sorts file assuming the contents are ASCII. Using options in the sort command can also be used to sort numerically. 
+the `sort` command is used to sort a file, arranging the records in a particular order. By default, the sort command sorts a file assuming the contents are ASCII. Using options in the sort command can also be used to sort numerically. 
 
 ### Examples:
 
@@ -42,7 +42,9 @@ satish
 Note: This command does not actually change the input file, i.e. file.txt. 
 
 
-Sort function with mix file i.e. uppercase and lower case: When we have a mix file with both uppercase and lowercase letters then first the upper case letters would be sorted following with the lower case letters.
+### The sort function on a file with mixed case content 
+
+i.e. uppercase and lower case: When we have a mix file with both uppercase and lowercase letters then first the upper case letters would be sorted following with the lower case letters.
 
 
 Example: 
@@ -71,7 +73,5 @@ abc
 apple                                                                                                                                                  
 bat
 ```
-
-
 
 

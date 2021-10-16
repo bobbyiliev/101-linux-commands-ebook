@@ -16,7 +16,7 @@ The command to exit vim editor: ```:wq```
 Here's a [survey](https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/) for the same question, look at this and do not think to quit the vim editor.
 
 ### Installation:
-First of all check if the vim is already installed or not, enter the following command:
+First check if the vim is already installed or not, enter the following command:
 ```
 vim --version
 ```

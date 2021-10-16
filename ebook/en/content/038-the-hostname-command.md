@@ -5,7 +5,6 @@
 
 ```
 hostname [-a|--alias] [-d|--domain] [-f|--fqdn|--long] [-A|--all-fqdns] [-i|--ip-address] [-I|--all-ip-addresses] [-s|--short] [-y|--yp|--nis]
-
 ```
 
 ### Examples:
@@ -18,7 +17,6 @@ hostname [-a|--alias] [-d|--domain] [-f|--fqdn|--long] [-A|--all-fqdns] [-i|--ip
 
 3.  ```hostname -V, hostname --version```
     Print version information on standard output and exit successfully.
-
 
 
 ### Help Command

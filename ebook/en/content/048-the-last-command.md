@@ -1,6 +1,6 @@
 # The `last` command
 
-This command shows you a list of all the users that have logged in and out since the creation of the `var/log/wtmp` file. There are also some parametrers you can add which will show you for example when a certain user has logged in and how long he was logged in for.
+This command shows you a list of all the users that have logged in and out since the creation of the `var/log/wtmp` file. There are also some parameters you can add which will show you for example when a certain user has logged in and how long he was logged in for.
 
 If you want to see the last 5 logs, just add `-5` to the command like this:
 

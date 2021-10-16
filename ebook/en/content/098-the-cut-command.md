@@ -1,4 +1,3 @@
-
 # The `cut` command
 
 The `cut` command lets you remove sections from each line of files. Print selected parts of lines from each FILE to standard output. With no FILE, or when FILE is -, read standard input.

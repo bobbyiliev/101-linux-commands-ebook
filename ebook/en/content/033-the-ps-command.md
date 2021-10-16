@@ -1,7 +1,7 @@
 # The `ps` command
 
 The `ps` command is used to identify programs and processes that are running on the system and the resources they are using. 
-It is frequently [pipelined](<https://en.wikipedia.org/wiki/Pipeline_(Unix)>) with other commands like `grep` to search for a program/process or `less` 
+Its frequently [pipelined](<https://en.wikipedia.org/wiki/Pipeline_(Unix)>) with other commands like `grep` to search for a program/process or `less` 
 so that the user can analyze the output one page at a time.
 
 Let's say you have a program like openshot which is notorious for hogging system resources when exporting a video, and you want to close it, but the GUI has become unresponsive.

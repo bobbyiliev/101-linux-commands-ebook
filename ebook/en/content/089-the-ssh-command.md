@@ -1,6 +1,6 @@
 # The `ssh` command
 
-The `ssh` command in Linux stands for "Secure Shell" Its is a protocal used to securely connect to a remote server/system. ssh is securer in the sense that it transfers the data in encrypted form between the host and the client. ssh runs at TCP/IP port 22.
+The `ssh` command in Linux stands for "Secure Shell" Its is a protocol used to securely connect to a remote server/system. ssh is securer in the sense that it transfers the data in encrypted form between the host and the client. ssh runs at TCP/IP port 22.
 
 ### Examples:
 
@@ -16,7 +16,7 @@ ssh test.server.com -p 3322
 ssh -i private.key user_name@host
 ```
 
-3. -l ssh speecifying a different user name
+3. -l ssh specifying a different username
 
 ```
 ssh -l alternative-username sample.ssh.com

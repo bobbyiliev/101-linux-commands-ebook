@@ -4,7 +4,7 @@ The `nano` command lets you create/edit text files.
 
 ### Installation:
 
-Nano text editor is pre-installed on macOS and most Linux distros. To check if it is installed on your system type:
+Nano text editor is pre-installed on macOS and most Linux distros. It's an alternative to `vi` and `vim`. To check if it is installed on your system type:
 
 ```
 nano --version

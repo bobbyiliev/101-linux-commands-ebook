@@ -1,7 +1,6 @@
 # The `stat` command
 
-The `stat` command lets you display file or file system status. It gives you useful information
-about the file (or directory) on which you use it.
+The `stat` command lets you display file or file system status. It gives you useful information about the file (or directory) on which you use it.
 
 ### Examples:
 
@@ -11,8 +10,7 @@ about the file (or directory) on which you use it.
 stat file.txt
 ```
 
-2. Use the `-c` (or `--format`) argument to only display information you want to see (here, the
-total size, in bytes)
+2. Use the `-c` (or `--format`) argument to only display information you want to see (here, the total size, in bytes)
 
 ```
 stat file.txt -c %s

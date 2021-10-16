@@ -2,7 +2,6 @@
 
 `xargs` is used to build and execute command lines from standard input
 
-
 Some commands like grep can accept input as parameters, but some commands accepts arguments, this is place where xargs came into picture.
 ### Syntax:
 

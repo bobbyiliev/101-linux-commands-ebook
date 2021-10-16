@@ -1,7 +1,7 @@
 # The `cp` command
 
 The `cp` is a command-line utility for copying files and directory.
-`cp` stands for copy. This command is used to copy files or group of files or directory. It creates an exact image of a file on a disk with different file name. cp command require at least two filenames in its arguments.
+`cp` stands for copy. This command is used to copy files or group of files or directory. It creates an exact image of a file on a disk with different file name. The cp command requires at least two filenames in its arguments.
 
 ### Examples:
 
@@ -11,8 +11,9 @@ The `cp` is a command-line utility for copying files and directory.
 cp sourceFile destFile
 ```
 
-If the destination file doesn't exists then the file is created and then the content is copied to it. If it exists then the file is overwritten. 2. To copy a file to another directory
-Specify the absolute or the relative path to the destination directory.
+If the destination file doesn't exist then the file is created and the content is copied to it. If it exists then the file is overwritten. 
+
+2. To copy a file to another directory specify the absolute or the relative path to the destination directory.
 
 ```
 cp sourceFile /folderName/destFile
@@ -24,7 +25,7 @@ cp sourceFile /folderName/destFile
 cp -R folderName1 folderName2
 ```
 
-The command above creates the destination directory and recursively copy all files and subdirectories from the source to the destination directory.
+The command above creates the destination directory and recursively copies all files and subdirectories from the source to the destination directory.
 
 If the destination directory already exists, the source directory itself and its content are copied inside the destination directory.
 
@@ -71,7 +72,7 @@ a.txt b.txt b.txt~
 ```
 
 3. `-f`(force)
-   If the system is unable to open destination file for writing operation because the user doesn’t have writing permission for this file then by using -f option with cp command, destination file is deleted first and then copying of content is done from source to destination file.
+   If the system is unable to open destination file for writing operation because the user doesn't have writing permission for this file then by using -f option with cp command, destination file is deleted first and then copying of content is done from source to destination file.
 ```
 $ ls -l b.txt
 -r-xr-xr-x+ 1 User User 3 Nov 24 08:45 b.txt

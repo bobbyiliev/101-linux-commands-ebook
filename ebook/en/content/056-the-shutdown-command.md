@@ -1,13 +1,13 @@
 # The `shutdown` command
 
-The `shutdown` command let you bring your system down in a secure way. When `shutdown` is executed the system will notify all logged-in users and disallow further logins.
-You habae the option to shut down your system immediatly or after a specific time.
+The `shutdown` command lets you bring your system down in a secure way. When `shutdown` is executed the system will notify all logged-in users and disallow further logins.
+You have the option to shut down your system immediately or after a specific time.
 
 Only users with root (or sudo) privileges can use the `shutdown` command.
 
 ### Examples:
 
-1. Shut down your system immediatly:
+1. Shut down your system immediately:
 
 ```
 sudo shutdown now

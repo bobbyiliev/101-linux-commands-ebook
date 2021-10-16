@@ -1,6 +1,6 @@
 # The `gunzip` command
 
-The `gunzip` command is an antonym command of [`gzip` command](015-the-gzip-command.md). In other words, it decompress files deflated by `gzip` command.
+The `gunzip` command is an antonym command of [`gzip` command](015-the-gzip-command.md). In other words, it decompresses files deflated by the `gzip` command.
 
 `gunzip` takes a list of files on its command line and replaces each file whose name ends with _.gz_, _-gz_, _.z_, _-z_, or *\_z* (ignoring case) and which begins with the correct magic number with an uncompressed file without the original extension. `gunzip` also recognizes the special extensions *.tgz* and *.taz* as shorthands for *.tar.gz* and  *.tar.Z*  respectively.
 

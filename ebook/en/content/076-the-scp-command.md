@@ -2,7 +2,7 @@
 
 SCP (secure copy) is a command-line utility that allows you to securely copy files and directories between two locations.
 
-Both the files and passwords are encrypted so that anyone snooping on the traffic doesn’t get anything sensitive.
+Both the files and passwords are encrypted so that anyone snooping on the traffic doesn't get anything sensitive.
 
 ### Different ways to copy a file or directory:
 

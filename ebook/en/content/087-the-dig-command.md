@@ -1,7 +1,3 @@
-087-the-dig-command.md
-
-
-
 # The `dig` command
 
 dig - DNS lookup utility

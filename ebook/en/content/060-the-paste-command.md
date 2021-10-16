@@ -1,6 +1,6 @@
 # The `paste` command
 
-The `paste` command write lines of two or more files sequentially, separated by TABs to the standard output
+The `paste` command writes lines of two or more files, sequentially and separated by TABs, to the standard output
 
 ### Syntax:
 

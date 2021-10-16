@@ -1,6 +1,6 @@
 # The `rm` command
 
-`rm` whih stands for "remove" is a command used to remove *(delete)* specific files. It can also be used to remove directories by using the appropriate flag.
+`rm` which stands for "remove" is a command used to remove *(delete)* specific files. It can also be used to remove directories by using the appropriate flag.
 
 ### Example:
 ```
@@ -24,7 +24,7 @@ rm [OPTION] [FILE|DIRECTORY]
 |<center>-</center>|`--version`|First, Print version Information, Then exit|
 |<center>-</center>|`--no-preserve-root`|do not treat `/` specially|
 |<center>-</center>|`-preserve-root[=all]`|do not remove `/` (default) <br>with 'all', reject any command line argument on a separate device from its parent|
-|<center>-</center>|`--interactive[=WHEN]`|prompt according to WHEN, never, once `-I`, or always `-i`, whithon WHEN, prompt always|
+|<center>-</center>|`--interactive[=WHEN]`|prompt according to WHEN, never, once `-I`, or always `-i`, without WHEN, prompt always|
 |<center>-</center>|` --one-file-system`|when removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument0|
 
 

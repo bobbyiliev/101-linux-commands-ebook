@@ -1,8 +1,8 @@
 # The `su` command
 
-In linux, su allows to run commands with a substitute user and group ID.
+In linux, `su` allows you to run commands with a substitute user and group ID.
 
-When called without arguments, su defaults to running an interactive shell as root. 
+When called without arguments, `su` defaults to running an interactive shell as root. 
 
 ## Example :
 

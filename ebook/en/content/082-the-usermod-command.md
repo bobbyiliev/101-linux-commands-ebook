@@ -1,6 +1,6 @@
 # The `usermod` command
 
-The `usermod` command lets you to change the properties of a user in Linux through the command line. After creating a user we have to sometimes change their attributes like password or login directory etc. so in order to do that we use the `usermod` command.
+The `usermod` command lets you change the properties of a user in Linux through the command line. After creating a user we sometimes have to change their attributes, like their password or login directory etc. So in order to do that we use the `usermod` command.
 
 ### Syntax:
 

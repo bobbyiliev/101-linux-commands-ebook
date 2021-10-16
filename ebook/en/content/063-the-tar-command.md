@@ -10,7 +10,7 @@ The `tar` command  stands for tape archive, is used to create Archive and extrac
 tar -cvf file-14-09-12.tar /home/abel/
 ```
 
-2. Untars file in the current directory:
+2. To un-tar a file in the current directory:
 
 ```
  tar -xvf file-14-09-12.tar
@@ -55,8 +55,8 @@ tar [options] [archive-file] [file or directory to be archived
 |`-n`|Assume the archive is seekable|
 |`--no-check-device`|Do not check device numbers when creating archives|
 |`--no-seek`|Assume the archive is not seekable|
-|`--occurrence=N|`Process only the Nth occurrence of each file|
-|`--restrict|`Disable use of potentially harmful options|
+|`--occurrence=N`|`Process only the Nth occurrence of each file|
+|`--restrict`|`Disable use of potentially harmful options|
 |`--sparse-version=MAJOR,MINOR`|Set version of the sparce format to use|
 |`-S`|Handle sparse files efficiently.|
 

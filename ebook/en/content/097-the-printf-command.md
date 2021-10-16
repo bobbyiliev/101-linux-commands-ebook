@@ -1,4 +1,3 @@
-097-the-printf-command.md
 # The `printf` command
 
 This command lets you print the value of a variable by formatting it using rules. It is pretty similar to the printf in C language.
@@ -38,7 +37,7 @@ The output:
 Github is where over 65 million developers shape "the future of sofware."
 ```
 
-The are two conversion specifications `%s` and `%d`, and there are two escaped characters which are the opening and closing double-quotes wrapping the words of _the future of software_. Other than that are the ordinary characters. 
+There are two conversion specifications `%s` and `%d`, and there are two escaped characters which are the opening and closing double-quotes wrapping the words of _the future of software_. Other than that are the ordinary characters. 
 
 ### Conversion Specifications:
 

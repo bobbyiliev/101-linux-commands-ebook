@@ -1,6 +1,5 @@
 # The `awk` command
 
-
 Awk is a general-purpose scripting language designed for advanced text processing. It is mostly used as a reporting and analysis tool.
 
 #### WHAT CAN WE DO WITH AWK? 

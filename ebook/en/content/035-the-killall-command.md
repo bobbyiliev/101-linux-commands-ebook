@@ -4,9 +4,9 @@
 
 Signals can be specified either by name (e.g. `-HUP` or `-SIGHUP`) or by number (e.g. `-1`) or by option `-s`.
 
-If the command name is not regular expression (option `-r`) and contains a slash (`/`), processes executing that particular file will be selected for killing, independent of their name.
+If the command name is not a regular expression (option `-r`) and contains a slash (`/`), processes executing that particular file will be selected for killing, independent of their name.
 
-`killall` returns a zero return code if at least one process has been killed for each listed command, or no commands were listed and  at  least one process matched the `-u` and `-Z` search criteria. `killall` returns non-zero otherwise.
+`killall` returns a zero return code if at least one process has been killed for each listed command, or no commands were listed and at least one process matched the `-u` and `-Z` search criteria. `killall` returns non-zero otherwise.
 
 A `killall` process never kills itself (but may kill other `killall` processes).
 
@@ -22,7 +22,7 @@ killall -SIGTERM conky
 kilall -15 conky
 ```
 
-I was able to kill Wine applications this way too.
+I was able to kill Wine ( which are Windows exe files running on Linux ) applications this way too.
 
 ```sh
 killall TQ.exe

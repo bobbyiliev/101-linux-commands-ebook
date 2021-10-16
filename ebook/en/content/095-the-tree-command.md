@@ -1,6 +1,6 @@
 # The `tree` command
 
-The `tree` command in Linux recursively lists directories as tree structures. Each listings is indented according to its depth relative to root of the tree.
+The `tree` command in Linux recursively lists directories as tree structures. Each listing is indented according to its depth relative to root of the tree.
 
 ### Examples:
 

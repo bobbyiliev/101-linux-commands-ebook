@@ -6,7 +6,6 @@ The `mpstat` command is used to report processor related statistics. It accurate
 
 ```
 mpstat [options] [<interval> [<count>]]
-
 ```
 
 #### Note : It initializes the first processor with CPU 0, the second one with CPU 1, and so on.

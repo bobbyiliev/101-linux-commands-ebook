@@ -1,7 +1,6 @@
 # The `ncdu` Command
----
 
-  `ncdu (NCurses Disk Usage)` is a curses-based version of the well-known 'du', and provides a fast way to see what directories are using your disk space.
+`ncdu` (NCurses Disk Usage) is a curses-based version of the well-known `du` command. It provides a fast way to see what directories are using your disk space.
   
 
 ## Example

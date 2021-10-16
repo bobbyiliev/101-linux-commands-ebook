@@ -1,6 +1,6 @@
 # The `exit` command
 
-The `exit` command is used to terminate (Close) active Shell
+The `exit` command is used to terminate (close) an active shell session
 
 ### Syntax:
 ```

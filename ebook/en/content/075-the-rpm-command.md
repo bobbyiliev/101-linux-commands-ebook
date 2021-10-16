@@ -1,8 +1,8 @@
 # The `RPM` command
 
-  `rpm` - RPM Package Manager
+`rpm` - RPM Package Manager
   
-  `rpm` is a powerful __Package Manager__, which can be used to build, install, query, verify, update, and erase individual software packages. A __package__ consists of an archive of files and meta-data used to install and erase the archive files. The meta-data includes helper scripts, file attributes, and descriptive information about the package. Packages come in two varieties: binary packages, used to encapsulate software to be installed, and source packages, containing the source code and recipe necessary to produce binary packages.
+`rpm` is a powerful __Package Manager__, which can be used to build, install, query, verify, update, and erase individual software packages. A __package__ consists of an archive of files and meta-data used to install and erase the archive files. The meta-data includes helper scripts, file attributes, and descriptive information about the package. Packages come in two varieties: binary packages, used to encapsulate software to be installed, and source packages, containing the source code and recipe necessary to produce binary packages.
 
 One of the following basic modes must be selected: __Query, Verify, Signature Check, Install/Upgrade/Freshen, Uninstall, Initialize Database, Rebuild Database, Resign, Add Signature, Set Owners/Groups, Show Querytags, and Show Configuration.__
 
