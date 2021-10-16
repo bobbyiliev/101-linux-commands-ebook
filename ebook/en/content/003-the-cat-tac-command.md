@@ -27,6 +27,12 @@ cat file1 file2 ...
 cat > filename
 ```
 
+4. To display all files in current directory with the same filetype:
+
+```
+cat *.txt
+```
+
 5. To display the content of all the files in current directory:
 
 ```
@@ -45,13 +51,19 @@ cat filename | more
 cat filename | less
 ```
 
-8. Append the contents of file1.txt to file2.txt
+8. Append the contents of file1.txt to file2.txt:
 
 ```
 cat file1.txt >> file2.txt
 ```
 
-9. Some implementations of cat, with option -n, it's possible to show line numbers
+9. To concatenate two files together in a new file:
+
+```
+cat file1.txt file2.txt merge.txt
+```
+
+10. Some implementations of cat, with option -n, it's possible to show line numbers:
 
 ```
 cat -n file1.txt file2.txt > newnumberedfile.txt
