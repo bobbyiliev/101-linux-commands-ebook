@@ -5,14 +5,14 @@ The `tail` command prints the last 10 lines of a file by default.
 Example:
 
 ```
-tail filename.txt  
-```  
+tail filename.txt
+```
 
 Syntax:
 
 ```
-tail [OPTION] [FILENAME]  
-```  
+tail [OPTION] [FILENAME]
+```
 
 ### Get a specific number of lines with `tail`:
 
@@ -21,7 +21,13 @@ Use the `-n` option with a number(should be an integer) of lines to display.
 Example:
 
 ```
-tail -n 10 foo.txt  
+tail -n 10 foo.txt
+```
+
+Syntax:
+
+```
+tail -n <~number> foo.txt
 ```
 
 This command will display the last 10 lines of file `foo.txt`.
@@ -29,7 +35,7 @@ This command will display the last 10 lines of file `foo.txt`.
 You can also omit the `n` flag, this example will also give same result as above command:
 
 ```
-tail -10 foo.txt  
+tail -10 foo.txt
 ```
 
 ### Refresh the output on any new entry in a file
@@ -40,10 +46,4 @@ Example:
 
 ```
 tail -f foo.txt
-```
-
-Syntax:
-
-```
-tail -n <~number> foo.txt
 ```
