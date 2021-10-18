@@ -640,6 +640,7 @@ For user modification, see useradd, userdel, usermod under System commands
 - [ssh](ebook/en/content/089-the-ssh-command.md) - secure shell login
 - [su](ebook/en/content/044-the-su-command.md) - substitute user identity
 - [sudo](ebook/en/content/051-the-sudo-command.md) - execute a command as another user
+- [screen](ebook/en/content/108-the-screen-command.md) - start a screen session
 
 ### Getting Help
 - [man](ebook/en/content/024-the-man-command.md) - format and display online manual pages
