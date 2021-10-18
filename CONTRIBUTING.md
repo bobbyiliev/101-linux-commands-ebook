@@ -37,7 +37,7 @@ Make sure to follow the steps on how to get Ibis installed and how to use it her
 
 ## Issue Creation
 
-In the event that you have a issue using the guide or have a suggest for a change but don't want to contribute changes,
+In the event that you have an issue using the guide or have a suggestion for a change but don't want to contribute changes,
  we are more than happy to help.
 Make sure that when you create your issue, it follows the format for the type of issue you select
  (it has individual templates for each issue type).
