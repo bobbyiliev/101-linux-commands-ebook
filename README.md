@@ -776,6 +776,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [106-the-chmod-command.md](ebook/en/content/106-the-chmod-command.md)
 - [107-the-grep-command.md](ebook/en/content/107-the-grep-command.md)
 - [108-the-screen-command.md](ebook/en/content/108-the-screen-command.md)
+- [109-the-nc-command.md](ebook/en/content/109-the-nc-command.md)
 
 # 🔗Links
 
