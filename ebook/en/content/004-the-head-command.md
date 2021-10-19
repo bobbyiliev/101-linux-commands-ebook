@@ -31,3 +31,15 @@ Syntax:
 ```
 head -n <~number> foo.txt
 ```
+### Additional Flags and their Functionalities
+
+
+|**Short Flag**   |**Long Flag**   |**Description**   |
+|:---|:---|:---|
+|`-c`|`--bytes=[-]NUM`|Print the first NUM bytes of each file; <br>with the leading '-', <br>print all but the last NUM bytes of each file|
+|`-n`|`--lines=[-]NUM`|Print the first NUM lines instead of the first 10;<br> with the leading '-', <br>print all but the last NUM lines of each file|
+|`-q`|`--quiet, --silent`|Never print headers giving file names|
+|`-v`|`--verbose`|Always print headers giving file names|
+|`-z`|`--zero-terminated`|Line delimiter is NUL, not newline|
+|` `|`--help`| Display this help and exit|
+|` `|`--version`|Output version information and exit|
