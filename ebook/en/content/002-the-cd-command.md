@@ -31,7 +31,7 @@ This will also echo the absolute path of the previous directory.
 cd /
 ```
 
-### Quick Tips
+### &#x1F4A1; Quick Tips
 
 Adding a `..` as a directory will allow you to move "up" from a folder:
 ```
@@ -48,7 +48,7 @@ cd ../../../
 cd [OPTIONS] directory
 ```
 
-### Additional flags and their functionalities
+### Additional Flags and Their Functionalities
 
 |**Short flag**   |**Long flag**   |**Description**   |
 |:---|:---|:---|

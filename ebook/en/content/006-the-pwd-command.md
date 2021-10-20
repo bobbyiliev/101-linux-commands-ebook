@@ -1,12 +1,11 @@
 # The `pwd` command
 
-The `pwd` stands for print working directory. It prints the path of the working directory, starting from the root.
-  
-Example:
+The `pwd` stands for Print Working Directory. It prints the path of the current working directory, starting from the root.
 
+Example:
 ```
-pwd   
-```  
+pwd
+```
 
 The output would be your current directory:
 
@@ -15,13 +14,11 @@ The output would be your current directory:
 ```
 
 Syntax:
-
 ```
-pwd [OPTION] 
-```  
+pwd [OPTION]
+```
 
 Tip:
-
 You can also check this by printing out the `$PWD` variable:
 
 ```
@@ -31,26 +28,12 @@ echo $PWD
 The output would be the same as of the `pwd` command.
 
 ### Options:
-      -L        print the value of $PWD if it names the current working
-                directory
-      -P        print the physical directory, without any symbolic links
 
-#### Logical:
+|**Short Flag**   |**Long Flag**   |**Description**   |
+|: ---|: ---|: ---|
+|`-L`|`--logical`|If the environment variable $PWD contains an absolute name of the current directory with no "." or ".." components, then output those contents, even if they contain symbolic links. Otherwise, fall back to default (-P) behavior.|
+|`-P`|`--physical`|Print a fully resolved name for the current directory, where all components of the name are actual directory names, and not symbolic links.|
+|<center>-</center>|`--help`|Display a help message, and exit.|
+|<center>-</center>|`--version`|Display version information, and exit.|
 
-Use the `-L` option after the `pwd` command.
-
-Syntax:
-```
-pwd -L
-```
-
-#### Physical:
-
-If your environment includes symlinks, use `pwd` with `-P`
-
-Syntax:
-```
-pwd -P
-```
-
-By default, `pwd` behaves as if `-L` were specified.
+By default, `pwd' behaves as if `-L' were specified.
