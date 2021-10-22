@@ -14,7 +14,7 @@ sudo apt install package_name
 ```
 ##### Example:
 ```
-sudo apt-get install g++
+sudo apt install g++
 ```
 This command will install g++ on your system.
 
@@ -27,7 +27,7 @@ sudo apt remove package_name
 ```
 ##### Example:
 ```
-sudo apt-get remove g++
+sudo apt remove g++
 ```
 This command will remove g++ from your system.
 
