@@ -37,10 +37,10 @@ In this interactive tutorial, you will learn the different ways to use the `ls` 
 |`-S`|<center>-</center>|Sort results by file size|
 |`-t`|<center>-</center>|Sort results by modification time|
 |`-r`|`--reverse`|Show files and directories in reverse order *(descending alphabetical order)*|
-|`-a`|`--all`|Show all files, including hidden files *(file names which begin with period `.`)*|
+|`-a`|`--all`|Show all files, including hidden files *(file names which begin with a period `.`)*|
 |`-A`|`--almost-all`|Shows all like `-a` but without showing `.`(current working directory) and `..` (parent directory)|
 |`-d`|`--directory`|Instead of listing the files and directories inside the directory, it shows any information about the directory itself, it can be used with `-l` to show long formatted information|
-|`-F`|`--classify`|Appends an indictaor character to the end of each listed name, as an example: `/` character is appended after each directory name listed|
+|`-F`|`--classify`|Appends an indicator character to the end of each listed name, as an example: `/` character is appended after each directory name listed|
 |`-h`|`--human-readable`|like `-l` but displays file size in human-readable unit not in bytes|
 
 
