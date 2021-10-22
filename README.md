@@ -660,6 +660,8 @@ For user modification, see useradd, userdel, usermod under System commands
 - [wget](ebook/en/content/045-the-wget-command.md) - non-interactive web file download
 - [xargs](ebook/en/content/092-the-xargs-command.md) - construct argument lists and execute utility
 - [yes](ebook/en/content/047-the-yes-command.md) - print continous output stream
+- [banner](ebook/en/content/112-the-banner-command.md) - Writes ASCII character strings in large letters to standard output.
+
 
 
 ---
@@ -780,6 +782,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [109-the-nc-command.md](ebook/en/content/109-the-nc-command.md)
 - [110-the-make-command.md](ebook/en/content/110-the-make-command.md)
 - [111-the-basename-command.md](ebook/en/content/111-the-basename-command.md)
+- [112-the-banner-command.md](ebook/en/content/112-the-banner-command.md)
 
 # 🔗Links
 
