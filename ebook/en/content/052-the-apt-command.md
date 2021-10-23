@@ -32,6 +32,18 @@ sudo apt remove g++
 This command will remove g++ from your system.
 
 
+### Searching for a package:
+`search` followed by the `package_name` used with apt to search a package across all repositories.
+##### Syntax:
+```
+apt search package_name
+```
+note: sudo not required
+##### Example:
+```
+apt search g++
+```
+
 ### Removing unused packages:
 Whenever a new package that depends on other packages is installed on the system, the package dependencies will be installed too. When the package is removed, the dependencies will stay on the system. This leftover packages are no longer used by anything else and can be removed.
 

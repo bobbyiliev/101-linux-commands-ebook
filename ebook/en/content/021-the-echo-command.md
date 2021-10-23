@@ -13,7 +13,14 @@ echo Hello There
 ```
 echo *
 ```
-
+3. To save text to a file named foo.bar:
+```
+echo "Hello There" > foo.bar
+```
+4. To append text to a file named foo.bar:
+```
+echo "Hello There" >> foo.bar
+```
 ### Syntax:
 
 ```
