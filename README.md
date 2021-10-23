@@ -784,8 +784,10 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [111-the-basename-command.md](ebook/en/content/111-the-basename-command.md)
 - [112-the-banner-command.md](ebook/en/content/112-the-banner-command.md)
 - [113-the-alias-command.md](ebook/en/content/113-the-alias-command.md)
+- [114-the-which-command.md](ebook/en/content/114-the-which-command.md)
 
 # 🔗Links
+
 
 - [Free $100 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
 - [Join DevDojo](https://devdojo.com?ref=bobbyiliev)
