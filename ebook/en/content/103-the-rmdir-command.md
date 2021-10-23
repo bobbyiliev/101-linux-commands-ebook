@@ -1,6 +1,6 @@
 # The `rmdir` command
 
-The **rmdir** command is used remove empty directories from the filesystem in Linux. The rmdir command removes each and every directory specified in the command line only if these directories are empty.
+The **rmdir** command is used to remove empty directories from the filesystem in Linux. The rmdir command removes each and every directory specified in the command line only if these directories are empty.
 
 ### Usage and Examples:
 
