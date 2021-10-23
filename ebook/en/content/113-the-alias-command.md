@@ -1,7 +1,7 @@
 # The `alias` command
 
-The `alias` command lets you create shortcuts for long string to short ones.
-It's usually used to replace long commands that you use frequently with short word.
+The `alias` command lets you create shortcuts for commands or define your own commands.  
+This is mostly used to avoid typing long commands.
 
 ### Examples:
 
@@ -25,7 +25,7 @@ alias [-p] [name[=value]]
 
 ### Setting Persistent Options:
 
-As most of linux custom settings for the terminal, any alias you defiend is only applied to the current opening terminal session.
+As with most Linux custom settings for the terminal, any alias you defined is only applied to the current opening terminal session.
 
 For any alias to be active for all new sessions you need to add that command to your rc file to be executed in the startup of every new terminal.
 this file can be as follows:
@@ -33,7 +33,7 @@ this file can be as follows:
 - **ZSH**: ~/.zshrc
 - **Fish** – ~/.config/fish/config.fish
 
-you can open that file with you favorite editor as follows:
+you can open that file with your favorite editor as follows:
 
 ```
 vim ~/.bashrc
