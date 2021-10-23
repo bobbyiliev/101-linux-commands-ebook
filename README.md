@@ -786,6 +786,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [113-the-alias-command.md](ebook/en/content/113-the-alias-command.md)
 - [114-the-which-command.md](ebook/en/content/114-the-which-command.md)
 - [115-the-date-command.md](ebook/en/content/115-the-date-command.md)
+- [ebook/en/content/116-mount-command.md](ebook/en/content/116-mount-command.md)
 
 # 🔗Links
 
