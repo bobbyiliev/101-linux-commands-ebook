@@ -1,26 +1,22 @@
-
 # The `help` command
+The `help` command displays information about builtin commands.
+Display information about builtin commands.
 
-In linux, `help` command displays information about the builtin commands.
+If a `PATTERN` is specified, this command gives detailed help on all commands matching the `PATTERN`, otherwise the list of available help topics is printed.
 
+## Syntax
+```bash
+$ help [-dms] [PATTERN ...]
+```
+
+## Options
+|**Option**|**Description**|
+|:--|:--|
+|`-d`|Output short description for each topic.|
+|`-m`|Display usage in pseudo-manpage format.|
+|`-s`|Output only a short usage synopsis for each topic matching the provided `PATTERN`.|
 
 ## Example
-
 ```bash
 $ help ls
 ```
-
-## The syntax of `help` command is :
-
-```bash
-$ help [-dms] [pattern...] 
-```
-## Options :
-```bash
-  -d         -->   output short description for each topic
-  -m         -->   displays usage in pseudo-manpage format
-  -s         -->   output only a short usage synopsis for each topic matching PATTERN
-
-Arguments :
-    PATTERN     Pattern specifying a help topic
-``` 
