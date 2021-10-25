@@ -37,7 +37,7 @@ tail -f destination.txt | grep --line-buffered "key"
 
 ### Syntax:
 
-The general syntax for the cp command is as follows:
+The general syntax for the grep command is as follows:
 
 ```
 grep [options] pattern [files]
