@@ -790,6 +790,9 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [117-nice-command.md](ebook/en/content/117-nice-command.md)
 - [118-the-wc-command.md](ebook/en/content/118-the-wc-command.md)
 - [119-the-tr-command.md](ebook/en/content/119-the-tr-command.md)
+- [120-fdisk-command.md](ebook/en/content/120-fdisk-command.md)
+- [121-wait-command.md](ebook/en/content/121-wait-command.md)
+- [122-the-zcat-command.md](ebook/en/content/122-the-zcat-command.md)
 
 # 🔗Links
 
