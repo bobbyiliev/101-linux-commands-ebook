@@ -8,9 +8,11 @@ Vim text editor is developed by [Bram Moolenaar](https://en.wikipedia.org/wiki/B
 ### The most searched question about ```vim``` :
 ``How to exit vim editor?``
 
-The most  searched question about vim editor looks very funny but it's true that the new user stuck at the very beginning when using vim editor.
+The most searched question about vim editor looks very funny but it's true that the new user gets stuck at the very beginning when using vim editor.
 
-The command to exit vim editor: ```:wq```
+The command to save the file and exit vim editor: ```:wq```
+
+The command to exit vim editor without saving the file: ```:q!```
 
 #### Fun reading:
 Here's a [survey](https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/) for the same question, look at this and do not think to quit the vim editor.
@@ -58,6 +60,12 @@ vim demo.txt
 ```
 vim {File_Path/filename}
 ```
+
+3. To open the file starting on a specific line in the file:
+
+```
+vim {File_Path/filename} +LINE_NUMBER
+```
 ### Modes in vim editor: 
 There are some arguments as to how many modes that vim has, but the modes you're most likely to use are ```command mode``` and ```insert mode```. These [modes](https://www.freecodecamp.org/news/vim-editor-modes-explained/) will allow you to do just about anything you need, including creating your document, saving your document, and doing advanced editing, including taking advantage of search and replace functions.
 
@@ -86,6 +94,7 @@ In this interactive tutorial, you will learn the different ways to use the `vim`
 |`-Z`|Like "vim", but in restricted mode|
 |`-d`|Start in diff mode [diff-mode](http://vimdoc.sourceforge.net/htmldoc/diff.html#diff-mode)|
 |`-h`|Give usage (help) message and exit|
+|`+NUMBER`|Open a file and place the cursor on the line number specified by NUMBER|
 
 ### Read more about vim: 
 
