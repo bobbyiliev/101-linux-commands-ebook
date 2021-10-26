@@ -1,6 +1,8 @@
 # The `sudo` command
 
-The `sudo` ("switch user, do") command allows a user with proper permissions to execute a command as another user. By default, sudo executes commands as root.
+The `sudo` ("substitute user do" or "super user do") command allows a user with proper permissions to execute a command as another user, such as the superuser.
+
+This is the equivalent of "run as administrator" option in Windows. The `sudo` command allows you to elevate your current user account to have root privileges. Also, the root privilege in `sudo` is only valid for a temporary amount of time. Once that time expires, you have to enter your password again to regain root privilege.
 
 > WARNING: Be very careful when using the `sudo` command. You can cause irreversible and catastrophic changes while acting as root!
 
