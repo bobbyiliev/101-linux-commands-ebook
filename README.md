@@ -793,6 +793,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [120-fdisk-command.md](ebook/en/content/120-fdisk-command.md)
 - [121-wait-command.md](ebook/en/content/121-wait-command.md)
 - [122-the-zcat-command.md](ebook/en/content/122-the-zcat-command.md)
+- [123-the-fold-command.md](ebook/en/content/123-the-fold-command.md)
 
 # 🔗Links
 
