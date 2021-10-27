@@ -146,10 +146,11 @@ Creating physical partitions is **not required**! You can create PVs directly!
 | `mkfs.xfs`     |  `/dev/myVG/myVol`          | Format LV with XFS                   |
 | `mkfs.ext4`    |  `-f /dev/myVG/myVol`       | Format LV with EXT4 (overwrite)      |
 | `blkid`        |  `/dev/myVG/myVol`          | Show UUID and formatting of volume   |
-| `mount`        |                             | Show what is mounted where           |
+| `mount`        |                             | Show current mounted file systems    |
 | 		 |  `-t ext4 /dev/myVG/myVol /mountpoint` | Mount LV to /mountpoint    |
 | 		 |  `-a`                       | Mount as configured in /etc/fstab    |
-| `umount` 	 |  `/dev/myVG/myVol`          | Unmount LV from /mountpoint          |
+| `umount`       |                             | Unmount a file system
+|       	 |  `/dev/myVG/myVol`          | Unmount LV from /mountpoint          |
 |        	 |  `/mountpoint`              | Unmount LV from /mountpoint          |
 | [`df`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/010-the-df-command.md)|                -    | Show disk usage                      |
 | `xfs_growfs`   | `/dev/myVG/myVol`           | Resize xfs filesystem                |
