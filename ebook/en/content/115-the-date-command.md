@@ -1,6 +1,6 @@
 # The `date` command
 
-The `date` command is used to prints the system current date and time. 
+The `date` command is used to print the system current date and time. 
 
 `date` command is also used to set the date and time of the system, but you need to be the super-user *(root)* to do it.
 
@@ -18,7 +18,7 @@ date
 date -u
 ```
 
-1. To display any given date string in formated date:
+1. To display any given date string in formatted date:
 
 ```
 date --date="2/02/2010"
