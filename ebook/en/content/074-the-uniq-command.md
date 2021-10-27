@@ -1,7 +1,7 @@
 # The `uniq` command
 
 The `uniq` command in Linux is a command line utility that reports or filters out the repeated lines in a file. 
-In simple words, `uniq` is the tool that helps to detect the adjacent duplicate lines and also deletes the duplicate lines. It filters out the adjacent matching lines from the input file(that is required as an argument) and writes the filtered data to the output file .
+In simple words, `uniq` is the tool that helps you to detect the adjacent duplicate lines and also deletes the duplicate lines. It filters out the adjacent matching lines from the input file(that is required as an argument) and writes the filtered data to the output file .
 
 ### Examples:
 

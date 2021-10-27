@@ -33,7 +33,7 @@ scp root@{remote1-ip-address}:/home/remote-file root@{remote2-ip-address}/home/
 scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2
 ```
 - `OPTION` - scp options such as cipher, ssh configuration, ssh port, limit, recursive copy …etc.
-- `[user@]SRC_HOST:]file1` - Source file.
+- `[user@]SRC_HOST:]file1` - Source file
 - `[user@]DEST_HOST:]file2` - Destination file
 
 Local files should be specified using an absolute or relative path, while remote file names should include a user and host specification.

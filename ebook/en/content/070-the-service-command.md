@@ -6,7 +6,7 @@ The SCRIPT parameter specifies a System V init script, located in /etc/init.d/SC
 
 The COMMAND can be at least start, stop, status, and restart.
 
-`service --status-all` runs all init scripts, in alphabetical order, with the `status` command
+service --status-all runs all init scripts, in alphabetical order, with the `status` command
 
 Examples :
 

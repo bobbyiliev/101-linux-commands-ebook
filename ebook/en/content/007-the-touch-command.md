@@ -1,6 +1,6 @@
-
-# The `touch` Command.
+# The `touch` Command
 The `touch` command modifies a file's timestamps. If the file specified doesn't exist, an empty file with that name is created.
+
 
 ### Syntax
 ```

@@ -2,7 +2,7 @@
 
 The `lsof` command shows **file infomation** of all the files opened by a running process. It' name is also derived from the fact that, list open files > `lsof`
 
-An open file may be a regular file, a directory, a block special file, a character special file, an executing text reference, a library, a stream or a network file (Internet socket, NFS file or UNIX domain socket.) A specific file or all the files in a file system may be selected by path.
+An open file may be a regular file, a directory, a block special file, a character special file, an executing text reference, a library , a stream or a network file (Internet socket, NFS file or UNIX domain socket). A specific file or all the files in a file system may be selected by path.
 ### Syntax:
 
 ```

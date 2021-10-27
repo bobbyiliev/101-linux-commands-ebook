@@ -28,7 +28,8 @@ awk options 'selection _criteria {action }' input-file > output-file
 ```
 
 #### Example
-Consider the following text file as the input file for exapmle below
+Consider the following text file as the input file for below example:
+
     ```
     $cat > employee.txt
     ```
