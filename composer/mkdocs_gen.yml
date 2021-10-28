@@ -1,0 +1,470 @@
+# cspell: disable
+
+### Project Information
+site_name: "101 Linux Commands Open Source eBook"
+site_description: |
+  This is an open-source eBook with 101 Linux commands that everyone should know.
+  No matter if you are a DevOps/SysOps engineer, developer, or just a Linux
+  enthusiast, you will most likely have to use the terminal at some point in
+  your career.
+site_url: https://sugatoray.github.io/101-linux-commands-ebook
+site_author: Sugato Ray
+
+### Repository
+repo_name: sugatoray/101-linux-commands-ebook
+repo_url: https://github.com/sugatoray/101-linux-commands-ebook
+edit_uri: '' # comment this out to disable allowing editing of the docs from the website.
+remote_branch: gh-pages
+remote_name: origin
+
+### Copyright
+#copyright: Copyright &copy; 2021 Sugato Ray
+#copyright: |
+#  Copyright &copy; 2021 <a href="https://github.com/sugatoray"  target="_blank" rel="noopener">Sugato Ray</a>
+
+### Preview Controls
+use_directory_urls: true
+strict: false
+dev_addr: localhost:8010
+
+### Configuration
+docs_dir: docs
+
+### Theme
+theme:
+  name: material
+  include_sidebar: true
+  #custom_dir: overrides
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/lightbulb-outline
+        #icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/lightbulb
+        #icon: material/toggle-switch
+        name: Switch to light mode
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes # @regular
+    - navigation.instant # @regular | enables "instant-loading"; good for a very large docs repo.
+    - navigation.sections # @regular | extending top level sections.
+    - navigation.tabs # @regular | enables showing toplevel sections as tabs (horizontal).
+    - navigation.tabs.sticky # @regular | keeps the tabs visible even when you have scrolled down.
+    - navigation.top # @regular | adds a "back-to-top" is shown after the user scrolls down and then starts to come back up again.
+    # - navigation.tracking # @insiders
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.integrate # @regular | integrates the nav (on-left) with toc (on-right) and places the integrated nav+toc on-left.
+  icon:
+    # repo: fontawesome/brands/git-square
+    # repo: fontawesome/brands/git-alt
+    repo: fontawesome/brands/github
+    # repo: fontawesome/brands/github-alt
+    # repo: fontawesome/brands/github-square
+  #logo: img/icon-white.svg
+  #favicon: img/favicon.png
+  # font:
+  #   text: Roboto
+  #   code: Roboto Mono
+  language: en
+
+#google_analytics:
+#- UA-XXXXXXXXX-X
+#- auto
+
+### Plugins
+plugins:
+  - exclude:
+      glob:
+        - '*/storage/*'
+  - search:
+      indexing: 'full' # 'full' (default), 'sections', 'titles'
+  - git-revision-date
+  # macros must be placed after plugin: git-revision-date
+  - macros:
+      include_dir: docs/assets/snippets # snippets
+      # j2_block_start_string: '{{%'
+      # j2_block_end_string: '%}}'
+      # j2_variable_start_string: '{{'
+      # j2_variable_end_string: '}}'
+  - markdownextradata:
+      data: data
+  - minify:
+      minify_html: true
+  # - social # @insiders
+  # - mkdocstrings
+  # - mkdocs-jupyter:
+  #     include_source: true
+  #     ignore_h1_titles: true
+  #     execute: true
+  - tooltips
+  # - markmap:
+  #     base_path: docs
+  #     encoding: utf-8
+  #     file_extension: .mm.md
+  #     d3_version: 6.7.0
+  #     lib_version: 0.11.5
+  #     view_version: 0.2.6
+  # - kroki:
+  #     ServerURL: https://kroki.io
+  #     EnableBlockDiag: true
+  #     Enablebpmn: true
+  #     EnableExcalidraw: true
+  #     EnableMermaid: true
+  #     DownloadImages: false
+  #     DownloadDir: docs/assets/kroki_generated
+  - pdf-export:
+      verbose: true
+      media_type: pdf-export # 'print' or 'pdf-export'
+      enabled_if_env: MKDOCS_ENABLE_PDF_EXPORT
+
+
+### Extensions
+markdown_extensions:
+  # - abbr
+  # - admonition
+  # - attr_list
+  # - codehilite
+  # - def_list
+  # - extra
+  # - footnotes
+  # - meta
+  # - md_in_html
+  # - smarty
+  # - tables
+  # - toc
+  ##! Controls: markdown.extensions
+  - markdown.extensions.abbr # same as: - abbr
+  - markdown.extensions.admonition # same as: - admonition
+  - markdown.extensions.attr_list # same as: - attr_list
+  - markdown.extensions.codehilite: # same as: - codehilite
+      guess_lang: false
+  - markdown.extensions.def_list # same as: - def_list
+  - markdown.extensions.extra # same as: - extra
+  - markdown.extensions.footnotes # same as: - footnotes
+  - markdown.extensions.meta: # same as: - meta
+  - markdown.extensions.md_in_html # same as: - md_in_html
+  - markdown.extensions.smarty: # same as: - smarty
+      smart_quotes: false
+  - markdown.extensions.tables # same as: - tables
+  - markdown.extensions.toc: # same as: - toc
+      slugify: !!python/name:pymdownx.slugs.uslugify
+      permalink: true
+      toc_depth: 6 # default: 6
+      #separator: "-"
+
+  - markdown_include.include:
+      base_path: docs
+
+  ##! Controls: mdx
+  - mdx_include:
+      base_path: docs
+  - mdx_truly_sane_lists:
+      nested_indent: 2
+      truly_sane: true
+
+  ##! Controls: pymdownx
+  - pymdownx.arithmatex:
+      generic: true
+  # - pymdownx.b64:
+  #     base_path: '.'
+  - pymdownx.betterem:
+      smart_enable: all # default: 'underscore' ; options: 'underscore', 'all', 'asterisk', or 'none'
+  - pymdownx.caret: # "super^script^" will render as superscript text: super<sup>script</sup>.
+      smart_insert: true # default: true
+      insert: true # default: true
+      superscript: true # default: true
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.escapeall:
+      hardbreak: false
+      nbsp: false
+  # Uncomment these 2 lines during development to more easily add highlights
+  - pymdownx.highlight:
+      use_pygments: true # this uses pygments
+      linenums: false # Set "linenums" to true for enabling
+                      #     code-block line-numbering
+                      #     globally.
+      linenums_style: pymdownx-inline # table or pymdownx-inline
+  - pymdownx.inlinehilite:
+      custom_inline:
+        - name: math
+          class: arithmatex
+          format: !!python/name:pymdownx.arithmatex.inline_mathjax_format
+  - pymdownx.keys:
+      separator: "\uff0b"
+  - pymdownx.magiclink:
+      repo_url_shortener: true
+      repo_url_shorthand: true #
+      social_url_shorthand: true
+      social_url_shortener: true
+      user: sugatoray #
+      repo: 101-linux-commands-ebook #
+      normalize_issue_symbols: true
+  - pymdownx.mark:
+      smart_mark: true
+  - pymdownx.pathconverter:
+      base_path: '101-linux-commands-ebook' # default: ''
+      relative_path: '' # default ''
+      absolute: true # default: false
+      tags: 'a script img link object embed'
+  - pymdownx.progressbar:
+      level_class: true
+      add_classes: ''
+      progress_increment: 10
+  - pymdownx.saneheaders
+  - pymdownx.superfences:
+      preserve_tabs: false
+      custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format ''
+      - name: math
+        class: arithmatex
+        format: !!python/name:pymdownx.arithmatex.fence_mathjax_format
+      # - name: md-render
+      #   class: md-render
+      #   format: !!python/name:tools.pymdownx_md_render.md_sub_render
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      base_path:
+        - '.'
+        - './docs/ebook/en'
+        - './LICENSE'
+      encoding: 'utf-8' # Encoding to use when reading in the snippets.
+      check_paths: true # Make the build fail if a snippet can't be found.
+  - pymdownx.striphtml
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde # ~~text~~ will render as strikethrough text. "sub~script" will render as subscript text: sub<sub>script</sub>.
+
+### Customization
+extra:
+  # version:
+  #   default: latest
+  #   provider: mike
+  # disqus: sugatoray
+  social:
+  #- icon: fontawesome/brands/github-square
+  #- icon: fontawesome/brands/github-alt
+  - icon: fontawesome/brands/github
+    link: https://github.com/sugatoray
+  # - icon: simpleicons.org/icons/stackoverflow
+  - icon: fontawesome/brands/stack-overflow
+    link: https://stackoverflow.com/users/8474894/cypherx
+  #- icon: fontawesome/brands/stackoverflow
+  #  link: https://discord.gg/VQjSZaeJmf
+  - icon: fontawesome/brands/twitter
+    link: https://twitter.com/sugatoray
+  - icon: fontawesome/brands/linkedin
+    link: https://www.linkedin.com/in/sugatoray
+  - icon: fontawesome/brands/dev
+    link: https://dev.to/sugatoray
+  - icon: fontawesome/brands/medium
+    link: https://medium.com/@sugatoray
+  #- icon: fontawesome/solid/globe
+  #  link: https://www.sugatoray.com
+  alternate:
+  - link: /
+    name: en - English
+
+extra_css:
+  ## for: termynal (terminal animation)
+  - assets/css-js/termynal/css/termynal.css
+  - assets/css-js/termynal/css/custom.css
+  ## for: pymdownx.progressbar
+  - assets/css-js/general/css/progressbar.css
+  ## for: mkdocs-tooltips
+  - assets/css-js/mkdocs-tooltips/css/hint.min.css
+  - assets/css-js/mkdocs-tooltips/css/custom.css
+  ## for: quiz-qrcodes
+  - assets/css-js/general/css/quiz_qrcode.css
+  ## for: mkdocs-material using highlight.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
+  ## for: mkdocs-export-pdf-plugin
+  - assets/css-js/mkdocs-pdf-export/css/pdf-export.css
+
+extra_javascript:
+  ## for: pymdownx.arithmatex
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  ## for: markdown.extensions.tables
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - assets/css-js/general/js/tables.js
+  ## for: termynal (terminal animation)
+  - assets/css-js/termynal/js/termynal.js
+  - assets/css-js/termynal/js/custom.js
+  ## for: fontawesome (personal kit-link remove before making public)
+  # example fontawesome-kit: https://kit.fontawesome.com/0a1b2c3d4e.js
+  # Set the environment variable "FONTAWESOME_KIT" with the value of the kit.
+  - !ENV FONTAWESOME_KIT
+  ## for: lottiefiles
+  - https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js
+  ## for: mkdocs-material using highlight.js
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js
+  - assets/css-js/general/js/highlight-config.js
+  ## for: mkdocs-markmap
+  - https://unpkg.com/d3@6.7.0/dist/d3.min.js
+  - https://unpkg.com/markmap-lib@0.11.5/dist/browser/index.min.js
+  - https://unpkg.com/markmap-view@0.2.6/dist/index.min.js
+
+
+
+### Pages: Navigation
+
+## @@ Begin NAVIGATION
+
+"nav":
+- "<p><i class='fas fa-home'>&nbsp;</i> Home</p>": "index.md"
+- "<p><i class='fas fa-terminal'>&nbsp;</i>Commands</p>":
+  - "<code>000:&nbsp;<strong>Introduction</strong></code>": "ebook/en/content/000-the-introduction-command.md"
+  - "<code>001:&nbsp;<strong>ls</strong></code>": "ebook/en/content/001-the-ls-command.md"
+  - "<code>002:&nbsp;<strong>cd</strong></code>": "ebook/en/content/002-the-cd-command.md"
+  - "<code>003:&nbsp;<strong>cat</strong>&nbsp;and&nbsp;<strong>tac</strong></code>": "ebook/en/content/003-the-cat-tac-command.md"
+  - "<code>004:&nbsp;<strong>head</strong></code>": "ebook/en/content/004-the-head-command.md"
+  - "<code>005:&nbsp;<strong>tail</strong></code>": "ebook/en/content/005-the-tail-command.md"
+  - "<code>006:&nbsp;<strong>pwd</strong></code>": "ebook/en/content/006-the-pwd-command.md"
+  - "<code>007:&nbsp;<strong>touch</strong></code>": "ebook/en/content/007-the-touch-command.md"
+  - "<code>008:&nbsp;<strong>cal</strong></code>": "ebook/en/content/008-the-cal-command.md"
+  - "<code>009:&nbsp;<strong>bc</strong></code>": "ebook/en/content/009-the-bc-command.md"
+  - "<code>010:&nbsp;<strong>df</strong></code>": "ebook/en/content/010-the-df-command.md"
+  - "<code>011:&nbsp;<strong>help</strong></code>": "ebook/en/content/011-the-help-command.md"
+  - "<code>012:&nbsp;<strong>factor</strong></code>": "ebook/en/content/012-the-factor-command.md"
+  - "<code>013:&nbsp;<strong>uname</strong></code>": "ebook/en/content/013-the-uname-command.md"
+  - "<code>014:&nbsp;<strong>mkdir</strong></code>": "ebook/en/content/014-the-mkdir-command.md"
+  - "<code>015:&nbsp;<strong>gzip</strong></code>": "ebook/en/content/015-the-gzip-command.md"
+  - "<code>016:&nbsp;<strong>whatis</strong></code>": "ebook/en/content/016-the-whatis-command.md"
+  - "<code>017:&nbsp;<strong>who</strong></code>": "ebook/en/content/017-the-who-command.md"
+  - "<code>018:&nbsp;<strong>free</strong></code>": "ebook/en/content/018-the-free-command.md"
+  - "<code>019:&nbsp;<strong>top</strong>&nbsp;and&nbsp;<strong>htop</strong></code>": "ebook/en/content/019-the-top-htop-command.md"
+  - "<code>020:&nbsp;<strong>sl</strong></code>": "ebook/en/content/020-the-sl-command.md"
+  - "<code>021:&nbsp;<strong>echo</strong></code>": "ebook/en/content/021-the-echo-command.md"
+  - "<code>022:&nbsp;<strong>finger</strong></code>": "ebook/en/content/022-the-finger-command.md"
+  - "<code>023:&nbsp;<strong>groups</strong></code>": "ebook/en/content/023-the-groups-command.md"
+  - "<code>024:&nbsp;<strong>man</strong></code>": "ebook/en/content/024-the-man-command.md"
+  - "<code>025:&nbsp;<strong>passwd</strong></code>": "ebook/en/content/025-the-passwd-command.md"
+  - "<code>026:&nbsp;<strong>w</strong></code>": "ebook/en/content/026-the-w-command.md"
+  - "<code>027:&nbsp;<strong>whoami</strong></code>": "ebook/en/content/027-the-whoami-command.md"
+  - "<code>028:&nbsp;<strong>history</strong></code>": "ebook/en/content/028-the-history-command.md"
+  - "<code>029:&nbsp;<strong>login</strong></code>": "ebook/en/content/029-the-login-command.md"
+  - "<code>030:&nbsp;<strong>lscpu</strong></code>": "ebook/en/content/030-the-lscpu-command.md"
+  - "<code>031:&nbsp;<strong>cp</strong></code>": "ebook/en/content/031-the-cp-command.md"
+  - "<code>032:&nbsp;<strong>mv</strong></code>": "ebook/en/content/032-the-mv-command.md"
+  - "<code>033:&nbsp;<strong>ps</strong></code>": "ebook/en/content/033-the-ps-command.md"
+  - "<code>034:&nbsp;<strong>kill</strong></code>": "ebook/en/content/034-the-kill-command.md"
+  - "<code>035:&nbsp;<strong>killall</strong></code>": "ebook/en/content/035-the-killall-command.md"
+  - "<code>036:&nbsp;<strong>env</strong></code>": "ebook/en/content/036-the-env-command.md"
+  - "<code>037:&nbsp;<strong>printenv</strong></code>": "ebook/en/content/037-the-printenv-command.md"
+  - "<code>038:&nbsp;<strong>hostname</strong></code>": "ebook/en/content/038-the-hostname-command.md"
+  - "<code>039:&nbsp;<strong>nano</strong></code>": "ebook/en/content/039-the-nano-command.md"
+  - "<code>040:&nbsp;<strong>rm</strong></code>": "ebook/en/content/040-the-rm-command.md"
+  - "<code>041:&nbsp;<strong>ifconfig</strong></code>": "ebook/en/content/041-the-ifconfig-command.md"
+  - "<code>042:&nbsp;<strong>ip</strong></code>": "ebook/en/content/042-the-ip-command.md"
+  - "<code>043:&nbsp;<strong>clear</strong></code>": "ebook/en/content/043-the-clear-command.md"
+  - "<code>044:&nbsp;<strong>su</strong></code>": "ebook/en/content/044-the-su-command.md"
+  - "<code>045:&nbsp;<strong>wget</strong></code>": "ebook/en/content/045-the-wget-command.md"
+  - "<code>046:&nbsp;<strong>curl</strong></code>": "ebook/en/content/046-the-curl-command.md"
+  - "<code>047:&nbsp;<strong>yes</strong></code>": "ebook/en/content/047-the-yes-command.md"
+  - "<code>048:&nbsp;<strong>last</strong></code>": "ebook/en/content/048-the-last-command.md"
+  - "<code>049:&nbsp;<strong>locate</strong></code>": "ebook/en/content/049-the-locate-command.md"
+  - "<code>050:&nbsp;<strong>iostat</strong></code>": "ebook/en/content/050-the-iostat-command.md"
+  - "<code>051:&nbsp;<strong>sudo</strong></code>": "ebook/en/content/051-the-sudo-command.md"
+  - "<code>052:&nbsp;<strong>apt</strong></code>": "ebook/en/content/052-the-apt-command.md"
+  - "<code>053:&nbsp;<strong>yum</strong></code>": "ebook/en/content/053-the-yum-command.md"
+  - "<code>054:&nbsp;<strong>zip</strong></code>": "ebook/en/content/054-the-zip-command.md"
+  - "<code>055:&nbsp;<strong>unzip</strong></code>": "ebook/en/content/055-the-unzip-command.md"
+  - "<code>056:&nbsp;<strong>shutdown</strong></code>": "ebook/en/content/056-the-shutdown-command.md"
+  - "<code>057:&nbsp;<strong>dir</strong></code>": "ebook/en/content/057-the-dir-command.md"
+  - "<code>058:&nbsp;<strong>reboot</strong></code>": "ebook/en/content/058-the-reboot-command.md"
+  - "<code>059:&nbsp;<strong>sort</strong></code>": "ebook/en/content/059-the-sort-command.md"
+  - "<code>060:&nbsp;<strong>paste</strong></code>": "ebook/en/content/060-the-paste-command.md"
+  - "<code>061:&nbsp;<strong>exit</strong></code>": "ebook/en/content/061-the-exit-command.md"
+  - "<code>062:&nbsp;<strong>diff</strong>&nbsp;and&nbsp;<strong>sdiff</strong></code>": "ebook/en/content/062-the-diff-sdiff-command.md"
+  - "<code>063:&nbsp;<strong>tar</strong></code>": "ebook/en/content/063-the-tar-command.md"
+  - "<code>064:&nbsp;<strong>gunzip</strong></code>": "ebook/en/content/064-the-gunzip-command.md"
+  - "<code>065:&nbsp;<strong>hostnamectl</strong></code>": "ebook/en/content/065-the-hostnamectl-command.md"
+  - "<code>066:&nbsp;<strong>iptable</strong></code>": "ebook/en/content/066-the-iptable-command.md"
+  - "<code>067:&nbsp;<strong>netstat</strong></code>": "ebook/en/content/067-the-netstat-command.md"
+  - "<code>068:&nbsp;<strong>lsof</strong></code>": "ebook/en/content/068-the-lsof-command.md"
+  - "<code>069:&nbsp;<strong>bzip2</strong></code>": "ebook/en/content/069-the-bzip2-command.md"
+  - "<code>070:&nbsp;<strong>service</strong></code>": "ebook/en/content/070-the-service-command.md"
+  - "<code>071:&nbsp;<strong>vmstat</strong></code>": "ebook/en/content/071-the-vmstat-command.md"
+  - "<code>072:&nbsp;<strong>mpstat</strong></code>": "ebook/en/content/072-the-mpstat-command.md"
+  - "<code>073:&nbsp;<strong>ncdu</strong></code>": "ebook/en/content/073-the-ncdu-command.md"
+  - "<code>074:&nbsp;<strong>uniq</strong></code>": "ebook/en/content/074-the-uniq-command.md"
+  - "<code>075:&nbsp;<strong>rpm</strong></code>": "ebook/en/content/075-the-rpm-command.md"
+  - "<code>076:&nbsp;<strong>scp</strong></code>": "ebook/en/content/076-the-scp-command.md"
+  - "<code>077:&nbsp;<strong>sleep</strong></code>": "ebook/en/content/077-the-sleep-command.md"
+  - "<code>078:&nbsp;<strong>split</strong></code>": "ebook/en/content/078-the-split-command.md"
+  - "<code>079:&nbsp;<strong>stat</strong></code>": "ebook/en/content/079-the-stat-command.md"
+  - "<code>080:&nbsp;<strong>useradd</strong></code>": "ebook/en/content/080-the-useradd-command.md"
+  - "<code>081:&nbsp;<strong>userdel</strong></code>": "ebook/en/content/081-the-userdel-command.md"
+  - "<code>082:&nbsp;<strong>usermod</strong></code>": "ebook/en/content/082-the-usermod-command.md"
+  - "<code>083:&nbsp;<strong>ionice</strong></code>": "ebook/en/content/083-the-ionice-command.md"
+  - "<code>084:&nbsp;<strong>du</strong></code>": "ebook/en/content/084-the-du-command.md"
+  - "<code>085:&nbsp;<strong>ping</strong></code>": "ebook/en/content/085-the-ping-command.md"
+  - "<code>086:&nbsp;<strong>rsync</strong></code>": "ebook/en/content/086-the-rsync-command.md"
+  - "<code>087:&nbsp;<strong>dig</strong></code>": "ebook/en/content/087-the-dig-command.md"
+  - "<code>088:&nbsp;<strong>whois</strong></code>": "ebook/en/content/088-the-whois-command.md"
+  - "<code>089:&nbsp;<strong>ssh</strong></code>": "ebook/en/content/089-the-ssh-command.md"
+  - "<code>090:&nbsp;<strong>awk</strong></code>": "ebook/en/content/090-the-awk-command.md"
+  - "<code>091:&nbsp;<strong>crontab</strong></code>": "ebook/en/content/091-the-crontab-command.md"
+  - "<code>092:&nbsp;<strong>xargs</strong></code>": "ebook/en/content/092-the-xargs-command.md"
+  - "<code>093:&nbsp;<strong>nohup</strong></code>": "ebook/en/content/093-the-nohup-command.md"
+  - "<code>094:&nbsp;<strong>pstree</strong></code>": "ebook/en/content/094-the-pstree-command.md"
+  - "<code>095:&nbsp;<strong>tree</strong></code>": "ebook/en/content/095-the-tree-command.md"
+  - "<code>096:&nbsp;<strong>whereis</strong></code>": "ebook/en/content/096-the-whereis-command.md"
+  - "<code>097:&nbsp;<strong>printf</strong></code>": "ebook/en/content/097-the-printf-command.md"
+  - "<code>098:&nbsp;<strong>cut</strong></code>": "ebook/en/content/098-the-cut-command.md"
+  - "<code>099:&nbsp;<strong>sed</strong></code>": "ebook/en/content/099-the-sed-command.md"
+  - "<code>100:&nbsp;<strong>vim</strong></code>": "ebook/en/content/100-the-vim-command.md"
+  - "<code>101:&nbsp;<strong>chown</strong></code>": "ebook/en/content/101-the-chown-command.md"
+  - "<code>102:&nbsp;<strong>find</strong></code>": "ebook/en/content/102-the-find-command.md"
+  - "<code>103:&nbsp;<strong>rmdir</strong></code>": "ebook/en/content/103-the-rmdir-command.md"
+  - "<code>104:&nbsp;<strong>lsblk</strong></code>": "ebook/en/content/104-the-lsblk-command.md"
+  - "<code>105:&nbsp;<strong>cmatrix</strong></code>": "ebook/en/content/105-the-cmatrix-command.md"
+  - "<code>106:&nbsp;<strong>chmod</strong></code>": "ebook/en/content/106-the-chmod-command.md"
+  - "<code>107:&nbsp;<strong>grep</strong></code>": "ebook/en/content/107-the-grep-command.md"
+  - "<code>108:&nbsp;<strong>screen</strong></code>": "ebook/en/content/108-the-screen-command.md"
+  - "<code>109:&nbsp;<strong>nc</strong></code>": "ebook/en/content/109-the-nc-command.md"
+  - "<code>110:&nbsp;<strong>make</strong></code>": "ebook/en/content/110-the-make-command.md"
+  - "<code>111:&nbsp;<strong>basename</strong></code>": "ebook/en/content/111-the-basename-command.md"
+  - "<code>112:&nbsp;<strong>banner</strong></code>": "ebook/en/content/112-the-banner-command.md"
+  - "<code>113:&nbsp;<strong>alias</strong></code>": "ebook/en/content/113-the-alias-command.md"
+  - "<code>114:&nbsp;<strong>which</strong></code>": "ebook/en/content/114-the-which-command.md"
+  - "<code>115:&nbsp;<strong>date</strong></code>": "ebook/en/content/115-the-date-command.md"
+  - "<code>116:&nbsp;<strong>mount</strong></code>": "ebook/en/content/116-mount-command.md"
+  - "<code>117:&nbsp;<strong>nice</strong></code>": "ebook/en/content/117-nice-command.md"
+  - "<code>118:&nbsp;<strong>wc</strong></code>": "ebook/en/content/118-the-wc-command.md"
+  - "<code>119:&nbsp;<strong>tr</strong></code>": "ebook/en/content/119-the-tr-command.md"
+  - "<code>120:&nbsp;<strong>fdisk</strong></code>": "ebook/en/content/120-fdisk-command.md"
+  - "<code>121:&nbsp;<strong>wait</strong></code>": "ebook/en/content/121-wait-command.md"
+  - "<code>122:&nbsp;<strong>zcat</strong></code>": "ebook/en/content/122-the-zcat-command.md"
+  - "<code>123:&nbsp;<strong>fold</strong></code>": "ebook/en/content/123-the-fold-command.md"
+  - "<code>124:&nbsp;<strong>quota</strong></code>": "ebook/en/content/124-the-quota-command.md"
+  - "<code>125:&nbsp;<strong>aplay</strong></code>": "ebook/en/content/125-the-aplay-command.md"
+  - "<code>126:&nbsp;<strong>spd</strong>&nbsp;and&nbsp;<strong>say</strong></code>": "ebook/en/content/126-the-spd-say-command.md"
+  - "Wrap Up": "ebook/en/content/999-wrap-up.md"
+- "<p><i class='fas fa-info-circle'>&nbsp;</i>About</p>":
+  - "Info": "about/index.md"
+  - "License": "about/license.md"
+
+## @@ End NAVIGATION

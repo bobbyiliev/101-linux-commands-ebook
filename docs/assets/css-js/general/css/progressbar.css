@@ -1,0 +1,92 @@
+/*
+ * Source: https://facelessuser.github.io/pymdown-extensions/extensions/progressbar/
+ *
+ * Note: Look under "CSS Setup".
+ *
+ */
+
+.progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: 700;
+  width: 100%;
+  margin: 0;
+  line-height: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 1.2rem;
+  float: left;
+  background-color: #2979ff;
+}
+
+.progress {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  height: 1.2rem;
+  background-color: #eeeeee;
+  position: relative;
+}
+
+.progress.thin {
+  margin-top: 0.9rem;
+  height: 0.4rem;
+}
+
+.progress.thin .progress-label {
+  margin-top: -0.4rem;
+}
+
+.progress.thin .progress-bar {
+  height: 0.4rem;
+}
+
+/* ColorPalette Source: https://colorbrewer2.org/#type=diverging&scheme=RdYlGn&n=11 */
+
+.progress-0plus .progress-bar {
+  background-color: #a50026;
+}
+
+.progress-10plus .progress-bar {
+  background-color: #d73027;
+}
+
+.progress-20plus .progress-bar {
+  background-color: #f46d43;
+}
+
+.progress-30plus .progress-bar {
+  background-color: #fdae61;
+}
+
+.progress-40plus .progress-bar {
+  background-color: #fee08b;
+}
+
+.progress-50plus .progress-bar {
+  background-color: #ffffbf;
+}
+
+.progress-60plus .progress-bar {
+  background-color: #d9ef8b;
+}
+
+.progress-70plus .progress-bar {
+  background-color: #a6d96a;
+}
+
+.progress-80plus .progress-bar {
+  background-color: #66bd63;
+}
+
+.progress-90plus .progress-bar {
+  background-color: #1a9850;
+}
+
+.progress-100plus .progress-bar {
+  background-color: #006837;
+}
+

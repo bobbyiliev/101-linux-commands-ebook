@@ -1,0 +1,50 @@
+
+{# Macro for creating colored icon with fontawesome-icons #}
+{# DONOT REDUCE THE FOLLOWING INDENTS #}
+{%- macro icon(name='fas fa-check-circle', color='') -%}
+{#
+<!---
+source: https://www.w3schools.com/cssref/css_colors.asp
+
+Aquamarine: #7FFFD4
+MediumSpringGreen: #00FA9A
+SpringGreen: #00FF7F
+Turquoise: #40E0D0
+Aqua: #00FFFF
+AliceBlue: #F0F8FF
+
+Tomato: #FF6347
+Crimson: #DC143C
+--->
+#}
+<span style="color: {{ color }};">
+<i class="{{ name }}"></i>
+</span>
+{%- endmacro -%}
+
+{#-----------------------------------------------------#}
+
+{# Macro for creating link to a pdf file #}
+{# DONOT REDUCE THE FOLLOWING INDENTS #}
+{%- macro link_to_pdf(data_source, message="Open PDF", icon="fas fa-file-pdf") -%}
+{% set icon_filepdf = '<i class="' ~ icon ~ '"></i>' %}
+<a href="{{ data_source }}" class="image fit" target="_blank" >{{ message }}: {{ icon_filepdf }}</a>
+{%- endmacro -%}
+
+{# Macro for embedding a pdf file #}
+{# DONOT REDUCE THE FOLLOWING INDENTS #}
+{% macro embed_pdf(data_source, type="application/pdf", width="100%", height="640px") %}
+
+<object data="{{ data_source }}"
+    type="{{ type }}"
+    width="{{ width }}"
+    height="{{ height }}">
+    <embed src="{{ data_source }}"
+        type="{{ type }}"
+        width="{{ width }}"
+        height="{{ height }}">
+</object>
+
+{% endmacro %}
+
+{#-----------------------------------------------------#}

@@ -1,0 +1,637 @@
+{
+  "introduction": {
+    "command_id": "000",
+    "slug": "<strong>Introduction</strong>",
+    "path": "ebook/en/content/000-the-introduction-command.md"
+  },
+  "ls": {
+    "command_id": "001",
+    "slug": "<strong>ls</strong>",
+    "path": "ebook/en/content/001-the-ls-command.md"
+  },
+  "cd": {
+    "command_id": "002",
+    "slug": "<strong>cd</strong>",
+    "path": "ebook/en/content/002-the-cd-command.md"
+  },
+  "cat-tac": {
+    "command_id": "003",
+    "slug": "<strong>cat</strong>&nbsp;and&nbsp;<strong>tac</strong>",
+    "path": "ebook/en/content/003-the-cat-tac-command.md"
+  },
+  "head": {
+    "command_id": "004",
+    "slug": "<strong>head</strong>",
+    "path": "ebook/en/content/004-the-head-command.md"
+  },
+  "tail": {
+    "command_id": "005",
+    "slug": "<strong>tail</strong>",
+    "path": "ebook/en/content/005-the-tail-command.md"
+  },
+  "pwd": {
+    "command_id": "006",
+    "slug": "<strong>pwd</strong>",
+    "path": "ebook/en/content/006-the-pwd-command.md"
+  },
+  "touch": {
+    "command_id": "007",
+    "slug": "<strong>touch</strong>",
+    "path": "ebook/en/content/007-the-touch-command.md"
+  },
+  "cal": {
+    "command_id": "008",
+    "slug": "<strong>cal</strong>",
+    "path": "ebook/en/content/008-the-cal-command.md"
+  },
+  "bc": {
+    "command_id": "009",
+    "slug": "<strong>bc</strong>",
+    "path": "ebook/en/content/009-the-bc-command.md"
+  },
+  "df": {
+    "command_id": "010",
+    "slug": "<strong>df</strong>",
+    "path": "ebook/en/content/010-the-df-command.md"
+  },
+  "help": {
+    "command_id": "011",
+    "slug": "<strong>help</strong>",
+    "path": "ebook/en/content/011-the-help-command.md"
+  },
+  "factor": {
+    "command_id": "012",
+    "slug": "<strong>factor</strong>",
+    "path": "ebook/en/content/012-the-factor-command.md"
+  },
+  "uname": {
+    "command_id": "013",
+    "slug": "<strong>uname</strong>",
+    "path": "ebook/en/content/013-the-uname-command.md"
+  },
+  "mkdir": {
+    "command_id": "014",
+    "slug": "<strong>mkdir</strong>",
+    "path": "ebook/en/content/014-the-mkdir-command.md"
+  },
+  "gzip": {
+    "command_id": "015",
+    "slug": "<strong>gzip</strong>",
+    "path": "ebook/en/content/015-the-gzip-command.md"
+  },
+  "whatis": {
+    "command_id": "016",
+    "slug": "<strong>whatis</strong>",
+    "path": "ebook/en/content/016-the-whatis-command.md"
+  },
+  "who": {
+    "command_id": "017",
+    "slug": "<strong>who</strong>",
+    "path": "ebook/en/content/017-the-who-command.md"
+  },
+  "free": {
+    "command_id": "018",
+    "slug": "<strong>free</strong>",
+    "path": "ebook/en/content/018-the-free-command.md"
+  },
+  "top-htop": {
+    "command_id": "019",
+    "slug": "<strong>top</strong>&nbsp;and&nbsp;<strong>htop</strong>",
+    "path": "ebook/en/content/019-the-top-htop-command.md"
+  },
+  "sl": {
+    "command_id": "020",
+    "slug": "<strong>sl</strong>",
+    "path": "ebook/en/content/020-the-sl-command.md"
+  },
+  "echo": {
+    "command_id": "021",
+    "slug": "<strong>echo</strong>",
+    "path": "ebook/en/content/021-the-echo-command.md"
+  },
+  "finger": {
+    "command_id": "022",
+    "slug": "<strong>finger</strong>",
+    "path": "ebook/en/content/022-the-finger-command.md"
+  },
+  "groups": {
+    "command_id": "023",
+    "slug": "<strong>groups</strong>",
+    "path": "ebook/en/content/023-the-groups-command.md"
+  },
+  "man": {
+    "command_id": "024",
+    "slug": "<strong>man</strong>",
+    "path": "ebook/en/content/024-the-man-command.md"
+  },
+  "passwd": {
+    "command_id": "025",
+    "slug": "<strong>passwd</strong>",
+    "path": "ebook/en/content/025-the-passwd-command.md"
+  },
+  "w": {
+    "command_id": "026",
+    "slug": "<strong>w</strong>",
+    "path": "ebook/en/content/026-the-w-command.md"
+  },
+  "whoami": {
+    "command_id": "027",
+    "slug": "<strong>whoami</strong>",
+    "path": "ebook/en/content/027-the-whoami-command.md"
+  },
+  "history": {
+    "command_id": "028",
+    "slug": "<strong>history</strong>",
+    "path": "ebook/en/content/028-the-history-command.md"
+  },
+  "login": {
+    "command_id": "029",
+    "slug": "<strong>login</strong>",
+    "path": "ebook/en/content/029-the-login-command.md"
+  },
+  "lscpu": {
+    "command_id": "030",
+    "slug": "<strong>lscpu</strong>",
+    "path": "ebook/en/content/030-the-lscpu-command.md"
+  },
+  "cp": {
+    "command_id": "031",
+    "slug": "<strong>cp</strong>",
+    "path": "ebook/en/content/031-the-cp-command.md"
+  },
+  "mv": {
+    "command_id": "032",
+    "slug": "<strong>mv</strong>",
+    "path": "ebook/en/content/032-the-mv-command.md"
+  },
+  "ps": {
+    "command_id": "033",
+    "slug": "<strong>ps</strong>",
+    "path": "ebook/en/content/033-the-ps-command.md"
+  },
+  "kill": {
+    "command_id": "034",
+    "slug": "<strong>kill</strong>",
+    "path": "ebook/en/content/034-the-kill-command.md"
+  },
+  "killall": {
+    "command_id": "035",
+    "slug": "<strong>killall</strong>",
+    "path": "ebook/en/content/035-the-killall-command.md"
+  },
+  "env": {
+    "command_id": "036",
+    "slug": "<strong>env</strong>",
+    "path": "ebook/en/content/036-the-env-command.md"
+  },
+  "printenv": {
+    "command_id": "037",
+    "slug": "<strong>printenv</strong>",
+    "path": "ebook/en/content/037-the-printenv-command.md"
+  },
+  "hostname": {
+    "command_id": "038",
+    "slug": "<strong>hostname</strong>",
+    "path": "ebook/en/content/038-the-hostname-command.md"
+  },
+  "nano": {
+    "command_id": "039",
+    "slug": "<strong>nano</strong>",
+    "path": "ebook/en/content/039-the-nano-command.md"
+  },
+  "rm": {
+    "command_id": "040",
+    "slug": "<strong>rm</strong>",
+    "path": "ebook/en/content/040-the-rm-command.md"
+  },
+  "ifconfig": {
+    "command_id": "041",
+    "slug": "<strong>ifconfig</strong>",
+    "path": "ebook/en/content/041-the-ifconfig-command.md"
+  },
+  "ip": {
+    "command_id": "042",
+    "slug": "<strong>ip</strong>",
+    "path": "ebook/en/content/042-the-ip-command.md"
+  },
+  "clear": {
+    "command_id": "043",
+    "slug": "<strong>clear</strong>",
+    "path": "ebook/en/content/043-the-clear-command.md"
+  },
+  "su": {
+    "command_id": "044",
+    "slug": "<strong>su</strong>",
+    "path": "ebook/en/content/044-the-su-command.md"
+  },
+  "wget": {
+    "command_id": "045",
+    "slug": "<strong>wget</strong>",
+    "path": "ebook/en/content/045-the-wget-command.md"
+  },
+  "curl": {
+    "command_id": "046",
+    "slug": "<strong>curl</strong>",
+    "path": "ebook/en/content/046-the-curl-command.md"
+  },
+  "yes": {
+    "command_id": "047",
+    "slug": "<strong>yes</strong>",
+    "path": "ebook/en/content/047-the-yes-command.md"
+  },
+  "last": {
+    "command_id": "048",
+    "slug": "<strong>last</strong>",
+    "path": "ebook/en/content/048-the-last-command.md"
+  },
+  "locate": {
+    "command_id": "049",
+    "slug": "<strong>locate</strong>",
+    "path": "ebook/en/content/049-the-locate-command.md"
+  },
+  "iostat": {
+    "command_id": "050",
+    "slug": "<strong>iostat</strong>",
+    "path": "ebook/en/content/050-the-iostat-command.md"
+  },
+  "sudo": {
+    "command_id": "051",
+    "slug": "<strong>sudo</strong>",
+    "path": "ebook/en/content/051-the-sudo-command.md"
+  },
+  "apt": {
+    "command_id": "052",
+    "slug": "<strong>apt</strong>",
+    "path": "ebook/en/content/052-the-apt-command.md"
+  },
+  "yum": {
+    "command_id": "053",
+    "slug": "<strong>yum</strong>",
+    "path": "ebook/en/content/053-the-yum-command.md"
+  },
+  "zip": {
+    "command_id": "054",
+    "slug": "<strong>zip</strong>",
+    "path": "ebook/en/content/054-the-zip-command.md"
+  },
+  "unzip": {
+    "command_id": "055",
+    "slug": "<strong>unzip</strong>",
+    "path": "ebook/en/content/055-the-unzip-command.md"
+  },
+  "shutdown": {
+    "command_id": "056",
+    "slug": "<strong>shutdown</strong>",
+    "path": "ebook/en/content/056-the-shutdown-command.md"
+  },
+  "dir": {
+    "command_id": "057",
+    "slug": "<strong>dir</strong>",
+    "path": "ebook/en/content/057-the-dir-command.md"
+  },
+  "reboot": {
+    "command_id": "058",
+    "slug": "<strong>reboot</strong>",
+    "path": "ebook/en/content/058-the-reboot-command.md"
+  },
+  "sort": {
+    "command_id": "059",
+    "slug": "<strong>sort</strong>",
+    "path": "ebook/en/content/059-the-sort-command.md"
+  },
+  "paste": {
+    "command_id": "060",
+    "slug": "<strong>paste</strong>",
+    "path": "ebook/en/content/060-the-paste-command.md"
+  },
+  "exit": {
+    "command_id": "061",
+    "slug": "<strong>exit</strong>",
+    "path": "ebook/en/content/061-the-exit-command.md"
+  },
+  "diff-sdiff": {
+    "command_id": "062",
+    "slug": "<strong>diff</strong>&nbsp;and&nbsp;<strong>sdiff</strong>",
+    "path": "ebook/en/content/062-the-diff-sdiff-command.md"
+  },
+  "tar": {
+    "command_id": "063",
+    "slug": "<strong>tar</strong>",
+    "path": "ebook/en/content/063-the-tar-command.md"
+  },
+  "gunzip": {
+    "command_id": "064",
+    "slug": "<strong>gunzip</strong>",
+    "path": "ebook/en/content/064-the-gunzip-command.md"
+  },
+  "hostnamectl": {
+    "command_id": "065",
+    "slug": "<strong>hostnamectl</strong>",
+    "path": "ebook/en/content/065-the-hostnamectl-command.md"
+  },
+  "iptable": {
+    "command_id": "066",
+    "slug": "<strong>iptable</strong>",
+    "path": "ebook/en/content/066-the-iptable-command.md"
+  },
+  "netstat": {
+    "command_id": "067",
+    "slug": "<strong>netstat</strong>",
+    "path": "ebook/en/content/067-the-netstat-command.md"
+  },
+  "lsof": {
+    "command_id": "068",
+    "slug": "<strong>lsof</strong>",
+    "path": "ebook/en/content/068-the-lsof-command.md"
+  },
+  "bzip2": {
+    "command_id": "069",
+    "slug": "<strong>bzip2</strong>",
+    "path": "ebook/en/content/069-the-bzip2-command.md"
+  },
+  "service": {
+    "command_id": "070",
+    "slug": "<strong>service</strong>",
+    "path": "ebook/en/content/070-the-service-command.md"
+  },
+  "vmstat": {
+    "command_id": "071",
+    "slug": "<strong>vmstat</strong>",
+    "path": "ebook/en/content/071-the-vmstat-command.md"
+  },
+  "mpstat": {
+    "command_id": "072",
+    "slug": "<strong>mpstat</strong>",
+    "path": "ebook/en/content/072-the-mpstat-command.md"
+  },
+  "ncdu": {
+    "command_id": "073",
+    "slug": "<strong>ncdu</strong>",
+    "path": "ebook/en/content/073-the-ncdu-command.md"
+  },
+  "uniq": {
+    "command_id": "074",
+    "slug": "<strong>uniq</strong>",
+    "path": "ebook/en/content/074-the-uniq-command.md"
+  },
+  "rpm": {
+    "command_id": "075",
+    "slug": "<strong>rpm</strong>",
+    "path": "ebook/en/content/075-the-rpm-command.md"
+  },
+  "scp": {
+    "command_id": "076",
+    "slug": "<strong>scp</strong>",
+    "path": "ebook/en/content/076-the-scp-command.md"
+  },
+  "sleep": {
+    "command_id": "077",
+    "slug": "<strong>sleep</strong>",
+    "path": "ebook/en/content/077-the-sleep-command.md"
+  },
+  "split": {
+    "command_id": "078",
+    "slug": "<strong>split</strong>",
+    "path": "ebook/en/content/078-the-split-command.md"
+  },
+  "stat": {
+    "command_id": "079",
+    "slug": "<strong>stat</strong>",
+    "path": "ebook/en/content/079-the-stat-command.md"
+  },
+  "useradd": {
+    "command_id": "080",
+    "slug": "<strong>useradd</strong>",
+    "path": "ebook/en/content/080-the-useradd-command.md"
+  },
+  "userdel": {
+    "command_id": "081",
+    "slug": "<strong>userdel</strong>",
+    "path": "ebook/en/content/081-the-userdel-command.md"
+  },
+  "usermod": {
+    "command_id": "082",
+    "slug": "<strong>usermod</strong>",
+    "path": "ebook/en/content/082-the-usermod-command.md"
+  },
+  "ionice": {
+    "command_id": "083",
+    "slug": "<strong>ionice</strong>",
+    "path": "ebook/en/content/083-the-ionice-command.md"
+  },
+  "du": {
+    "command_id": "084",
+    "slug": "<strong>du</strong>",
+    "path": "ebook/en/content/084-the-du-command.md"
+  },
+  "ping": {
+    "command_id": "085",
+    "slug": "<strong>ping</strong>",
+    "path": "ebook/en/content/085-the-ping-command.md"
+  },
+  "rsync": {
+    "command_id": "086",
+    "slug": "<strong>rsync</strong>",
+    "path": "ebook/en/content/086-the-rsync-command.md"
+  },
+  "dig": {
+    "command_id": "087",
+    "slug": "<strong>dig</strong>",
+    "path": "ebook/en/content/087-the-dig-command.md"
+  },
+  "whois": {
+    "command_id": "088",
+    "slug": "<strong>whois</strong>",
+    "path": "ebook/en/content/088-the-whois-command.md"
+  },
+  "ssh": {
+    "command_id": "089",
+    "slug": "<strong>ssh</strong>",
+    "path": "ebook/en/content/089-the-ssh-command.md"
+  },
+  "awk": {
+    "command_id": "090",
+    "slug": "<strong>awk</strong>",
+    "path": "ebook/en/content/090-the-awk-command.md"
+  },
+  "crontab": {
+    "command_id": "091",
+    "slug": "<strong>crontab</strong>",
+    "path": "ebook/en/content/091-the-crontab-command.md"
+  },
+  "xargs": {
+    "command_id": "092",
+    "slug": "<strong>xargs</strong>",
+    "path": "ebook/en/content/092-the-xargs-command.md"
+  },
+  "nohup": {
+    "command_id": "093",
+    "slug": "<strong>nohup</strong>",
+    "path": "ebook/en/content/093-the-nohup-command.md"
+  },
+  "pstree": {
+    "command_id": "094",
+    "slug": "<strong>pstree</strong>",
+    "path": "ebook/en/content/094-the-pstree-command.md"
+  },
+  "tree": {
+    "command_id": "095",
+    "slug": "<strong>tree</strong>",
+    "path": "ebook/en/content/095-the-tree-command.md"
+  },
+  "whereis": {
+    "command_id": "096",
+    "slug": "<strong>whereis</strong>",
+    "path": "ebook/en/content/096-the-whereis-command.md"
+  },
+  "printf": {
+    "command_id": "097",
+    "slug": "<strong>printf</strong>",
+    "path": "ebook/en/content/097-the-printf-command.md"
+  },
+  "cut": {
+    "command_id": "098",
+    "slug": "<strong>cut</strong>",
+    "path": "ebook/en/content/098-the-cut-command.md"
+  },
+  "sed": {
+    "command_id": "099",
+    "slug": "<strong>sed</strong>",
+    "path": "ebook/en/content/099-the-sed-command.md"
+  },
+  "vim": {
+    "command_id": "100",
+    "slug": "<strong>vim</strong>",
+    "path": "ebook/en/content/100-the-vim-command.md"
+  },
+  "chown": {
+    "command_id": "101",
+    "slug": "<strong>chown</strong>",
+    "path": "ebook/en/content/101-the-chown-command.md"
+  },
+  "find": {
+    "command_id": "102",
+    "slug": "<strong>find</strong>",
+    "path": "ebook/en/content/102-the-find-command.md"
+  },
+  "rmdir": {
+    "command_id": "103",
+    "slug": "<strong>rmdir</strong>",
+    "path": "ebook/en/content/103-the-rmdir-command.md"
+  },
+  "lsblk": {
+    "command_id": "104",
+    "slug": "<strong>lsblk</strong>",
+    "path": "ebook/en/content/104-the-lsblk-command.md"
+  },
+  "cmatrix": {
+    "command_id": "105",
+    "slug": "<strong>cmatrix</strong>",
+    "path": "ebook/en/content/105-the-cmatrix-command.md"
+  },
+  "chmod": {
+    "command_id": "106",
+    "slug": "<strong>chmod</strong>",
+    "path": "ebook/en/content/106-the-chmod-command.md"
+  },
+  "grep": {
+    "command_id": "107",
+    "slug": "<strong>grep</strong>",
+    "path": "ebook/en/content/107-the-grep-command.md"
+  },
+  "screen": {
+    "command_id": "108",
+    "slug": "<strong>screen</strong>",
+    "path": "ebook/en/content/108-the-screen-command.md"
+  },
+  "nc": {
+    "command_id": "109",
+    "slug": "<strong>nc</strong>",
+    "path": "ebook/en/content/109-the-nc-command.md"
+  },
+  "make": {
+    "command_id": "110",
+    "slug": "<strong>make</strong>",
+    "path": "ebook/en/content/110-the-make-command.md"
+  },
+  "basename": {
+    "command_id": "111",
+    "slug": "<strong>basename</strong>",
+    "path": "ebook/en/content/111-the-basename-command.md"
+  },
+  "banner": {
+    "command_id": "112",
+    "slug": "<strong>banner</strong>",
+    "path": "ebook/en/content/112-the-banner-command.md"
+  },
+  "alias": {
+    "command_id": "113",
+    "slug": "<strong>alias</strong>",
+    "path": "ebook/en/content/113-the-alias-command.md"
+  },
+  "which": {
+    "command_id": "114",
+    "slug": "<strong>which</strong>",
+    "path": "ebook/en/content/114-the-which-command.md"
+  },
+  "date": {
+    "command_id": "115",
+    "slug": "<strong>date</strong>",
+    "path": "ebook/en/content/115-the-date-command.md"
+  },
+  "mount": {
+    "command_id": "116",
+    "slug": "<strong>mount</strong>",
+    "path": "ebook/en/content/116-mount-command.md"
+  },
+  "nice": {
+    "command_id": "117",
+    "slug": "<strong>nice</strong>",
+    "path": "ebook/en/content/117-nice-command.md"
+  },
+  "wc": {
+    "command_id": "118",
+    "slug": "<strong>wc</strong>",
+    "path": "ebook/en/content/118-the-wc-command.md"
+  },
+  "tr": {
+    "command_id": "119",
+    "slug": "<strong>tr</strong>",
+    "path": "ebook/en/content/119-the-tr-command.md"
+  },
+  "fdisk": {
+    "command_id": "120",
+    "slug": "<strong>fdisk</strong>",
+    "path": "ebook/en/content/120-fdisk-command.md"
+  },
+  "wait": {
+    "command_id": "121",
+    "slug": "<strong>wait</strong>",
+    "path": "ebook/en/content/121-wait-command.md"
+  },
+  "zcat": {
+    "command_id": "122",
+    "slug": "<strong>zcat</strong>",
+    "path": "ebook/en/content/122-the-zcat-command.md"
+  },
+  "fold": {
+    "command_id": "123",
+    "slug": "<strong>fold</strong>",
+    "path": "ebook/en/content/123-the-fold-command.md"
+  },
+  "quota": {
+    "command_id": "124",
+    "slug": "<strong>quota</strong>",
+    "path": "ebook/en/content/124-the-quota-command.md"
+  },
+  "aplay": {
+    "command_id": "125",
+    "slug": "<strong>aplay</strong>",
+    "path": "ebook/en/content/125-the-aplay-command.md"
+  },
+  "spd-say": {
+    "command_id": "126",
+    "slug": "<strong>spd</strong>&nbsp;and&nbsp;<strong>say</strong>",
+    "path": "ebook/en/content/126-the-spd-say-command.md"
+  }
+}

@@ -1,0 +1,44 @@
+.tooltip {
+  cursor:default;
+}
+
+.icons {
+  margin: 0 auto !important;
+}
+
+.icons.position {
+  width: 240px; /* 3 * (10 + 60 + 10) */
+}
+
+.icons.color {
+  width: 325px; /* 4 * (10 + 60 + 10) + 5 (?) */
+}
+
+@media only screen and (max-width: 400px) {
+  .icons.color {
+    width: 165px; /* 2 * (10 + 60 + 10) + 5 (?) */
+  }
+}
+
+.icons span {
+  line-height: 60px;
+  display: inline-block;
+  cursor: default;
+  font-size: 60px;
+  margin: 10px;
+  padding: 0px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.md-button {
+  text-align: center;
+  margin: 10px;
+}
+
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}

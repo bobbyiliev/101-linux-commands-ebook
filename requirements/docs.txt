@@ -1,0 +1,76 @@
+mkdocs
+mkdocs-material
+mkdocs-material-extensions
+pymdown-extensions
+mdx-include
+markdown-include
+mdx_truly_sane_lists
+pygments
+
+
+## Navigation & page building
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#navigation--page-building
+mkdocs-exclude
+mkdocs-awesome-pages-plugin
+mkdocs-encryptcontent-plugin
+
+
+## Links & references
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#links--references
+mkdocs-redirects
+mkdocs-tooltipster-links-plugin
+
+
+## HTML processing & CSS styling
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#html-processing--css-styling
+mkdocs-minify-plugin
+mkdocs-enumerate-headings-plugin
+
+
+## API documentation building
+mkapi
+mkautodoc
+mkdocstrings
+mkdocs-gen-files
+
+
+## Citations & bibliography
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#citations--bibliography
+mkdocs-bibtex
+
+
+## Code execution, variables & templating
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#code-execution-variables--templating
+mkdocs-jupyter
+mkdocs-markdownextradata-plugin
+mkdocs-markmap
+
+
+## Git repos and info
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#git-repos--info
+mkdocs-macros-plugin
+mkdocs-git-revision-date-plugin
+
+
+## Images, Tables, Charts & Graphs
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#images-tables-charts--graphs
+mkdocs-kroki-plugin
+mkdocs-drawio-exporter
+mkdocs-table-reader-plugin
+
+
+## PDF & site conversion
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#pdf--site-conversion
+mkdocs-pdf-export-plugin # https://doc.courtbouillon.org/weasyprint/latest/first_steps.html#linux
+
+
+## Other
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#other
+mkdocs-tooltips
+mkdocs-coverage
+
+
+## Reusing content, snippets & includes
+#  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#reusing-content-snippets--includes
+mkdocs-include-markdown-plugin
+

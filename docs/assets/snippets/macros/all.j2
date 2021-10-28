@@ -1,0 +1,14 @@
+{# How to use this macro? #}
+{# ==> Uncomment and Include the following in an html/markdown file. #}
+{# {% import 'macros/all.j2' as macros %}
+{# either use .j2 or .html for importing ---> both work. #}
+{# {% import 'macros/all.html' as macros %} #}
+{# {{ macros.get_email(firstname='sugato', lastname='ray') | upper  }} #}
+
+{% import 'macros/common.j2' as _common %}
+{% set common = _common %}
+
+{# This is a dummy function #}
+{% macro get_email(firstname, lastname, domain="domain.com") -%}
+    - {{ firstname }}.{{ lastname }}@{{ domain }}
+{% endmacro %}

@@ -1,0 +1,51 @@
+name: "MkDocs Publish Docs on GitHub Pages CI"
+on:
+  push:
+    branches:
+      #- master
+      - main
+      - docs_with_mkdocs
+
+env:
+  PYTHON_VERSION: "3.7"
+  EBOOKS_DIR: "./ebook"
+  EBOOKS_COPY_DIR: "./docs/ebook"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python runtime
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Python dependencies for MkDocs
+        run: pip install -r requirements/docs.txt
+
+      - name: Cleanup Docs (Before MkDocs Building)
+        run: |
+          rm -rf ${{ env.EBOOKS_COPY_DIR }}
+
+      - name: Load-in Latest Docs
+        run: |
+          cp -rf ${{ env.EBOOKS_DIR }} ${{ env.EBOOKS_COPY_DIR }}
+
+      - name: Update mkdocs.yml with latest navbar
+        run: |
+          cd ./composer && python3 compose.py && python3 nav_updater.py; cd ..
+          ## cd composer && . ./updater.sh
+
+      - name: Deploy documentation
+        env:
+          FONTAWESOME_KIT: ${{ secrets.FONTAWESOME_KIT }}
+        run: |
+          mkdocs gh-deploy --force
+          mkdocs --version
+
+      - name: Cleanup Docs (After MkDocs Building)
+        run: |
+          rm -rf ${{ env.EBOOKS_COPY_DIR }}

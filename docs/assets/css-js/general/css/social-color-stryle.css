@@ -1,0 +1,53 @@
+/* # cspell: disable */
+
+/* Icon Fill Color Styles
+ *
+ * Source: https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#with-colors
+ *
+ */
+
+.devdotto {
+    color: #0A0A0A;
+    src: "https://simpleicons.org/icons/devdotto.svg";
+}
+
+.facebook {
+    color: #4267B2;
+    src: "https://simpleicons.org/icons/facebook.svg";
+}
+
+.github {
+    color: #181717;
+    src: "https://simpleicons.org/icons/github.svg";
+    /* icon: "https://simpleicons.org/icons/github.svg"; */
+}
+
+.linkedin {
+    color: #0A66C2;
+    src: "https://simpleicons.org/icons/linkedin.svg";
+    /* icon: "https://simpleicons.org/icons/linkedin.svg"; */
+}
+
+.medium {
+    color: #00AB6C;
+    src: "https://simpleicons.org/icons/medium.svg";
+    /* icon: "https://simpleicons.org/icons/medium.svg"; */
+}
+
+.stackoverflow {
+    color: #F58025;
+    src: "https://simpleicons.org/icons/stackoverflow.svg";
+    /* icon: "https://simpleicons.org/icons/stackoverflow.svg"; */
+}
+
+.twitter {
+    color: #1DA1F2;
+    src: "https://simpleicons.org/icons/twitter.svg";
+    /* icon: "https://simpleicons.org/icons/twitter.svg"; */
+}
+
+.youtube {
+    color: #FF0000;
+    src: "https://simpleicons.org/icons/youtube.svg";
+    /* icon: "https://simpleicons.org/icons/youtube.svg"; */
+}
