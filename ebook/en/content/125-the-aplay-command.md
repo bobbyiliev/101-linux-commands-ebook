@@ -16,7 +16,7 @@ $ aplay [flags] [filename [filename]] ...
 -L, –list-pcms : List all PCMs(Pulse Code Modulation) defined.
 -D, –device=NAME : Select PCM by name.
 ```
-Note: This command contain various other options that we normally don’t need. If you want to know more about you can simply run following command on your terminal.
+Note: This command contains various other options that we normally don’t need. If you want to know more about you can simply run following command on your terminal.
 ```
 aplay --help
 ```
