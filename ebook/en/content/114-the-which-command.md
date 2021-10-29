@@ -9,6 +9,40 @@ It has 3 return status as follows:
     1 : If one or more specified commands is nonexistent or not executable.
     2 : If an invalid option is specified.
 
+### Examples
+
+1. To find the full path of the ls command, type the following:
+
+```
+which ls
+```
+
+2. We can provide more than one arguments to the which command:
+
+```
+which netcat uptime ping
+```
+
+ The which command searches from left to right, and if more than one matches are found in the directories listed in the PATH path variable, which will print only the first one.
+
+3. To display all the paths for the specified command:
+
+```
+which [filename] -a
+```
+
+4. To display the path of node executable files, execute the command:
+
+```
+which node
+```
+
+5. To display the path of Java executable files, execute:
+
+```
+which java  
+```
+
 ### Syntax
 
 ```
