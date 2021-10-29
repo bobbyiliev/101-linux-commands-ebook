@@ -315,7 +315,7 @@ Navigate as usual with `arrow keys`, `home`, `end`, `pg up`, `pg dn`.
 
 User info without passwords is stored in `/etc/passwd`.
 
-| username | PW  | UID  | GID  | Kommentar | HOME        | SHELL     |
+| username | PW  | UID  | GID  |  GECOS    | HOME        | SHELL     |
 | -------- | --- | ---- | ---- | --------- | ----------- | --------- |
 | hfict    | x   | 1000 | 1000 |           | /home/hfict | /bin/bash |
 
