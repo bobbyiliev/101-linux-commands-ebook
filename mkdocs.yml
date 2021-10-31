@@ -19,8 +19,6 @@ remote_name: origin
 
 ### Copyright
 #copyright: Copyright &copy; 2021 Bobby Iliev
-#copyright: |
-#  Copyright &copy; 2021 <a href="https://github.com/bobbyiliev"  target="_blank" rel="noopener">Bobby Iliev</a>
 
 ### Preview Controls
 use_directory_urls: true
@@ -69,11 +67,7 @@ theme:
     - search.suggest
     - toc.integrate # @regular | integrates the nav (on-left) with toc (on-right) and places the integrated nav+toc on-left.
   icon:
-    # repo: fontawesome/brands/git-square
-    # repo: fontawesome/brands/git-alt
     repo: fontawesome/brands/github
-    # repo: fontawesome/brands/github-alt
-    # repo: fontawesome/brands/github-square
   #logo: img/icon-white.svg
   #favicon: img/favicon.png
   # font:
@@ -130,18 +124,6 @@ plugins:
 
 ### Extensions
 markdown_extensions:
-  # - abbr
-  # - admonition
-  # - attr_list
-  # - codehilite
-  # - def_list
-  # - extra
-  # - footnotes
-  # - meta
-  # - md_in_html
-  # - smarty
-  # - tables
-  # - toc
   ##! Controls: markdown.extensions
   - markdown.extensions.abbr # same as: - abbr
   - markdown.extensions.admonition # same as: - admonition
