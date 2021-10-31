@@ -798,6 +798,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [124-the-quota-command.md](ebook/en/content/124-the-quota-command.md)
 - [125-the-aplay-command.md](ebook/en/content/125-the-aplay-command.md)
 - [126-the-spd-say-command.md](ebook/en/content/126-the-spd-say-command.md)
+- [127-the-xeyes-command.md](ebook/en/content/127-the-xeyes-command.md)
 
 # 🔗Links
 
