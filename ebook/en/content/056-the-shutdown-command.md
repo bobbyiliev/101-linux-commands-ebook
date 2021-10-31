@@ -13,7 +13,7 @@ Only users with root (or sudo) privileges can use the `shutdown` command.
 sudo shutdown now
 ```
 
-2. Shut down you system after 10 minutes:
+2. Shut down your system after 10 minutes:
 
 ```
 sudo shutdown +10
@@ -36,4 +36,4 @@ shutdown [OPTIONS] [TIME] [MESSAGE]
 |**Short Flag**   |**Long Flag**   |**Description**   |
 |:---|:---|:---|
 |`-r`|<center>-</center>|Reboot the system|
-|`-c`|<center>-</center>|Cancel an sheduled shut down|
+|`-c`|<center>-</center>|Cancel an scheduled shut down|
