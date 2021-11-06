@@ -799,6 +799,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [125-the-aplay-command.md](ebook/en/content/125-the-aplay-command.md)
 - [126-the-spd-say-command.md](ebook/en/content/126-the-spd-say-command.md)
 - [127-the-xeyes-command.md](ebook/en/content/127-the-xeyes-command.md)
+- [128-the-parted-command.md](ebook/en/content/128-the-parted-command.md)
 
 # 🔗Links
 
