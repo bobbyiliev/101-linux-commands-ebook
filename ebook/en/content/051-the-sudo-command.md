@@ -25,3 +25,28 @@ sudo [-OPTION] command
 |`-u`|The -u (user) option causes sudo to run the specified command as a user other than root. To specify a uid instead of a username, use #uid.|
 |`-s`|The -s (shell) option runs the shell specified by the SHELL environment variable if it's set or the shell as specified in the file passwd.|
 |`--`|The -- flag indicates that sudo should stop processing command line arguments. It is most useful in conjunction with the -s flag.|
+
+## Examples
+This command switches your command prompt to the BASH shell as a root user:
+
+```
+sudo bash
+```
+Your command line should change to:
+
+```
+root@hostname:/home/[username]
+```
+
+Adding a string of text to a file is often used to add the name of a software repository to the sources file, without opening the file for editing. Use the following syntax with echo, sudo and tee command:
+
+
+```
+echo ‘string-of-text’ | sudo tee -a [path_to_file]
+```
+
+Example:
+
+````
+echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" \ | sudo tee /etc/apt/sources.list.d/nginx.list
+````
