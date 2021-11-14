@@ -7,20 +7,18 @@ site_description: |
   No matter if you are a DevOps/SysOps engineer, developer, or just a Linux
   enthusiast, you will most likely have to use the terminal at some point in
   your career.
-site_url: https://sugatoray.github.io/101-linux-commands-ebook
-site_author: Sugato Ray
+site_url: https://bobbyiliev.github.io/101-linux-commands-ebook
+site_author: Bobby Iliev
 
 ### Repository
-repo_name: sugatoray/101-linux-commands-ebook
-repo_url: https://github.com/sugatoray/101-linux-commands-ebook
+repo_name: bobbyiliev/101-linux-commands-ebook
+repo_url: https://github.com/bobbyiliev/101-linux-commands-ebook
 edit_uri: '' # comment this out to disable allowing editing of the docs from the website.
 remote_branch: gh-pages
 remote_name: origin
 
 ### Copyright
-#copyright: Copyright &copy; 2021 Sugato Ray
-#copyright: |
-#  Copyright &copy; 2021 <a href="https://github.com/sugatoray"  target="_blank" rel="noopener">Sugato Ray</a>
+#copyright: Copyright &copy; 2021 Bobby Iliev
 
 ### Preview Controls
 use_directory_urls: true
@@ -69,11 +67,7 @@ theme:
     - search.suggest
     - toc.integrate # @regular | integrates the nav (on-left) with toc (on-right) and places the integrated nav+toc on-left.
   icon:
-    # repo: fontawesome/brands/git-square
-    # repo: fontawesome/brands/git-alt
     repo: fontawesome/brands/github
-    # repo: fontawesome/brands/github-alt
-    # repo: fontawesome/brands/github-square
   #logo: img/icon-white.svg
   #favicon: img/favicon.png
   # font:
@@ -96,10 +90,6 @@ plugins:
   # macros must be placed after plugin: git-revision-date
   - macros:
       include_dir: docs/assets/snippets # snippets
-      # j2_block_start_string: '{{%'
-      # j2_block_end_string: '%}}'
-      # j2_variable_start_string: '{{'
-      # j2_variable_end_string: '}}'
   - markdownextradata:
       data: data
   - minify:
@@ -134,18 +124,6 @@ plugins:
 
 ### Extensions
 markdown_extensions:
-  # - abbr
-  # - admonition
-  # - attr_list
-  # - codehilite
-  # - def_list
-  # - extra
-  # - footnotes
-  # - meta
-  # - md_in_html
-  # - smarty
-  # - tables
-  # - toc
   ##! Controls: markdown.extensions
   - markdown.extensions.abbr # same as: - abbr
   - markdown.extensions.admonition # same as: - admonition
@@ -214,7 +192,7 @@ markdown_extensions:
       repo_url_shorthand: true #
       social_url_shorthand: true
       social_url_shortener: true
-      user: sugatoray #
+      user: bobbyiliev #
       repo: 101-linux-commands-ebook #
       normalize_issue_symbols: true
   - pymdownx.mark:
@@ -262,27 +240,6 @@ extra:
   # version:
   #   default: latest
   #   provider: mike
-  # disqus: sugatoray
-  social:
-  #- icon: fontawesome/brands/github-square
-  #- icon: fontawesome/brands/github-alt
-  - icon: fontawesome/brands/github
-    link: https://github.com/sugatoray
-  # - icon: simpleicons.org/icons/stackoverflow
-  - icon: fontawesome/brands/stack-overflow
-    link: https://stackoverflow.com/users/8474894/cypherx
-  #- icon: fontawesome/brands/stackoverflow
-  #  link: https://discord.gg/VQjSZaeJmf
-  - icon: fontawesome/brands/twitter
-    link: https://twitter.com/sugatoray
-  - icon: fontawesome/brands/linkedin
-    link: https://www.linkedin.com/in/sugatoray
-  - icon: fontawesome/brands/dev
-    link: https://dev.to/sugatoray
-  - icon: fontawesome/brands/medium
-    link: https://medium.com/@sugatoray
-  #- icon: fontawesome/solid/globe
-  #  link: https://www.sugatoray.com
   alternate:
   - link: /
     name: en - English
@@ -463,6 +420,10 @@ extra_javascript:
   - "<code>125:&nbsp;<strong>aplay</strong></code>": "ebook/en/content/125-the-aplay-command.md"
   - "<code>126:&nbsp;<strong>spd</strong>&nbsp;and&nbsp;<strong>say</strong></code>": "ebook/en/content/126-the-spd-say-command.md"
   - "Wrap Up": "ebook/en/content/999-wrap-up.md"
+
+- "<p><i class='fas fa-download'>&nbsp;</i>Download</p>":
+  - "download.md"
+
 - "<p><i class='fas fa-info-circle'>&nbsp;</i>About</p>":
   - "Info": "about/index.md"
   - "License": "about/license.md"

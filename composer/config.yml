@@ -1,0 +1,8 @@
+generate_nav:
+  docs_dir: "../docs"
+  dry_run: False
+  create_slugmap: True
+  ebook_pattern: "ebook/en/content/*.md"
+  command_filename_endswith: "command.md"
+  slugmap_filename: "slugmap.json"
+  command_navs_filename: "command_navs.yml"

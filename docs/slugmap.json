@@ -582,12 +582,12 @@
   "mount": {
     "command_id": "116",
     "slug": "<strong>mount</strong>",
-    "path": "ebook/en/content/116-mount-command.md"
+    "path": "ebook/en/content/116-the-mount-command.md"
   },
   "nice": {
     "command_id": "117",
     "slug": "<strong>nice</strong>",
-    "path": "ebook/en/content/117-nice-command.md"
+    "path": "ebook/en/content/117-the-nice-command.md"
   },
   "wc": {
     "command_id": "118",
@@ -602,12 +602,12 @@
   "fdisk": {
     "command_id": "120",
     "slug": "<strong>fdisk</strong>",
-    "path": "ebook/en/content/120-fdisk-command.md"
+    "path": "ebook/en/content/120-the-fdisk-command.md"
   },
   "wait": {
     "command_id": "121",
     "slug": "<strong>wait</strong>",
-    "path": "ebook/en/content/121-wait-command.md"
+    "path": "ebook/en/content/121-the-wait-command.md"
   },
   "zcat": {
     "command_id": "122",
@@ -633,5 +633,15 @@
     "command_id": "126",
     "slug": "<strong>spd</strong>&nbsp;and&nbsp;<strong>say</strong>",
     "path": "ebook/en/content/126-the-spd-say-command.md"
+  },
+  "xeyes": {
+    "command_id": "127",
+    "slug": "<strong>xeyes</strong>",
+    "path": "ebook/en/content/127-the-xeyes-command.md"
+  },
+  "parted": {
+    "command_id": "128",
+    "slug": "<strong>parted</strong>",
+    "path": "ebook/en/content/128-the-parted-command.md"
   }
 }

@@ -5,6 +5,7 @@
 	    <a name="stars"><img src="https://img.shields.io/github/stars/bobbyiliev/101-linux-commands-ebook?style=for-the-badge"></a>
 	    <a name="forks"><img src="https://img.shields.io/github/forks/bobbyiliev/101-linux-commands-ebook?logoColor=green&style=for-the-badge"></a>
 	    <a name="contributions"><img src="https://img.shields.io/github/contributors/bobbyiliev/101-linux-commands-ebook?logoColor=green&style=for-the-badge"></a>
+      <a name="ebook" href="https://sugatoray.github.io/101-linux-commands-ebook" target="_blank"><img src="https://img.shields.io/static/v1?label=eBook&message=Read%20Online&color=orange&logoColor=green&style=for-the-badge&logo=github"><img src="https://img.shields.io/github/contributors/bobbyiliev/101-linux-commands-ebook?logoColor=yellow&style=for-the-badge"></a>
 	    <a name="madeWith"><img src="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg?style=for-the-badge"></a>
 	    <a name="license"><img src="https://img.shields.io/github/license/bobbyiliev/101-linux-commands-ebook?style=for-the-badge"></a>
     </p>
@@ -16,6 +17,10 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 
 **Make sure to star the repository** ⭐
 
+## 📙 Online eBook
+
+An online copy :zap:🌐 of this ebook is available [**here** 📙](https://sugatoray.github.io/101-linux-commands-ebook).
+
 ## 🔽 Download links
 
 - [Dark mode](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/export/101-linux-commands-ebook-dark.pdf)
@@ -23,15 +28,17 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 - [Light mode](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/export/101-linux-commands-ebook-light.pdf)
 
 ---
+
 # Content <!-- omit in toc -->
+
 - [Basics](#basics)
   - [File Hierarchy Standard (FHS)](#file-hierarchy-standard-fhs)
   - [Commands](#commands)
+- [Disk and File System Management](#disk-and-file-system-management)
+  - [General Disk Manipulation (non-LVM)](#general-disk-manipulation-non-lvm)
   - [Globs (Wildcards)](#globs-wildcards)
   - [Regex](#regex)
   - [Stream redirection](#stream-redirection)
-- [Disk and File System Management](#disk-and-file-system-management)
-  - [General Disk Manipulation (non-LVM)](#general-disk-manipulation-non-lvm)
 - [Text Readers & Editors](#text-readers--editors)
   - [Less](#less)
   - [VI](#vi)
@@ -42,14 +49,28 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 - [Package Management](#package-management)
   - [RPM](#rpm)
   - [YUM](#yum)
-- [📃List of commands by category](#list-of-commands-by-category)
-- [📃List of commands by chapter](#list-of-commands-by-chapter)
+- [📃 List of commands by category:](#-list-of-commands-by-category)
+    - [Directory Navigation](#directory-navigation)
+    - [File Commands](#file-commands)
+    - [File and Directory Manipulation](#file-and-directory-manipulation)
+    - [Package archive and compression tools](#package-archive-and-compression-tools)
+    - [System commands](#system-commands)
+    - [Networking Commands](#networking-commands)
+    - [Package Management](#package-management-1)
+    - [User Information commands](#user-information-commands)
+    - [Session commands](#session-commands)
+    - [Getting Help](#getting-help)
+    - [Applications](#applications)
+- [📃 List of commands by chapter:](#-list-of-commands-by-chapter)
 - [🔗Links](#links)
-- [📖Other E-Books](#other-ebooks)
+- [📖Other eBooks](#other-ebooks)
 - [🤲Contributing](#contributing)
 ---
+
 # Basics
+
 ## File Hierarchy Standard (FHS)
+
 | Path     | Content                             |
 | -------- | ----------------------------------- |
 | `/bin`   | Binaries (User)                     |
@@ -67,7 +88,9 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 | `/run`   | PID files of running processes      |
 
 ---
+
 ## Commands
+
 **File System Commands**
 
 | Command | Options            | Description                                       |
@@ -96,6 +119,7 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 |         | `! searchparams` | Invert search                                     |
 
 ---
+
 **File Manipulation**
 
 | Command | Options                                      | Description                                |
@@ -116,6 +140,7 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 | `wc`    | `file`                                     | Count Lines, Words, Chars (Bytes)          |
 
 ---
+
 **Archiving**
 
 | Command          | Options                          | Description                                              |
@@ -136,6 +161,7 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 # Disk and File System Management
 
 ## General Disk Manipulation (non-LVM)
+
 Creating physical partitions is **not required**! You can create PVs directly!
 
 | Command        | Options                     | Description                          |
@@ -173,6 +199,7 @@ Creating physical partitions is **not required**! You can create PVs directly!
 ---
 
 ## Globs (Wildcards)
+
 The dot `.` in front of hidden items is ignored by glob patterns!
 
 | Character | Description             |
@@ -183,6 +210,7 @@ The dot `.` in front of hidden items is ignored by glob patterns!
 | `[!ac-e]` | 1 character not in enum |
 
 ## Regex
+
 Bash itself does not know regex. Use programs like `grep`, `sed`, `awk`.
 
 **Control characters**
@@ -219,6 +247,7 @@ Bash itself does not know regex. Use programs like `grep`, `sed`, `awk`.
 |         | `-i pattern file` | Ignore case    |
 
 ## Stream redirection
+
 - `>` overwrite
 - `>>` append
 
@@ -230,9 +259,10 @@ Bash itself does not know regex. Use programs like `grep`, `sed`, `awk`.
 | `2>&1`                | STDERR to same target as STDOUT |
 | `> file 2>&1`         | STDOUT and STDERR to file       |
 
-
 # Text Readers & Editors
+
 ## Less
+
 | Command             | Description                     |
 | ------------------- | ------------------------------- |
 | `q`                 | Quit                            |
@@ -302,8 +332,8 @@ Navigate as usual with `arrow keys`, `home`, `end`, `pg up`, `pg dn`.
 | `:!command` | run bash command             |
 | `:r foo`    | read file foo into this file |
 
-
 # User and Group Management
+
 **UID**
 
 | UID   | Type           |
@@ -338,11 +368,12 @@ Password encryption is configured in `/etc/login.defs`.
 | hfict    | [hash] | 17803          | 0       | 99999   | 7    |          |        |
 
 PW:
+
 - `[hash]` Encrypted test password
 - `! [hash]` Account locked
 - `!!` or `*` Account locked, no password set
 
-** Commands **
+**Commands**
 
 | Command    | Param 					      | Description 					        |
 | ---------- | ---------------------------------------------- | ------------------------------------------------------- |
@@ -367,9 +398,10 @@ PW:
 | `groupadd` | `groupname` 				      | Create group (optionally set GID with `-g`) 		|
 | `groupdel` | `groupname` 			              | Delete group 						|
 
-
 # File System Permissions
+
 Permissions can be set on:
+
 - User (owner)
 - Group (owner)
 - Others
@@ -430,15 +462,17 @@ DenyUsers, AllowUsers, DenyGroups, AllowGroups override each other and are appli
 | `AllowGroups`     | `group1 group2`    | Allow only users from specified groups        |
 | `DenyGroups`      | `group1 group2`    | Allow all users but those in specified groups |
 
-
 # Cronjobs
+
 **[`Crontab`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/091-the-crontab-command.md)**
 
 Cronjobs are configured in crontab files. Do not edit these files directly. Use `crontab -e` instead. This runs all required actions to activate a cronjob after saving the edited crontab. The locations are as follows:
+
 - `/var/spool/cron/username` user specific
 - `/etc/crontab` system wide crontab
 
 The format of the files is (user specific crontabs **do not** have the column *user-name*):
+
 ```
 Example of job definition:
 .---------------- minute (0 - 59 | */5 [every 5 minutes])
@@ -461,7 +495,8 @@ Example of job definition:
 
 **Script folders**
 
-Scripts in one of the following directories will be executed at the intervall specified by the directory's name:
+Scripts in one of the following directories will be executed at the interval specified by the directory's name:
+
 - `/etc/cron.hourly`
 - `/etc/cron.daily`
 - `/etc/cron.weekly`
@@ -470,6 +505,7 @@ Scripts in one of the following directories will be executed at the intervall sp
 **Allow / Deny usage**
 
 Add user names one per line to the following files:
+
 - `/etc/cron.allow` Whitelist
 - `/etc/cron.deny` Blacklist
 
@@ -481,6 +517,7 @@ Execution of cronjobs is logged in `/var/log/cron`.
 Results are sent to the users mail `/var/spool/mail/username`.
 
 # Package Management
+
 ## RPM
 
 [`RPM`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/075-the-rpm-command.md)
@@ -497,6 +534,7 @@ Results are sent to the users mail `/var/spool/mail/username`.
 | `rpm -V packagename`     | Validate installed package                |
 
 ## YUM
+
 [`YUM`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/053-the-yum-command.md) is configured in `/etc/yum.conf`
 
 Repos are configured in `/etc/yum.repos.d/`
@@ -528,6 +566,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 
 ---
 ### Directory Navigation
+
 - [cd](ebook/en/content/002-the-cd-command.md) - change working directory
 - [ls](ebook/en/content/001-the-ls-command.md) - list directory contents
 - [dir](ebook/en/content/057-the-dir-command.md) - directory listing, columnar format
@@ -536,6 +575,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 
 
 ### File Commands
+
 - [cat/tac](ebook/en/content/003-the-cat-tac-command.md) - concatenate and print files
 - [diff/sdiff](ebook/en/content/062-the-diff-sdiff-command.md) - compare files line by line
 - [find](ebook/en/content/102-the-find-command.md) - search for files
@@ -547,6 +587,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [uniq](ebook/en/content/074-the-uniq-command.md) -  report or filter out repeated lines in a file
 
 ### File and Directory Manipulation
+
 - [awk](ebook/en/content/090-the-awk-command.md) - pattern-directed scanning and processing language
 - [chmod](ebook/en/content/106-the-chmod-command.md) - change permissions
 - [chown](ebook/en/content/101-the-chown-command.md) - change file owner and group
@@ -567,7 +608,8 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [touch](ebook/en/content/007-the-touch-command.md) - change file access and modification times
 - [vim](ebook/en/content/100-the-vim-command.md) - text editor
 
-### Package archive and compression tools 
+### Package archive and compression tools
+
 - [bzip2](ebook/en/content/069-the-bzip2-command.md) - block-sorting file compressor
 - [gzip](ebook/en/content/015-the-gzip-command.md) - compression tool
 - [gunzip](ebook/en/content/064-the-gunzip-command.md) - decompression tool
@@ -576,6 +618,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [unzip](ebook/en/content/055-the-unzip-command.md) - list, test, extract compressed ZIP files
 
 ### System commands
+
 - [crontab](ebook/en/content/091-the-crontab-command.md) - maintain individual tables used to drive the cron daemon
 - [df](ebook/en/content/010-the-df-command.md) - display free disk space
 - [du](ebook/en/content/084-the-du-command.md) - display disk usage statistics
@@ -604,6 +647,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [whereis](ebook/en/content/096-the-whereis-command.md) - locate programs
 
 ### Networking Commands
+
 - [dig](ebook/en/content/087-the-dig-command.md) - DNS lookup utility
 - [ifconfig](ebook/en/content/041-the-ifconfig-command.md) - configure network interface parameters
 - [ip](ebook/en/content/042-the-ip-command.md) - perform network administration tasks
@@ -615,6 +659,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 
 
 ### Package Management
+
 - [apt](ebook/en/content/052-the-apt-command.md) - Debian package management
 - [rpm](ebook/en/content/075-the-rpm-command.md) - RPM package manager (RedHat)
 - [yum](ebook/en/content/053-the-yum-command.md) - package manager for RedHat Linux
@@ -631,6 +676,7 @@ For user modification, see useradd, userdel, usermod under System commands
 - [whoami](ebook/en/content/027-the-whoami-command.md) - display effective user id
 
 ### Session commands
+
 - [clear](ebook/en/content/043-the-clear-command.md) - clear terminal screen
 - [env](ebook/en/content/036-the-env-command.md) - display environment variables, or set variables for command execution
 - [exit](ebook/en/content/061-the-exit-command.md) - close the active session/shell
@@ -645,11 +691,13 @@ For user modification, see useradd, userdel, usermod under System commands
 - [screen](ebook/en/content/108-the-screen-command.md) - start a screen session
 
 ### Getting Help
+
 - [man](ebook/en/content/024-the-man-command.md) - format and display online manual pages
 - [help](ebook/en/content/011-the-help-command.md) - displays help about basic commands not covered by 'man'
 - [whatis](ebook/en/content/016-the-whatis-command.md) - display one-line command descriptions
 
 ### Applications
+
 - [bc](ebook/en/content/009-the-bc-command.md) - basic calculator
 - [cal](ebook/en/content/008-the-cal-command.md) - displays a calendar
 - [cmatrix](ebook/en/content/105-the-cmatrix-command.md) - enter the Matrix

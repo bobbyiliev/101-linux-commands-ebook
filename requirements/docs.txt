@@ -6,6 +6,7 @@ mdx-include
 markdown-include
 mdx_truly_sane_lists
 pygments
+pyyaml
 
 
 ## Navigation & page building
