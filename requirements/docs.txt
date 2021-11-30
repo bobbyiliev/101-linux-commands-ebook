@@ -1,77 +1,77 @@
 mkdocs
-mkdocs-material
-mkdocs-material-extensions
-pymdown-extensions
-mdx-include
-markdown-include
-mdx_truly_sane_lists
+mkdocs-material==7.3.6
+mkdocs-material-extensions==1.0.3
+pymdown-extensions==9.0
+mdx-include==1.4.1
+markdown-include==0.6.0
+mdx_truly_sane_lists==1.2
 pygments
 pyyaml
 
 
 ## Navigation & page building
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#navigation--page-building
-mkdocs-exclude
-mkdocs-awesome-pages-plugin
-mkdocs-encryptcontent-plugin
+mkdocs-exclude==1.0.2
+mkdocs-awesome-pages-plugin==2.5.0
+mkdocs-markdownextradata-plugin==0.2.4
 
 
 ## Links & references
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#links--references
-mkdocs-redirects
-mkdocs-tooltipster-links-plugin
+mkdocs-redirects==1.0.3
+mkdocs-tooltipster-links-plugin==0.1.0
 
 
 ## HTML processing & CSS styling
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#html-processing--css-styling
-mkdocs-minify-plugin
-mkdocs-enumerate-headings-plugin
+mkdocs-minify-plugin==0.4.1
+mkdocs-enumerate-headings-plugin==0.4.5
 
 
 ## API documentation building
 mkapi
 mkautodoc
-mkdocstrings
-mkdocs-gen-files
+mkdocstrings==0.16.2
+mkdocs-gen-files==0.3.3
 
 
 ## Citations & bibliography
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#citations--bibliography
-mkdocs-bibtex
+mkdocs-bibtex==1.0.0
 
 
 ## Code execution, variables & templating
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#code-execution-variables--templating
-mkdocs-jupyter
-mkdocs-markdownextradata-plugin
-mkdocs-markmap
+mkdocs-jupyter==0.18.2
+mkdocs-markdownextradata-plugin==0.2.4
+mkdocs-markmap==2.1.2
 
 
 ## Git repos and info
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#git-repos--info
-mkdocs-macros-plugin
-mkdocs-git-revision-date-plugin
+mkdocs-macros-plugin==0.6.0
+mkdocs-git-revision-date-plugin==0.3.1
 
 
 ## Images, Tables, Charts & Graphs
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#images-tables-charts--graphs
-mkdocs-kroki-plugin
-mkdocs-drawio-exporter
-mkdocs-table-reader-plugin
+mkdocs-kroki-plugin==0.2.0
+mkdocs-drawio-exporter==0.8.0
+mkdocs-table-reader-plugin==0.6
 
 
 ## PDF & site conversion
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#pdf--site-conversion
-mkdocs-pdf-export-plugin # https://doc.courtbouillon.org/weasyprint/latest/first_steps.html#linux
+# https://doc.courtbouillon.org/weasyprint/latest/first_steps.html#linux
+mkdocs-pdf-export-plugin==0.5.9
 
 
 ## Other
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#other
-mkdocs-tooltips
-mkdocs-coverage
+mkdocs-tooltips==0.1.0
+mkdocs-coverage==0.2.4
 
 
 ## Reusing content, snippets & includes
 #  source: https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins#reusing-content-snippets--includes
-mkdocs-include-markdown-plugin
-
+mkdocs-include-markdown-plugin==3.2.3
