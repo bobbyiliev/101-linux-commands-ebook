@@ -55,6 +55,7 @@ grep [options] pattern [files]
 | `-v`           | `--invert-match`       | This prints out all the lines that do not matches the pattern                                   |
 | `-e`           | `--regexp=`            | Specifies expression with this option. Can use multiple times                                   |
 | `-f`           | `--file=`              | Takes patterns from file, one per line.                                                         |
+| `-F`           | `--fixed-strings=`     | Interpret patterns as fixed strings, not regular expressions.                                   |
 | `-E`           | `--extended-regexp`    | Treats pattern as an extended regular expression (ERE)                                          |
 | `-w`           | `--word-regexp`        | Match whole word                                                                                |
 | `-o`           | `--only-matching`      | Print only the matched parts of a matching line, with each such part on a separate output line. |
