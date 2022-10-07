@@ -27,6 +27,14 @@ scp root@{remote-ip-address}:/home/remote-file /home/documents/
 ```
 scp root@{remote1-ip-address}:/home/remote-file root@{remote2-ip-address}/home/
 ```
+4. To copy file though a jump host server. 
+```
+scp /home/documents/local-file -oProxyJump=<jump-host-ip> root@{remote-ip-address}/home/
+```
+On newer version of scp on some machines you can use the above command with a `-J` flag.
+```
+scp /home/documents/local-file -J <jump-host-ip> root@{remote-ip-address}/home/
+```
 
 ### Syntax:
 ```
