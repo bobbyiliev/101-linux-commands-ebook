@@ -850,6 +850,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [128-the-parted-command.md](ebook/en/content/128-the-parted-command.md)
 - [129-the-nl-command.md](ebook/en/content/129-the-nl-command.md)
 - [130-the-pidof-command.md](ebook/en/content/130-the-pidof-command.md)
+- [131-the-shuf-command.md](ebook/en/content/131-the-shuf-command.md)
 
 # 🔗Links
 
