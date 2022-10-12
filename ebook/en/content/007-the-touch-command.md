@@ -8,8 +8,8 @@ touch [OPTION]... FILE...
 ```
 
 ### Options
-|**Short Flag** |**Long Flag** |**Description** |
-|: ---|: ---|: ---|
+|**Short Flag**   |**Long Flag**   |**Description**   |
+|:---|:---|:---|
 |`-a`|<center>-</center>|Change only the access time.|
 |`-c`|`--no-create`|Do not create any files.|
 |`-d` STRING|`--date=STRING`|Parse *STRING* and use it instead of the current time.|
