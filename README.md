@@ -854,6 +854,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [132-the-less-command.md](ebook/en/content/132-the-less-command.md)
 - [133-the-nslookup-command.md](ebook/en/content/133-the-nslookup-command.md)
 - [134-the-cmp-command.md](ebook/en/content/134-the-cmp-command.md)
+- [135-the-expr-command.md](ebook/en/content/135-the-expr-command.md)
 
 # 🔗Links
 
