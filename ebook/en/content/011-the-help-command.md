@@ -16,7 +16,16 @@ $ help [-dms] [PATTERN ...]
 |`-m`|Display usage in pseudo-manpage format.|
 |`-s`|Output only a short usage synopsis for each topic matching the provided `PATTERN`.|
 
-## Example
+## Examples of uses:
+1. We get the complete information about the `cd` command
 ```bash
-$ help ls
+$ help cd
+```
+2. We get a short description about the `pwd` command
+```bash 	
+$ help -d pwd
+```
+3. We get the syntax of the `cd` command
+```bash
+$ help -s cd
 ```
