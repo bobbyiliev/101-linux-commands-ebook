@@ -48,14 +48,24 @@ In this interactive tutorial, you will learn the different ways to use the `ls` 
 
 ### Setting Persistent Options:
 
-Using the alias command it's possible to set persistent options for various commands, including ls.
-This alias command sets color to auto, lists in long format, and show human-readable file sizes
 
-```
-alias ls="ls --color=auto -lh"
-``` 
+Customizing command behavior in Linux is easy using the `alias` command. To make these changes permanent, follow these steps:
 
-This alias will be active only on the current session until it ends.  For this alias to be active for all new sessions, 
-add the command to your user rc file for example for bash : ~/.bashrc 
+1. **Create the Alias**: Define your alias with the desired options. For example, to enhance the `ls` command:
+
+    ```bash
+    alias ls="ls --color=auto -lh"
+    ```
+
+2. **Persistence**: This alias is effective only for the current session. To make it permanent, add the alias to your shell's configuration file:
+
+    - **Bash**: Append the alias to `~/.bashrc`:
+
+        ```bash
+        echo 'alias ls="ls --color=auto -lh"' >> ~/.bashrc
+        source ~/.bashrc
+        ```
+
+3. **Verification**: Open a new terminal session, and the `ls` command will display files as configured.
 
 
