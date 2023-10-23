@@ -16,6 +16,11 @@ man printf
 ```
 man 2 intro
 ```
+3. Viewing the Manual for a Local File (using the -l flag):
+
+```
+man -l [LOCAL-FILE]
+```
 
 ### Syntax:
 
