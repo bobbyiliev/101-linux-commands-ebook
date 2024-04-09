@@ -17,6 +17,10 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 
 **Make sure to star the repository** ⭐
 
+## Introduction to Linux eBook
+
+If you are looking for a comprehensive guide for beginners, check out this eBook: [Introduction to Linux eBook](https://leanpub.com/introduction-to-linux)
+
 ## 📙 Online eBook
 
 An online copy :zap:🌐 of this ebook is available [**here** 📙](https://sugatoray.github.io/101-linux-commands-ebook).
