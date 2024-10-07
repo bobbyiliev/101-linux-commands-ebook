@@ -17,6 +17,8 @@ This is an open-source eBook with 101 Linux commands that everyone should know. 
 
 **Make sure to star the repository** ⭐
 
+If you need a Linux virtual machine to test these commands on, use the following referral link to get a [free $200 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)!
+
 ## Introduction to Linux eBook
 
 If you are looking for a comprehensive guide for beginners, check out this eBook: [Introduction to Linux eBook](https://leanpub.com/introduction-to-linux)
@@ -862,12 +864,11 @@ Feel free to add new topics in case that you don't find one that you like from t
 
 # 🔗Links
 
-- [Free $100 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
+- [Free $200 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
 - [Join DevDojo](https://devdojo.com?ref=bobbyiliev)
 - [Ibis](https://github.com/themsaid/ibis/)
-- [Canva](https://www.canva.com/)
+- [Canva](https://www.canva.com/join/determined-cork-learn)
 - [Tails](http://devdojo.com/tails)
-- [Katacoda](https://www.katacoda.com/)
 
 # 📖Other eBooks
 
