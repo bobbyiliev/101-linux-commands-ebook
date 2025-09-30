@@ -1,6 +1,6 @@
 # The `reboot` Command
 
-The `reboot` command is used to restart a linux system. However, it requires elevated permission using the [sudo](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/051-the-sudo-command.md) command. Necessity to use this command usually arises after significant system or network updates have been made to the system.
+The `reboot` command is used to restart a linux system. However, it requires elevated permission using the [sudo](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/051-the-sudo-command.md) command. Necessity to use this command usually arises after significant system or network updates have been made to the system.
 
 ## Syntax
 ```

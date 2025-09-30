@@ -1,13 +1,14 @@
-<p align="center"><img src="https://raw.githubusercontent.com/bobbyiliev/101-linux-commands-ebook/main/ebook/en/assets/cover.jpg" height="450" width="auto"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/bobbyiliev/101-linux-commands/main/ebook/en/assets/cover.jpg" height="450" width="auto"></p>
 
 <div align="center">
     <p>
-	    <a name="stars"><img src="https://img.shields.io/github/stars/bobbyiliev/101-linux-commands-ebook?style=for-the-badge"></a>
-	    <a name="forks"><img src="https://img.shields.io/github/forks/bobbyiliev/101-linux-commands-ebook?logoColor=green&style=for-the-badge"></a>
-	    <a name="contributions"><img src="https://img.shields.io/github/contributors/bobbyiliev/101-linux-commands-ebook?logoColor=green&style=for-the-badge"></a>
-      <a name="ebook" href="https://sugatoray.github.io/101-linux-commands-ebook" target="_blank"><img src="https://img.shields.io/static/v1?label=eBook&message=Read%20Online&color=orange&logoColor=green&style=for-the-badge&logo=github"><img src="https://img.shields.io/github/contributors/bobbyiliev/101-linux-commands-ebook?logoColor=yellow&style=for-the-badge"></a>
+	    <a name="stars"><img src="https://img.shields.io/github/stars/bobbyiliev/101-linux-commands?style=for-the-badge"></a>
+	    <a name="forks"><img src="https://img.shields.io/github/forks/bobbyiliev/101-linux-commands?logoColor=green&style=for-the-badge"></a>
+	    <a name="contributions"><img src="https://img.shields.io/github/contributors/bobbyiliev/101-linux-commands?logoColor=green&style=for-the-badge"></a>
+      <a name="ebook" href="https://bobbyiliev.github.io/101-linux-commands/" target="_blank"><img src="https://img.shields.io/static/v1?label=eBook&message=Read%20Online&color=orange&logoColor=green&style=for-the-badge&logo=github"></a>
+	    <a name="contributors"><img src="https://img.shields.io/github/contributors/bobbyiliev/101-linux-commands?logoColor=yellow&style=for-the-badge"></a>
 	    <a name="madeWith"><img src="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg?style=for-the-badge"></a>
-	    <a name="license"><img src="https://img.shields.io/github/license/bobbyiliev/101-linux-commands-ebook?style=for-the-badge"></a>
+	    <a name="license"><img src="https://img.shields.io/github/license/bobbyiliev/101-linux-commands?style=for-the-badge"></a>
     </p>
 </div>
 
@@ -25,7 +26,7 @@ If you are looking for a comprehensive guide for beginners, check out this eBook
 
 ## 📙 Online eBook
 
-An online copy :zap:🌐 of this ebook is available [**here** 📙](https://sugatoray.github.io/101-linux-commands-ebook).
+An online copy :zap:🌐 of this ebook is available [**here** 📙](https://bobbyiliev.github.io/101-linux-commands/).
 
 ## 🔽 Download links
 
@@ -33,14 +34,14 @@ An online copy :zap:🌐 of this ebook is available [**here** 📙](https://suga
 
 This eBook is now available in multiple formats to suit different reading preferences:
 
-- **📄 PDF (Light Theme)**: [Download PDF](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook-light.pdf) - Perfect for printing and desktop reading
-- **🌙 PDF (Dark Theme)**: [Download PDF](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook-dark.pdf) - Ideal for dark mode readers  
-- **📱 EPUB**: [Download EPUB](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook.epub) - Compatible with e-readers, tablets, and mobile devices
-- **🌐 HTML**: [Download HTML](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook.html) - Single-page web version
+- **📄 PDF (Light Theme)**: [Download PDF](https://github.com/bobbyiliev/101-linux-commands/releases/latest/download/101-linux-commands-light.pdf) - Perfect for printing and desktop reading
+- **🌙 PDF (Dark Theme)**: [Download PDF](https://github.com/bobbyiliev/101-linux-commands/releases/latest/download/101-linux-commands-dark.pdf) - Ideal for dark mode readers  
+- **📱 EPUB**: [Download EPUB](https://github.com/bobbyiliev/101-linux-commands/releases/latest/download/101-linux-commands.epub) - Compatible with e-readers, tablets, and mobile devices
+- **🌐 HTML**: [Download HTML](https://github.com/bobbyiliev/101-linux-commands/releases/latest/download/101-linux-commands.html) - Single-page web version
 
 ### 🔄 Latest Releases
 
-Visit our [Releases page](https://github.com/bobbyiliev/101-linux-commands-ebook/releases) to download the latest versions or browse previous releases.
+Visit our [Releases page](https://github.com/bobbyiliev/101-linux-commands/releases) to download the latest versions or browse previous releases.
 
 ---
 
@@ -110,23 +111,23 @@ Visit our [Releases page](https://github.com/bobbyiliev/101-linux-commands-ebook
 
 | Command | Options            | Description                                       |
 | ------- | ---------------- | ------------------------------------------------- |
-| [`cd`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/002-the-cd-command.md)    | `-`              | Navigate to last dir                              |
+| [`cd`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/002-the-cd-command.md)    | `-`              | Navigate to last dir                              |
 |         | `~`              | Navigate to home                                  |
 |         | `~username`      | Navigate to home of specified user                |
-| [`pwd`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/006-the-pwd-command.md)   |                  | Print working dir                                 |
-| [`ls`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/001-the-ls-command.md)    |                  | Print dir content                                 |
+| [`pwd`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/006-the-pwd-command.md)   |                  | Print working dir                                 |
+| [`ls`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/001-the-ls-command.md)    |                  | Print dir content                                 |
 |         | `-l`             | Format as list                                    |
 |         | `-a`             | Show hidden items (`-A` without `.` and `..`)     |
 |         | `-r`             | Invert order                                      |
 |         | `-R`             | Recurse                                           |
 |         | `-S`             | Sort by size                                      |
 |         | `-t`             | Sort by date modified                             |
-| [`mkdir`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/014-the-mkdir-command.md) | `-p`             | Create dir with parents                           |
-| [`cp`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/031-the-cp-command.md)    | `-r`             | Copy dir                                          |
-| [`rmdir`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/103-the-rmdir-command.md) | `-p`             | Remove dir and empty parents                      |
-| [`rm`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/040-the-rm-command.md)    | `-rf`            | Remove dir recursively, `-f` without confirmation |
-| [`mv`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/032-the-mv-command.md)    |                  | Move recursively                                  |
-| [`find`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/102-the-find-command.md)  | `-iname pattern` | Search dir/file case-insensitive                  |
+| [`mkdir`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/014-the-mkdir-command.md) | `-p`             | Create dir with parents                           |
+| [`cp`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/031-the-cp-command.md)    | `-r`             | Copy dir                                          |
+| [`rmdir`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/103-the-rmdir-command.md) | `-p`             | Remove dir and empty parents                      |
+| [`rm`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/040-the-rm-command.md)    | `-rf`            | Remove dir recursively, `-f` without confirmation |
+| [`mv`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/032-the-mv-command.md)    |                  | Move recursively                                  |
+| [`find`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/102-the-find-command.md)  | `-iname pattern` | Search dir/file case-insensitive                  |
 |         | `-mmin n`        | Last modified n minutes ago                       |
 |         | `-mtime n`       | Last modified n days ago                          |
 |         | `-regex pattern` | Path matches pattern                              |
@@ -139,16 +140,16 @@ Visit our [Releases page](https://github.com/bobbyiliev/101-linux-commands-ebook
 
 | Command | Options                                      | Description                                |
 | ------- | ------------------------------------------ | ------------------------------------------ |
-| [`cat`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/003-the-cat-tac-command.md)   | `file`                                     | Print content                              |
-| [`tac`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/003-the-cat-tac-command.md)   | `file`                                     | Print content inverted                     |
-| [`sort`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/059-the-sort-command.md)  | `file`                                     | Print sorted                               |
+| [`cat`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/003-the-cat-tac-command.md)   | `file`                                     | Print content                              |
+| [`tac`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/003-the-cat-tac-command.md)   | `file`                                     | Print content inverted                     |
+| [`sort`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/059-the-sort-command.md)  | `file`                                     | Print sorted                               |
 |         | `file -r -u`                               | Print sorted descending without dublicates |
-| [`head`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/004-the-head-command.md)  | `-n10 file`                            | Print lines 5-10                           |
-| [`tail`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/005-the-tail-command.md)  | `-f file`                                  | Print new lines automatically              |
-| [`cut`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/098-the-cut-command.md)   | `-f -4,7-10,12,15- file`                   | Print selected fields (tab delimited)      |
+| [`head`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/004-the-head-command.md)  | `-n10 file`                            | Print lines 5-10                           |
+| [`tail`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/005-the-tail-command.md)  | `-f file`                                  | Print new lines automatically              |
+| [`cut`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/098-the-cut-command.md)   | `-f -4,7-10,12,15- file`                   | Print selected fields (tab delimited)      |
 |         | `-c -4,7-10,12,15- file`                   | Print selected characters positions        |
 |         | `-f 2,4 -d, --output-delimiter=$'\t' file` | Change delimiter (but use tab for output)  |
-| [`uniq`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/074-the-uniq-command.md)  | `file`                                     | Hide consecutive identical lines           |
+| [`uniq`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/074-the-uniq-command.md)  | `file`                                     | Hide consecutive identical lines           |
 |         | `file -c`                                  | Show consecutive identical line count      |
 |         | `file -u`                                  | Hide consecutive identical lines           |
 | `file`  | `file`                                     | Get file type                              |
@@ -160,15 +161,15 @@ Visit our [Releases page](https://github.com/bobbyiliev/101-linux-commands-ebook
 
 | Command          | Options                          | Description                                              |
 | ---------------- | -------------------------------- | -------------------------------------------------------- |
-| [`tar`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/063-the-tar-command.md)            | `cfv archiv.tar file1 file2`     | Create archive / add or overwrite content  |
+| [`tar`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/063-the-tar-command.md)            | `cfv archiv.tar file1 file2`     | Create archive / add or overwrite content  |
 |                  | `tfv archiv.tar`                 | Show content                                             |
 |                  | `xf archiv.tar [-C ~/extracted]` | Extract (and decompress) archive (to ~ / extracted)      |
 |                  | `cfvj archiv.tar.bz2 file`       | Create bzip2 compressed archive                          |
 |                  | `cfvz archiv.tar.gz file`        | Create gzip compressed archive                           |
 |                  | `cfa archiv.tar.[komp] file`     | create compressed archive (auto type based on name)      |
-| [`bzip2`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/069-the-bzip2-command.md) | `file1 file2`                    | Dateien (einzeln) komprimieren                           |
+| [`bzip2`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/069-the-bzip2-command.md) | `file1 file2`                    | Dateien (einzeln) komprimieren                           |
 |                  | `-d file1 file2`                 | Compress files (one at a time)                           |
-| [`gzip`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/015-the-gzip-command.md) | `file1 file2`                    | Dateien (einzeln) komprimieren                           |
+| [`gzip`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/015-the-gzip-command.md) | `file1 file2`                    | Dateien (einzeln) komprimieren                           |
 |                  | `-d file1 file2`                 | Decompress files                                   |
 
 ---
@@ -193,7 +194,7 @@ Creating physical partitions is **not required**! You can create PVs directly!
 | `umount`       |                             | Unmount a file system
 |       	 |  `/dev/myVG/myVol`          | Unmount LV from /mountpoint          |
 |        	 |  `/mountpoint`              | Unmount LV from /mountpoint          |
-| [`df`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/010-the-df-command.md)|                -    | Show disk usage                      |
+| [`df`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/010-the-df-command.md)|                -    | Show disk usage                      |
 | `xfs_growfs`   | `/dev/myVG/myVol`           | Resize xfs filesystem                |
 | `resize2fs`    | ` /dev/myVG/myVol`          | Resize ext3/4 filesystem             |
 
@@ -206,7 +207,7 @@ Creating physical partitions is **not required**! You can create PVs directly!
 | `<command>` | `--help`        | Help of current command (not standardized) |
 |             | `-h`            |                                            |
 |             | `-?`            |                                            |
-| [`man`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/024-the-man-command.md)       | `<command>`     | Manual page of command                     |
+| [`man`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/024-the-man-command.md)       | `<command>`     | Manual page of command                     |
 |             | `-k keyword`    | Search command by keyword (oder `apropos`) |
 | `alias`     |                 | Show aliases                               |
 |             | `name='befehl'` | Create alias                               |
@@ -255,7 +256,7 @@ Bash itself does not know regex. Use programs like `grep`, `sed`, `awk`.
 
 | Command | Options             | Description    |
 | ------- | ----------------- | -------------- |
-| [`grep`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/107-the-grep-command.md)  | `pattern file`    | Extended Regex |
+| [`grep`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/107-the-grep-command.md)  | `pattern file`    | Extended Regex |
 |         | `-E pattern file` | Extended Regex |
 |         | `-v pattern file` | Invert match   |
 |         | `-w pattern file` | Word match     |
@@ -294,7 +295,7 @@ Bash itself does not know regex. Use programs like `grep`, `sed`, `awk`.
 
 ## VI
 
-[`VI/VIM`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/100-the-vim-command.md)
+[`VI/VIM`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/100-the-vim-command.md)
 **Editing**
 
 To leave editing mode press `ESC`.
@@ -393,23 +394,23 @@ PW:
 | Command    | Param 					      | Description 					        |
 | ---------- | ---------------------------------------------- | ------------------------------------------------------- |
 | `id` 	     | `username` 				      | Show a user's ID and groups 				|
-| [`who`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/017-the-who-command.md)      | 						      | Show logged in users 					|
-| [`last`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/048-the-last-command.md)     | 						      | Show last logins 					|
+| [`who`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/017-the-who-command.md)      | 						      | Show logged in users 					|
+| [`last`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/048-the-last-command.md)     | 						      | Show last logins 					|
 | `lastb`    | 						      | Show last failed logins 				|
-| [`sudo`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/051-the-sudo-command.md)     | `-u user command` 			      | Execute command with user rights (default is root) 	|
+| [`sudo`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/051-the-sudo-command.md)     | `-u user command` 			      | Execute command with user rights (default is root) 	|
 |            | `-i` or` su -` 				      | Shell with root rights 					|
-| [`su`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/044-the-su-command.md)       | 						      | Shell as root (non-login shell) 			|
+| [`su`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/044-the-su-command.md)       | 						      | Shell as root (non-login shell) 			|
 |            | `-` 					      | Shell as root (login shell) 				|
 | 	     | `- user` 				      | Shell as user 						|
-| [`useradd`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/080-the-useradd-command.md)  | `-u 2101 -g primarygroup -c comment username`  | Create user (without `-g`, new group will be created)   |
-| [`usermod`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/082-the-usermod-command.md)  | `-G group1, group2` 			      | Define (overwrite) secondary groups 			|
+| [`useradd`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/080-the-useradd-command.md)  | `-u 2101 -g primarygroup -c comment username`  | Create user (without `-g`, new group will be created)   |
+| [`usermod`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/082-the-usermod-command.md)  | `-G group1, group2` 			      | Define (overwrite) secondary groups 			|
 | 	     | `-ag group, group2` 			      | Add secondary groups 					|
 |            | `-l username` 				      | Change username 					|
 | 	     | `-L` 					      | Lock Account 						|
 | 	     | `-U` 					      | Unlock Account 						|
 | 	     | `-s shellpath`  				      | Change shell 						|
-| [`userdel`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/081-the-userdel-command.md)  | `-r username` 				      | Delete user including home and mail spool 		|
-| [`passwd`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/025-the-passwd-command.md)   | `username` 				      | Change password (interactive) 				|
+| [`userdel`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/081-the-userdel-command.md)  | `-r username` 				      | Delete user including home and mail spool 		|
+| [`passwd`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/025-the-passwd-command.md)   | `username` 				      | Change password (interactive) 				|
 | `groupadd` | `groupname` 				      | Create group (optionally set GID with `-g`) 		|
 | `groupdel` | `groupname` 			              | Delete group 						|
 
@@ -447,20 +448,20 @@ Advanced permissions replace the **x** when using `ls -l`. Lower case if **x** i
 
 | Command   | Options                    | Description                                      |
 | --------- | ------------------------ | ------------------------------------------------- |
-| [`chmod`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/106-the-chmod-command.md)   | `-R [uog] dirname`       | Set permissions recursively using binary flags    |
+| [`chmod`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/106-the-chmod-command.md)   | `-R [uog] dirname`       | Set permissions recursively using binary flags    |
 |           | `+[suog] filename`       | Add permissions using binary flags                |
 |           | `-[suog] filename`       | Remove permissions using binary flags             |
 |           | `u+x filename`           | Add *execute* permission for *User*               |
 |           | `g+wx filename`          | Add *write* and *execute* permissions for *Group* |
 |           | `o-r filename`           | Remove *read* permission for *Others*             |
-| [`chown`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/101-the-chown-command.md)   | `-R user:group filename` | Change owner (*User* & *Group*) recursively       |
+| [`chown`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/101-the-chown-command.md)   | `-R user:group filename` | Change owner (*User* & *Group*) recursively       |
 |           | `user filename`          | Change owner (*User*)                             |
 |           | `:group filename`        | Change owner (*Group*)                            |
 | `chgroup` | `group filename`         | Change owner (*Group*)                            |
 
 # SSH
 
-[`SSH`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/089-the-ssh-command.md)
+[`SSH`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/089-the-ssh-command.md)
 Configuration is done in `/etc/ssh/sshd_config`.
 
 Reload SSH service with `systemctl reload sshd` to apply changes!
@@ -479,7 +480,7 @@ DenyUsers, AllowUsers, DenyGroups, AllowGroups override each other and are appli
 
 # Cronjobs
 
-**[`Crontab`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/091-the-crontab-command.md)**
+**[`Crontab`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/091-the-crontab-command.md)**
 
 Cronjobs are configured in crontab files. Do not edit these files directly. Use `crontab -e` instead. This runs all required actions to activate a cronjob after saving the edited crontab. The locations are as follows:
 
@@ -535,7 +536,7 @@ Results are sent to the users mail `/var/spool/mail/username`.
 
 ## RPM
 
-[`RPM`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/075-the-rpm-command.md)
+[`RPM`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/075-the-rpm-command.md)
 
 | Command                  | Description                               |
 | ------------------------ | ----------------------------------------- |
@@ -550,7 +551,7 @@ Results are sent to the users mail `/var/spool/mail/username`.
 
 ## YUM
 
-[`YUM`](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/content/053-the-yum-command.md) is configured in `/etc/yum.conf`
+[`YUM`](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/053-the-yum-command.md) is configured in `/etc/yum.conf`
 
 Repos are configured in `/etc/yum.repos.d/`
 

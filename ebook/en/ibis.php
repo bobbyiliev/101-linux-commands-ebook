@@ -4,7 +4,7 @@ return [
     /**
      * The book title.
      */
-    'title' => '101 Linux Commands eBook',
+    'title' => '101 Linux Commands',
 
     /**
      * The author name.
@@ -46,6 +46,6 @@ return [
     /**
      * A notice printed at the final page of a generated sample.
      */
-    'sample_notice' => 'This is a sample from "101 Linux Commands eBook" by Bobby Iliev and the Hacktoberfest community. <br>
+    'sample_notice' => 'This is a sample from "101 Linux Commands" by Bobby Iliev and the Hacktoberfest community. <br>
                         For more information, <a href="https://devdojo.com/">Click here</a>.',
 ];

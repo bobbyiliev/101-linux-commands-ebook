@@ -73,7 +73,7 @@ This eBook is open source and community-driven. We welcome contributions from de
 - **Translations**: Help translate this eBook into other languages
 - **Share Knowledge**: Add tips, tricks, and best practices
 
-Visit our [GitHub repository](https://github.com/bobbyiliev/101-linux-commands-ebook) to get started with contributing.
+Visit our [GitHub repository](https://github.com/bobbyiliev/101-linux-commands) to get started with contributing.
 
 ## Acknowledgments
 
@@ -115,4 +115,4 @@ This eBook is available in multiple formats:
 - **EPUB**: Compatible with e-readers and mobile devices  
 - **HTML**: Ideal for web browsing and sharing
 
-Visit our [GitHub releases](https://github.com/bobbyiliev/101-linux-commands-ebook/releases) to download your preferred format.
+Visit our [GitHub releases](https://github.com/bobbyiliev/101-linux-commands/releases) to download your preferred format.

@@ -58,10 +58,10 @@ composer run html
 
 Generated files are saved in the `export/` directory:
 
-- `101-linux-commands-ebook-light.pdf` - PDF with light theme
-- `101-linux-commands-ebook-dark.pdf` - PDF with dark theme
-- `101-linux-commands-ebook.epub` - EPUB format
-- `101-linux-commands-ebook.html` - HTML format
+- `101-linux-commands-light.pdf` - PDF with light theme
+- `101-linux-commands-dark.pdf` - PDF with dark theme
+- `101-linux-commands.epub` - EPUB format
+- `101-linux-commands.html` - HTML format
 
 ## Advanced Features
 

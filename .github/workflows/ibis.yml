@@ -1,4 +1,5 @@
-name: Ibis Next eBook Generation
+name: Ibis Next eBook Generation and Deploy
+
 on:
   push:
     branches:
@@ -7,11 +8,18 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -109,11 +117,78 @@ jobs:
           ### 🙏 Contributing
           Want to help improve this eBook? Check out our [contributing guidelines](CONTRIBUTING.md).
         files: |
-          ebook/en/export/101-linux-commands-ebook-light.pdf
-          ebook/en/export/101-linux-commands-ebook-dark.pdf
-          ebook/en/export/101-linux-commands-ebook.epub
-          ebook/en/export/101-linux-commands-ebook.html
+          ebook/en/export/101-linux-commands-light.pdf
+          ebook/en/export/101-linux-commands-dark.pdf
+          ebook/en/export/101-linux-commands.epub
+          ebook/en/export/101-linux-commands.html
         draft: false
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy-pages:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: gd, zip, mbstring
+        coverage: none
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
+
+    - name: Generate HTML for Pages
+      run: composer run html
+
+    - name: Create Pages directory
+      run: |
+        mkdir -p _site
+        cp ebook/en/export/101-linux-commands.html _site/index.html
+        
+        # Create a simple redirect page at the root
+        cat > _site/README.html << 'EOF'
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="refresh" content="0; url=./index.html">
+            <title>101 Linux Commands eBook</title>
+            <style>
+                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+                .redirect { background: #f0f8ff; padding: 20px; border-radius: 10px; display: inline-block; }
+                a { color: #007acc; text-decoration: none; font-weight: bold; }
+                a:hover { text-decoration: underline; }
+            </style>
+        </head>
+        <body>
+            <div class="redirect">
+                <h1>📚 101 Linux Commands eBook</h1>
+                <p>Redirecting to the eBook...</p>
+                <p>If you're not redirected automatically, <a href="./index.html">click here</a>.</p>
+            </div>
+        </body>
+        </html>
+        EOF
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Upload to GitHub Pages
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: _site
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

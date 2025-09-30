@@ -1,7 +1,10 @@
 ## USER ADDED
 .env.secret
 .vscode/
-docs/ebook
+
+# MkDocs (no longer used - using Ibis HTML directly)
+site/
+.mkdocs_cache/
 
 # Composer dependencies
 /vendor/
