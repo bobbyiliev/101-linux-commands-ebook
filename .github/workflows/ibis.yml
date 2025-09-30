@@ -1,4 +1,4 @@
-name: Generate eBook and Deploy to GitHub Pages
+name: eBook Build, Deploy & Release
 
 on:
   push:
@@ -12,8 +12,12 @@ permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+    outputs:
+      files-changed: ${{ steps.verify-changed-files.outputs.changed }}
+      new-tag: ${{ steps.tag.outputs.new_tag }}
+      tag-created: ${{ steps.tag.outputs.tag }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
@@ -57,7 +61,7 @@ jobs:
           echo "changed=true" >> $GITHUB_OUTPUT
         fi
 
-    - name: Commit and push all changes (including GitHub Pages HTML)
+    - name: Commit and push changes (GitHub Pages)
       if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
         git config --local user.email "bobby@bobbyiliev.com"
@@ -65,6 +69,15 @@ jobs:
         git add ebook/en/export/ index.html
         git commit -m "🤖 Auto-update eBook files and GitHub Pages [skip ci]" || exit 0
         git push
+
+    - name: Create version tag (on main with changes)
+      id: tag
+      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: anothrNick/github-tag-action@1.75.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: false
+        DEFAULT_BUMP: minor
 
     - name: Upload eBook artifacts
       uses: actions/upload-artifact@v4
@@ -76,3 +89,67 @@ jobs:
           ebook/en/export/*.html
           index.html
         retention-days: 90
+
+  release:
+    needs: build
+    if: needs.build.outputs.files-changed == 'true' && needs.build.outputs.tag-created != '' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+      with:
+        ref: main
+
+    - name: Get current date
+      id: get_date
+      run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ needs.build.outputs.new-tag }}
+        name: "📚 101 Linux Commands v${{ needs.build.outputs.new-tag }}"
+        body: |
+          ## 📚 101 Linux Commands - Release v${{ needs.build.outputs.new-tag }}
+          
+          **Released:** ${{ steps.get_date.outputs.date }} | **Formats:** PDF, EPUB, HTML | **Size:** 6 formats
+          
+          ### 📥 Download Options
+          
+          | Format | Best For | File |
+          |--------|----------|------|
+          | 📄 **PDF Light** | Printing & Desktop | `101-linux-commands-light.pdf` |
+          | 🌙 **PDF Dark** | Night Reading | `101-linux-commands-dark.pdf` |
+          | 📱 **EPUB** | E-readers & Mobile | `101-linux-commands.epub` |
+          | 🌐 **HTML** | Interactive Web | `101-linux-commands.html` |
+          | 📑 **Sample Light** | Quick Preview | `101-linux-commands-sample-light.pdf` |
+          | 📑 **Sample Dark** | Preview (Dark) | `101-linux-commands-sample-dark.pdf` |
+          
+          ### ✨ What's New
+          - **101 Essential Commands** with practical examples
+          - **Interactive HTML** with dark mode & progress tracking
+          - **Mobile-optimized** formats for all devices
+          - **Professional layouts** for each format
+          
+          ### 🚀 Perfect For
+          Linux beginners • Developers • System admins • Students • Certification prep
+          
+          ### 🔗 Quick Links
+          - 🌐 [**Read Online**](https://devdojo.github.io/101-linux-commands/) 
+          - 🐛 [Report Issues](../../issues/new?template=bug_report.md)
+          - 💡 [Suggestions](../../issues/new?template=feature_request.md)
+          - 📝 [Contribute](../../blob/main/CONTRIBUTING.md)
+          
+          ---
+          **Auto-generated** from commit `${{ github.sha }}` • Built on ${{ steps.get_date.outputs.date }}
+        files: |
+          ebook/en/export/101-linux-commands-light.pdf
+          ebook/en/export/101-linux-commands-dark.pdf
+          ebook/en/export/101-linux-commands.epub
+          ebook/en/export/101-linux-commands.html
+          ebook/en/export/101-linux-commands-sample-light.pdf
+          ebook/en/export/101-linux-commands-sample-dark.pdf
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
