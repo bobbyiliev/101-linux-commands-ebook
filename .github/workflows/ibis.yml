@@ -1,21 +1,116 @@
-name: Ibis eBook Generation
+name: Ibis Next eBook Generation
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-    - uses: actions/checkout@main
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
-        fetch-depth: '0'
-    - name: Build Ibis Export Files
-      uses: bobbyiliev/ibis-build-action@main
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        extensions: gd, zip, mbstring
+        coverage: none
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v4
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
+
+    - name: Generate PDF (Light Theme)
+      run: composer run pdf
+
+    - name: Generate PDF (Dark Theme)
+      run: composer run pdf-dark
+
+    - name: Generate EPUB
+      run: composer run epub
+
+    - name: Generate HTML
+      run: composer run html
+
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if git diff --quiet HEAD -- ebook/en/export/; then
+          echo "changed=false" >> $GITHUB_OUTPUT
+        else
+          echo "changed=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+      run: |
+        git config --local user.email "bobby@bobbyiliev.com"
+        git config --local user.name "Bobby Iliev"
+        git add ebook/en/export/
+        git commit -m "🤖 Auto-update eBook files [skip ci]" || exit 0
+        git push
+
+    - name: Upload eBook artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ebooks-${{ github.sha }}
+        path: |
+          ebook/en/export/*.pdf
+          ebook/en/export/*.epub
+          ebook/en/export/*.html
+        retention-days: 90
+
+    - name: Create Release (on main push with changes)
+      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: v${{ github.run_number }}
+        name: eBook Release v${{ github.run_number }}
+        body: |
+          ## 📚 101 Linux Commands eBook - Release v${{ github.run_number }}
+          
+          This release contains the latest version of the eBook in multiple formats:
+          
+          - **PDF (Light Theme)**: Ideal for printing and desktop reading
+          - **PDF (Dark Theme)**: Perfect for dark mode readers
+          - **EPUB**: Compatible with e-readers, tablets, and mobile devices
+          - **HTML**: Single-page web version for online reading
+          
+          ### 📥 Downloads
+          Choose your preferred format from the assets below.
+          
+          ### 🔄 Changes
+          This release was automatically generated from commit ${{ github.sha }}.
+          
+          ### 🙏 Contributing
+          Want to help improve this eBook? Check out our [contributing guidelines](CONTRIBUTING.md).
+        files: |
+          ebook/en/export/101-linux-commands-ebook-light.pdf
+          ebook/en/export/101-linux-commands-ebook-dark.pdf
+          ebook/en/export/101-linux-commands-ebook.epub
+          ebook/en/export/101-linux-commands-ebook.html
+        draft: false
+        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        IBIS_PATH: './ebook/en/'
-        IBIS_BRANCH: 'main'
-        EMAIL: 'bobby@bobbyiliev.com'
-        COMMIT_MESSAGE: 'Updated Ibis Exorted Files'

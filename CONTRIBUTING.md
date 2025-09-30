@@ -27,13 +27,40 @@ All the Markdown files for the '101 Linux commands' eBook are located within the
 
 For example if you are adding a Bulgarian translation copy the `./ebook/en` folder to `./ebook/bg`, translate the `.md` files in the `content` directory and submit a PR.
 
-### PDF Generation
+### eBook Generation
 
-The project uses [Ibis](https://github.com/themsaid/ibis/) developed by [Mohamed Said](https://github.com/themsaid).
+The project uses [Ibis Next](https://github.com/Hi-Folks/ibis-next) developed by [Roberto Butti](https://github.com/roberto-butti), forked from the original [Ibis](https://github.com/themsaid/ibis/) by [Mohamed Said](https://github.com/themsaid).
 
-Make sure to follow the steps on how to get Ibis installed and how to use it here:
+Ibis Next supports generating PDF, EPUB, and HTML formats from Markdown content.
 
-[Getting started with Ibis](https://github.com/themsaid/ibis/#installation)
+## Setup and Usage
+
+1. Install dependencies:
+```bash
+composer install
+```
+
+2. Generate PDF (light theme):
+```bash
+composer run pdf
+```
+
+3. Generate PDF (dark theme):
+```bash
+composer run pdf-dark
+```
+
+4. Generate EPUB:
+```bash
+composer run epub
+```
+
+5. Generate HTML:
+```bash
+composer run html
+```
+
+For more information about Ibis Next, visit: [Getting started with Ibis Next](https://github.com/Hi-Folks/ibis-next)
 
 ## Issue Creation
 

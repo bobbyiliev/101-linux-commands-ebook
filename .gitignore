@@ -3,6 +3,10 @@
 .vscode/
 docs/ebook
 
+# Composer dependencies
+/vendor/
+composer.lock
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -29,9 +29,18 @@ An online copy :zap:🌐 of this ebook is available [**here** 📙](https://suga
 
 ## 🔽 Download links
 
-- [Dark mode](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/export/101-linux-commands-ebook-dark.pdf)
+### 📚 Multiple Formats Available
 
-- [Light mode](https://github.com/bobbyiliev/101-linux-commands-ebook/blob/main/ebook/en/export/101-linux-commands-ebook-light.pdf)
+This eBook is now available in multiple formats to suit different reading preferences:
+
+- **📄 PDF (Light Theme)**: [Download PDF](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook-light.pdf) - Perfect for printing and desktop reading
+- **🌙 PDF (Dark Theme)**: [Download PDF](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook-dark.pdf) - Ideal for dark mode readers  
+- **📱 EPUB**: [Download EPUB](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook.epub) - Compatible with e-readers, tablets, and mobile devices
+- **🌐 HTML**: [Download HTML](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook.html) - Single-page web version
+
+### 🔄 Latest Releases
+
+Visit our [Releases page](https://github.com/bobbyiliev/101-linux-commands-ebook/releases) to download the latest versions or browse previous releases.
 
 ---
 
@@ -866,7 +875,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 
 - [Free $200 Credit For DigitalOcean](https://m.do.co/c/2a9bba940f39)
 - [Join DevDojo](https://devdojo.com?ref=bobbyiliev)
-- [Ibis](https://github.com/themsaid/ibis/)
+- [Ibis Next](https://github.com/Hi-Folks/ibis-next)
 - [Canva](https://www.canva.com/join/determined-cork-learn)
 - [Tails](http://devdojo.com/tails)
 
@@ -876,6 +885,42 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [Introduction to Git and GitHub](https://github.com/bobbyiliev/introduction-to-git-and-github-ebook)
 - [Introduction to Bash Scripting](https://github.com/bobbyiliev/introduction-to-bash-scripting)
 - [Laravel tips and tricks](https://github.com/bobbyiliev/laravel-tips-and-tricks-ebook)
+
+# 📚 eBook Generation
+
+This project uses [Ibis Next](https://github.com/Hi-Folks/ibis-next) to generate eBooks in multiple formats:
+
+## Quick Start
+
+1. Install dependencies:
+```bash
+composer install
+```
+
+2. Generate eBooks:
+```bash
+# Generate PDF (light theme)
+composer run pdf
+
+# Generate PDF (dark theme)  
+composer run pdf-dark
+
+# Generate EPUB
+composer run epub
+
+# Generate HTML
+composer run html
+```
+
+## Available Formats
+
+- **PDF**: Available in both light and dark themes, perfect for printing or desktop reading
+- **EPUB**: Compatible with most e-readers, tablets, and mobile devices
+- **HTML**: Single-page HTML version, great for web viewing and sharing
+
+All generated files are saved in the `ebook/en/export/` directory.
+
+---
 
 # 🤲Contributing
 

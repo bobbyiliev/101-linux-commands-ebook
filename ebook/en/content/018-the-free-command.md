@@ -1,5 +1,3 @@
-018-the-free-command.md
-
 # The `free` command
 
 The `free` command in Linux/Unix is used to show memory (RAM/SWAP) information.

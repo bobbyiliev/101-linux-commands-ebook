@@ -1,0 +1,22 @@
+{
+    "name": "bobbyiliev/101-linux-commands-ebook",
+    "description": "101 Linux Commands Open-source eBook",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bobby Iliev and the Hacktoberfest community",
+            "email": "bobby@bobbyiliev.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "hi-folks/ibis-next": "^1.0"
+    },
+    "scripts": {
+        "pdf": "vendor/bin/ibis-next pdf -c ebook/en/content -d ebook/en",
+        "pdf-dark": "vendor/bin/ibis-next pdf dark -c ebook/en/content -d ebook/en",
+        "epub": "vendor/bin/ibis-next epub -c ebook/en/content -d ebook/en",
+        "html": "vendor/bin/ibis-next html -c ebook/en/content -d ebook/en"
+    }
+}
