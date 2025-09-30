@@ -154,32 +154,7 @@ jobs:
       run: |
         mkdir -p _site
         cp ebook/en/export/101-linux-commands.html _site/index.html
-        
-        # Create a simple redirect page at the root
-        cat > _site/README.html << 'EOF'
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="refresh" content="0; url=./index.html">
-            <title>101 Linux Commands eBook</title>
-            <style>
-                body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-                .redirect { background: #f0f8ff; padding: 20px; border-radius: 10px; display: inline-block; }
-                a { color: #007acc; text-decoration: none; font-weight: bold; }
-                a:hover { text-decoration: underline; }
-            </style>
-        </head>
-        <body>
-            <div class="redirect">
-                <h1>📚 101 Linux Commands eBook</h1>
-                <p>Redirecting to the eBook...</p>
-                <p>If you're not redirected automatically, <a href="./index.html">click here</a>.</p>
-            </div>
-        </body>
-        </html>
-        EOF
+        cp ebook/en/export/101-linux-commands.html index.html
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
