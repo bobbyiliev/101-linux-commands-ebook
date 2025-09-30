@@ -126,44 +126,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  deploy-pages:
-    needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.2'
-        extensions: gd, zip, mbstring
-        coverage: none
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
-
-    - name: Generate HTML for Pages
-      run: composer run html
-
-    - name: Create Pages directory
+    - name: Commit and push HTML for Pages
+      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        mkdir -p _site
-        cp ebook/en/export/101-linux-commands.html _site/index.html
-        cp ebook/en/export/101-linux-commands.html index.html
-
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-
-    - name: Upload to GitHub Pages
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: _site
-
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+        git add index.html
+        git commit -m "🌐 Auto-update GitHub Pages HTML [skip ci]" || exit 0
+        git push
