@@ -108,7 +108,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         tag_name: ${{ needs.build.outputs.new-tag }}
-        name: "📚 101 Linux Commands v${{ needs.build.outputs.new-tag }}"
+        name: "📚 Linux 101 v${{ needs.build.outputs.new-tag }}"
         body: |
           ## 📚 101 Linux Commands - Release v${{ needs.build.outputs.new-tag }}
           
