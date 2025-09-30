@@ -112,7 +112,7 @@ The world of Linux is vast and constantly evolving. Stay curious, keep practicin
 
 This eBook is available in multiple formats:
 - **PDF**: Perfect for offline reading and printing
-- **EPUB**: Compatible with e-readers and mobile devices  
+- **EPUB**: Compatible with e-readers and mobile devices
 - **HTML**: Ideal for web browsing and sharing
 
 Visit our [GitHub releases](https://github.com/bobbyiliev/101-linux-commands/releases) to download your preferred format.
