@@ -1,4 +1,4 @@
-name: Ibis Next eBook Generation and Deploy
+name: Generate eBook and Deploy to GitHub Pages
 
 on:
   push:
@@ -10,15 +10,9 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -34,11 +28,7 @@ jobs:
         extensions: gd, zip, mbstring
         coverage: none
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
-
     - name: Cache Composer packages
-      id: composer-cache
       uses: actions/cache@v4
       with:
         path: vendor
@@ -47,39 +37,33 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
+      run: composer install --prefer-dist --no-progress --optimize-autoloader
 
-    - name: Generate PDF (Light Theme)
-      run: composer run pdf
-
-    - name: Generate PDF (Dark Theme)
-      run: composer run pdf-dark
-
-    - name: Generate EPUB
-      run: composer run epub
-
-    - name: Generate HTML
-      run: composer run html
-
-    - name: Generate Sample PDF (Light Theme)
-      run: composer run sample && composer run sample-dark
+    - name: Generate eBooks (All Formats)
+      run: |
+        composer run pdf
+        composer run pdf-dark
+        composer run epub
+        composer run html
+        composer run sample
+        composer run sample-dark
 
     - name: Check for changes
       id: verify-changed-files
       run: |
-        if git diff --quiet HEAD -- ebook/en/export/; then
+        if git diff --quiet HEAD -- ebook/en/export/ index.html; then
           echo "changed=false" >> $GITHUB_OUTPUT
         else
           echo "changed=true" >> $GITHUB_OUTPUT
         fi
 
-    - name: Commit and push changes
+    - name: Commit and push all changes (including GitHub Pages HTML)
       if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
         git config --local user.email "bobby@bobbyiliev.com"
         git config --local user.name "Bobby Iliev"
-        git add ebook/en/export/
-        git commit -m "🤖 Auto-update eBook files [skip ci]" || exit 0
+        git add ebook/en/export/ index.html
+        git commit -m "🤖 Auto-update eBook files and GitHub Pages [skip ci]" || exit 0
         git push
 
     - name: Upload eBook artifacts
@@ -90,45 +74,5 @@ jobs:
           ebook/en/export/*.pdf
           ebook/en/export/*.epub
           ebook/en/export/*.html
+          index.html
         retention-days: 90
-
-    - name: Create Release (on main push with changes)
-      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v${{ github.run_number }}
-        name: eBook Release v${{ github.run_number }}
-        body: |
-          ## 📚 101 Linux Commands eBook - Release v${{ github.run_number }}
-          
-          This release contains the latest version of the eBook in multiple formats:
-          
-          - **PDF (Light Theme)**: Ideal for printing and desktop reading
-          - **PDF (Dark Theme)**: Perfect for dark mode readers
-          - **EPUB**: Compatible with e-readers, tablets, and mobile devices
-          - **HTML**: Single-page web version for online reading
-          
-          ### 📥 Downloads
-          Choose your preferred format from the assets below.
-          
-          ### 🔄 Changes
-          This release was automatically generated from commit ${{ github.sha }}.
-          
-          ### 🙏 Contributing
-          Want to help improve this eBook? Check out our [contributing guidelines](CONTRIBUTING.md).
-        files: |
-          ebook/en/export/101-linux-commands-light.pdf
-          ebook/en/export/101-linux-commands-dark.pdf
-          ebook/en/export/101-linux-commands.epub
-          ebook/en/export/101-linux-commands.html
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Commit and push HTML for Pages
-      if: steps.verify-changed-files.outputs.changed == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
-      run: |
-        git add index.html
-        git commit -m "🌐 Auto-update GitHub Pages HTML [skip ci]" || exit 0
-        git push
