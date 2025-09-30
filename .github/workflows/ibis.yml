@@ -53,6 +53,9 @@ jobs:
     - name: Generate HTML
       run: composer run html
 
+    - name: Generate Sample PDF (Light Theme)
+      run: composer run sample && composer run sample-dark
+
     - name: Check for changes
       id: verify-changed-files
       run: |

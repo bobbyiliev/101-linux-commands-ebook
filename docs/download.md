@@ -1,18 +1,17 @@
----
-
-pdf:
-    parent_folder: "ebook/en/export"
-    dark:
-        filename: "101-linux-commands-ebook-dark.pdf"
-    light:
-        filename: "101-linux-commands-ebook-light.pdf"
-
----
-
-{% import 'macros/all.j2' as macros %}
-
 # Download This Book as a PDF
 
-- **Dark** mode {{ macros.common.link_to_pdf(pdf.parent_folder ~ '/' ~ pdf.dark.filename, message="PDF", icon="fas fa-file-pdf") }}
+The 101 Linux Commands eBook is available in multiple formats:
 
-- **Light** mode {{ macros.common.link_to_pdf(pdf.parent_folder ~ '/' ~ pdf.light.filename, message="PDF", icon="fas fa-file-pdf") }}
+## PDF Downloads
+
+- **[📄 Light Mode PDF](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook-light.pdf)** - Optimized for printing and light theme readers
+- **[🌙 Dark Mode PDF](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook-dark.pdf)** - Perfect for dark theme readers and reduced eye strain
+
+## Other Formats
+
+- **[📚 EPUB](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook.epub)** - For e-readers (Kindle, Apple Books, etc.)
+- **[🌐 HTML](https://github.com/bobbyiliev/101-linux-commands-ebook/releases/latest/download/101-linux-commands-ebook.html)** - Single-page web version
+
+## Release Notes
+
+All downloads are automatically generated from the latest content using our [GitHub Actions workflow](https://github.com/bobbyiliev/101-linux-commands-ebook/actions). Check the [releases page](https://github.com/bobbyiliev/101-linux-commands-ebook/releases) for version history and detailed release notes.
