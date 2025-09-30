@@ -27,7 +27,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: false
-        DEFAULT_BUMP: patch
+        DEFAULT_BUMP: minor
 
   create-release:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
