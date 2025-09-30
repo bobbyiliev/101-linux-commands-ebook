@@ -17,7 +17,7 @@
         "pdf": "vendor/bin/ibis-next pdf -c ebook/en/content -d ebook/en",
         "pdf-dark": "vendor/bin/ibis-next pdf dark -c ebook/en/content -d ebook/en",
         "epub": "vendor/bin/ibis-next epub -c ebook/en/content -d ebook/en",
-        "html": "vendor/bin/ibis-next html -c ebook/en/content -d ebook/en",
+        "html": "vendor/bin/ibis-next html -c ebook/en/content -d ebook/en && cp ebook/en/export/101-linux-commands.html index.html",
         "sample": "vendor/bin/ibis-next sample -c ebook/en/content -d ebook/en",
         "sample-dark": "vendor/bin/ibis-next sample dark -c ebook/en/content -d ebook/en"
     }

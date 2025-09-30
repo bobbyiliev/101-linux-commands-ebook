@@ -6,7 +6,6 @@
 	    <a name="forks"><img src="https://img.shields.io/github/forks/bobbyiliev/101-linux-commands?logoColor=green&style=for-the-badge"></a>
 	    <a name="contributions"><img src="https://img.shields.io/github/contributors/bobbyiliev/101-linux-commands?logoColor=green&style=for-the-badge"></a>
       <a name="ebook" href="https://bobbyiliev.github.io/101-linux-commands/" target="_blank"><img src="https://img.shields.io/static/v1?label=eBook&message=Read%20Online&color=orange&logoColor=green&style=for-the-badge&logo=github"></a>
-	    <a name="contributors"><img src="https://img.shields.io/github/contributors/bobbyiliev/101-linux-commands?logoColor=yellow&style=for-the-badge"></a>
 	    <a name="madeWith"><img src="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg?style=for-the-badge"></a>
 	    <a name="license"><img src="https://img.shields.io/github/license/bobbyiliev/101-linux-commands?style=for-the-badge"></a>
     </p>
