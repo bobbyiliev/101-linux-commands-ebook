@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - '*'
 
 permissions:
   contents: write
@@ -30,7 +28,8 @@ jobs:
         DEFAULT_BUMP: minor
 
   create-release:
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+    needs: create-tag
+    if: needs.create-tag.outputs.tag-created != ''
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -65,10 +64,6 @@ jobs:
         composer run sample
         composer run sample-dark
 
-    - name: Get tag name
-      id: get_tag
-      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-
     - name: Get current date
       id: get_date
       run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
@@ -76,10 +71,10 @@ jobs:
     - name: Create Release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: ${{ steps.get_tag.outputs.tag }}
-        name: "📚 101 Linux Commands eBook v${{ steps.get_tag.outputs.tag }}"
+        tag_name: ${{ needs.create-tag.outputs.new-tag }}
+        name: "📚 101 Linux Commands eBook v${{ needs.create-tag.outputs.new-tag }}"
         body: |
-          ## 📚 101 Linux Commands eBook - Release v${{ steps.get_tag.outputs.tag }}
+          ## 📚 101 Linux Commands eBook - Release v${{ needs.create-tag.outputs.new-tag }}
           
           **Released on:** ${{ steps.get_date.outputs.date }}
           
