@@ -55,10 +55,14 @@ jobs:
     - name: Check for changes
       id: verify-changed-files
       run: |
-        if git diff --quiet HEAD -- ebook/en/export/ index.html; then
+        # Check if there are changes in eBook-related files specifically
+        # This will be true only if there are actual eBook changes (regardless of cli changes)
+        if git diff --quiet HEAD -- ebook/ index.html composer.json composer.lock; then
           echo "changed=false" >> $GITHUB_OUTPUT
+          echo "No eBook-related changes detected"
         else
           echo "changed=true" >> $GITHUB_OUTPUT
+          echo "eBook-related changes detected"
         fi
 
     - name: Commit and push changes (GitHub Pages)
@@ -66,6 +70,7 @@ jobs:
       run: |
         git config --local user.email "bobby@bobbyiliev.com"
         git config --local user.name "Bobby Iliev"
+        # Only add eBook-related files, explicitly excluding cli directory
         git add ebook/en/export/ index.html
         git commit -m "🤖 Auto-update eBook files and GitHub Pages [skip ci]" || exit 0
         git push
