@@ -10744,6 +10744,35 @@ b=`expr substr $a <span class="hljs-number">6</span> <span class="hljs-number">1
 </tbody>
 </table>
 <p>For more details: <a href="https://en.wikipedia.org/wiki/Expr">Expr on Wikipedia</a></p>
+<div style="page-break-after: always;"></div><h1>The <code>wall</code> command</h1>
+<p>The <code>wall</code> command (short for <em>write all</em>) is used to send a message to all logged-in users on a Linux system. It is commonly used by system administrators to broadcast important information, such as planned maintenance or urgent announcements.</p>
+<h2>Syntax</h2>
+<pre><code class="language- hljs " data-lang="">wall [options] [message]
+</code></pre>
+<p>If no message is provided as an argument, <code>wall</code> will read the message from standard input (stdin).</p>
+<h2>Options</h2>
+<p>Some popular option flags include:</p>
+<pre><code class="language-php hljs php" data-lang="php">-n	<span class="hljs-keyword">Do</span> not display the header (username <span class="hljs-keyword">and</span> terminal of the sender).
+-t [seconds]	Set a timeout <span class="hljs-keyword">for</span> writing the message to each terminal.
+</code></pre>
+<h2>Few Examples:</h2>
+<ol>
+<li>Broadcast a message to all users</li>
+</ol>
+<pre><code class="language-php hljs php" data-lang="php">wall <span class="hljs-string">"The system will shut down in 10 minutes. Please save your work."</span>
+</code></pre>
+<ol start="2">
+<li>Broadcast a message from a text file</li>
+</ol>
+<pre><code class="language- hljs " data-lang="">wall &lt; message.txt
+</code></pre>
+<ol start="3">
+<li>Send a message without showing the sender header</li>
+</ol>
+<pre><code class="language-php hljs php" data-lang="php">wall -n <span class="hljs-string">"Maintenance completed successfully."</span>
+</code></pre>
+<p>Here I showed you how to use the <code>wall</code> command in Linux. It is a simple but effective tool for system-wide communication, especially useful when you need to notify multiple logged-in users at once.</p>
+<p>For more details: <a href="https://en.wikipedia.org/wiki/Wall_%28Unix%29">Wall (Unix) on Wikipedia</a></p>
 <div style="page-break-after: always;"></div><h1>Conclusion</h1>
 <p>Congratulations! You've reached the end of the <strong>101 Linux Commands eBook</strong>. Throughout this journey, you've explored over 135 essential Linux commands that form the foundation of system administration, development, and everyday Linux usage.</p>
 <h2>What You've Learned</h2>
