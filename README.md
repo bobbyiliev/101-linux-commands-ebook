@@ -704,6 +704,7 @@ For user modification, see useradd, userdel, usermod under System commands
 - [su](ebook/en/content/044-the-su-command.md) - substitute user identity
 - [sudo](ebook/en/content/051-the-sudo-command.md) - execute a command as another user
 - [screen](ebook/en/content/108-the-screen-command.md) - start a screen session
+- [wall](ebook/en/content/136-the-wall-command.md) - message to all users
 
 ### Getting Help
 
