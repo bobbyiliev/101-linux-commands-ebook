@@ -4,9 +4,15 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'cli/**'
+      - '.github/workflows/cli.yml'
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - 'cli/**'
+      - '.github/workflows/cli.yml'
 
 permissions:
   contents: write
