@@ -2,33 +2,45 @@
 
 Interactive CLI tool companion for the 101 Linux Commands eBook.
 
-## Installation
+## Usage
 
-From the CLI directory:
+To get started, install the dependencies and run the CLI:
 
 ```bash
 pip install -r requirements.txt
-pip install -e .
-```
-
-## Usage
-
-```bash
-# Using the installed command
-linux-cli --help
-l101 --help
-
-# Or running directly
 python -m cli.cli --help
 ```
 
-## Commands
+You can also install the CLI as an editable package:
 
-### Hello Command
 ```bash
-linux-cli hello greet
-linux-cli hello greet "Linux User"
+pip install -e .
+linux-cli --help
 ```
+
+### Examples
+
+Here are some examples of how to use the CLI:
+
+> Note: The `list`, `search`, and `show` commands are still under development.
+
+*   **List all commands:**
+
+    ```bash
+    linux-cli list
+    ```
+
+*   **Search for a command:**
+
+    ```bash
+    linux-cli search grep
+    ```
+
+*   **Show details for a command:**
+
+    ```bash
+    linux-cli show ls
+    ```
 
 ## Development
 
