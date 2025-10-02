@@ -58,9 +58,36 @@ def test_hello_help():
     assert "Hello command group" in result.stdout
 
 
+def test_version_command():
+    """Test the version command"""
+    result = subprocess.run(
+        [sys.executable, "cli.py", "version"],
+        capture_output=True,
+        text=True,
+        cwd=os.path.dirname(__file__),
+    )
+    assert result.returncode == 0
+    assert "101-linux v" in result.stdout
+    assert "0.1.0" in result.stdout
+
+
+def test_version_show_command():
+    """Test the version show subcommand."""
+    result = subprocess.run(
+        [sys.executable, "cli.py", "version", "show"],
+        capture_output=True,
+        text=True,
+        cwd=os.path.dirname(__file__),
+    )
+    assert result.returncode == 0
+    assert "101-linux v0.1.0" in result.stdout
+
+
 if __name__ == "__main__":
     test_cli_help()
     test_hello_command()
     test_hello_command_with_name()
     test_hello_help()
+    test_version_command()
+    test_version_show_command()
     print("✅ All tests passed!")
