@@ -2214,7 +2214,7 @@ It can be used to get a basic understanding of what a (unknown) command is used 
 <p><strong>Action:</strong>
 --- Output the memory usage - available and used, as well as swap</p>
 <p><strong>Details:</strong>
---- Outputted values are not human-readable (are in bytes)</p>
+--- The values are shown in kibibytes by default.</p>
 <p><strong>Command:</strong></p>
 <pre><code class="language- hljs " data-lang="">free
 </code></pre>
@@ -2225,6 +2225,14 @@ It can be used to get a basic understanding of what a (unknown) command is used 
 --- Outputted values ARE human-readable (are in GB / MB)</p>
 <p><strong>Command:</strong></p>
 <pre><code class="language- hljs " data-lang="">free -h
+</code></pre>
+<h2>Show memory usage with a total line</h2>
+<p><strong>Action:</strong>
+--- Output the memory usage and also add a summary line with the total.</p>
+<p><strong>Details:</strong>
+--- The <code>-t</code> flag is useful for seeing the combined total of memory and swap.</p>
+<p><strong>Command:</strong></p>
+<pre><code class="language- hljs " data-lang="">free -t
 </code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>top/htop</code> command</h1>
 <p><code>top</code> is the default command-line utility that comes pre-installed on Linux distributions and Unix-like operating systems. It is used for displaying information about the system and its top CPU-consuming processes as well as RAM usage.</p>
@@ -8358,6 +8366,59 @@ Vim text editor is developed by <a href="https://en.wikipedia.org/wiki/Bram_Mool
 <li>When you're done, press the <code>Esc</code> key to exit insert mode and back to command mode.</li>
 <li>Type :w or :wq to save the file or save and exit from the file respectively.</li>
 </ol>
+<h3>Navigate in vim</h3>
+<p>Some common commands:</p>
+<ul>
+<li><code>j</code> : move down one line</li>
+<li><code>k</code> : move up one line</li>
+<li><code>h</code> : Move left one character</li>
+<li><code>l</code> : move right one character</li>
+<li><code>w</code> : move forward one word</li>
+<li><code>b</code> : move backward one word</li>
+<li><code>e</code> : Move to the end of your word</li>
+<li><code>o</code> : move to begining of line</li>
+<li><code>$</code> : move to end of line</li>
+<li><code>gg</code> : go to begining of file</li>
+<li><code>G</code> : go to end of file</li>
+</ul>
+<h3>Copy, Paste and Delete</h3>
+<ol>
+<li>Copy(Yank):
+Copying in vim is called &quot;yanking&quot;:</li>
+</ol>
+<ul>
+<li><code>yy</code> : yank (copy) the current line</li>
+<li><code>2yy</code> : yank 2 lines</li>
+<li><code>y$</code> : yank from cursor to end of line</li>
+<li><code>y^</code> : yank from cursor to begining of line</li>
+<li><code>yw</code> : yank one word</li>
+<li><code>y}</code> : yank until end of paragraph</li>
+</ul>
+<ol start="2">
+<li>Paste:</li>
+</ol>
+<ul>
+<li><code>p</code> : paste after the cursor</li>
+<li><code>P</code> : paste before the cursor</li>
+</ul>
+<ol start="3">
+<li>Delete:</li>
+</ol>
+<ul>
+<li><code>x</code> : delete a single character</li>
+<li><code>dd</code> : delete the whole current line</li>
+<li><code>2dd</code> : delete 2 lines (or use any number <code>n dd</code>)</li>
+<li><code>d$</code> : delete from cursor to end of line</li>
+<li><code>d^</code> : delete from cursor to begining of line</li>
+<li><code>dG</code> : delete from cursor to end of file</li>
+<li><code>dgg</code>:  delete from cursor to begining of file</li>
+</ul>
+<h3>Selection (visual mode)</h3>
+<ul>
+<li><code>v</code> : start character-wise selection</li>
+<li><code>V</code> : start line-wise selection</li>
+<li><code>ctrl + v</code>  : start block-wise selection</li>
+</ul>
 <h3>Interactive training</h3>
 <p>In this interactive tutorial, you will learn the different ways to use the <code>vim</code> command:</p>
 <p><a href="https://www.openvim.com/">The Open vim Tutorial</a></p>
