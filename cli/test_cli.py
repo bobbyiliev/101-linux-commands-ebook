@@ -58,6 +58,20 @@ def test_hello_help():
     assert "Hello command group" in result.stdout
 
 
+def test_list_command():
+    """Test the list command."""
+    result = subprocess.run(
+        [sys.executable, "cli.py", "list"],
+        capture_output=True,
+        text=True,
+        cwd=os.path.dirname(__file__),
+    )
+    assert "ls - List directory contents." in result.stdout
+    assert "cd - Change directory." in result.stdout
+    assert "pwd - Print working directory." in result.stdout
+    assert "cat - Concatenate and display files." in result.stdout
+
+
 def test_version_command():
     """Test the version command"""
     result = subprocess.run(
@@ -88,6 +102,7 @@ if __name__ == "__main__":
     test_hello_command()
     test_hello_command_with_name()
     test_hello_help()
+    test_list_command()
     test_version_command()
     test_version_show_command()
     print("✅ All tests passed!")
