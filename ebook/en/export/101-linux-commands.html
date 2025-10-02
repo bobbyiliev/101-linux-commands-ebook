@@ -1867,6 +1867,9 @@ Output: <span class="hljs-number">1</span>
 <p>The <code>help</code> command displays information about builtin commands.
 Display information about builtin commands.</p>
 <p>If a <code>PATTERN</code> is specified, this command gives detailed help on all commands matching the <code>PATTERN</code>, otherwise the list of available help topics is printed.</p>
+<blockquote>
+<p><strong>Quick Tip:</strong> The <code>help</code> command only works for commands that are &quot;built-in&quot; to the Bash shell itself (like <code>cd</code>, <code>pwd</code>, <code>echo</code>, <code>read</code>). It will not work for standalone programs like <code>ls</code>, <code>grep</code>, or <code>find</code>. To get help for those, you should use the <code>man</code> command (e.g., <code>man ls</code>).</p>
+</blockquote>
 <h2>Syntax</h2>
 <pre><code class="language-bash hljs bash" data-lang="bash">$ <span class="hljs-built_in">help</span> [-dms] [PATTERN ...]
 </code></pre>
@@ -1898,16 +1901,26 @@ Display information about builtin commands.</p>
 <li>We get the complete information about the <code>cd</code> command</li>
 </ol>
 <pre><code class="language-bash hljs bash" data-lang="bash">$ <span class="hljs-built_in">help</span> <span class="hljs-built_in">cd</span>
+<span class="hljs-built_in">cd</span>: <span class="hljs-built_in">cd</span> [-L|[-P [-e]] [-@]] [dir]
+    Change the shell working directory.
+
+    Change the current directory to DIR.  The default DIR is the value of the
+    HOME shell variable.
+...
+(additional details about options and <span class="hljs-built_in">exit</span> status follow)
 </code></pre>
 <ol start="2">
 <li>We get a short description about the <code>pwd</code> command</li>
 </ol>
 <pre><code class="language-bash hljs bash" data-lang="bash">$ <span class="hljs-built_in">help</span> -d <span class="hljs-built_in">pwd</span>
+<span class="hljs-built_in">pwd</span>: <span class="hljs-built_in">pwd</span> [-LP]
+    Print the name of the current working directory.
 </code></pre>
 <ol start="3">
 <li>We get the syntax of the <code>cd</code> command</li>
 </ol>
 <pre><code class="language-bash hljs bash" data-lang="bash">$ <span class="hljs-built_in">help</span> -s <span class="hljs-built_in">cd</span>
+<span class="hljs-built_in">cd</span> [-L|[-P [-e]] [-@]] [dir]
 </code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>factor</code> command</h1>
 <p>The <code>factor</code> command prints the prime factors of each specified integer <code>NUMBER</code>. If none are specified on the command line, it will read them from the standard input.</p>
