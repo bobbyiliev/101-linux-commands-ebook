@@ -860,6 +860,40 @@ It normally lists the files and directories in ascending alphabetical order.</p>
 </tr>
 </tbody>
 </table>
+<h3>SELinux Support on Red Hat-Based Systems:</h3>
+<p>On Red Hat-based distributions (RHEL, CentOS, Fedora, Rocky Linux, AlmaLinux) that use SELinux, the <code>ls</code> command provides additional options to display SELinux security context information:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Short Flag</strong></th>
+<th align="left"><strong>Long Flag</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-Z</code></td>
+<td align="left"><code>--context</code></td>
+<td align="left">Display SELinux security context for files and directories</td>
+</tr>
+<tr>
+<td align="left"><code>-lZ</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">Show long format with SELinux security context</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example Output:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -Z
+unconfined_u:object_r:user_home_t:s0 file.txt
+unconfined_u:object_r:user_home_t:s0 directory
+</code></pre>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -lZ
+-rw-rw-r--. 1 user user unconfined_u:object_r:user_home_t:s0 1234 Jan 15 10:30 file.txt
+drwxrwxr-x. 2 user user unconfined_u:object_r:user_home_t:s0 4096 Jan 15 10:25 directory
+</code></pre>
+<p>The SELinux context format is: <code>user:role:type:level</code></p>
+<p><strong>Note:</strong> The <code>-Z</code> option is only functional on systems with SELinux enabled. On non-SELinux systems, this option may not be available or will show no additional information.</p>
 <h3>Setting Persistent Options:</h3>
 <p>Customizing command behavior in Linux is easy using the <code>alias</code> command. To make these changes permanent, follow these steps:</p>
 <ol>
