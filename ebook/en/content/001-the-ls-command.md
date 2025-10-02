@@ -46,6 +46,34 @@ In this interactive tutorial, you will learn the different ways to use the `ls` 
 |`-h`|`--human-readable`|like `-l` but displays file size in human-readable unit not in bytes|
 
 
+### SELinux Support on Red Hat-Based Systems:
+
+On Red Hat-based distributions (RHEL, CentOS, Fedora, Rocky Linux, AlmaLinux) that use SELinux, the `ls` command provides additional options to display SELinux security context information:
+
+|**Short Flag**   |**Long Flag**   |**Description**   |
+|:---|:---|:---|
+|`-Z`|`--context`|Display SELinux security context for files and directories|
+|`-lZ`|<center>-</center>|Show long format with SELinux security context|
+
+**Example Output:**
+
+```bash
+ls -Z
+unconfined_u:object_r:user_home_t:s0 file.txt
+unconfined_u:object_r:user_home_t:s0 directory
+```
+
+```bash
+ls -lZ
+-rw-rw-r--. 1 user user unconfined_u:object_r:user_home_t:s0 1234 Jan 15 10:30 file.txt
+drwxrwxr-x. 2 user user unconfined_u:object_r:user_home_t:s0 4096 Jan 15 10:25 directory
+```
+
+The SELinux context format is: `user:role:type:level`
+
+**Note:** The `-Z` option is only functional on systems with SELinux enabled. On non-SELinux systems, this option may not be available or will show no additional information.
+
+
 ### Setting Persistent Options:
 
 
