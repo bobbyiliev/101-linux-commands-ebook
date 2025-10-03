@@ -99,6 +99,32 @@ def test_show_invalid():
     assert "Unknown" in combined_output or "Error" in combined_output
 
 
+def test_search_match():
+    """It should find matches and exit 0."""
+    result = subprocess.run(
+        [sys.executable, "cli.py", "search", "grep"],
+        capture_output=True,
+        text=True,
+        cwd=os.path.dirname(__file__),
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr
+    assert any(line.startswith("grep:") for line in result.stdout.splitlines())
+
+
+def test_search_no_match():
+    """It should print 'No commands found.' and exit non-zero."""
+    result = subprocess.run(
+        [sys.executable, "cli.py", "search", "this-should-not-exist-xyz"],
+        capture_output=True,
+        text=True,
+        cwd=os.path.dirname(__file__),
+        check=False,
+    )
+    assert result.returncode != 0
+    assert "No commands found." in result.stdout
+
+
 if __name__ == "__main__":
     test_cli_help()
     test_hello_command()
@@ -110,4 +136,6 @@ if __name__ == "__main__":
     test_show_ls()
     test_show_grep()
     test_show_invalid()
+    test_search_match()
+    test_search_no_match()
     print("✅ All tests passed!")
