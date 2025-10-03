@@ -370,7 +370,7 @@
 
         .content-wrapper li {
             margin-bottom: 0.75rem;
-            padding-left: 2rem;
+            padding-left: 2.5rem;
             position: relative;
             color: var(--reading-text-light);
             line-height: 1.7;
@@ -396,7 +396,9 @@
         .content-wrapper ol li::before {
             content: counter(list-counter);
             position: absolute;
-            left: 0;
+            left: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
             background: var(--accent-color);
             color: white;
             width: 1.4rem;
