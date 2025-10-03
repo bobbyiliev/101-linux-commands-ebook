@@ -608,6 +608,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [chown](ebook/en/content/101-the-chown-command.md) - change file owner and group
 - [cp](ebook/en/content/031-the-cp-command.md) - copy files and directories
 - [cut](ebook/en/content/098-the-cut-command.md) - remove sections from files
+- [ln](ebook/en/content/137-the-ln-command.md) - create links between files
 - [mkdir](ebook/en/content/014-the-mkdir-command.md) - make a new directory
 - [mv](ebook/en/content/032-the-mv-command.md) - move files and directories
 - [nano](ebook/en/content/039-the-nano-command.md) - text editor
@@ -642,6 +643,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [hostnamectl](ebook/en/content/065-the-hostnamectl-command.md) - change hostname settings
 - [ionice](ebook/en/content/083-the-ionice-command.md) - get/set I/O process priority
 - [iostat](ebook/en/content/050-the-iostat-command.md) - I/O statistics
+- [journalctl](ebook/en/content/139-the-journalctl-command.md) - view systemd journal logs
 - [kill](ebook/en/content/034-the-kill-command.md) - terminate or signal a process by id
 - [killall](ebook/en/content/035-the-killall-command.md) - kill processes by name
 - [lsblk](ebook/en/content/104-the-lsblk-command.md) - display block and loop devices
@@ -653,12 +655,14 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [reboot](ebook/en/content/058-the-reboot-command.md) - restart the system
 - [service](ebook/en/content/070-the-service-command.md) - run an init script
 - [shutdown](ebook/en/content/056-the-shutdown-command.md) - close down the system at a specific time
+- [systemctl](ebook/en/content/138-the-systemctl-command.md) - control systemd services
 - [top/htop](ebook/en/content/019-the-top-htop-command.md) - display process information
 - [uname](ebook/en/content/013-the-uname-command.md) - prints operating system details
 - [useradd](ebook/en/content/080-the-useradd-command.md) - add/update user accounts
 - [userdel](ebook/en/content/081-the-userdel-command.md) - delete user account
 - [usermod](ebook/en/content/082-the-usermod-command.md) - modify user properties
 - [vmstat](ebook/en/content/071-the-vmstat-command.md) - virtual memory statistics
+- [watch](ebook/en/content/140-the-watch-command.md) - execute commands repeatedly
 - [whereis](ebook/en/content/096-the-whereis-command.md) - locate programs
 
 ### Networking Commands
@@ -666,10 +670,12 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [dig](ebook/en/content/087-the-dig-command.md) - DNS lookup utility
 - [ifconfig](ebook/en/content/041-the-ifconfig-command.md) - configure network interface parameters
 - [ip](ebook/en/content/042-the-ip-command.md) - perform network administration tasks
-- [iptable](ebook/en/content/066-the-iptable-command.md) - configure IPv4 network firewall
+- [iptables](ebook/en/content/066-the-iptables-command.md) - configure netfilter firewall
 - [lscpu](ebook/en/content/030-the-lscpu-command.md) - display CPU architecture information
 - [netstat](ebook/en/content/067-the-netstat-command.md) - show network status
 - [ping](ebook/en/content/085-the-ping-command.md) - check network connectivity
+- [traceroute](ebook/en/content/147-the-traceroute-command.md) - trace network path to destination
+- [ufw](ebook/en/content/146-the-ufw-command.md) - uncomplicated firewall
 - [whois](ebook/en/content/088-the-whois-command.md) - information about Internet domain names and network numbers
 
 
@@ -692,18 +698,22 @@ For user modification, see useradd, userdel, usermod under System commands
 
 ### Session commands
 
+- [bg](ebook/en/content/142-the-bg-command.md) - put jobs in background
 - [clear](ebook/en/content/043-the-clear-command.md) - clear terminal screen
 - [env](ebook/en/content/036-the-env-command.md) - display environment variables, or set variables for command execution
 - [exit](ebook/en/content/061-the-exit-command.md) - close the active session/shell
-- [printenv](ebook/en/content/037-the-printenv-command.md) - print specified environment variables
+- [export](ebook/en/content/145-the-export-command.md) - set environment variables
+- [fg](ebook/en/content/143-the-fg-command.md) - bring jobs to foreground
 - [history](ebook/en/content/028-the-history-command.md) - display the command history
+- [jobs](ebook/en/content/141-the-jobs-command.md) - display active jobs
 - [login](ebook/en/content/029-the-login-command.md) - login and initiate a user session
 - [nohup](ebook/en/content/093-the-nohup-command.md) - invoke a utility immune to hangups
+- [printenv](ebook/en/content/037-the-printenv-command.md) - print specified environment variables
+- [screen](ebook/en/content/108-the-screen-command.md) - start a screen session
 - [sleep](ebook/en/content/077-the-sleep-command.md) - suspend execution for a time interval
 - [ssh](ebook/en/content/089-the-ssh-command.md) - secure shell login
 - [su](ebook/en/content/044-the-su-command.md) - substitute user identity
 - [sudo](ebook/en/content/051-the-sudo-command.md) - execute a command as another user
-- [screen](ebook/en/content/108-the-screen-command.md) - start a screen session
 - [wall](ebook/en/content/136-the-wall-command.md) - message to all users
 
 ### Getting Help
@@ -722,6 +732,7 @@ For user modification, see useradd, userdel, usermod under System commands
 - [factor](ebook/en/content/012-the-factor-command.md) - prints prime factors of numbers
 - [printf](ebook/en/content/097-the-printf-command.md) - format output
 - [sl](ebook/en/content/020-the-sl-command.md) - runs a steam locomotive across your terminal
+- [time](ebook/en/content/144-the-time-command.md) - measure command execution time
 - [wget](ebook/en/content/045-the-wget-command.md) - non-interactive web file download
 - [xargs](ebook/en/content/092-the-xargs-command.md) - construct argument lists and execute utility
 - [yes](ebook/en/content/047-the-yes-command.md) - print continous output stream
@@ -801,7 +812,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [063-the-tar-command.md](ebook/en/content/063-the-tar-command.md)
 - [064-the-gunzip-command.md](ebook/en/content/064-the-gunzip-command.md)
 - [065-the-hostnamectl-command.md](ebook/en/content/065-the-hostnamectl-command.md)
-- [066-the-iptable-command.md](ebook/en/content/066-the-iptable-command.md)
+- [066-the-iptables-command.md](ebook/en/content/066-the-iptables-command.md)
 - [067-the-netstat-command.md](ebook/en/content/067-the-netstat-command.md)
 - [068-the-lsof-command.md](ebook/en/content/068-the-lsof-command.md)
 - [069-the-bzip2-command.md](ebook/en/content/069-the-bzip2-command.md)
@@ -871,6 +882,18 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [133-the-nslookup-command.md](ebook/en/content/133-the-nslookup-command.md)
 - [134-the-cmp-command.md](ebook/en/content/134-the-cmp-command.md)
 - [135-the-expr-command.md](ebook/en/content/135-the-expr-command.md)
+- [136-the-wall-command.md](ebook/en/content/136-the-wall-command.md)
+- [137-the-ln-command.md](ebook/en/content/137-the-ln-command.md)
+- [138-the-systemctl-command.md](ebook/en/content/138-the-systemctl-command.md)
+- [139-the-journalctl-command.md](ebook/en/content/139-the-journalctl-command.md)
+- [140-the-watch-command.md](ebook/en/content/140-the-watch-command.md)
+- [141-the-jobs-command.md](ebook/en/content/141-the-jobs-command.md)
+- [142-the-bg-command.md](ebook/en/content/142-the-bg-command.md)
+- [143-the-fg-command.md](ebook/en/content/143-the-fg-command.md)
+- [144-the-time-command.md](ebook/en/content/144-the-time-command.md)
+- [145-the-export-command.md](ebook/en/content/145-the-export-command.md)
+- [146-the-ufw-command.md](ebook/en/content/146-the-ufw-command.md)
+- [147-the-traceroute-command.md](ebook/en/content/147-the-traceroute-command.md)
 
 # 🔗Links
 
