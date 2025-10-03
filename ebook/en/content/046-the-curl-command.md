@@ -1,30 +1,48 @@
 # The `curl` command
 
-In linux, `curl` is a tool to transfer data from or to a server, using one of the supported protocols(DICT, FILE ,FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP).
+In Linux, curl is a powerful command-line tool used to transfer data from or to a server using a wide variety of protocols, including HTTP, HTTPS, and FTP. It is often used for testing APIs, downloading files, and automating web-related tasks.
 
-## Example :
-
-```bash
-$ curl example.com
-```
-
-The command will print the source code of the example.com homepage in the terminal window.
-
-## The syntax of the `curl` command is :
+## The syntax of the `curl` command :
 
 ```bash
 $ curl [options...] <url>
 ```
+The command will print the source code of the example.com homepage in the terminal window.
 
-## Options :
+## Common Options :
 
-Options start with one or two dashes. Many of the options require an additional value next to them.
+curl has over 200 options! Here are some of the most common and useful ones.
 
-The short "single-dash" form of the options, `-d` for example, may be used with or without a space between it and its value, although a space is a recommended separator. The long "double-dash" form, `-d`, `--data` for example, requires a space between it and its value.
+| Option               | Long Version        | Description                                                            |
+|----------------------|---------------------|------------------------------------------------------------------------|
+| `-O`                 | `--remote-name`     | Downloads the file and saves it with the same name as the remote file.  |
+| `-o <file>`          | `--output <file>`   | Saves the downloaded output to a specific filename.                    |
+| `-L`                 | `--location`        | Follows redirects if the server reports that the requested page has moved. |
+| `-X <METHOD>`        | `--request <METHOD>`| Specifies the HTTP request method to use (e.g., POST, PUT, DELETE).     |
+| `-H <header>`        | `--header <header>` | Allows you to add a custom HTTP header to your request.                 |
 
-Short version options that don't need any additional values can be used immediately next to each other, like for example you can specify all the options `-O`, `-L` and `-v` at once as `-OLv`.
 
-In general, all boolean options are enabled with `--option` and yet again disabled with `--no-option`. That is, you use the exact same option name but prefix it with `no-`. However, in this list we mostly only list and show the `--option` version of them. (This concept with `--no` options was added in 7.19.0. Previously most options were toggled on/off through repeated use of the same command line option.)
+## Examples :
+
+### 1. View the source code of a webpage
+
+This is the simplest use of curl. It will fetch the content from the URL and print its HTML source code directly to your terminal.
+```bash
+$ curl example.com
+```
+### 2. Download a file
+
+The -O flag is used to download a file. curl will save it in your current directory using the same name as the remote file.
+
+```bash
+$ curl -O https://github.com/bobbyiliev/101-linux-commands/archive/refs/tags/v1.0.zip
+```
+### 3. Download a file and rename it
+
+Using the -o flag, you can specify a new name for the downloaded file.
+```bash
+$ curl -o linux-commands.zip https://github.com/bobbyiliev/101-linux-commands/archive/refs/tags/v1.0.zip
+```
 
 ## Installation:
 
