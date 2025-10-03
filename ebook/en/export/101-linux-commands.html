@@ -4042,19 +4042,62 @@ $ clear
 </tbody>
 </table>
 <div style="page-break-after: always;"></div><h1>The <code>curl</code> command</h1>
-<p>In linux, <code>curl</code> is a tool to transfer data from or to a server, using one of the supported protocols(DICT, FILE ,FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP).</p>
-<h2>Example :</h2>
-<pre><code class="language-bash hljs bash" data-lang="bash">$ curl example.com
-</code></pre>
-<p>The command will print the source code of the example.com homepage in the terminal window.</p>
-<h2>The syntax of the <code>curl</code> command is :</h2>
+<p>In Linux, curl is a powerful command-line tool used to transfer data from or to a server using a wide variety of protocols, including HTTP, HTTPS, and FTP. It is often used for testing APIs, downloading files, and automating web-related tasks.</p>
+<h2>The syntax of the <code>curl</code> command :</h2>
 <pre><code class="language-bash hljs bash" data-lang="bash">$ curl [options...] &lt;url&gt;
 </code></pre>
-<h2>Options :</h2>
-<p>Options start with one or two dashes. Many of the options require an additional value next to them.</p>
-<p>The short &quot;single-dash&quot; form of the options, <code>-d</code> for example, may be used with or without a space between it and its value, although a space is a recommended separator. The long &quot;double-dash&quot; form, <code>-d</code>, <code>--data</code> for example, requires a space between it and its value.</p>
-<p>Short version options that don't need any additional values can be used immediately next to each other, like for example you can specify all the options <code>-O</code>, <code>-L</code> and <code>-v</code> at once as <code>-OLv</code>.</p>
-<p>In general, all boolean options are enabled with <code>--option</code> and yet again disabled with <code>--no-option</code>. That is, you use the exact same option name but prefix it with <code>no-</code>. However, in this list we mostly only list and show the <code>--option</code> version of them. (This concept with <code>--no</code> options was added in 7.19.0. Previously most options were toggled on/off through repeated use of the same command line option.)</p>
+<p>The command will print the source code of the example.com homepage in the terminal window.</p>
+<h2>Common Options :</h2>
+<p>curl has over 200 options! Here are some of the most common and useful ones.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Long Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-O</code></td>
+<td><code>--remote-name</code></td>
+<td>Downloads the file and saves it with the same name as the remote file.</td>
+</tr>
+<tr>
+<td><code>-o &lt;file&gt;</code></td>
+<td><code>--output &lt;file&gt;</code></td>
+<td>Saves the downloaded output to a specific filename.</td>
+</tr>
+<tr>
+<td><code>-L</code></td>
+<td><code>--location</code></td>
+<td>Follows redirects if the server reports that the requested page has moved.</td>
+</tr>
+<tr>
+<td><code>-X &lt;METHOD&gt;</code></td>
+<td><code>--request &lt;METHOD&gt;</code></td>
+<td>Specifies the HTTP request method to use (e.g., POST, PUT, DELETE).</td>
+</tr>
+<tr>
+<td><code>-H &lt;header&gt;</code></td>
+<td><code>--header &lt;header&gt;</code></td>
+<td>Allows you to add a custom HTTP header to your request.</td>
+</tr>
+</tbody>
+</table>
+<h2>Examples :</h2>
+<h3>1. View the source code of a webpage</h3>
+<p>This is the simplest use of curl. It will fetch the content from the URL and print its HTML source code directly to your terminal.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ curl example.com
+</code></pre>
+<h3>2. Download a file</h3>
+<p>The -O flag is used to download a file. curl will save it in your current directory using the same name as the remote file.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ curl -O https://github.com/bobbyiliev/101-linux-commands/archive/refs/tags/v1.0.zip
+</code></pre>
+<h3>3. Download a file and rename it</h3>
+<p>Using the -o flag, you can specify a new name for the downloaded file.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ curl -o linux-commands.zip https://github.com/bobbyiliev/101-linux-commands/archive/refs/tags/v1.0.zip
+</code></pre>
 <h2>Installation:</h2>
 <p>The curl command comes with most of the Linux distributions. But, if the system does not carry the curl by default. You need to install it manually. To install the curl, execute the following commands:</p>
 <p>Update the system by executing the following commands:</p>
