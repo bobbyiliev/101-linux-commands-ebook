@@ -1,6 +1,7 @@
 ## USER ADDED
 .env.secret
 .vscode/
+.idea/
 
 # MkDocs (no longer used - using Ibis HTML directly)
 site/
