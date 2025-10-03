@@ -370,7 +370,7 @@
 
         .content-wrapper li {
             margin-bottom: 0.75rem;
-            padding-left: 2.5rem;
+            padding-left: 2rem;
             position: relative;
             color: var(--reading-text-light);
             line-height: 1.7;
@@ -385,16 +385,18 @@
             font-size: 0.7rem;
         }
 
-
-        .content-wrapper ol li::before {
-            display: none;
+        .content-wrapper ol {
+            counter-reset: list-counter;
         }
 
-        .content-wrapper .list-badge {
+        .content-wrapper ol li {
+            counter-increment: list-counter;
+        }
+
+        .content-wrapper ol li::before {
+            content: counter(list-counter);
             position: absolute;
-            left: 0.5rem;
-            top: 50%;
-            transform: translateY(-50%);
+            left: 0;
             background: var(--accent-color);
             color: white;
             width: 1.4rem;
@@ -785,6 +787,36 @@ It normally lists the files and directories in ascending alphabetical order.</p>
 </ol>
 <pre><code class="language- hljs " data-lang="">ls {Directory_Path}
 </code></pre>
+<ol start="3">
+<li>List all files including hidden ones in long format with human-readable sizes:</li>
+</ol>
+<pre><code class="language- hljs " data-lang="">ls -lah
+</code></pre>
+<ol start="4">
+<li>Sort files by modification time, newest first:</li>
+</ol>
+<pre><code class="language- hljs " data-lang="">ls -lt
+</code></pre>
+<ol start="5">
+<li>List files by size, largest first:</li>
+</ol>
+<pre><code class="language- hljs " data-lang="">ls -lhS
+</code></pre>
+<ol start="6">
+<li>Show only directories in the current path:</li>
+</ol>
+<pre><code class="language- hljs " data-lang="">ls -d */
+</code></pre>
+<ol start="7">
+<li>List all text files with details:</li>
+</ol>
+<pre><code class="language- hljs " data-lang="">ls -lh *.txt
+</code></pre>
+<ol start="8">
+<li>Recursively list all files in subdirectories:</li>
+</ol>
+<pre><code class="language- hljs " data-lang="">ls -R
+</code></pre>
 <h3>Syntax:</h3>
 <pre><code class="language- hljs " data-lang="">ls [-OPTION] [DIRECTORY_PATH]
 </code></pre>
@@ -856,8 +888,238 @@ It normally lists the files and directories in ascending alphabetical order.</p>
 <td align="left"><code>--human-readable</code></td>
 <td align="left">like <code>-l</code> but displays file size in human-readable unit not in bytes</td>
 </tr>
+<tr>
+<td align="left"><code>-i</code></td>
+<td align="left"><code>--inode</code></td>
+<td align="left">Display inode number for each file</td>
+</tr>
+<tr>
+<td align="left"><code>-R</code></td>
+<td align="left"><code>--recursive</code></td>
+<td align="left">List subdirectories recursively</td>
+</tr>
+<tr>
+<td align="left"><code>-1</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">List one file per line</td>
+</tr>
+<tr>
+<td align="left"><code>-c</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">Sort by change time (when file metadata was last changed)</td>
+</tr>
+<tr>
+<td align="left"><code>-u</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">Sort by access time (when file was last accessed)</td>
+</tr>
+<tr>
+<td align="left"><code>-X</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">Sort alphabetically by file extension</td>
+</tr>
+<tr>
+<td align="left"><center>-</center></td>
+<td align="left"><code>--color=auto</code></td>
+<td align="left">Colorize output to distinguish file types</td>
+</tr>
+<tr>
+<td align="left"><code>-g</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">Like <code>-l</code> but without showing owner</td>
+</tr>
+<tr>
+<td align="left"><code>-o</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">Like <code>-l</code> but without showing group</td>
+</tr>
+<tr>
+<td align="left"><center>-</center></td>
+<td align="left"><code>--group-directories-first</code></td>
+<td align="left">List directories before files</td>
+</tr>
 </tbody>
 </table>
+<h3>File Type Indicators:</h3>
+<p>When using the <code>-F</code> or <code>--classify</code> flag, <code>ls</code> appends special characters to filenames to indicate their type:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Indicator</strong></th>
+<th align="left"><strong>File Type</strong></th>
+<th align="left"><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>/</code></td>
+<td align="left">Directory</td>
+<td align="left"><code>docs/</code></td>
+</tr>
+<tr>
+<td align="left"><code>*</code></td>
+<td align="left">Executable file</td>
+<td align="left"><code>script.sh*</code></td>
+</tr>
+<tr>
+<td align="left"><code>@</code></td>
+<td align="left">Symbolic link</td>
+<td align="left"><code>link@</code></td>
+</tr>
+<tr>
+<td align="left"><code>|</code></td>
+<td align="left">FIFO (named pipe)</td>
+<td align="left"><code>pipe|</code></td>
+</tr>
+<tr>
+<td align="left"><code>=</code></td>
+<td align="left">Socket</td>
+<td align="left"><code>socket=</code></td>
+</tr>
+<tr>
+<td align="left">No indicator</td>
+<td align="left">Regular file</td>
+<td align="left"><code>file.txt</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -F
+documents/  script.sh*  link@  data.txt  pipe|  socket=
+</code></pre>
+<h3>SELinux Support on Red Hat-Based Systems:</h3>
+<p>On Red Hat-based distributions (RHEL, CentOS, Fedora, Rocky Linux, AlmaLinux) that use SELinux, the <code>ls</code> command provides additional options to display SELinux security context information:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Short Flag</strong></th>
+<th align="left"><strong>Long Flag</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-Z</code></td>
+<td align="left"><code>--context</code></td>
+<td align="left">Display SELinux security context for files and directories</td>
+</tr>
+<tr>
+<td align="left"><code>-lZ</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">Show long format with SELinux security context</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example Output:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -Z
+unconfined_u:object_r:user_home_t:s0 file.txt
+unconfined_u:object_r:user_home_t:s0 directory
+</code></pre>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -lZ
+-rw-rw-r--. 1 user user unconfined_u:object_r:user_home_t:s0 1234 Jan 15 10:30 file.txt
+drwxrwxr-x. 2 user user unconfined_u:object_r:user_home_t:s0 4096 Jan 15 10:25 directory
+</code></pre>
+<p>The SELinux context format is: <code>user:role:type:level</code></p>
+<p><strong>Note:</strong> The <code>-Z</code> option is only functional on systems with SELinux enabled. On non-SELinux systems, this option may not be available or will show no additional information.</p>
+<h3>Understanding Long Format Output:</h3>
+<p>When using <code>ls -l</code>, each line displays detailed information about a file or directory:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">-rw-r--r-- 1 user group 1234 Jan 15 10:30 file.txt
+</code></pre>
+<p><strong>Column breakdown:</strong></p>
+<ol>
+<li>
+<p><strong>File Type and Permissions</strong> (<code>-rw-r--r--</code>):</p>
+<ul>
+<li>First character: File type (<code>-</code> = regular file, <code>d</code> = directory, <code>l</code> = symlink, <code>b</code> = block device, <code>c</code> = character device, <code>p</code> = pipe, <code>s</code> = socket)</li>
+<li>Next 9 characters: Permissions in three groups (owner, group, others)
+<ul>
+<li><code>r</code> = read, <code>w</code> = write, <code>x</code> = execute, <code>-</code> = no permission</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Link Count</strong> (<code>1</code>): Number of hard links to the file</p>
+</li>
+<li>
+<p><strong>Owner</strong> (<code>user</code>): Username of the file owner</p>
+</li>
+<li>
+<p><strong>Group</strong> (<code>group</code>): Group name that owns the file</p>
+</li>
+<li>
+<p><strong>Size</strong> (<code>1234</code>): File size in bytes (use <code>-h</code> flag for human-readable format like <code>1.2K</code>, <code>3.4M</code>)</p>
+</li>
+<li>
+<p><strong>Modification Time</strong> (<code>Jan 15 10:30</code>): Date and time the file was last modified</p>
+</li>
+<li>
+<p><strong>Filename</strong> (<code>file.txt</code>): Name of the file or directory</p>
+</li>
+</ol>
+<p><strong>Example with human-readable sizes:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -lh
+drwxr-xr-x 2 user group 4.0K Jan 15 10:25 documents
+-rwxr-xr-x 1 user group 2.3M Jan 14 09:15 script.sh
+-rw-r--r-- 1 user group  15K Jan 16 14:30 data.csv
+</code></pre>
+<h3>Using Wildcards and Patterns:</h3>
+<p>The <code>ls</code> command supports wildcards for pattern matching:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Wildcard</strong></th>
+<th align="left"><strong>Description</strong></th>
+<th align="left"><strong>Example</strong></th>
+<th align="left"><strong>Matches</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>*</code></td>
+<td align="left">Matches any number of characters</td>
+<td align="left"><code>ls *.txt</code></td>
+<td align="left">All files ending with <code>.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>?</code></td>
+<td align="left">Matches exactly one character</td>
+<td align="left"><code>ls file?.txt</code></td>
+<td align="left"><code>file1.txt</code>, <code>file2.txt</code>, but not <code>file10.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>[]</code></td>
+<td align="left">Matches any character within brackets</td>
+<td align="left"><code>ls file[123].txt</code></td>
+<td align="left"><code>file1.txt</code>, <code>file2.txt</code>, <code>file3.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>[!]</code></td>
+<td align="left">Matches any character NOT in brackets</td>
+<td align="left"><code>ls file[!3].txt</code></td>
+<td align="left"><code>file1.txt</code>, <code>file2.txt</code>, but not <code>file3.txt</code></td>
+</tr>
+<tr>
+<td align="left"><code>{}</code></td>
+<td align="left">Matches any of the comma-separated patterns</td>
+<td align="left"><code>ls *.{jpg,png,gif}</code></td>
+<td align="left">All image files with these extensions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># List all PDF and DOCX files</span>
+ls *.{pdf,docx}
+
+<span class="hljs-comment"># List files starting with 'test' followed by a single digit</span>
+ls <span class="hljs-built_in">test</span>?.<span class="hljs-built_in">log</span>
+
+<span class="hljs-comment"># List all files starting with uppercase letters</span>
+ls [A-Z]*
+
+<span class="hljs-comment"># List all hidden configuration files</span>
+ls .config*
+</code></pre>
 <h3>SELinux Support on Red Hat-Based Systems:</h3>
 <p>On Red Hat-based distributions (RHEL, CentOS, Fedora, Rocky Linux, AlmaLinux) that use SELinux, the <code>ls</code> command provides additional options to display SELinux security context information:</p>
 <table>
@@ -915,6 +1177,54 @@ drwxrwxr-x. 2 user user unconfined_u:object_r:user_home_t:s0 4096 Jan 15 10:25 d
 <p><strong>Verification</strong>: Open a new terminal session, and the <code>ls</code> command will display files as configured.</p>
 </li>
 </ol>
+<h3>Performance Tips:</h3>
+<p><strong>1. Avoid recursive listing on large directories:</strong></p>
+<ul>
+<li>The <code>-R</code> flag can be slow on directories with many subdirectories and files</li>
+<li>Consider using <code>find</code> command for more control: <code>find /path -type f</code></li>
+</ul>
+<p><strong>2. Disable color output in scripts:</strong></p>
+<ul>
+<li>Use <code>--color=never</code> when piping output or in scripts to improve performance</li>
+<li>Example: <code>ls --color=never | grep pattern</code></li>
+</ul>
+<p><strong>3. Limit output for large directories:</strong></p>
+<ul>
+<li>Combine with <code>head</code> to see only first few entries: <code>ls -1 | head -n 20</code></li>
+<li>Or use <code>ls -1 | wc -l</code> to just count files without displaying them</li>
+</ul>
+<p><strong>4. Use specific paths instead of wildcards when possible:</strong></p>
+<ul>
+<li><code>ls /var/log/syslog</code> is faster than <code>ls /var/log/sys*</code> when you know the exact filename</li>
+</ul>
+<h3>Common Use Cases:</h3>
+<p><strong>1. Find the largest files in a directory:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -lhS | head -n 10
+</code></pre>
+<p><strong>2. List only directories:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -d */
+</code></pre>
+<p>Or with full details:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -ld */
+</code></pre>
+<p><strong>3. Count files in a directory:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -1 | wc -l
+</code></pre>
+<p><strong>4. List files modified in the last 24 hours:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -lt | head
+</code></pre>
+<p><strong>5. Show files sorted by extension:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -lX
+</code></pre>
+<p><strong>6. List files with their inode numbers (useful for debugging):</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -li
+</code></pre>
+<p><strong>7. Display directory contents one per line (useful for scripting):</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -1
+</code></pre>
+<p><strong>8. Combine multiple sort options (size + reverse):</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ls -lhSr
+</code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>cd</code> command</h1>
 <p>The <code>cd</code> command is used to change the current working directory <em>(i.e., in which the current user is working)</em>. The &quot;cd&quot; stands for &quot;<strong>c</strong>hange <strong>d</strong>irectory&quot; and it is one of the most frequently used commands in the Linux terminal.</p>
 <p>The <code>cd</code> command is often combined with the <code>ls</code> command (see chapter 1) when navigating through a system, however, you can also press the <code>TAB</code> key two times to list the contents of the new directory you just changed to.</p>
@@ -13567,7 +13877,6 @@ traceroute -w 15 google.com
             loadPreferences();
             setupEventListeners();
             updateActiveNavigation();
-            injectOrderedListBadges();
             
             if (window.innerWidth > 1024) {
                 toggleSidebar();
@@ -13828,36 +14137,6 @@ traceroute -w 15 google.com
                 }
             }
         });
-
-        // Add numeric badges for ordered lists
-        function injectOrderedListBadges() {
-            try {
-                const content = document.querySelector('.content-wrapper');
-                if (!content) return;
-
-                content.querySelectorAll('ol').forEach(function(ol){
-                    let start = parseInt(ol.getAttribute('start') || '1', 10);
-                    if (Number.isNaN(start)) start = 1;
-
-                    Array.from(ol.children).forEach(function(li, idx){
-                        if (li.querySelector('.list-badge')) return;
-
-                        const badge = document.createElement('span');
-                        badge.className = 'list-badge';
-                        badge.textContent = String(start + idx);
-
-                        if (getComputedStyle(li).position === 'static') {
-                            li.style.position = 'relative';
-                        }
-
-                        li.insertBefore(badge, li.firstChild);
-                        li.style.paddingLeft = '2.2rem';
-                    });
-                });
-            } catch (err) {
-                console.error('Failed to inject list badges', err);
-            }
-        }
     </script>
 </body>
 </html>
