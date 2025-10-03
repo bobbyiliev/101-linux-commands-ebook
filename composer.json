@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=8.1",
-        "hi-folks/ibis-next": "^1.0"
+        "hi-folks/ibis-next": "^2.0"
     },
     "scripts": {
         "pdf": "vendor/bin/ibis-next pdf -c ebook/en/content -d ebook/en",
