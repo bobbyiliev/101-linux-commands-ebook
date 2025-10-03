@@ -385,16 +385,12 @@
             font-size: 0.7rem;
         }
 
-        .content-wrapper ol {
-            counter-reset: list-counter;
-        }
-
-        .content-wrapper ol li {
-            counter-increment: list-counter;
-        }
 
         .content-wrapper ol li::before {
-            content: counter(list-counter);
+            display: none;
+        }
+
+        .content-wrapper .list-badge {
             position: absolute;
             left: 0.5rem;
             top: 50%;
@@ -13571,6 +13567,7 @@ traceroute -w 15 google.com
             loadPreferences();
             setupEventListeners();
             updateActiveNavigation();
+            injectOrderedListBadges();
             
             if (window.innerWidth > 1024) {
                 toggleSidebar();
@@ -13831,6 +13828,36 @@ traceroute -w 15 google.com
                 }
             }
         });
+
+        // Add numeric badges for ordered lists
+        function injectOrderedListBadges() {
+            try {
+                const content = document.querySelector('.content-wrapper');
+                if (!content) return;
+
+                content.querySelectorAll('ol').forEach(function(ol){
+                    let start = parseInt(ol.getAttribute('start') || '1', 10);
+                    if (Number.isNaN(start)) start = 1;
+
+                    Array.from(ol.children).forEach(function(li, idx){
+                        if (li.querySelector('.list-badge')) return;
+
+                        const badge = document.createElement('span');
+                        badge.className = 'list-badge';
+                        badge.textContent = String(start + idx);
+
+                        if (getComputedStyle(li).position === 'static') {
+                            li.style.position = 'relative';
+                        }
+
+                        li.insertBefore(badge, li.firstChild);
+                        li.style.paddingLeft = '2.2rem';
+                    });
+                });
+            } catch (err) {
+                console.error('Failed to inject list badges', err);
+            }
+        }
     </script>
 </body>
 </html>
