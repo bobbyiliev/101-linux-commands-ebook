@@ -11624,32 +11624,60 @@ b=`expr substr $a <span class="hljs-number">6</span> <span class="hljs-number">1
 <div style="page-break-after: always;"></div><h1>The <code>wall</code> command</h1>
 <p>The <code>wall</code> command (short for <em>write all</em>) is used to send a message to all logged-in users on a Linux system. It is commonly used by system administrators to broadcast important information, such as planned maintenance or urgent announcements.</p>
 <h2>Syntax</h2>
-<pre><code class="language- hljs " data-lang="">wall [options] [message]
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-variable">$wall</span> [options] [message]
 </code></pre>
-<p>If no message is provided as an argument, <code>wall</code> will read the message from standard input (stdin).</p>
+<p>If a [message] is not provided on the command line, wall will read from standard input until it receives an end-of-file character (Ctrl+D).</p>
 <h2>Options</h2>
-<p>Some popular option flags include:</p>
-<pre><code class="language-php hljs php" data-lang="php">-n	<span class="hljs-keyword">Do</span> not display the header (username <span class="hljs-keyword">and</span> terminal of the sender).
--t [seconds]	Set a timeout <span class="hljs-keyword">for</span> writing the message to each terminal.
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>Suppress the banner (which shows who sent the message) and only show the message text.</td>
+</tr>
+<tr>
+<td>-t [seconds]</td>
+<td>Set a timeout, in seconds. <code>wall</code> will try to write to a user's terminal for this duration before giving up.</td>
+</tr>
+</tbody>
+</table>
+<h2>Examples:</h2>
+<h3>1. Broadcast a message to all users</h3>
+<p>This command sends a message directly to all logged-in users.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ wall <span class="hljs-string">"The system will shut down in 10 minutes. Please save your work."</span>
 </code></pre>
-<h2>Few Examples:</h2>
-<ol>
-<li>Broadcast a message to all users</li>
-</ol>
-<pre><code class="language-php hljs php" data-lang="php">wall <span class="hljs-string">"The system will shut down in 10 minutes. Please save your work."</span>
+<h3>Output (on other users' terminals):</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">Broadcast message from your_username@hostname (pts/0) (Sat Oct  4 19:50:00 2025):
+
+The system will shut down <span class="hljs-keyword">in</span> 10 minutes. Please save your work.
 </code></pre>
-<ol start="2">
-<li>Broadcast a message from a text file</li>
-</ol>
-<pre><code class="language- hljs " data-lang="">wall &lt; message.txt
+<h3>2. Broadcast a message from a text file</h3>
+<p>You can redirect the contents of a file to be used as the message.</p>
+<h3>Contents of message.txt:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">System maintenance will begin shortly.
+Connections may be temporarily unstable.
 </code></pre>
-<ol start="3">
-<li>Send a message without showing the sender header</li>
-</ol>
-<pre><code class="language-php hljs php" data-lang="php">wall -n <span class="hljs-string">"Maintenance completed successfully."</span>
+<h3>Command:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ wall &lt; message.txt
 </code></pre>
-<p>Here I showed you how to use the <code>wall</code> command in Linux. It is a simple but effective tool for system-wide communication, especially useful when you need to notify multiple logged-in users at once.</p>
-<p>For more details: <a href="https://en.wikipedia.org/wiki/Wall_%28Unix%29">Wall (Unix) on Wikipedia</a></p>
+<h3>3. Send a multi-line message from standard input</h3>
+<p>If you run wall without a message, you can type a multi-line message directly in the terminal. Press Ctrl+D when you are finished to send it.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ wall
+The server is now back online.
+All services are running normally.
+&lt;Ctrl+D&gt;
+</code></pre>
+<h3>Output (on other users' terminals):</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">Broadcast message from your_username@hostname (pts/0) (Sat Oct  4 19:52:00 2025):
+
+The server is now back online.
+All services are running normally.
+</code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>ln</code> command</h1>
 <p>The <code>ln</code> command is used to create links between files in Linux. It can create both hard links and symbolic (soft) links, which are essential for file system management and organization.</p>
 <h2>Syntax</h2>
