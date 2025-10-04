@@ -10841,20 +10841,67 @@ foobarbaz%
 and then you type m which will show you all options you need such as creating new partition and deleting a partition as in the following picture :
 <img src="https://media.geeksforgeeks.org/wp-content/uploads/20190219153114/Screenshot-741.png" alt="Options" /></p>
 <div style="page-break-after: always;"></div><h1>The <code>Wait</code> commands</h1>
-<p>It is a command that waits for completing any running process of given id. if the process id is not given then it waits for all current child processes to complete.</p>
-<h2>Example</h2>
-<p>This example shows how the <code>wait</code>  command works : <br /></p>
-<p><strong>Step-1</strong>:</p>
-<p>Create a file named &quot;wait_example.sh&quot; and add the following script to it.</p>
-<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-meta">#!/bin/bash</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"Wait command"</span> &amp;
-process_id=$!
-<span class="hljs-built_in">wait</span> <span class="hljs-variable">$process_id</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"Exited with status $?"</span>
+<p>The wait command is a shell builtin that pauses script execution until a specific background process, or all running child processes, have finished.</p>
+<p>Its primary purpose is to synchronize tasks, ensuring that a script doesn't continue to the next step until prerequisite background jobs are complete. A background process is a command that is run with an ampersand (&amp;) at the end, which tells the shell to run it without waiting for it to finish.</p>
+<h2>Syntax</h2>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ <span class="hljs-built_in">wait</span> [PID]
 </code></pre>
-<p><strong>Step-2</strong>:</p>
-<p>Run the file with bash command.</p>
-<pre><code class="language- hljs " data-lang="">$ bash wait_example.sh
+<p>[PID] - An optional Process ID to wait for. If no PID is given, wait will wait for all active child processes to complete.</p>
+<h2>Examples</h2>
+<h3>1. Waiting for a Specific Process</h3>
+<p>This example shows how to launch a single background process and wait for it specifically.</p>
+<h3>Script:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"This process will run in the background..."</span> &amp;
+process_id=$!
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Script is now waiting for process ID: <span class="hljs-variable">$process_id</span>"</span>
+<span class="hljs-built_in">wait</span> <span class="hljs-variable">$process_id</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Process <span class="hljs-variable">$process_id</span> has finished."</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"The script exited with status: $?"</span>
+</code></pre>
+<h3>Explanation:</h3>
+<ul>
+<li>
+<p>&amp;: The ampersand runs the echo command in the background, allowing the script to immediately continue to the next line.</p>
+</li>
+<li>
+<p>$!: This is a special shell variable that holds the Process ID (PID) of the most recently executed background command. We save it to the process_id variable.</p>
+</li>
+<li>
+<p>wait $process_id: This is the key command. The script pauses here until the process with that specific ID is complete.</p>
+</li>
+<li>
+<p>$?: This variable holds the exit status of the last command that finished. An exit status of 0 means success.</p>
+</li>
+</ul>
+<h3>Output:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ bash wait_example.sh
+Script is now waiting <span class="hljs-keyword">for</span> process ID: 12345
+This process will run <span class="hljs-keyword">in</span> the background...
+Process 12345 has finished.
+The script exited with status: 0
+</code></pre>
+<h3>2. Waiting for All Background Processes</h3>
+<p>This is the most common use case. Here, we launch several background tasks and then use a single wait command to pause until all of them are done.</p>
+<h3>Script:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-meta">#!/bin/bash
+</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Starting multiple background jobs..."</span>
+sleep 3 &amp;
+sleep 1 &amp;
+sleep 2 &amp;
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Waiting for all sleep commands to finish."</span>
+<span class="hljs-built_in">wait</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"All jobs are done. Continuing with the rest of the script."</span>
+</code></pre>
+<h3>Output:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ bash wait_all_example.sh
+Starting multiple background <span class="hljs-built_in">jobs</span>...
+Waiting <span class="hljs-keyword">for</span> all sleep commands to finish.
+(after about 3 seconds)
+All <span class="hljs-built_in">jobs</span> are <span class="hljs-keyword">done</span>. Continuing with the rest of the script.
 </code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>zcat</code> command</h1>
 <p>The <code>zcat</code> allows you to look at a compressed file.</p>
