@@ -1226,42 +1226,68 @@ drwxrwxr-x. 2 user user unconfined_u:object_r:user_home_t:s0 4096 Jan 15 10:25 d
 <pre><code class="language-bash hljs bash" data-lang="bash">ls -lhSr
 </code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>cd</code> command</h1>
-<p>The <code>cd</code> command is used to change the current working directory <em>(i.e., in which the current user is working)</em>. The &quot;cd&quot; stands for &quot;<strong>c</strong>hange <strong>d</strong>irectory&quot; and it is one of the most frequently used commands in the Linux terminal.</p>
-<p>The <code>cd</code> command is often combined with the <code>ls</code> command (see chapter 1) when navigating through a system, however, you can also press the <code>TAB</code> key two times to list the contents of the new directory you just changed to.</p>
-<h3>Examples of uses:</h3>
+<p>The <code>cd</code> command is used to change the current working directory <em>(i.e., the directory in which the current user is working)</em>. The &quot;cd&quot; stands for &quot;<strong>c</strong>hange <strong>d</strong>irectory&quot; and it is one of the most frequently used commands in the Linux terminal.</p>
+<p>The <code>cd</code> command is often combined with the <code>ls</code> command (see chapter 1) when navigating through a system. You can also press the <code>TAB</code> key to auto-complete directory names, or press <code>TAB</code> twice to list available directories in the current location.</p>
+<h3>Syntax:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> [OPTIONS] [directory]
+</code></pre>
+<h3>Basic Examples:</h3>
 <ol>
-<li>Change the current working directory:</li>
+<li><strong>Change to a specific directory:</strong></li>
 </ol>
-<pre><code class="language-xml hljs xml" data-lang="xml">cd <span class="hljs-tag">&lt;<span class="hljs-name">specified_directory_path</span>&gt;</span>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> /path/to/directory
 </code></pre>
 <ol start="2">
-<li>Change the current working directory to the home directory:</li>
+<li><strong>Change to your home directory:</strong></li>
 </ol>
 <pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> ~
 </code></pre>
-<p>OR</p>
+<p>OR simply:</p>
 <pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span>
 </code></pre>
 <ol start="3">
-<li>Change to the previous directory:</li>
+<li><strong>Change to the previous directory:</strong></li>
 </ol>
 <pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> -
 </code></pre>
-<p>This will also echo the absolute path of the previous directory.</p>
+<p>This will also print the absolute path of the previous directory.</p>
 <ol start="4">
-<li>Change the current working directory to the system's root directory:</li>
+<li><strong>Change to the system's root directory:</strong></li>
 </ol>
 <pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> /
 </code></pre>
-<h3>💡 Quick Tips</h3>
-<p>Adding a <code>..</code> as a directory will allow you to move &quot;up&quot; from a folder:</p>
+<ol start="5">
+<li><strong>Move up one directory level (parent directory):</strong></li>
+</ol>
 <pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> ..
 </code></pre>
-<p>This can also be done multiple times! For example, to move up three folders:</p>
-<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> ../../../
+<ol start="6">
+<li><strong>Move up multiple directory levels:</strong></li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> ../../..
 </code></pre>
-<h3>Syntax:</h3>
-<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> [OPTIONS] directory
+<p>This example moves up three levels.</p>
+<h3>Practical Examples:</h3>
+<p><strong>Using relative paths:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> Documents/Projects/MyApp
+</code></pre>
+<p><strong>Using absolute paths:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> /usr/<span class="hljs-built_in">local</span>/bin
+</code></pre>
+<p><strong>Combining with home directory shortcut:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> ~/Downloads
+</code></pre>
+<p><strong>Navigate to a directory with spaces in the name:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> <span class="hljs-string">"My Documents"</span>
+</code></pre>
+<p>OR</p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> My\ Documents
+</code></pre>
+<p><strong>Switch between two directories:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> /var/<span class="hljs-built_in">log</span>
+<span class="hljs-built_in">cd</span> /etc
+<span class="hljs-built_in">cd</span> -  <span class="hljs-comment"># Returns to /var/log</span>
+<span class="hljs-built_in">cd</span> -  <span class="hljs-comment"># Returns to /etc</span>
 </code></pre>
 <h3>Additional Flags and Their Functionalities</h3>
 <table>
@@ -1276,15 +1302,46 @@ drwxrwxr-x. 2 user user unconfined_u:object_r:user_home_t:s0 4096 Jan 15 10:25 d
 <tr>
 <td align="left"><code>-L</code></td>
 <td align="left"><center>-</center></td>
-<td align="left">Follow symbolic links. By default,<code>cd</code> behaves as if the <code>-L</code> option is specified.</td>
+<td align="left">Follow symbolic links (default behavior). The <code>cd</code> command will follow symlinks and update the working directory to the target location.</td>
 </tr>
 <tr>
 <td align="left"><code>-P</code></td>
 <td align="left"><center>-</center></td>
-<td align="left">Don’t follow symbolic links.</td>
+<td align="left">Use the physical directory structure without following symbolic links. Shows the actual path instead of the symlink path.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Example of <code>-L</code> vs <code>-P</code> with symbolic links:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Assume /var/www is a symlink to /home/user/web</span>
+<span class="hljs-built_in">cd</span> -L /var/www      <span class="hljs-comment"># Working directory shows as /var/www</span>
+<span class="hljs-built_in">pwd</span>                 <span class="hljs-comment"># Outputs: /var/www</span>
+
+<span class="hljs-built_in">cd</span> -P /var/www      <span class="hljs-comment"># Working directory resolves to actual path</span>
+<span class="hljs-built_in">pwd</span>                 <span class="hljs-comment"># Outputs: /home/user/web</span>
+</code></pre>
+<h3>Common Errors and Troubleshooting</h3>
+<p><strong>Permission denied:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> /root
+<span class="hljs-comment"># bash: cd: /root: Permission denied</span>
+</code></pre>
+<p>Solution: You need appropriate permissions to access the directory. Try using <code>sudo</code> if necessary.</p>
+<p><strong>No such file or directory:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> /invalid/path
+<span class="hljs-comment"># bash: cd: /invalid/path: No such file or directory</span>
+</code></pre>
+<p>Solution: Verify the path exists using <code>ls</code> or check for typos. Remember that paths are case-sensitive.</p>
+<p><strong>Not a directory:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">cd</span> /etc/passwd
+<span class="hljs-comment"># bash: cd: /etc/passwd: Not a directory</span>
+</code></pre>
+<p>Solution: Ensure you're navigating to a directory, not a file.</p>
+<h3>Important Notes:</h3>
+<ul>
+<li><strong>Case sensitivity:</strong> Linux file systems are case-sensitive. <code>cd Documents</code> is different from <code>cd documents</code>.</li>
+<li><strong>Special characters:</strong> Directory names with spaces or special characters need to be quoted or escaped.</li>
+<li><strong>The <code>cd</code> command is a shell built-in:</strong> It's not an external program, which is why it can change the shell's current directory.</li>
+<li><strong>No output on success:</strong> By default, <code>cd</code> produces no output when successful (except <code>cd -</code> which prints the new path).</li>
+</ul>
 <div style="page-break-after: always;"></div><h1>The <code>cat</code> command</h1>
 <hr />
 <p>The <code>cat</code> command allows us to create single or multiple files, to view the content of a file or to concatenate files and redirect the output to the terminal or files.</p>
