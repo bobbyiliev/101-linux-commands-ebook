@@ -70,6 +70,14 @@ def test_version_show_command():
     assert "101-linux v0.1.0" in result.stdout
 
 
+def test_unknown_command():
+    """Test that an unknown command shows a helpful error."""
+    result = run_cli(["unknowncmd"])
+    assert result.returncode != 0
+    combined_output = result.stdout + result.stderr
+    assert "No such command" in combined_output
+    assert "Hint: Run 'cli.py --help' to see available commands." in combined_output
+
 # ----------------------------
 # Tests for `show` subcommand
 # ----------------------------
@@ -138,4 +146,5 @@ if __name__ == "__main__":
     test_show_invalid()
     test_search_match()
     test_search_no_match()
+    test_unknown_command()
     print("✅ All tests passed!")

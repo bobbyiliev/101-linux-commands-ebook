@@ -3,10 +3,29 @@ CLI entry point for the 101 Linux Commands application.
 """
 
 import typer
-
+import click
+from typing import List
 from commands import hello, list, search, show, version
+from typer.main import TyperGroup
 
-app = typer.Typer(help="101 Linux Commands CLI 🚀")
+class CustomTyper(TyperGroup):
+   def resolve_command(self, ctx: click.Context, args:List[str]):
+        try:
+            return super().resolve_command(ctx, args)
+        except click.exceptions.UsageError as e:
+            original = e.format_message()
+
+            if "No such command" in original:
+                script_name = ctx.find_root().info_name or "cli"
+                hint = f"💡 Hint: Run '{script_name} --help' to see available commands."
+
+                new_message = f"{original}\n{hint}"
+                raise click.exceptions.UsageError(new_message, ctx=ctx) from e
+            
+            raise
+        
+
+app = typer.Typer(help="101 Linux Commands CLI 🚀",cls=CustomTyper)
 app.add_typer(hello.app, name="hello")
 app.add_typer(list.app, name="list")
 app.add_typer(version.app, name="version")
