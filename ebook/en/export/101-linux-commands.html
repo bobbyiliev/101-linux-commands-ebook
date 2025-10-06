@@ -11451,106 +11451,85 @@ Useful when dealing with a large text file because it doesn't load the entire fi
 <p>Here I showed you how to use the nslookup command in Linux. Although there are other DNS lookup tools, such as dig, nslookup could be a better choice as it is a powerful tool present in almost every system.</p>
 <p>For more details: <a href="https://en.wikipedia.org/wiki/Nslookup">Nslookup on Wikipedia</a></p>
 <div style="page-break-after: always;"></div><h1>The <code>cmp</code> command</h1>
-<p>The <code>cmp</code> command is used to compare the two files byte by byte.</p>
-<p>Example:</p>
-<pre><code class="language- hljs " data-lang="">cmp file1.txt file2.txt
+<p>The <code>cmp</code> command is a simple utility used to compare two files byte by byte.</p>
+<p>If the files are identical, <code>cmp</code> produces no output and returns a successful exit status. If the files differ, it reports the byte and line number where the first difference occurred.</p>
+<h2>Syntax</h2>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ cmp [OPTION]... FILE1 [FILE2]
 </code></pre>
-<p>Syntax:</p>
-<pre><code class="language- hljs " data-lang="">cmp [option] File1 File2
+<h2>Examples :</h2>
+<p>For the following examples, let's assume we have three files:</p>
+<p>file1.txt:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">hello world
 </code></pre>
-<h2>Few Examples :</h2>
-<ol>
-<li>
-<h3>Comparison of two files:</h3>
-</li>
-</ol>
-<p>Perform a simple comparison of the two files to check out if they differ from each other or not.</p>
-<p>Example:</p>
-<pre><code class="language- hljs " data-lang="">cmp File1 File2
+<p>file2.txt:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">hello world
 </code></pre>
-<ol start="2">
-<li>
-<h3>Comparing Files after Skipping a Specified Number of Bytes:</h3>
-</li>
-</ol>
-<p>Compare two files after skipping a certain number of bytes</p>
-<p>Example:</p>
-<pre><code class="language-php hljs php" data-lang="php">cmp -i <span class="hljs-number">2</span> <span class="hljs-keyword">list</span>.txt list2.txt
+<p>file3.txt:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">hello World
 </code></pre>
-<p>Here “INT” represents the number of bytes to be skipped</p>
-<ol start="3">
-<li>
-<h3>Display the Differing Bytes of the Files in the Output:</h3>
-</li>
-</ol>
-<p>Example:</p>
-<pre><code class="language-php hljs php" data-lang="php">cmp -b <span class="hljs-keyword">list</span>.txt list1.txt
+<h3>1. Comparing two identical files</h3>
+<p>When the files are the same, cmp will produce no output. This is the standard way to confirm that two files are identical.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ cmp file1.txt file2.txt
 </code></pre>
-<ol start="4">
-<li>
-<h3>Display Byte Numbers and Differing Byte Values of the Files in the Output:</h3>
-</li>
-</ol>
-<p>Example:</p>
-<pre><code class="language-php hljs php" data-lang="php">cmp -l <span class="hljs-keyword">list</span>.txt list1.txt
+<p>(No output is shown)</p>
+<h3>2. Comparing two different files</h3>
+<p>When a difference is found, cmp reports the location of the first differing byte.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ cmp file1.txt file3.txt
+file1.txt file3.txt differ: byte 7, line 1
 </code></pre>
-<ol start="5">
-<li>
-<h3>Comparing the First “n” Number of Bytes of the Files:</h3>
-</li>
-</ol>
-<p>Example:</p>
-<pre><code class="language-php hljs php" data-lang="php">cmp -n <span class="hljs-number">10</span> <span class="hljs-keyword">list</span>.txt list2.txt 
+<h3>3. Displaying all differing bytes (--verbose or -l)</h3>
+<p>The -l (lowercase L) flag is very powerful. It prints the byte number (in decimal) and the value of the differing bytes (in octal) for every difference in the files.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ cmp -l file1.txt file3.txt
+ 7 167 127
 </code></pre>
-<h3>Additional Flags and their Functionalities</h3>
+<h4>Explanation:</h4>
+<p>This output means that at byte position 7, file1.txt has the octal value 167 (the letter 'w'), while file3.txt has the octal value 127 (the letter 'W').</p>
+<h3>4. Comparing only the first &quot;n&quot; bytes (--bytes or -n)</h3>
+<p>You can limit the comparison to a certain number of bytes. Here, we only compare the first 5 bytes. Since &quot;hello&quot; is the same in both files, cmp finds no difference.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ cmp -n 5 file1.txt file3.txt
+</code></pre>
+<p>(No output is shown)</p>
+<h3>5. Ignoring the initial &quot;n&quot; bytes (--ignore-initial or -i)</h3>
+<p>You can tell cmp to skip a certain number of bytes at the beginning of the files before starting its comparison. Here, we skip the first 6 bytes, so the comparison starts at the letter 'w'.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">$ cmp -i 6 file1.txt file3.txt
+file1.txt file3.txt differ: byte 1, line 1
+</code></pre>
+<h4>Explanation:</h4>
+<p>The output now says the difference is at &quot;byte 1&quot; because the comparison started after the initial 6 bytes were ignored.</p>
+<h3>Common Options</h3>
 <table>
 <thead>
 <tr>
-<th align="left"><strong>Short Flag</strong></th>
-<th align="left"><strong>Long Flag</strong></th>
-<th align="left"><strong>Description</strong></th>
+<th>Short Flag</th>
+<th>Long Flag</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>-b</code></td>
-<td align="left"><code>--print-bytes</code></td>
-<td align="left">print differing bytes</td>
+<td>-b</td>
+<td>--print-bytes</td>
+<td>Print the differing bytes.</td>
 </tr>
 <tr>
-<td align="left"><code>-i</code></td>
-<td align="left"><code>--ignore-initial=SKIP</code></td>
-<td align="left">skip first SKIP bytes of both inputs</td>
+<td>-i SKIP</td>
+<td>--ignore-initial=SKIP</td>
+<td>Skip the first SKIP bytes of both files.</td>
 </tr>
 <tr>
-<td align="left"><code>-i</code></td>
-<td align="left"><code>--ignore-initial=SKIP1:SKIP2</code></td>
-<td align="left">skip first SKIP1 bytes of FILE1 and first SKIP2 bytes of FILE2</td>
+<td>-l</td>
+<td>--verbose</td>
+<td>Output the byte number and the values of all differing bytes.</td>
 </tr>
 <tr>
-<td align="left"><code>-l</code></td>
-<td align="left"><code>--verbose</code></td>
-<td align="left">output byte numbers and differing byte values</td>
+<td>-n LIMIT</td>
+<td>--bytes=LIMIT</td>
+<td>Compare at most LIMIT bytes.</td>
 </tr>
 <tr>
-<td align="left"><code>-n</code></td>
-<td align="left"><code>--bytes=LIMIT</code></td>
-<td align="left">compare at most LIMIT bytes</td>
-</tr>
-<tr>
-<td align="left"><code>-s</code></td>
-<td align="left"><code>--quiet, --silent</code></td>
-<td align="left">suppress all normal output</td>
-</tr>
-<tr>
-<td align="left"><code>v</code></td>
-<td align="left"><code>--version</code></td>
-<td align="left">output version information and exit</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"><code>--help</code></td>
-<td align="left">Display this help and exit</td>
+<td>-s</td>
+<td>--quiet, --silent</td>
+<td>Suppress all output. Only return an exit status.</td>
 </tr>
 </tbody>
 </table>
