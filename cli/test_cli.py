@@ -78,6 +78,7 @@ def test_unknown_command():
     assert "No such command" in combined_output
     assert "Hint: Run 'cli.py --help' to see available commands." in combined_output
 
+
 # ----------------------------
 # Tests for `show` subcommand
 # ----------------------------
