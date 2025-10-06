@@ -3227,19 +3227,133 @@ There is NO WARRANTY, to the extent permitted by law.
 Written by Richard Mlynarik.
 </code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>history</code> command</h1>
-<p>If you type <code>history</code> you will get a list of the last 500 commands used. This gives you the possibility to copy and paste commands that you executed in the past.</p>
-<p>This is powerful in combination with grep. So you can search for a command in your command history.</p>
-<h3>Examples:</h3>
-<ol>
-<li>If you want to search in your history for artisan commands you ran in the past.</li>
-</ol>
-<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span> | grep artisan
+<p>The <code>history</code> command displays a list of previously executed commands from your current shell session and past sessions. This allows you to review, search, and re-execute commands without retyping them.</p>
+<h3>Command Syntax</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span> [options] [n]
 </code></pre>
-<ol start="2">
-<li>If you only want to show the last 10 commands you can.</li>
-</ol>
+<h3>How History Works</h3>
+<p>Your command history is stored in a file in your home directory:</p>
+<ul>
+<li><strong>Bash</strong>: <code>~/.bash_history</code></li>
+<li><strong>Zsh</strong>: <code>~/.zsh_history</code></li>
+</ul>
+<p>The number of commands stored is controlled by shell variables:</p>
+<ul>
+<li><code>HISTSIZE</code>: Maximum number of commands to keep in memory during a session</li>
+<li><code>HISTFILESIZE</code>: Maximum number of commands to keep in the history file</li>
+</ul>
+<p>You can check these values with:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">echo</span> <span class="hljs-variable">$HISTSIZE</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$HISTFILESIZE</span>
+</code></pre>
+<h3>Common Options</h3>
+<ul>
+<li><code>history n</code> - Display the last <code>n</code> commands</li>
+<li><code>history -c</code> - Clear the history list (current session only)</li>
+<li><code>history -d offset</code> - Delete the history entry at position <code>offset</code></li>
+<li><code>history -a</code> - Append new history lines to the history file</li>
+<li><code>history -w</code> - Write the current history to the history file</li>
+</ul>
+<h3>Examples</h3>
+<p><strong>1. Display your full command history:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span>
+</code></pre>
+<p><strong>2. Show only the last 10 commands:</strong></p>
 <pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span> 10
 </code></pre>
+<p><strong>3. Search for specific commands in your history:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span> | grep artisan
+<span class="hljs-built_in">history</span> | grep git
+<span class="hljs-built_in">history</span> | grep docker
+</code></pre>
+<p><strong>4. Execute a command by its history number:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">!123
+</code></pre>
+<p>This re-runs the command at position 123 in your history.</p>
+<p><strong>5. Execute the most recent command starting with a specific string:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">!git
+</code></pre>
+<p>This runs the most recent command that started with &quot;git&quot;.</p>
+<p><strong>6. Execute the previous command:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">!!
+</code></pre>
+<p><strong>7. Execute the previous command with sudo:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">sudo !!
+</code></pre>
+<p><strong>8. Reuse arguments from the previous command:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># If you ran: cat /var/log/syslog</span>
+<span class="hljs-comment"># You can use the last argument with:</span>
+vim !$
+<span class="hljs-comment"># This runs: vim /var/log/syslog</span>
+</code></pre>
+<p><strong>9. Clear your command history:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span> -c
+</code></pre>
+<p><strong>10. Delete a specific entry from history:</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span> -d 456
+</code></pre>
+<h3>Reverse Search (Ctrl+R)</h3>
+<p>One of the most powerful features is <strong>reverse incremental search</strong>:</p>
+<ol>
+<li>Press <code>Ctrl+R</code></li>
+<li>Start typing part of a command</li>
+<li>The most recent matching command appears</li>
+<li>Press <code>Ctrl+R</code> again to cycle through older matches</li>
+<li>Press <code>Enter</code> to execute, or <code>Esc</code> to edit the command</li>
+</ol>
+<h3>History Control Variables</h3>
+<p>You can customize history behavior using these variables in your <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Increase history size</span>
+<span class="hljs-built_in">export</span> HISTSIZE=10000
+<span class="hljs-built_in">export</span> HISTFILESIZE=20000
+
+<span class="hljs-comment"># Ignore duplicate commands</span>
+<span class="hljs-built_in">export</span> HISTCONTROL=ignoredups
+
+<span class="hljs-comment"># Ignore commands starting with a space</span>
+<span class="hljs-built_in">export</span> HISTCONTROL=ignorespace
+
+<span class="hljs-comment"># Combine both options</span>
+<span class="hljs-built_in">export</span> HISTCONTROL=ignoreboth
+
+<span class="hljs-comment"># Ignore specific commands from being saved</span>
+<span class="hljs-built_in">export</span> HISTIGNORE=<span class="hljs-string">"ls:cd:pwd:exit:history"</span>
+
+<span class="hljs-comment"># Add timestamps to history</span>
+<span class="hljs-built_in">export</span> HISTTIMEFORMAT=<span class="hljs-string">"%Y-%m-%d %H:%M:%S "</span>
+</code></pre>
+<h3>Security Considerations</h3>
+<p><strong>Preventing sensitive commands from being saved:</strong></p>
+<ol>
+<li><strong>Prefix with a space</strong> (if <code>HISTCONTROL=ignorespace</code> is set):</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"> mysql -u root -p
+</code></pre>
+<ol start="2">
+<li><strong>Temporarily disable history:</strong></li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">set</span> +o <span class="hljs-built_in">history</span>
+<span class="hljs-comment"># Run sensitive commands here</span>
+<span class="hljs-built_in">set</span> -o <span class="hljs-built_in">history</span>
+</code></pre>
+<ol start="3">
+<li><strong>Remove specific entries:</strong></li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span> -d &lt;line_number&gt;
+</code></pre>
+<ol start="4">
+<li><strong>Clear history before logging out:</strong></li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">history</span> -c &amp;&amp; <span class="hljs-built_in">history</span> -w
+</code></pre>
+<h3>Practical Use Cases</h3>
+<ul>
+<li><strong>Debugging</strong>: Review the sequence of commands that led to an error</li>
+<li><strong>Documentation</strong>: Copy command sequences for scripts or documentation</li>
+<li><strong>Efficiency</strong>: Quickly re-execute complex commands without retyping</li>
+<li><strong>Learning</strong>: Review commands used by others when sharing a system (in appropriate contexts)</li>
+<li><strong>Audit trail</strong>: Track what commands were executed and when (with timestamps enabled)</li>
+</ul>
 <div style="page-break-after: always;"></div><h1>The <code>login</code> Command</h1>
 <p>The <code>login</code> command initiates a user session.</p>
 <h2>Syntax</h2>
