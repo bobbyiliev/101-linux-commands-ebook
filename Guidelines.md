@@ -10,16 +10,13 @@ otherwise, going from page to page can lead the reader into more confusion rathe
 
 I've used the LS command by ZeusDes and BobbyIliev as an example as it has good formatting and information.
 
-Commands and Flags outside of code blocks should be "highlighted" with inline code, like so \`ls`
-
-
+Commands and Flags outside of code blocks should be "highlighted" with inline code, like so: \`ls`
 
 - The start of the document should contain "The 'X' command"
-- Below this a summary of what the command does
-- Followed by some code block examples
+- Below this, a summary of what the command does, followed by some code block examples
 - Next should be the syntax information, such as where flags, extra options, directories, and other information goes
 - Afterwards, a table of more flags, including the short flag, long flag and descriptions, should be included
-- Lastly, any more information can be included, perhaps such as video examples or interactive/useful sites
+- Lastly, any more information can be included, such as video examples or interactive/useful sites.
 
 
 ## Example
