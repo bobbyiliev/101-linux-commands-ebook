@@ -9202,7 +9202,7 @@ Vim text editor is developed by <a href="https://en.wikipedia.org/wiki/Bram_Mool
 <h3>The most searched question about <code>vim</code> :</h3>
 <p><code>How to exit vim editor?</code></p>
 <p>The most searched question about vim editor looks very funny but it's true that the new user gets stuck at the very beginning when using vim editor.</p>
-<p>The command to save the file and exit vim editor: <code>:wq</code></p>
+<p>The command to save the file and exit vim editor: <code>:wq</code> or <code>:x</code></p>
 <p>The command to exit vim editor without saving the file: <code>:q!</code></p>
 <h4>Fun reading:</h4>
 <p>Here's a <a href="https://stackoverflow.blog/2017/05/23/stack-overflow-helping-one-million-developers-exit-vim/">survey</a> for the same question, look at this and do not think to quit the vim editor.</p>
@@ -9214,11 +9214,17 @@ Vim text editor is developed by <a href="https://en.wikipedia.org/wiki/Bram_Mool
 <p>On Ubuntu/Debian:</p>
 <pre><code class="language-javascript hljs javascript" data-lang="javascript">sudo apt-<span class="hljs-keyword">get</span> install vim
 </code></pre>
+<p>On Arch:</p>
+<pre><code class="language- hljs " data-lang="">sudo pacman -S vim
+</code></pre>
 <p>On CentOS/Fedora:</p>
 <pre><code class="language- hljs " data-lang="">sudo yum install vim
 </code></pre>
 <p>If you want to use advanced features on CentOS/Fedora, you'll need to install enhanced vim editor, to do this run the following command:</p>
 <pre><code class="language- hljs " data-lang="">sudo yum install -y vim-enhanced
+</code></pre>
+<p>On macOS:</p>
+<pre><code class="language- hljs " data-lang="">brew install vim
 </code></pre>
 <h3>Syntax:</h3>
 <pre><code class="language- hljs " data-lang="">vim [FILE_PATH/FILE_NAME]
@@ -9259,10 +9265,11 @@ Vim text editor is developed by <a href="https://en.wikipedia.org/wiki/Bram_Mool
 <li><code>w</code> : move forward one word</li>
 <li><code>b</code> : move backward one word</li>
 <li><code>e</code> : Move to the end of your word</li>
-<li><code>o</code> : move to begining of line</li>
+<li><code>0</code> : move to begining of line</li>
 <li><code>$</code> : move to end of line</li>
 <li><code>gg</code> : go to begining of file</li>
 <li><code>G</code> : go to end of file</li>
+<li><code>:linenumber</code> : go to a specific line number</li>
 </ul>
 <h3>Copy, Paste and Delete</h3>
 <ol>
@@ -9295,6 +9302,10 @@ Copying in vim is called &quot;yanking&quot;:</li>
 <li><code>d^</code> : delete from cursor to begining of line</li>
 <li><code>dG</code> : delete from cursor to end of file</li>
 <li><code>dgg</code>:  delete from cursor to begining of file</li>
+<li><code>dw</code> : delete from cursor to end of word</li>
+<li><code>di&quot;</code> : delete inside double quotes</li>
+<li><code>diw</code> : delete inner word (without spaces)</li>
+<li><code>dip</code> : delete inner paragraph (no newline)</li>
 </ul>
 <h3>Selection (visual mode)</h3>
 <ul>
