@@ -1,6 +1,5 @@
 import typer
 
-
 app = typer.Typer(help="List the commands available on Linux.")
 
 

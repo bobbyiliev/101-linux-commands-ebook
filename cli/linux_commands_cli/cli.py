@@ -2,10 +2,11 @@
 CLI entry point for the 101 Linux Commands application.
 """
 
+from typing import List
+
 import click
 import typer
 from typer.main import TyperGroup
-from typing import List
 
 from linux_commands_cli.commands import hello, list, search, show, version
 

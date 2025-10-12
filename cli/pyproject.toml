@@ -101,7 +101,7 @@ ignore_missing_imports = true
 module = "commands.*"
 ignore_missing_imports = true
 
-[[tool.mypy.override]]
+[[tool.mypy.overrides]]
 module = "typer.*"
 ignore_missing_imports = true
 

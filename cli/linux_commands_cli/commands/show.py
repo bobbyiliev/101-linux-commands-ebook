@@ -1,5 +1,6 @@
-import typer
 from typing import Dict, TypedDict
+
+import typer
 
 
 class CommandInfo(TypedDict):

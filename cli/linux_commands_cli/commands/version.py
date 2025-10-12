@@ -1,11 +1,11 @@
 """Version command for 101-linux-commands CLI."""
 
 import sys
-import typer
 from pathlib import Path
 
-from linux_commands_cli.__version__ import __version__
+import typer
 
+from linux_commands_cli.__version__ import __version__
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
