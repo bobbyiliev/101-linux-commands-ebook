@@ -90,6 +90,7 @@ In this interactive tutorial, you will learn the different ways to use the `ls` 
 |`-g`|<center>-</center>|Like `-l` but without showing owner|
 |`-o`|<center>-</center>|Like `-l` but without showing group|
 |`-C`|<center>-</center>|List entries by columns|
+|`-s`|<center>`--size`</center>|Print the allocated size of each file|
 |<center>-</center>|`--group-directories-first`|List directories before files|
 
 
