@@ -42,14 +42,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.scripts]
-linux-cli = "linux_commands_cli.cli:main"
-l101 = "linux_commands_cli.cli:main"
+linux-cli = "cli:main"
+l101 = "cli:main"
 
 [tool.uv]
 default-groups = ["main"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["linux_commands_cli"]
+packages = ["*/**.py"]
 
 [[tool.uv.index]]
 name = "pypi"

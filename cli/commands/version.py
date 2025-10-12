@@ -5,7 +5,7 @@ from pathlib import Path
 
 import typer
 
-from linux_commands_cli.__version__ import __version__
+from __version__ import __version__
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 

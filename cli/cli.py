@@ -8,7 +8,7 @@ import click
 import typer
 from typer.main import TyperGroup
 
-from linux_commands_cli.commands import hello, list, search, show, version
+from commands import hello, list, search, show, version
 
 
 class CustomTyper(TyperGroup):

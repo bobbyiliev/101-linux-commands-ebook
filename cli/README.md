@@ -14,7 +14,7 @@ uv sync --frozen
 # OR for macOS/Linux
 source .venv/bin/activate
 
-python -m linux_commands_cli.cli --help
+python -m cli --help
 ```
 
 The CLI will be installed as an editable package.

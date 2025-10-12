@@ -38,30 +38,30 @@ jobs:
     - name: Run Black (Code Formatter Check)
       working-directory: ${{env.working-directory}}
       run: |
-        uv run black --check --diff linux_commands_cli/
+        uv run black --check --diff ./
 
     - name: Run isort (Import Sorting Check)
       working-directory: ${{env.working-directory}}
       run: |
-        uv run isort --check-only --diff linux_commands_cli/
+        uv run isort --check-only --diff ./
 
     - name: Run Flake8 (Linting)
       working-directory: ${{env.working-directory}}
       run: |
-        uv run flake8 linux_commands_cli --count --select=E9,F63,F7,F82 --show-source --statistics
-        uv run flake8 linux_commands_cli --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+        uv run flake8 ./ --count --select=E9,F63,F7,F82 --show-source --statistics
+        uv run flake8 ./ --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
 
     - name: Run Static Checks
       working-directory: ${{env.working-directory}}
       run: |
-        uv run mypy linux_commands_cli --ignore-missing-imports || true
+        uv run mypy ./ --ignore-missing-imports || true
 
     - name: Test CLI Installation
       working-directory: ${{env.working-directory}}
       run: |
         # Test CLI commands work
-        uv run linux_commands_cli/cli.py --help
-        uv run linux_commands_cli/cli.py hello greet --help
+        uv run cli.py --help
+        uv run cli.py hello greet --help
 
   test:
     runs-on: ubuntu-latest
@@ -90,5 +90,5 @@ jobs:
           uv run pytest --cov=. --cov-report=term-missing
         else
           echo "No tests found, running basic smoke test"
-          uv run linux_commands_cli/cli.py --help
+          uv run cli.py --help
         fi

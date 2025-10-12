@@ -123,7 +123,7 @@ source .venv/bin/activate
 ```bash
 linux-cli --help
 # or run directly without installation
-python -m linux_commands_cli.cli hello greet --name "Linux Contributor"
+python -m cli hello greet --name "Linux Contributor"
 # greet someone specific using the installed entry point
 linux-cli hello greet --name "Linux Contributor"
 ```
@@ -148,7 +148,7 @@ def once():
 1. Register the command with the main Typer app in `cli/cli.py`:
 
 ```python
-from linux_commands_cli.commands import hello, ping
+from commands import hello, ping
 
 app = typer.Typer(help="101 Linux Commands CLI 🚀")
 app.add_typer(hello.app, name="hello")
@@ -160,7 +160,7 @@ app.add_typer(ping.app, name="ping")
 1. Run the CLI manually to verify your command behaves as expected.
 
 ```bash
-python -m linux_commands_cli.cli ping once
+python -m cli ping once
 ```
 
 ### Running tests
