@@ -12,6 +12,7 @@ ANSI_ESCAPE = re.compile(r"\x1B\[[0-?]*[ -/]*[@-~]")
 EMOJI = re.compile("[\U0001f300-\U0001faff]", flags=re.UNICODE)
 CLI_APP_PATH = Path(__file__).absolute().parents[2] / "cli" / "cli.py"
 
+
 def run_cli(args):
     """Helper to run CLI with subprocess and capture output."""
     result = subprocess.run(
