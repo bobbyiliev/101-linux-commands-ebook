@@ -3,11 +3,11 @@
 
 import os
 import re
-import sys
-import pytest
 import subprocess
+import sys
 from pathlib import Path
 
+import pytest
 
 ANSI_ESCAPE = re.compile(r"\x1B\[[0-?]*[ -/]*[@-~]")
 EMOJI = re.compile("[\U0001f300-\U0001faff]", flags=re.UNICODE)
