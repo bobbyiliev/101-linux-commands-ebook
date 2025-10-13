@@ -1,0 +1,19 @@
+[flake8]
+max-line-length = 88
+extend-ignore = 
+    # E203: whitespace before ':' (conflicts with black)
+    E203,  
+    # W503: line break before binary operator (conflicts with black)
+    W503,
+    # E402: module level import not at top (needed for sys.path manipulation)
+    E402
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    .env,
+    env,
+    .mypy_cache,
+    build,
+    dist

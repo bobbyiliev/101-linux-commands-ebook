@@ -56,25 +56,6 @@ name = "pypi"
 default = true
 url = "https://pypi.org/simple"
 
-[tool.flake8]
-max-line-length = 88
-extend-ignore = [
-    "E203",  # E203: whitespace before ':' (conflicts with black)
-    "W503",  # W503: line break before binary operator (conflicts with black)
-    "E402"   # E402: module level import not at top (needed for sys.path manipulation)
-]
-exclude = [
-    ".git",
-    "__pycache__",
-    ".venv",
-    "venv",
-    ".env",
-    "env",
-    ".mypy_cache",
-    "build",
-    "dist"
-]
-
 [tool.isort]
 profile = "black"
 multi_line_output = 3
