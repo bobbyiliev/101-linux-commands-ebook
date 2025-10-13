@@ -24,77 +24,33 @@ def clean_output(text: str) -> str:
 @pytest.mark.parametrize(
     "args, expected_strings, exit_code",
     (
-        (
-            ("--help",),
-            ("101 Linux Commands CLI",),
-            0
-        ),
-        (
-            ("hello", "greet"),
-            ("Hello, World!",),
-            0
-        ),
-        (
-            ("hello", "greet", "--name", "Linux"),
-            ("Hello, Linux!",),
-            0
-        ),
-        (
-            ("hello", "--help"),
-            ("Hello command group",),
-            0
-        ),
+        (("--help",), ("101 Linux Commands CLI",), 0),
+        (("hello", "greet"), ("Hello, World!",), 0),
+        (("hello", "greet", "--name", "Linux"), ("Hello, Linux!",), 0),
+        (("hello", "--help"), ("Hello command group",), 0),
         (
             ("list",),
             (
                 "ls - List directory contents.",
                 "cd - Change directory.",
                 "pwd - Print working directory.",
-                "cat - Concatenate and display files."
+                "cat - Concatenate and display files.",
             ),
-            0
+            0,
         ),
-        (
-            ("version",),
-            ("101-linux v", "0.1.0"),
-            0
-        ),
-        (
-            ("version", "show"),
-            ("101-linux v0.1.0",),
-            0
-        ),
+        (("version",), ("101-linux v", "0.1.0"), 0),
+        (("version", "show"), ("101-linux v0.1.0",), 0),
         (
             ("unknowncmd",),
             ("No such command", "Hint: Run 'cli.py --help' to see available commands."),
-            2
+            2,
         ),
-        (
-            ("show", "ls"),
-            ("ls", "List"),
-            0
-        ),
-        (
-            ("show", "grep"),
-            ("Search",),
-            0
-        ),
-        (
-            ("show", "foobar"),
-            ("Unknown",),
-            1
-        ),
-        (
-            ("search", "grep"),
-            ("grep:",),
-            0
-        ),
-        (
-            ("search", "this-should-not-exist-xyz"),
-            ("No commands found.",),
-            1
-        )
-    )
+        (("show", "ls"), ("ls", "List"), 0),
+        (("show", "grep"), ("Search",), 0),
+        (("show", "foobar"), ("Unknown",), 1),
+        (("search", "grep"), ("grep:",), 0),
+        (("search", "this-should-not-exist-xyz"), ("No commands found.",), 1),
+    ),
 )
 def test_check_cli(args: tuple[str], expected_strings: tuple[str], exit_code: int):
     """Helper to run CLI with subprocess and capture output."""
