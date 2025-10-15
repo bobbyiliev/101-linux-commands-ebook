@@ -21058,6 +21058,72 @@ enp0s3: link beat not detected
 <p>For additional information and advanced usage:</p>
 <pre><code class="language-bash hljs bash" data-lang="bash">man ifplugstatus
 </code></pre>
+<div style="page-break-after: always;"></div><h1>The <code>column</code> Command</h1>
+<p>The <code>column</code> command is used to format its input into multiple columns. It's particularly useful for making text-based tables and improving the readability of command output.</p>
+<h2>Command Syntax</h2>
+<pre><code class="language-bash hljs bash" data-lang="bash">column [options] [file]...
+</code></pre>
+<h2>Command Options</h2>
+<ul>
+<li><code>-t</code>: Determine the number of columns automatically and create a table</li>
+<li><code>-s</code>: Specify the column delimiter (default is whitespace)</li>
+<li><code>-n</code>: Don't merge multiple adjacent delimiters</li>
+<li><code>-c</code>: Output in column format with specified width</li>
+<li><code>-x</code>: Fill columns before rows</li>
+<li><code>-L</code>: Align all entries to the left</li>
+<li><code>-R</code>: Align all entries to the right</li>
+<li><code>-o</code>: Specify column separator for table output</li>
+</ul>
+<h2>Examples</h2>
+<ol>
+<li>Basic Column Formatting</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create a simple list and format it into columns</span>
+ls | column
+</code></pre>
+<ol start="2">
+<li>Creating a Table from Delimited Data</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Format /etc/passwd entries into a neat table</span>
+cut -d: -f1,6,7 /etc/passwd | column -t -s:
+</code></pre>
+<ol start="3">
+<li>Formatting Command Output</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Display mount information in a clean tabular format</span>
+mount | column -t
+</code></pre>
+<ol start="4">
+<li>Custom Column Separator</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Format CSV data with custom separator</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Name,Age,City\nJohn,25,NYC\nJane,30,LA"</span> | column -t -s,
+</code></pre>
+<ol start="5">
+<li>Left-aligned Table</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create a left-aligned table from space-separated data</span>
+ps aux | head -n 5 | column -t -L
+</code></pre>
+<h2>Additional Information</h2>
+<ul>
+<li>The <code>column</code> command is part of the <code>util-linux</code> package</li>
+<li>It's particularly useful in shell scripts for formatting output</li>
+<li>Can handle both file input and standard input (stdin)</li>
+<li>Works well with other text processing commands like <code>cut</code>, <code>sort</code>, and <code>grep</code></li>
+</ul>
+<h2>See Also</h2>
+<ul>
+<li><a href="098-the-cut-command.md"><code>cut</code></a> - remove sections from files</li>
+<li><a href="059-the-sort-command.md"><code>sort</code></a> - sort lines of text files</li>
+<li><a href="060-the-paste-command.md"><code>paste</code></a> - merge lines of files</li>
+<li><a href="119-the-tr-command.md"><code>tr</code></a> - translate or delete characters</li>
+</ul>
+<h2>Further Reading</h2>
+<ul>
+<li><code>man column</code> - manual page for the column command</li>
+<li><a href="https://www.gnu.org/software/coreutils/">GNU Coreutils</a></li>
+</ul>
 <div style="page-break-after: always;"></div><h1>Conclusion</h1>
 <p>Congratulations! You've reached the end of the <strong>101 Linux Commands eBook</strong>. Throughout this journey, you've explored over 135 essential Linux commands that form the foundation of system administration, development, and everyday Linux usage.</p>
 <h2>What You've Learned</h2>
