@@ -593,7 +593,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 ### File Commands
 
 - [cat/tac](ebook/en/content/003-the-cat-tac-command.md) - concatenate and print files
-- [column](ebook/en/content/161-the-column-command.md) - format text into columns
+- [column](ebook/en/content/162-the-column-command.md) - format text into columns
 - [diff/sdiff](ebook/en/content/062-the-diff-sdiff-command.md) - compare files line by line
 - [find](ebook/en/content/102-the-find-command.md) - search for files
 - [grep](ebook/en/content/107-the-grep-command.md) - file pattern matcher
@@ -923,7 +923,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [158-the-tty-command.md](ebook/en/content/158-the-tty-command.md)
 - [159-the-lspci-command.md](ebook/en/content/159-the-lspci-command.md)
 - [160-the-cfdisk-command.md](ebook/en/content/160-the-cfdisk-command.md)
-- [161-the-column-command.md](ebook/en/content/161-the-column-command.md)
+- [161-the-column-command.md](ebook/en/content/162-the-column-command.md)
 
 # 🔗Links
 
