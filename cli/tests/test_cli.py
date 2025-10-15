@@ -28,6 +28,7 @@ def clean_output(text: str) -> str:
         (("hello", "greet"), ("Hello, World!",), 0),
         (("hello", "greet", "--name", "Linux"), ("Hello, Linux!",), 0),
         (("hello", "--help"), ("Hello command group",), 0),
+        (("--verbose", "hello", "greet"), ("Hello, World!"), 0),
         (
             ("list",),
             (
@@ -40,13 +41,20 @@ def clean_output(text: str) -> str:
         ),
         (("version",), ("101-linux v", "0.1.0"), 0),
         (("version", "show"), ("101-linux v0.1.0",), 0),
+        (("--verbose", "version"), ("101-linux v0.1.0"), 0),
         (
             ("unknowncmd",),
             ("No such command", "Hint: Run 'cli.py --help' to see available commands."),
             2,
         ),
         (("show", "ls"), ("ls", "List"), 0),
+        (("--verbose", "show", "ls"), ("[DEBUG] Showing details for command: ls"), 0),
         (("show", "grep"), ("Search",), 0),
+        (
+            ("--verbose", "show", "grep"),
+            ("[DEBUG] Showing details for command: grep"),
+            0,
+        ),
         (("show", "foobar"), ("Unknown",), 1),
         (("search", "grep"), ("grep:",), 0),
         (("search", "this-should-not-exist-xyz"), ("No commands found.",), 1),

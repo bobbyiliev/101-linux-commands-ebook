@@ -2,6 +2,8 @@ from typing import Dict, TypedDict
 
 import typer
 
+from states.global_state import debug, verbose_flag
+
 
 class CommandInfo(TypedDict):
     description: str
@@ -82,6 +84,9 @@ def show(
             fg=typer.colors.RED,
         )
         raise typer.Exit(code=1)
+
+    if verbose_flag["enabled"]:
+        debug(f"Showing details for command: {key}")
 
     typer.secho(f"\nCommand: {key}\n", fg=typer.colors.CYAN, bold=True)
 

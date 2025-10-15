@@ -9,6 +9,7 @@ import typer
 from typer.main import TyperGroup
 
 from commands import hello, list, search, show, version
+from states.global_state import verbose_flag
 
 
 class CustomTyper(TyperGroup):
@@ -34,6 +35,18 @@ app.add_typer(list.app, name="list")
 app.add_typer(version.app, name="version")
 app.command()(show.show)
 app.add_typer(search.app, name="search")
+
+
+# Main callback to handle global options
+def main_callback(
+    verbose: bool = typer.Option(False, "--verbose", help="Enable verbose output")
+) -> None:
+    verbose_flag["enabled"] = verbose
+    if verbose:
+        typer.secho("[DEBUG] Verbose mode enabled", fg=typer.colors.YELLOW, bold=True)
+
+
+app.callback()(main_callback)
 
 
 def main() -> None:

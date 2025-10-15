@@ -21,6 +21,18 @@ The CLI will be installed as an editable package.
 ```bash
 linux-cli --help
 ```
+### Options
+*   `--verbose`: Enable verbose output for debugging purposes.
+    Example:
+    ```bash
+    linux-cli --verbose hello greet
+    ```
+    OR
+
+    ```bash
+    cd cli
+    python -m cli --verbose hello greet
+    ```
 
 ### Examples
 
