@@ -8,7 +8,7 @@ import click
 import typer
 from typer.main import TyperGroup
 
-from commands import hello, list, search, show, version
+from commands import build, hello, list, search, show, version
 from states.global_state import verbose_flag
 
 
@@ -35,6 +35,7 @@ app.add_typer(list.app, name="list")
 app.add_typer(version.app, name="version")
 app.command()(show.show)
 app.add_typer(search.app, name="search")
+app.command()(build.build)
 
 
 # Main callback to handle global options

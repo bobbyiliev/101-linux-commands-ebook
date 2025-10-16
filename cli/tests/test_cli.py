@@ -58,6 +58,16 @@ def clean_output(text: str) -> str:
         (("show", "foobar"), ("Unknown",), 1),
         (("search", "grep"), ("grep:",), 0),
         (("search", "this-should-not-exist-xyz"), ("No commands found.",), 1),
+        (("build",), ("Building ebook with Ibis...",), 0),
+        (
+            ("--verbose", "build"),
+            (
+                "[DEBUG] Starting the build process using Ibis",
+                "Building ebook with Ibis",
+                "[DEBUG] Build process completed",
+            ),
+            0,
+        ),
     ),
 )
 def test_check_cli(args: tuple[str], expected_strings: tuple[str], exit_code: int):
