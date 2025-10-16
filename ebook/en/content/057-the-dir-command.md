@@ -42,3 +42,4 @@ dir -l
 | <center>-</center> | `--group-directories-first` | To group directories before files                                                                                                 |
 | `-R `              | `--recursive`               | To List subdirectories recursively.                                                                                               |
 | `-S `              | <center>-</center>          | sort by file size, display largest first                                                                                          |
+| `-d`              | <center>`--directory`</center>          | List directory entries instead of contents                                                                                          |

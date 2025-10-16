@@ -934,6 +934,16 @@ It normally lists the files and directories in ascending alphabetical order.</p>
 <td align="left">Like <code>-l</code> but without showing group</td>
 </tr>
 <tr>
+<td align="left"><code>-C</code></td>
+<td align="left"><center>-</center></td>
+<td align="left">List entries by columns</td>
+</tr>
+<tr>
+<td align="left"><code>-s</code></td>
+<td align="left"><center><code>--size</code></center></td>
+<td align="left">Print the allocated size of each file</td>
+</tr>
+<tr>
 <td align="left"><center>-</center></td>
 <td align="left"><code>--group-directories-first</code></td>
 <td align="left">List directories before files</td>
@@ -1619,19 +1629,40 @@ cat filename | less
 <p>Syntax:</p>
 <pre><code class="language- hljs " data-lang="">tail [OPTION] [FILENAME]
 </code></pre>
-<h3>Get a specific number of lines with <code>tail</code>:</h3>
-<p>Use the <code>-n</code> option with a number(should be an integer) of lines to display.</p>
+<h2>Common Use Cases</h2>
+<h3>Get a specific number of lines:</h3>
+<p>Use the <code>-n</code> option with a number (should be an integer) of lines to display.</p>
 <p>Example:</p>
 <pre><code class="language- hljs " data-lang="">tail -n 10 foo.txt
 </code></pre>
 <p>This command will display the last ten lines of the file <code>foo.txt</code>.</p>
-<h3>Refresh the output on any new entry in a file</h3>
+<h3>Monitor new entry on files in real-time</h3>
 <p>It is possible to let tail output any new line added to the file you are looking into. So, if a new line is written to the file, it will immediately be shown in your output. This can be done using the <code>--follow</code> or <code>-f</code> option. This is especially useful for monitoring log files.</p>
 <p>Example:</p>
 <pre><code class="language- hljs " data-lang="">tail -f foo.txt
 </code></pre>
-<p>Syntax:</p>
-<pre><code class="language-xml hljs xml" data-lang="xml">tail -n <span class="hljs-tag">&lt;<span class="hljs-name">number</span>&gt;</span> foo.txt
+<p>Press <code>Ctrl+C</code> to stop following.</p>
+<h3>Combine options for log monitoring</h3>
+<pre><code class="language-php hljs php" data-lang="php">tail -n <span class="hljs-number">100</span> -f app.log      <span class="hljs-comment"># Show last 100 lines, then follow</span>
+tail -f -s <span class="hljs-number">2</span> slow.log       <span class="hljs-comment"># Follow with 2-second refresh interval</span>
+</code></pre>
+<h3>Follow multiple files simultaneously</h3>
+<pre><code class="language-php hljs php" data-lang="php">tail -f /<span class="hljs-keyword">var</span>/log/nginx/access.log /<span class="hljs-keyword">var</span>/log/nginx/error.log
+</code></pre>
+<h3>Display specific byte ranges</h3>
+<pre><code class="language-php hljs php" data-lang="php">tail -c <span class="hljs-number">100</span> file.txt        <span class="hljs-comment"># Last 100 bytes</span>
+tail -c +<span class="hljs-number">50</span> file.txt        <span class="hljs-comment"># From byte 50 to end</span>
+</code></pre>
+<h3>Follow logs even after rotation</h3>
+<pre><code class="language-php hljs php" data-lang="php">tail -F /<span class="hljs-keyword">var</span>/log/app.log
+</code></pre>
+<p>The <code>-F</code> option is crucial for monitoring logs managed by logrotate.</p>
+<h3>Skip header lines</h3>
+<pre><code class="language-php hljs php" data-lang="php">tail -n +<span class="hljs-number">2</span> data.csv         <span class="hljs-comment"># Start from line 2 (skip header)</span>
+tail -n +<span class="hljs-number">11</span> file.txt        <span class="hljs-comment"># Start from line 11 onwards</span>
+</code></pre>
+<h3>Quiet mode for multiple files</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">tail -q -n 5 *.<span class="hljs-built_in">log</span>          <span class="hljs-comment"># No filename headers</span>
 </code></pre>
 <h3>Additional Flags and their Functionalities</h3>
 <table>
@@ -1679,7 +1710,7 @@ cat filename | less
 <td align="left">Never output headers giving file names</td>
 </tr>
 <tr>
-<td align="left">``</td>
+<td align="left"></td>
 <td align="left"><code>--retry</code></td>
 <td align="left">keep trying to open a file if it is inaccessible</td>
 </tr>
@@ -1710,6 +1741,13 @@ cat filename | less
 </tr>
 </tbody>
 </table>
+<h2>Tips</h2>
+<ul>
+<li>Use <code>-F</code> instead of <code>-f</code> for production log monitoring</li>
+<li>Combine with <code>grep</code>, <code>awk</code>, or <code>sed</code> for filtered monitoring</li>
+<li>For large files, <code>tail</code> is much faster than opening in an editor</li>
+<li>Use <code>-n +N</code> to start from a specific line (useful for skipping headers)</li>
+</ul>
 <div style="page-break-after: always;"></div><h1>The <code>pwd</code> command</h1>
 <p>The <code>pwd</code> stands for Print Working Directory. It prints the path of the current working directory, starting from the root.</p>
 <p>Example:</p>
@@ -2399,76 +2437,367 @@ Display information about builtin commands.</p>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div><h1>The <code>mkdir</code> command</h1>
-<p>The <code>mkdir</code> command in Linux/Unix is used to create a directory.</p>
+<p>The <code>mkdir</code> command is used to create directories (folders) in Linux/Unix systems. It's one of the most fundamental file system commands and provides various options for creating single directories, multiple directories, and nested directory structures.</p>
 <h2>Syntax</h2>
-<pre><code class="language-bash hljs bash" data-lang="bash">$ mkdir [-m=mode] [-p] [-v] [-Z=context] directory [directory ...]
+<pre><code class="language-bash hljs bash" data-lang="bash">mkdir [OPTIONS] DIRECTORY [DIRECTORY ...]
 </code></pre>
-<h2>Examples</h2>
-<ol>
-<li>Make a directory named <strong>myfiles</strong>.</li>
-</ol>
-<pre><code class="language-bash hljs bash" data-lang="bash">$ mkdir myfiles
+<h2>Key Features</h2>
+<ul>
+<li><strong>Single Directory Creation</strong>: Create individual directories</li>
+<li><strong>Multiple Directory Creation</strong>: Create several directories at once</li>
+<li><strong>Nested Directory Creation</strong>: Create parent directories automatically</li>
+<li><strong>Permission Setting</strong>: Set directory permissions during creation</li>
+<li><strong>Verbose Output</strong>: Display creation progress</li>
+<li><strong>SELinux Support</strong>: Set security contexts</li>
+</ul>
+<h2>Basic Usage</h2>
+<h3>Creating Single Directory</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create a directory in current location</span>
+mkdir mydir
+
+<span class="hljs-comment"># Create directory with absolute path</span>
+mkdir /home/user/documents
+
+<span class="hljs-comment"># Create directory in home directory</span>
+mkdir ~/projects
 </code></pre>
-<ol start="2">
-<li>Create a directory named <strong>myfiles</strong> at the home directory:</li>
-</ol>
-<pre><code class="language-bash hljs bash" data-lang="bash">$ mkdir ~/myfiles
+<h3>Creating Multiple Directories</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create multiple directories at once</span>
+mkdir dir1 dir2 dir3
+
+<span class="hljs-comment"># Create directories with different paths</span>
+mkdir ~/documents ~/downloads ~/pictures
+
+<span class="hljs-comment"># Create numbered directories</span>
+mkdir project{1,2,3,4,5}
+
+<span class="hljs-comment"># Create directories with ranges</span>
+mkdir folder{01..10}
 </code></pre>
-<ol start="3">
-<li>Create the <strong>mydir</strong> directory, and set its file mode (<code>-m</code>) so that all users (<code>a</code>) may read (<code>r</code>), write (<code>w</code>), and execute (<code>x</code>) it.</li>
-</ol>
-<pre><code class="language-bash hljs bash" data-lang="bash">$ mkdir -m a=rwx mydir
+<h2>Advanced Usage</h2>
+<h3>Creating Nested Directories</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create nested directory structure (creates parent directories)</span>
+mkdir -p projects/web/frontend/src
+
+<span class="hljs-comment"># Create complex directory structure</span>
+mkdir -p company/{departments/{hr,finance,it},projects/{web,mobile,desktop}}
+
+<span class="hljs-comment"># Create directory structure with absolute path</span>
+mkdir -p /opt/myapp/{bin,config,logs,data}
 </code></pre>
-<p>You can also create sub-directories of a directory. It will create the parent directory first, if it doesn't exist.
-If it already exists, then it move further to create the sub-directories without any error message.</p>
-<p>For directories, this means that any user on the system may view (&quot;read&quot;), and create/modify/delete (&quot;write&quot;) files in the directory. Any user may also change to (&quot;execute&quot;) the directory, for example with the <code>cd</code> command.</p>
-<ol start="4">
-<li>Create the directory <strong>/home/test/src/python</strong>. If any of the parent directories <strong>/home</strong>, <strong>/home/test</strong>, or <strong>/home/test/src</strong> do not already exist, they are automatically created.</li>
-</ol>
-<pre><code class="language-bash hljs bash" data-lang="bash">$ mkdir -p /home/<span class="hljs-built_in">test</span>/src/python
+<h3>Setting Permissions During Creation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create directory with specific permissions (755)</span>
+mkdir -m 755 public_dir
+
+<span class="hljs-comment"># Create directory with full permissions for owner only (700)</span>
+mkdir -m 700 private_dir
+
+<span class="hljs-comment"># Create directory with read/write for owner, read for group and others (644)</span>
+mkdir -m 644 shared_dir
+
+<span class="hljs-comment"># Create directory with full access for everyone (777)</span>
+mkdir -m 777 temp_dir
+
+<span class="hljs-comment"># Using symbolic notation</span>
+mkdir -m u=rwx,g=rx,o=rx public_folder
 </code></pre>
-<h2>Options</h2>
+<h3>Verbose Mode</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show what directories are being created</span>
+mkdir -v newdir
+
+<span class="hljs-comment"># Verbose with multiple directories</span>
+mkdir -v dir1 dir2 dir3
+
+<span class="hljs-comment"># Verbose with nested structure</span>
+mkdir -pv projects/{frontend/{src,dist},backend/{api,database}}
+</code></pre>
+<h2>Practical Examples</h2>
+<h3>Project Structure Creation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create a typical web project structure</span>
+mkdir -p mywebsite/{css,js,images,includes,admin}
+
+<span class="hljs-comment"># Create a software project structure</span>
+mkdir -p myproject/{src/{main,<span class="hljs-built_in">test</span>},docs,build,config}
+
+<span class="hljs-comment"># Create a backup directory structure</span>
+mkdir -p backups/{daily,weekly,monthly}/{system,database,files}
+</code></pre>
+<h3>System Administration</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create log directories for an application</span>
+sudo mkdir -p /var/<span class="hljs-built_in">log</span>/myapp/{error,access,debug}
+
+<span class="hljs-comment"># Create configuration directories</span>
+sudo mkdir -p /etc/myapp/{conf.d,ssl,keys}
+
+<span class="hljs-comment"># Create data directories with proper permissions</span>
+sudo mkdir -p /var/lib/myapp/data
+sudo mkdir -m 750 /var/lib/myapp/secure
+</code></pre>
+<h3>User Environment Setup</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Set up user development environment</span>
+mkdir -p ~/development/{projects,tools,scripts}
+mkdir -p ~/development/projects/{personal,work,opensource}
+
+<span class="hljs-comment"># Create organization directories</span>
+mkdir -p ~/documents/{work,personal,finance,education}
+mkdir -p ~/documents/work/{reports,presentations,spreadsheets}
+</code></pre>
+<h2>Working with Special Characters</h2>
+<h3>Directories with Spaces</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create directory with spaces (use quotes)</span>
+mkdir <span class="hljs-string">"My Documents"</span>
+mkdir <span class="hljs-string">'Project Files'</span>
+
+<span class="hljs-comment"># Create multiple directories with spaces</span>
+mkdir <span class="hljs-string">"Dir One"</span> <span class="hljs-string">"Dir Two"</span> <span class="hljs-string">"Dir Three"</span>
+
+<span class="hljs-comment"># Using escape characters</span>
+mkdir My\ Documents
+</code></pre>
+<h3>Special Characters</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create directories with special characters</span>
+mkdir <span class="hljs-string">"data-2024"</span>
+mkdir <span class="hljs-string">"backup_<span class="hljs-variable">$(date +%Y%m%d)</span>"</span>
+mkdir <span class="hljs-string">"temp.<span class="hljs-variable">$(whoami)</span>"</span>
+
+<span class="hljs-comment"># Avoid problematic characters</span>
+mkdir project_2024  <span class="hljs-comment"># Better than "project 2024"</span>
+mkdir user_data     <span class="hljs-comment"># Better than "user's data"</span>
+</code></pre>
+<h2>Error Handling and Validation</h2>
+<h3>Common Error Scenarios</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check if directory exists before creating</span>
+<span class="hljs-keyword">if</span> [ ! -d <span class="hljs-string">"mydir"</span> ]; <span class="hljs-keyword">then</span>
+    mkdir mydir
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Directory created"</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Directory already exists"</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-comment"># Create directory only if parent exists</span>
+mkdir subdir  <span class="hljs-comment"># Fails if current directory doesn't exist</span>
+mkdir -p parentdir/subdir  <span class="hljs-comment"># Creates both if needed</span>
+</code></pre>
+<h3>Safe Directory Creation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Function to safely create directories</span>
+<span class="hljs-function"><span class="hljs-title">create_safe_dir</span></span>() {
+    <span class="hljs-keyword">if</span> mkdir -p <span class="hljs-string">"<span class="hljs-variable">$1</span>"</span> 2&gt;/dev/null; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"Created directory: <span class="hljs-variable">$1</span>"</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"Failed to create directory: <span class="hljs-variable">$1</span>"</span>
+        <span class="hljs-built_in">return</span> 1
+    <span class="hljs-keyword">fi</span>
+}
+
+<span class="hljs-comment"># Usage</span>
+create_safe_dir <span class="hljs-string">"/path/to/new/directory"</span>
+</code></pre>
+<h2>Combining with Other Commands</h2>
+<h3>Directory Creation and Navigation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create directory and immediately change to it</span>
+mkdir myproject &amp;&amp; <span class="hljs-built_in">cd</span> myproject
+
+<span class="hljs-comment"># Create and navigate in one command (function)</span>
+<span class="hljs-function"><span class="hljs-title">mkcd</span></span>() {
+    mkdir -p <span class="hljs-string">"<span class="hljs-variable">$1</span>"</span> &amp;&amp; <span class="hljs-built_in">cd</span> <span class="hljs-string">"<span class="hljs-variable">$1</span>"</span>
+}
+mkcd ~/projects/newproject
+</code></pre>
+<h3>Creating Directories with Files</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create directory structure and add files</span>
+mkdir -p project/{src,docs,tests}
+touch project/src/main.py
+touch project/docs/README.md
+touch project/tests/test_main.py
+
+<span class="hljs-comment"># Create directory and set up basic files</span>
+mkdir website
+<span class="hljs-built_in">cd</span> website
+mkdir {css,js,images}
+touch index.html css/style.css js/script.js
+</code></pre>
+<h3>Batch Operations</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create directories from a list</span>
+cat &gt; dirlist.txt &lt;&lt; EOF
+projects/web
+projects/mobile
+projects/desktop
+documents/reports
+documents/presentations
+EOF
+
+<span class="hljs-comment"># Create all directories from file</span>
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> dir; <span class="hljs-keyword">do</span>
+    mkdir -p <span class="hljs-string">"<span class="hljs-variable">$dir</span>"</span>
+<span class="hljs-keyword">done</span> &lt; dirlist.txt
+</code></pre>
+<h2>Permission and Ownership</h2>
+<h3>Setting Ownership After Creation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create directory and set ownership</span>
+mkdir myapp
+sudo chown user:group myapp
+
+<span class="hljs-comment"># Create with specific permissions and ownership</span>
+sudo mkdir -m 755 /opt/myapp
+sudo chown user:group /opt/myapp
+</code></pre>
+<h3>Creating Directories for Different Users</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create user-specific directories</span>
+sudo mkdir -p /home/newuser/{Documents,Downloads,Pictures}
+sudo chown -R newuser:newuser /home/newuser
+sudo chmod 755 /home/newuser
+</code></pre>
+<h2>SELinux Context</h2>
+<h3>Setting SELinux Context</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create directory with specific SELinux context</span>
+mkdir -Z user_home_t user_data
+
+<span class="hljs-comment"># Create directory and set context afterward</span>
+mkdir secure_data
+sudo semanage fcontext -a -t httpd_exec_t <span class="hljs-string">"/path/to/secure_data(/.*)?"</span>
+sudo restorecon -R /path/to/secure_data
+</code></pre>
+<h2>Troubleshooting</h2>
+<h3>Common Issues and Solutions</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Permission denied</span>
+sudo mkdir /restricted/path  <span class="hljs-comment"># Use sudo for system directories</span>
+
+<span class="hljs-comment"># Parent directory doesn't exist</span>
+mkdir -p path/to/deep/directory  <span class="hljs-comment"># Use -p flag</span>
+
+<span class="hljs-comment"># Directory already exists</span>
+mkdir -p existing_dir  <span class="hljs-comment"># -p prevents error if directory exists</span>
+
+<span class="hljs-comment"># Invalid characters in name</span>
+mkdir <span class="hljs-string">"valid_name"</span>  <span class="hljs-comment"># Use quotes or escape special characters</span>
+</code></pre>
+<h3>Debugging Directory Creation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check available space before creating</span>
+df -h .
+
+<span class="hljs-comment"># Verify parent directory permissions</span>
+ls -ld parent_directory
+
+<span class="hljs-comment"># Check if directory was created successfully</span>
+<span class="hljs-keyword">if</span> [ -d <span class="hljs-string">"newdir"</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Directory created successfully"</span>
+    ls -ld newdir
+<span class="hljs-keyword">fi</span>
+</code></pre>
+<h2>Options Reference</h2>
 <table>
 <thead>
 <tr>
-<th align="left"><strong>Short Flags</strong></th>
-<th align="left"><strong>Long Flags</strong></th>
-<th align="left"><strong>Descriptions</strong></th>
+<th align="left"><strong>Option</strong></th>
+<th align="left"><strong>Long Form</strong></th>
+<th align="left"><strong>Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>-m</code></td>
+<td align="left"><code>-m MODE</code></td>
 <td align="left"><code>--mode=MODE</code></td>
-<td align="left">Set file mode (as in chmod), not <code>a=rwx - umask</code>.</td>
+<td align="left">Set file mode (permissions) for created directories</td>
 </tr>
 <tr>
 <td align="left"><code>-p</code></td>
 <td align="left"><code>--parents</code></td>
-<td align="left">No error if existing, make parent directories as needed.</td>
+<td align="left">Create parent directories as needed, no error if existing</td>
 </tr>
 <tr>
 <td align="left"><code>-v</code></td>
 <td align="left"><code>--verbose</code></td>
-<td align="left">Print a message for each created directory.</td>
+<td align="left">Print a message for each created directory</td>
 </tr>
 <tr>
-<td align="left"><code>-Z</code></td>
+<td align="left"><code>-Z CTX</code></td>
 <td align="left"><code>--context=CTX</code></td>
-<td align="left">Set the SELinux security context of each created directory to CTX.</td>
+<td align="left">Set SELinux security context</td>
 </tr>
 <tr>
-<td align="left"><center>-</center></td>
 <td align="left"><code>--help</code></td>
-<td align="left">Display a help message and exit.</td>
+<td align="left">-</td>
+<td align="left">Display help message and exit</td>
 </tr>
 <tr>
-<td align="left"><center>-</center></td>
 <td align="left"><code>--version</code></td>
-<td align="left">Output version information and exit.</td>
+<td align="left">-</td>
+<td align="left">Output version information and exit</td>
 </tr>
 </tbody>
 </table>
+<h2>Best Practices</h2>
+<h3>Directory Naming Conventions</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Use descriptive names</span>
+mkdir user_documents    <span class="hljs-comment"># Good</span>
+mkdir stuff            <span class="hljs-comment"># Poor</span>
+
+<span class="hljs-comment"># Use consistent naming patterns</span>
+mkdir project_2024_01
+mkdir project_2024_02
+
+<span class="hljs-comment"># Avoid spaces and special characters</span>
+mkdir my-project       <span class="hljs-comment"># Good</span>
+mkdir <span class="hljs-string">"my project"</span>     <span class="hljs-comment"># Works but can cause issues</span>
+</code></pre>
+<h3>Organization Strategies</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Date-based organization</span>
+mkdir -p archives/$(date +%Y)/{01..12}
+
+<span class="hljs-comment"># Project-based organization</span>
+mkdir -p projects/{active,completed,archived}
+
+<span class="hljs-comment"># User-based organization</span>
+mkdir -p users/{admins,developers,testers}
+</code></pre>
+<h3>Automation and Scripting</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment"># Script to create standard project structure</span>
+
+PROJECT_NAME=<span class="hljs-string">"<span class="hljs-variable">$1</span>"</span>
+<span class="hljs-keyword">if</span> [ -z <span class="hljs-string">"<span class="hljs-variable">$PROJECT_NAME</span>"</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Usage: <span class="hljs-variable">$0</span> &lt;project_name&gt;"</span>
+    <span class="hljs-built_in">exit</span> 1
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Creating project structure for: <span class="hljs-variable">$PROJECT_NAME</span>"</span>
+mkdir -p <span class="hljs-string">"<span class="hljs-variable">$PROJECT_NAME</span>"</span>/{
+    src/{main,<span class="hljs-built_in">test</span>},
+    docs/{api,user},
+    config/{dev,prod,<span class="hljs-built_in">test</span>},
+    scripts/{build,deploy},
+    data/{input,output,temp}
+}
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Project structure created successfully!"</span>
+tree <span class="hljs-string">"<span class="hljs-variable">$PROJECT_NAME</span>"</span>
+</code></pre>
+<h2>Integration with Other Tools</h2>
+<h3>With Version Control</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create project with Git initialization</span>
+mkdir myproject
+<span class="hljs-built_in">cd</span> myproject
+git init
+mkdir {src,docs,tests}
+touch .gitignore README.md
+</code></pre>
+<h3>With Docker</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create Docker project structure</span>
+mkdir -p docker-project/{app,data,logs,config}
+touch docker-project/Dockerfile
+touch docker-project/docker-compose.yml
+</code></pre>
+<h2>Important Notes</h2>
+<ul>
+<li>Use <code>-p</code> flag to avoid errors when directories already exist</li>
+<li>Be careful with permissions when creating system directories</li>
+<li>Always use quotes around directory names with spaces</li>
+<li>Consider using <code>tree</code> command to visualize created directory structures</li>
+<li>The <code>mkdir</code> command creates directories with default permissions modified by umask</li>
+<li>Use absolute paths when creating directories outside current location</li>
+</ul>
+<p>The <code>mkdir</code> command is essential for organizing files and creating directory structures in Linux systems.</p>
+<p>For more details, check the manual: <code>man mkdir</code></p>
 <div style="page-break-after: always;"></div><h1>The <code>gzip</code> command</h1>
 <p>The <code>gzip</code> command in Linux/Unix is used to compress/decompress data.</p>
 <div style="page-break-after: always;"></div><h1>Usage</h1>
@@ -2817,33 +3146,277 @@ It can be used to get a basic understanding of what a (unknown) command is used 
 <pre><code class="language- hljs " data-lang="">sl
 </code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>echo</code> command</h1>
-<p>The <code>echo</code> command lets you display the line of text/string that is passed as an argument</p>
-<h3>Examples:</h3>
-<ol>
-<li>To Show the line of text or string passed as an argument:</li>
-</ol>
-<pre><code class="language-php hljs php" data-lang="php"><span class="hljs-keyword">echo</span> Hello There
+<p>The <code>echo</code> command is used to display text strings to the terminal. It's one of the most fundamental commands in Linux/Unix systems and is commonly used in shell scripts, command-line operations, and system administration tasks for outputting text, variables, and formatted content.</p>
+<h2>Syntax</h2>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">echo</span> [OPTIONS] [STRING...]
 </code></pre>
-<ol start="2">
-<li>To show all files/folders similar to the <code>ls</code> command:</li>
-</ol>
-<pre><code class="language-php hljs php" data-lang="php"><span class="hljs-keyword">echo</span> *
+<h2>Key Features</h2>
+<ul>
+<li><strong>Text Output</strong>: Display simple text strings</li>
+<li><strong>Variable Expansion</strong>: Show values of environment variables</li>
+<li><strong>Escape Sequences</strong>: Format output with special characters</li>
+<li><strong>File Operations</strong>: Write or append text to files</li>
+<li><strong>Script Integration</strong>: Essential for shell scripting</li>
+</ul>
+<h2>Basic Usage</h2>
+<h3>Simple Text Output</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Display simple text</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Hello, World!"</span>
+<span class="hljs-built_in">echo</span> Hello World
+
+<span class="hljs-comment"># Display multiple arguments</span>
+<span class="hljs-built_in">echo</span> Hello World Linux
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Multiple"</span> <span class="hljs-string">"words"</span> <span class="hljs-string">"here"</span>
+
+<span class="hljs-comment"># Empty line</span>
+<span class="hljs-built_in">echo</span>
 </code></pre>
-<ol start="3">
-<li>To save text to a file named foo.bar:</li>
-</ol>
-<pre><code class="language-php hljs php" data-lang="php"><span class="hljs-keyword">echo</span> <span class="hljs-string">"Hello There"</span> &gt; foo.bar
+<h3>Variable Display</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Display environment variables</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$HOME</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$USER</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span>
+
+<span class="hljs-comment"># Display custom variables</span>
+name=<span class="hljs-string">"John"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$name</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Hello, <span class="hljs-variable">$name</span>"</span>
+
+<span class="hljs-comment"># Display with variable expansion</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Current user: <span class="hljs-variable">$USER</span>, Home: <span class="hljs-variable">$HOME</span>"</span>
 </code></pre>
-<ol start="4">
-<li>To append text to a file named foo.bar:</li>
-</ol>
-<pre><code class="language-php hljs php" data-lang="php"><span class="hljs-keyword">echo</span> <span class="hljs-string">"Hello There"</span> &gt;&gt; foo.bar
+<h2>Advanced Features</h2>
+<h3>Escape Sequences</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Enable escape sequence interpretation</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Hello\nWorld"</span>          <span class="hljs-comment"># New line</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Name:\tJohn"</span>           <span class="hljs-comment"># Tab</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Hello\bWorld"</span>          <span class="hljs-comment"># Backspace</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Hello\rWorld"</span>          <span class="hljs-comment"># Carriage return</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Line 1\vLine 2"</span>        <span class="hljs-comment"># Vertical tab</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\aAlert sound"</span>         <span class="hljs-comment"># Alert/bell</span>
+
+<span class="hljs-comment"># Display backslash literally</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Path: C:\\\\Users"</span>     <span class="hljs-comment"># Literal backslashes</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Quote: \"Hello\""</span>      <span class="hljs-comment"># Escaped quotes</span>
 </code></pre>
-<h3>Syntax:</h3>
-<pre><code class="language-php hljs php" data-lang="php"><span class="hljs-keyword">echo</span> [option] [string]
+<h3>Output Control</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Suppress trailing newline</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">"Enter your name: "</span>
+
+<span class="hljs-comment"># Multiple lines without newlines</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">"Loading"</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">"."</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">"."</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"."</span>
+
+<span class="hljs-comment"># Combine with read for user input</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">"Enter password: "</span>
+<span class="hljs-built_in">read</span> -s password
 </code></pre>
-<h4>It is usually used in shell scripts and batch files to output status text to the screen or a file.The <code>-e</code> used with it enables the interpretation of backslash escapes</h4>
-<h3>Additional Options and their Functionalities:</h3>
+<h2>File Operations</h2>
+<h3>Writing to Files</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Overwrite file content</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Hello World"</span> &gt; file.txt
+
+<span class="hljs-comment"># Create file with multiple lines</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Line 1\nLine 2\nLine 3"</span> &gt; multiline.txt
+
+<span class="hljs-comment"># Write variables to file</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Current date: <span class="hljs-variable">$(date)</span>"</span> &gt; info.txt
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Current user: <span class="hljs-variable">$USER</span>"</span> &gt;&gt; info.txt
+</code></pre>
+<h3>Appending to Files</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Append to existing file</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"New line"</span> &gt;&gt; file.txt
+
+<span class="hljs-comment"># Append with timestamp</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$(date)</span>: Log entry"</span> &gt;&gt; logfile.txt
+
+<span class="hljs-comment"># Append multiple lines</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Error occurred\nTimestamp: <span class="hljs-variable">$(date)</span>"</span> &gt;&gt; error.log
+</code></pre>
+<h2>String Formatting and Manipulation</h2>
+<h3>Formatting Text</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Center text (simple approach)</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"        Centered Text        "</span>
+
+<span class="hljs-comment"># Create separators</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"================================"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"          IMPORTANT             "</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"================================"</span>
+
+<span class="hljs-comment"># Box drawing</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"┌─────────────────┐"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"│   System Info   │"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"└─────────────────┘"</span>
+</code></pre>
+<h3>Color Output</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># ANSI color codes</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033[31mRed text\033[0m"</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033[32mGreen text\033[0m"</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033[33mYellow text\033[0m"</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033[34mBlue text\033[0m"</span>
+
+<span class="hljs-comment"># Background colors</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033[41mRed background\033[0m"</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033[42mGreen background\033[0m"</span>
+
+<span class="hljs-comment"># Bold and italic</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033[1mBold text\033[0m"</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033[3mItalic text\033[0m"</span>
+</code></pre>
+<h2>Practical Applications</h2>
+<h3>System Information Display</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># System status script</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"=== System Information ==="</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Hostname: <span class="hljs-variable">$(hostname)</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Current User: <span class="hljs-variable">$USER</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Current Directory: <span class="hljs-variable">$(pwd)</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Date/Time: <span class="hljs-variable">$(date)</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Uptime: <span class="hljs-variable">$(uptime -p)</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Memory Usage: <span class="hljs-variable">$(free -h | grep Mem | awk '{print $3"/"$2}')</span>"</span>
+</code></pre>
+<h3>Configuration File Generation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Generate configuration file</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"# Generated configuration - <span class="hljs-variable">$(date)</span>"</span> &gt; app.conf
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"server_name=<span class="hljs-variable">$HOSTNAME</span>"</span> &gt;&gt; app.conf
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"port=8080"</span> &gt;&gt; app.conf
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"debug=false"</span> &gt;&gt; app.conf
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"log_level=info"</span> &gt;&gt; app.conf
+</code></pre>
+<h3>Log File Management</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Structured logging</span>
+<span class="hljs-function"><span class="hljs-title">log_info</span></span>() {
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$(date '+%Y-%m-%d %H:%M:%S')</span> [INFO] <span class="hljs-variable">$1</span>"</span> &gt;&gt; application.log
+}
+
+<span class="hljs-function"><span class="hljs-title">log_error</span></span>() {
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$(date '+%Y-%m-%d %H:%M:%S')</span> [ERROR] <span class="hljs-variable">$1</span>"</span> &gt;&gt; application.log
+}
+
+<span class="hljs-comment"># Usage</span>
+log_info <span class="hljs-string">"Application started"</span>
+log_error <span class="hljs-string">"Database connection failed"</span>
+</code></pre>
+<h3>Menu Creation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Simple menu system</span>
+<span class="hljs-function"><span class="hljs-title">show_menu</span></span>() {
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"================================="</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"        Main Menu"</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"================================="</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"1. View System Info"</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"2. List Files"</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"3. Check Disk Usage"</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"4. Exit"</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"================================="</span>
+    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">"Enter your choice: "</span>
+}
+</code></pre>
+<h2>Command Substitution and Variables</h2>
+<h3>Command Substitution</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Display command output</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Current date is: <span class="hljs-variable">$(date)</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Number of files: <span class="hljs-variable">$(ls | wc -l)</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Free disk space: <span class="hljs-variable">$(df -h / | tail -1 | awk '{print $4}')</span>"</span>
+
+<span class="hljs-comment"># Multiple command substitution</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"System: <span class="hljs-variable">$(uname -s)</span>, Kernel: <span class="hljs-variable">$(uname -r)</span>, Architecture: <span class="hljs-variable">$(uname -m)</span>"</span>
+</code></pre>
+<h3>Array and Variable Manipulation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Array display</span>
+fruits=(<span class="hljs-string">"apple"</span> <span class="hljs-string">"banana"</span> <span class="hljs-string">"orange"</span>)
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Fruits: <span class="hljs-variable">${fruits[@]}</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"First fruit: <span class="hljs-variable">${fruits[0]}</span>"</span>
+
+<span class="hljs-comment"># Variable with default values</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Editor: <span class="hljs-variable">${EDITOR:-nano}</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Shell: <span class="hljs-variable">${SHELL:-/bin/bash}</span>"</span>
+
+<span class="hljs-comment"># String length and manipulation</span>
+text=<span class="hljs-string">"Hello World"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Text: <span class="hljs-variable">$text</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Length: <span class="hljs-variable">${#text}</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Uppercase: <span class="hljs-variable">${text^^}</span>"</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Lowercase: <span class="hljs-variable">${text,,}</span>"</span>
+</code></pre>
+<h2>Error Handling and Validation</h2>
+<h3>Input Validation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check if variable is set</span>
+<span class="hljs-keyword">if</span> [ -n <span class="hljs-string">"<span class="hljs-variable">$USER</span>"</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"User is set to: <span class="hljs-variable">$USER</span>"</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"User variable is not set"</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-comment"># Conditional output</span>
+[ -d <span class="hljs-string">"/tmp"</span> ] &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">"Directory /tmp exists"</span> || <span class="hljs-built_in">echo</span> <span class="hljs-string">"Directory /tmp not found"</span>
+</code></pre>
+<h3>Error Messages</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Error to stderr</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Error: Invalid input"</span> &gt;&amp;2
+
+<span class="hljs-comment"># Success/failure with exit codes</span>
+<span class="hljs-keyword">if</span> some_command; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"✓ Command succeeded"</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"✗ Command failed"</span> &gt;&amp;2
+    <span class="hljs-built_in">exit</span> 1
+<span class="hljs-keyword">fi</span>
+</code></pre>
+<h2>Interactive Features</h2>
+<h3>User Prompts</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Simple prompt</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">"Enter your name: "</span>
+<span class="hljs-built_in">read</span> name
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Hello, <span class="hljs-variable">$name</span>!"</span>
+
+<span class="hljs-comment"># Yes/No prompt</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">"Do you want to continue? (y/n): "</span>
+<span class="hljs-built_in">read</span> -n 1 answer
+<span class="hljs-built_in">echo</span>
+<span class="hljs-keyword">case</span> <span class="hljs-variable">$answer</span> <span class="hljs-keyword">in</span>
+    y|Y) <span class="hljs-built_in">echo</span> <span class="hljs-string">"Continuing..."</span> ;;
+    n|N) <span class="hljs-built_in">echo</span> <span class="hljs-string">"Aborting..."</span> ;;
+    *) <span class="hljs-built_in">echo</span> <span class="hljs-string">"Invalid choice"</span> ;;
+<span class="hljs-keyword">esac</span>
+</code></pre>
+<h3>Progress Indicators</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Simple progress bar</span>
+<span class="hljs-built_in">echo</span> -n <span class="hljs-string">"Processing: "</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> {1..20}; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">"="</span>
+    sleep 0.1
+<span class="hljs-keyword">done</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">" Complete!"</span>
+
+<span class="hljs-comment"># Percentage progress</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> {0..100..10}; <span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> -ne <span class="hljs-string">"Progress: <span class="hljs-variable">$i</span>%\r"</span>
+    sleep 0.2
+<span class="hljs-keyword">done</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\nDone!"</span>
+</code></pre>
+<h2>Integration with Other Commands</h2>
+<h3>Piping and Redirection</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Pipe to other commands</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"hello world"</span> | tr <span class="hljs-string">'[:lower:]'</span> <span class="hljs-string">'[:upper:]'</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"one two three"</span> | wc -w
+
+<span class="hljs-comment"># Complex pipelines</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"<span class="hljs-variable">$PATH</span>"</span> | tr <span class="hljs-string">':'</span> <span class="hljs-string">'\n'</span> | sort | uniq
+
+<span class="hljs-comment"># Tee for simultaneous output and file writing</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Important message"</span> | tee -a important.log
+</code></pre>
+<h3>Data Processing</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Generate data for processing</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"apple,5,red"</span> | cut -d<span class="hljs-string">','</span> -f2
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"one:two:three"</span> | awk -F<span class="hljs-string">':'</span> <span class="hljs-string">'{print $2}'</span>
+
+<span class="hljs-comment"># Create structured data</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Name,Age,City\nJohn,25,NYC\nJane,30,LA"</span> &gt; data.csv
+</code></pre>
+<h2>Options and Flags Reference</h2>
 <table>
 <thead>
 <tr>
@@ -2853,39 +3426,120 @@ It can be used to get a basic understanding of what a (unknown) command is used 
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>\b</code></td>
-<td align="left">removes all the spaces in between the text</td>
-</tr>
-<tr>
-<td align="left"><code>\c</code></td>
-<td align="left">suppress trailing new line with backspace interpretor ‘-e‘ to continue without emitting new line.</td>
-</tr>
-<tr>
-<td align="left"><code>\n</code></td>
-<td align="left">creates new line from where it is used</td>
-</tr>
-<tr>
-<td align="left"><code>\t</code></td>
-<td align="left">creates horizontal tab spaces</td>
-</tr>
-<tr>
-<td align="left"><code>\r</code></td>
-<td align="left">carriage returns with backspace interpretor ‘-e‘ to have specified carriage return in output</td>
-</tr>
-<tr>
-<td align="left"><code>\v</code></td>
-<td align="left">creates vertical tab spaces</td>
-</tr>
-<tr>
-<td align="left"><code>\a</code></td>
-<td align="left">alert returns with a backspace interpretor ‘-e‘ to have sound alert</td>
-</tr>
-<tr>
 <td align="left"><code>-n</code></td>
-<td align="left">omits echoing trailing newline .</td>
+<td align="left">Do not output trailing newline</td>
+</tr>
+<tr>
+<td align="left"><code>-e</code></td>
+<td align="left">Enable interpretation of backslash escapes</td>
+</tr>
+<tr>
+<td align="left"><code>-E</code></td>
+<td align="left">Disable interpretation of backslash escapes (default)</td>
 </tr>
 </tbody>
 </table>
+<h2>Escape Sequences Reference</h2>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Sequence</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>\a</code></td>
+<td align="left">Alert (bell/beep)</td>
+</tr>
+<tr>
+<td align="left"><code>\b</code></td>
+<td align="left">Backspace</td>
+</tr>
+<tr>
+<td align="left"><code>\c</code></td>
+<td align="left">Suppress trailing newline</td>
+</tr>
+<tr>
+<td align="left"><code>\e</code></td>
+<td align="left">Escape character</td>
+</tr>
+<tr>
+<td align="left"><code>\f</code></td>
+<td align="left">Form feed</td>
+</tr>
+<tr>
+<td align="left"><code>\n</code></td>
+<td align="left">New line</td>
+</tr>
+<tr>
+<td align="left"><code>\r</code></td>
+<td align="left">Carriage return</td>
+</tr>
+<tr>
+<td align="left"><code>\t</code></td>
+<td align="left">Horizontal tab</td>
+</tr>
+<tr>
+<td align="left"><code>\v</code></td>
+<td align="left">Vertical tab</td>
+</tr>
+<tr>
+<td align="left"><code>\\</code></td>
+<td align="left">Literal backslash</td>
+</tr>
+<tr>
+<td align="left"><code>\&quot;</code></td>
+<td align="left">Literal double quote</td>
+</tr>
+<tr>
+<td align="left"><code>\nnn</code></td>
+<td align="left">Character with octal value nnn</td>
+</tr>
+<tr>
+<td align="left"><code>\xhh</code></td>
+<td align="left">Character with hex value hh</td>
+</tr>
+</tbody>
+</table>
+<h2>Best Practices</h2>
+<h3>Script Writing</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Use quotes to prevent word splitting</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Value: <span class="hljs-variable">$variable</span>"</span>  <span class="hljs-comment"># Good</span>
+<span class="hljs-built_in">echo</span> Value: <span class="hljs-variable">$variable</span>    <span class="hljs-comment"># Can cause issues</span>
+
+<span class="hljs-comment"># Use -e when needed</span>
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Multi\nLine"</span>    <span class="hljs-comment"># Correct for escape sequences</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Multi\nLine"</span>       <span class="hljs-comment"># Literal backslash-n</span>
+
+<span class="hljs-comment"># Consistent formatting</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Starting process..."</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Process completed successfully."</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Results saved to: <span class="hljs-variable">$output_file</span>"</span>
+</code></pre>
+<h3>Debugging and Logging</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Debug information</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"DEBUG: Variable value is '<span class="hljs-variable">$variable</span>'"</span> &gt;&amp;2
+
+<span class="hljs-comment"># Timestamped logs</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"[<span class="hljs-variable">$(date)</span>] Starting backup process"</span> &gt;&gt; backup.log
+
+<span class="hljs-comment"># Function for consistent logging</span>
+<span class="hljs-function"><span class="hljs-title">log</span></span>() {
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"[<span class="hljs-variable">$(date '+%Y-%m-%d %H:%M:%S')</span>] $*"</span> | tee -a application.log
+}
+</code></pre>
+<h2>Important Notes</h2>
+<ul>
+<li><code>echo</code> behavior may vary between different shells (bash, dash, zsh)</li>
+<li>Use <code>printf</code> for more portable and precise formatting</li>
+<li>Single quotes preserve literal values, double quotes allow variable expansion</li>
+<li>Always quote variables to prevent word splitting</li>
+<li>Use <code>echo -e</code> only when you need escape sequence interpretation</li>
+<li><code>echo</code> adds a newline by default; use <code>-n</code> to suppress it</li>
+</ul>
+<p>The <code>echo</code> command is fundamental to shell scripting and command-line operations, providing flexible text output capabilities for various use cases.</p>
+<p>For more details, check the manual: <code>man echo</code></p>
 <div style="page-break-after: always;"></div><h1>The <code>finger</code> Command</h1>
 <p>The <code>finger</code> command displays information about local system users by querying files such as <code>/etc/passwd</code>, <code>/var/run/utmp</code>, and <code>/var/log/wtmp</code>. It is a local command and does not rely on any service or daemon to run. This command helps to quickly retrieve user-related details such as login times, idle status, and other system information.</p>
 <h3>Examples:</h3>
@@ -4357,68 +5011,394 @@ Print version information on standard output and exit successfully.</p>
 <pre><code class="language- hljs " data-lang="">man ifconfig
 </code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>ip</code> command</h1>
-<p>The <code>ip</code> command is present in the net-tools which is used for performing several network administration tasks. IP stands for Internet Protocol. This command is used to show or manipulate routing, devices, and tunnels. It can perform tasks like configuring and modifying the default and static routing, setting up tunnel over IP, listing IP addresses and property information, modifying the status of the interface, assigning, deleting and setting up IP addresses and routes.</p>
-<h3>Examples:</h3>
-<ol>
-<li>To assign an IP Address to a specific interface (eth1) :</li>
-</ol>
-<pre><code class="language- hljs " data-lang=""> ip addr add 192.168.50.5 dev eth1
-</code></pre>
-<ol start="2">
-<li>To show detailed information about network interfaces like IP Address, MAC Address information etc. :</li>
-</ol>
-<pre><code class="language- hljs " data-lang="">ip addr show
-</code></pre>
-<h3>Syntax:</h3>
+<p>The <code>ip</code> command is a powerful utility from the iproute2 package used for network administration tasks. It serves as the modern replacement for older networking tools like <code>ifconfig</code>, <code>route</code>, and <code>arp</code>. The <code>ip</code> command can show or manipulate routing, network devices, interfaces, and tunnels.</p>
+<h2>Syntax</h2>
 <pre><code class="language-bash hljs bash" data-lang="bash">ip [ OPTIONS ] OBJECT { COMMAND | <span class="hljs-built_in">help</span> }
 </code></pre>
-<h3>Additional Flags and their Functionalities:</h3>
+<h2>Key Features</h2>
+<ul>
+<li><strong>Interface Management</strong>: Configure and monitor network interfaces</li>
+<li><strong>IP Address Management</strong>: Add, remove, and display IP addresses</li>
+<li><strong>Routing Control</strong>: Manage routing tables and routes</li>
+<li><strong>Neighbor Management</strong>: Handle ARP/neighbor cache entries</li>
+<li><strong>Network Namespaces</strong>: Work with network namespaces</li>
+<li><strong>Tunneling</strong>: Create and manage network tunnels</li>
+</ul>
+<h2>Basic Usage</h2>
+<h3>Display Network Interfaces</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show all network interfaces</span>
+ip link show
+
+<span class="hljs-comment"># Show specific interface</span>
+ip link show eth0
+
+<span class="hljs-comment"># Show interface statistics</span>
+ip -s link show eth0
+</code></pre>
+<h3>IP Address Management</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show all IP addresses</span>
+ip addr show
+
+<span class="hljs-comment"># Show addresses for specific interface</span>
+ip addr show eth0
+
+<span class="hljs-comment"># Add IP address to interface</span>
+sudo ip addr add 192.168.1.100/24 dev eth0
+
+<span class="hljs-comment"># Remove IP address from interface</span>
+sudo ip addr del 192.168.1.100/24 dev eth0
+
+<span class="hljs-comment"># Flush all addresses from interface</span>
+sudo ip addr flush dev eth0
+</code></pre>
+<h2>Interface Management</h2>
+<h3>Bringing Interfaces Up/Down</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Bring interface up</span>
+sudo ip link <span class="hljs-built_in">set</span> eth0 up
+
+<span class="hljs-comment"># Bring interface down</span>
+sudo ip link <span class="hljs-built_in">set</span> eth0 down
+
+<span class="hljs-comment"># Set interface MTU</span>
+sudo ip link <span class="hljs-built_in">set</span> eth0 mtu 1400
+
+<span class="hljs-comment"># Change MAC address</span>
+sudo ip link <span class="hljs-built_in">set</span> eth0 address 00:11:22:33:44:55
+</code></pre>
+<h3>Creating Virtual Interfaces</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create VLAN interface</span>
+sudo ip link add link eth0 name eth0.100 <span class="hljs-built_in">type</span> vlan id 100
+
+<span class="hljs-comment"># Create bridge interface</span>
+sudo ip link add name br0 <span class="hljs-built_in">type</span> bridge
+
+<span class="hljs-comment"># Create virtual ethernet pair</span>
+sudo ip link add veth0 <span class="hljs-built_in">type</span> veth peer name veth1
+
+<span class="hljs-comment"># Delete virtual interface</span>
+sudo ip link delete veth0
+</code></pre>
+<h2>Routing Management</h2>
+<h3>Viewing Routes</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show routing table</span>
+ip route show
+
+<span class="hljs-comment"># Show routes for specific destination</span>
+ip route get 8.8.8.8
+
+<span class="hljs-comment"># Show routes via specific interface</span>
+ip route show dev eth0
+
+<span class="hljs-comment"># Show IPv6 routes</span>
+ip -6 route show
+</code></pre>
+<h3>Managing Routes</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Add default route</span>
+sudo ip route add default via 192.168.1.1
+
+<span class="hljs-comment"># Add specific route</span>
+sudo ip route add 10.0.0.0/8 via 192.168.1.1
+
+<span class="hljs-comment"># Add route via specific interface</span>
+sudo ip route add 172.16.0.0/16 dev eth1
+
+<span class="hljs-comment"># Delete route</span>
+sudo ip route del 10.0.0.0/8
+
+<span class="hljs-comment"># Replace existing route</span>
+sudo ip route replace default via 192.168.1.254
+</code></pre>
+<h3>Multiple Routing Tables</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show all routing tables</span>
+ip route show table all
+
+<span class="hljs-comment"># Add route to specific table</span>
+sudo ip route add 192.168.2.0/24 via 10.0.0.1 table 100
+
+<span class="hljs-comment"># Show specific routing table</span>
+ip route show table 100
+
+<span class="hljs-comment"># Add routing rule</span>
+sudo ip rule add from 192.168.1.0/24 table 100
+</code></pre>
+<h2>Neighbor (ARP) Management</h2>
+<h3>ARP Cache Operations</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show ARP cache</span>
+ip neigh show
+
+<span class="hljs-comment"># Show neighbors for specific interface</span>
+ip neigh show dev eth0
+
+<span class="hljs-comment"># Add static ARP entry</span>
+sudo ip neigh add 192.168.1.50 lladdr 00:11:22:33:44:55 dev eth0
+
+<span class="hljs-comment"># Delete ARP entry</span>
+sudo ip neigh del 192.168.1.50 dev eth0
+
+<span class="hljs-comment"># Flush ARP cache</span>
+sudo ip neigh flush all
+</code></pre>
+<h2>Advanced Features</h2>
+<h3>Network Namespaces</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># List network namespaces</span>
+ip netns list
+
+<span class="hljs-comment"># Create network namespace</span>
+sudo ip netns add myns
+
+<span class="hljs-comment"># Execute command in namespace</span>
+sudo ip netns <span class="hljs-built_in">exec</span> myns ip addr show
+
+<span class="hljs-comment"># Delete network namespace</span>
+sudo ip netns del myns
+
+<span class="hljs-comment"># Move interface to namespace</span>
+sudo ip link <span class="hljs-built_in">set</span> eth1 netns myns
+</code></pre>
+<h3>Tunneling</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create GRE tunnel</span>
+sudo ip tunnel add gre1 mode gre remote 10.0.0.2 <span class="hljs-built_in">local</span> 10.0.0.1 ttl 255
+
+<span class="hljs-comment"># Create IPIP tunnel</span>
+sudo ip tunnel add ipip1 mode ipip remote 192.168.1.2 <span class="hljs-built_in">local</span> 192.168.1.1
+
+<span class="hljs-comment"># Show tunnels</span>
+ip tunnel show
+
+<span class="hljs-comment"># Delete tunnel</span>
+sudo ip tunnel del gre1
+</code></pre>
+<h3>Traffic Control</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show queueing disciplines</span>
+ip qdisc show
+
+<span class="hljs-comment"># Add traffic shaping</span>
+sudo ip qdisc add dev eth0 root handle 1: htb default 30
+
+<span class="hljs-comment"># Show traffic control statistics</span>
+ip -s qdisc show dev eth0
+</code></pre>
+<h2>Monitoring and Statistics</h2>
+<h3>Interface Statistics</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show detailed interface statistics</span>
+ip -s link show
+
+<span class="hljs-comment"># Show extended statistics</span>
+ip -s -s link show eth0
+
+<span class="hljs-comment"># Monitor interface changes</span>
+ip monitor link
+
+<span class="hljs-comment"># Monitor address changes</span>
+ip monitor addr
+</code></pre>
+<h3>Real-time Monitoring</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Monitor all network events</span>
+ip monitor
+
+<span class="hljs-comment"># Monitor only route changes</span>
+ip monitor route
+
+<span class="hljs-comment"># Monitor with timestamps</span>
+ip -t monitor
+</code></pre>
+<h2>Common Options</h2>
+<h3>General Options</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Use specific protocol family</span>
+ip -4 addr show    <span class="hljs-comment"># IPv4 only</span>
+ip -6 addr show    <span class="hljs-comment"># IPv6 only</span>
+
+<span class="hljs-comment"># Show more details</span>
+ip -d link show
+
+<span class="hljs-comment"># Output in JSON format</span>
+ip -j addr show
+
+<span class="hljs-comment"># Colorize output</span>
+ip -c addr show
+
+<span class="hljs-comment"># Don't resolve names</span>
+ip -n route show
+</code></pre>
+<h3>Batch Operations</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Execute commands from file</span>
+sudo ip -batch commands.txt
+
+<span class="hljs-comment"># Example batch file content:</span>
+<span class="hljs-comment"># link set eth0 up</span>
+<span class="hljs-comment"># addr add 192.168.1.100/24 dev eth0</span>
+<span class="hljs-comment"># route add default via 192.168.1.1</span>
+</code></pre>
+<h2>Practical Examples</h2>
+<h3>Setting Up Static IP</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Complete static IP configuration</span>
+sudo ip addr add 192.168.1.100/24 dev eth0
+sudo ip link <span class="hljs-built_in">set</span> eth0 up
+sudo ip route add default via 192.168.1.1
+
+<span class="hljs-comment"># Add DNS (edit /etc/resolv.conf)</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"nameserver 8.8.8.8"</span> | sudo tee /etc/resolv.conf
+</code></pre>
+<h3>Creating Bridge with VLANs</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create bridge</span>
+sudo ip link add name br0 <span class="hljs-built_in">type</span> bridge
+
+<span class="hljs-comment"># Create VLAN interfaces</span>
+sudo ip link add link eth0 name eth0.10 <span class="hljs-built_in">type</span> vlan id 10
+sudo ip link add link eth0 name eth0.20 <span class="hljs-built_in">type</span> vlan id 20
+
+<span class="hljs-comment"># Add interfaces to bridge</span>
+sudo ip link <span class="hljs-built_in">set</span> eth0.10 master br0
+sudo ip link <span class="hljs-built_in">set</span> eth0.20 master br0
+
+<span class="hljs-comment"># Bring everything up</span>
+sudo ip link <span class="hljs-built_in">set</span> br0 up
+sudo ip link <span class="hljs-built_in">set</span> eth0.10 up
+sudo ip link <span class="hljs-built_in">set</span> eth0.20 up
+</code></pre>
+<h3>Network Troubleshooting</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check connectivity path</span>
+ip route get 8.8.8.8
+
+<span class="hljs-comment"># Verify interface status</span>
+ip link show | grep -E <span class="hljs-string">"(UP|DOWN)"</span>
+
+<span class="hljs-comment"># Check for duplicate IPs</span>
+ip addr show | grep inet
+
+<span class="hljs-comment"># Monitor network changes</span>
+ip monitor all
+</code></pre>
+<h2>Options Reference</h2>
 <table>
 <thead>
 <tr>
-<th align="left"><strong>Flag</strong></th>
+<th align="left"><strong>Option</strong></th>
 <th align="left"><strong>Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>-a</code></td>
-<td align="left">Display and modify IP Addresses</td>
+<td align="left"><code>-4, -6</code></td>
+<td align="left">Use IPv4 or IPv6 protocol family</td>
 </tr>
 <tr>
-<td align="left"><code>-l</code></td>
-<td align="left">Display and modify network interfaces</td>
+<td align="left"><code>-b, -batch</code></td>
+<td align="left">Read commands from file</td>
 </tr>
 <tr>
-<td align="left"><code>-r</code></td>
-<td align="left">Display and alter the routing table</td>
+<td align="left"><code>-c, -color</code></td>
+<td align="left">Use colored output</td>
 </tr>
 <tr>
-<td align="left"><code>-n</code></td>
-<td align="left">Display and manipulate neighbor objects (ARP table)</td>
+<td align="left"><code>-d, -details</code></td>
+<td align="left">Show detailed information</td>
 </tr>
 <tr>
-<td align="left"><code>-ru</code></td>
-<td align="left">Rule in routing policy database.</td>
+<td align="left"><code>-f, -family</code></td>
+<td align="left">Specify protocol family</td>
 </tr>
 <tr>
-<td align="left"><code>-s</code></td>
-<td align="left">Output more information. If the option appears twice or more, the amount of information increases</td>
+<td align="left"><code>-h, -human</code></td>
+<td align="left">Human readable output</td>
 </tr>
 <tr>
-<td align="left"><code>-f</code></td>
-<td align="left">Specifies the protocol family to use</td>
+<td align="left"><code>-j, -json</code></td>
+<td align="left">JSON output format</td>
 </tr>
 <tr>
-<td align="left"><code>-r</code></td>
-<td align="left">Use the system's name resolver to print DNS names instead of host addresses</td>
+<td align="left"><code>-n, -numeric</code></td>
+<td align="left">Don't resolve names</td>
 </tr>
 <tr>
-<td align="left"><code>-c</code></td>
-<td align="left">To configure color output</td>
+<td align="left"><code>-o, -oneline</code></td>
+<td align="left">Single line output</td>
+</tr>
+<tr>
+<td align="left"><code>-r, -resolve</code></td>
+<td align="left">Resolve hostnames</td>
+</tr>
+<tr>
+<td align="left"><code>-s, -stats</code></td>
+<td align="left">Show statistics</td>
+</tr>
+<tr>
+<td align="left"><code>-t, -timestamp</code></td>
+<td align="left">Show timestamps</td>
 </tr>
 </tbody>
 </table>
+<h2>Objects Reference</h2>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Object</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>link</code></td>
+<td align="left">Network device (interface)</td>
+</tr>
+<tr>
+<td align="left"><code>addr</code></td>
+<td align="left">IPv4 or IPv6 address</td>
+</tr>
+<tr>
+<td align="left"><code>route</code></td>
+<td align="left">Routing table entry</td>
+</tr>
+<tr>
+<td align="left"><code>rule</code></td>
+<td align="left">Rule in routing policy database</td>
+</tr>
+<tr>
+<td align="left"><code>neigh</code></td>
+<td align="left">Neighbor (ARP) table entry</td>
+</tr>
+<tr>
+<td align="left"><code>ntable</code></td>
+<td align="left">Neighbor table configuration</td>
+</tr>
+<tr>
+<td align="left"><code>tunnel</code></td>
+<td align="left">Tunnel over IP</td>
+</tr>
+<tr>
+<td align="left"><code>maddr</code></td>
+<td align="left">Multicast address</td>
+</tr>
+<tr>
+<td align="left"><code>mroute</code></td>
+<td align="left">Multicast routing cache entry</td>
+</tr>
+<tr>
+<td align="left"><code>monitor</code></td>
+<td align="left">Watch for netlink messages</td>
+</tr>
+</tbody>
+</table>
+<h2>Important Notes</h2>
+<ul>
+<li>The <code>ip</code> command requires root privileges for most configuration changes</li>
+<li>Changes made with <code>ip</code> are immediate but not persistent across reboots</li>
+<li>For persistent configuration, use network configuration files or NetworkManager</li>
+<li>Always backup network configuration before making changes</li>
+<li>Use <code>ip</code> over deprecated tools like <code>ifconfig</code> and <code>route</code></li>
+</ul>
+<h2>Integration with NetworkManager</h2>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check if NetworkManager is managing interface</span>
+nmcli device status
+
+<span class="hljs-comment"># Temporarily disable NetworkManager for interface</span>
+sudo nmcli device <span class="hljs-built_in">set</span> eth0 managed no
+
+<span class="hljs-comment"># Re-enable NetworkManager management</span>
+sudo nmcli device <span class="hljs-built_in">set</span> eth0 managed yes
+</code></pre>
+<p>The <code>ip</code> command is essential for modern Linux network administration and provides comprehensive control over network configuration.</p>
+<p>For more details, check the manual: <code>man ip</code></p>
 <div style="page-break-after: always;"></div><h1>The <code>clear</code> command</h1>
 <p>In linux, the <code>clear</code> command is used to clear terminal screen.</p>
 <h2>Example</h2>
@@ -4438,30 +5418,361 @@ $ clear
 <p>After running the command your terminal screen will be clear:</p>
 <p><img src="https://user-images.githubusercontent.com/21223421/135708538-f01de268-3cf6-4f3a-a32b-a14fb67575f1.png" alt="clear command in linux" /></p>
 <div style="page-break-after: always;"></div><h1>The <code>su</code> command</h1>
-<p>In linux, <code>su</code> allows you to run commands with a substitute user and group ID.</p>
-<p>When called without arguments, <code>su</code> defaults to running an interactive shell as root.</p>
-<h2>Example :</h2>
-<pre><code class="language-bash hljs bash" data-lang="bash">$ su
+<p>The <code>su</code> (substitute user) command allows you to run commands as another user account. It's commonly used to switch to the root account for administrative tasks or to run commands as a different user without logging out and logging back in.</p>
+<h2>Syntax</h2>
+<pre><code class="language-bash hljs bash" data-lang="bash">su [OPTIONS] [-] [USER [ARGUMENT...]]
 </code></pre>
-<p>In case that you wanted to switch to a user called <code>devdojo</code>, you could do that by running the following command:</p>
-<pre><code class="language- hljs " data-lang="">$ su devdojo
-</code></pre>
-<h2>The syntax of the <code>su</code> command is :</h2>
-<pre><code class="language-bash hljs bash" data-lang="bash">$ su [options] [-] [&lt;user&gt;[&lt;argument&gt;...]]
+<h2>Key Features</h2>
+<ul>
+<li><strong>User Switching</strong>: Switch to any user account on the system</li>
+<li><strong>Environment Control</strong>: Choose whether to inherit or reset environment variables</li>
+<li><strong>Shell Selection</strong>: Specify which shell to use</li>
+<li><strong>Group Management</strong>: Switch primary and supplementary groups</li>
+<li><strong>Command Execution</strong>: Run specific commands as another user</li>
+</ul>
+<h2>Basic Usage</h2>
+<h3>Switching to Root</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Switch to root user (requires root password)</span>
+su
 
+<span class="hljs-comment"># Switch to root with login shell (recommended)</span>
+su -
+
+<span class="hljs-comment"># Alternative syntax for login shell</span>
+su -l
+su --login
 </code></pre>
-<h2>Options :</h2>
-<pre><code class="language-bash hljs bash" data-lang="bash">-m, -p         --&gt; <span class="hljs-keyword">do</span> not reset environment variables
--w             --&gt; <span class="hljs-keyword">do</span> not reset specified variables
--g             --&gt; specify the primary group
--G             --&gt; specify a supplemental group
--l             --&gt; make the shell a login shell
--f             --&gt; pass -f to the shell (<span class="hljs-keyword">for</span> csh or tcsh)
--s             --&gt; run &lt;shell&gt; <span class="hljs-keyword">if</span> /etc/shell allows it 
--p             --&gt; create a new pseudo terminal
--h             --&gt; display this <span class="hljs-built_in">help</span>
--v             --&gt; display version
+<h3>Switching to Specific User</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Switch to specific user</span>
+su username
+
+<span class="hljs-comment"># Switch to user with login shell</span>
+su - username
+su -l username
+
+<span class="hljs-comment"># Switch to user and run specific command</span>
+su - username -c <span class="hljs-string">"whoami"</span>
 </code></pre>
+<h2>Environment Handling</h2>
+<h3>Login Shell vs Non-Login Shell</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Non-login shell (keeps current environment)</span>
+su username
+<span class="hljs-comment"># Current directory and environment variables are preserved</span>
+
+<span class="hljs-comment"># Login shell (starts fresh environment)</span>
+su - username
+<span class="hljs-comment"># Changes to user's home directory and loads their profile</span>
+</code></pre>
+<h3>Environment Variable Control</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Preserve current environment</span>
+su -m username
+su --preserve-environment username
+
+<span class="hljs-comment"># Preserve specific environment variables</span>
+su -w HOME,TERM username
+su --whitelist-environment=HOME,TERM username
+
+<span class="hljs-comment"># Reset environment but preserve specific variables</span>
+su - username --preserve-environment=PATH
+</code></pre>
+<h2>Advanced Usage</h2>
+<h3>Group Management</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Switch user and primary group</span>
+su -g developers username
+
+<span class="hljs-comment"># Switch with supplementary groups</span>
+su -G developers,admins username
+
+<span class="hljs-comment"># Check current groups</span>
+su - username -c <span class="hljs-string">"groups"</span>
+</code></pre>
+<h3>Shell Selection</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Use specific shell</span>
+su -s /bin/bash username
+su --shell=/bin/zsh username
+
+<span class="hljs-comment"># Use shell if allowed by /etc/shells</span>
+su -s /usr/bin/fish username
+
+<span class="hljs-comment"># Check available shells</span>
+cat /etc/shells
+</code></pre>
+<h3>Command Execution</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Run single command as another user</span>
+su - username -c <span class="hljs-string">"ls -la /home/username"</span>
+
+<span class="hljs-comment"># Run multiple commands</span>
+su - username -c <span class="hljs-string">"cd /tmp &amp;&amp; ls -la &amp;&amp; pwd"</span>
+
+<span class="hljs-comment"># Run script as another user</span>
+su - username -c <span class="hljs-string">"/path/to/script.sh"</span>
+
+<span class="hljs-comment"># Run command with arguments</span>
+su - username -c <span class="hljs-string">"grep 'pattern' /var/log/syslog"</span>
+</code></pre>
+<h2>Practical Examples</h2>
+<h3>System Administration</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Switch to root for administrative tasks</span>
+su -
+<span class="hljs-comment"># Now you can run administrative commands</span>
+
+<span class="hljs-comment"># Run single administrative command</span>
+su -c <span class="hljs-string">"systemctl restart apache2"</span>
+
+<span class="hljs-comment"># Edit system configuration file</span>
+su -c <span class="hljs-string">"nano /etc/hosts"</span>
+
+<span class="hljs-comment"># Check system logs</span>
+su -c <span class="hljs-string">"tail -f /var/log/syslog"</span>
+</code></pre>
+<h3>Development Workflows</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Switch to application user for deployment</span>
+su - appuser -c <span class="hljs-string">"cd /opt/myapp &amp;&amp; ./deploy.sh"</span>
+
+<span class="hljs-comment"># Run application as specific user</span>
+su - www-data -c <span class="hljs-string">"/usr/bin/php /var/www/html/script.php"</span>
+
+<span class="hljs-comment"># Test permissions as different user</span>
+su - testuser -c <span class="hljs-string">"ls -la /shared/directory"</span>
+</code></pre>
+<h3>User Management Tasks</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create file as specific user</span>
+su - username -c <span class="hljs-string">"touch /home/username/newfile.txt"</span>
+
+<span class="hljs-comment"># Check user's environment</span>
+su - username -c <span class="hljs-string">"env | sort"</span>
+
+<span class="hljs-comment"># Run user's shell configuration</span>
+su - username -c <span class="hljs-string">"source ~/.bashrc &amp;&amp; echo \$PATH"</span>
+</code></pre>
+<h2>Security Considerations</h2>
+<h3>Password Requirements</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># su requires the target user's password</span>
+su username  <span class="hljs-comment"># Requires username's password</span>
+
+<span class="hljs-comment"># Root can switch to any user without password</span>
+sudo su - username  <span class="hljs-comment"># Uses sudo authentication</span>
+
+<span class="hljs-comment"># Check who can use su</span>
+grep su /etc/group
+</code></pre>
+<h3>Audit and Logging</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check su usage in logs</span>
+sudo grep su /var/<span class="hljs-built_in">log</span>/auth.log
+
+<span class="hljs-comment"># Monitor current su sessions</span>
+w
+who
+
+<span class="hljs-comment"># Check login history</span>
+last
+</code></pre>
+<h3>Safe Usage Patterns</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Always use login shell for administrative tasks</span>
+su -  <span class="hljs-comment"># Better than just 'su'</span>
+
+<span class="hljs-comment"># Use sudo instead of su when possible</span>
+sudo <span class="hljs-built_in">command</span>  <span class="hljs-comment"># Better than 'su -c command'</span>
+
+<span class="hljs-comment"># Limit time as root</span>
+su -c <span class="hljs-string">"command1 &amp;&amp; command2 &amp;&amp; exit"</span>
+</code></pre>
+<h2>Comparison with Sudo</h2>
+<h3>When to Use <code>su</code></h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Multiple administrative commands</span>
+su -
+<span class="hljs-comment"># Run several commands as root</span>
+<span class="hljs-built_in">exit</span>
+
+<span class="hljs-comment"># Interactive root session</span>
+su -
+<span class="hljs-comment"># Work as root for extended period</span>
+</code></pre>
+<h3>When to Use <code>sudo</code></h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Single command execution</span>
+sudo systemctl restart service
+
+<span class="hljs-comment"># Better security and logging</span>
+sudo -u username <span class="hljs-built_in">command</span>
+
+<span class="hljs-comment"># Temporary privilege escalation</span>
+sudo apt update &amp;&amp; sudo apt upgrade
+</code></pre>
+<h2>Configuration and Customization</h2>
+<h3>PAM Configuration</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check PAM configuration for su</span>
+cat /etc/pam.d/su
+
+<span class="hljs-comment"># Restrict su to wheel group (some distributions)</span>
+<span class="hljs-comment"># Edit /etc/pam.d/su and uncomment:</span>
+<span class="hljs-comment"># auth required pam_wheel.so use_uid</span>
+</code></pre>
+<h3>Shell Configuration</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check if shell is allowed</span>
+grep username /etc/passwd
+cat /etc/shells
+
+<span class="hljs-comment"># Set shell for user</span>
+sudo chsh -s /bin/bash username
+</code></pre>
+<h3>Environment Customization</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Customize login environment</span>
+<span class="hljs-comment"># Edit ~/.profile, ~/.bashrc, or ~/.bash_profile</span>
+
+<span class="hljs-comment"># Set specific environment for su sessions</span>
+<span class="hljs-comment"># Create ~/.surc or modify shell configuration</span>
+</code></pre>
+<h2>Troubleshooting</h2>
+<h3>Common Issues</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Authentication failure</span>
+su: Authentication failure
+<span class="hljs-comment"># Check password, user existence, account status</span>
+
+<span class="hljs-comment"># Permission denied</span>
+su: Permission denied
+<span class="hljs-comment"># Check PAM configuration, wheel group membership</span>
+
+<span class="hljs-comment"># Shell not allowed</span>
+su: Warning: shell not allowed
+<span class="hljs-comment"># Add shell to /etc/shells or use -s option</span>
+</code></pre>
+<h3>Debugging</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Check user account status</span>
+sudo passwd -S username
+
+<span class="hljs-comment"># Verify user existence</span>
+id username
+grep username /etc/passwd
+
+<span class="hljs-comment"># Check group membership</span>
+groups username
+
+<span class="hljs-comment"># Test with verbose output</span>
+su -v username
+</code></pre>
+<h2>Script Integration</h2>
+<h3>Using su in Scripts</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment"># Script to run commands as different user</span>
+
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$EUID</span>"</span> -ne 0 ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Please run as root"</span>
+    <span class="hljs-built_in">exit</span> 1
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-comment"># Switch to app user and run commands</span>
+su - appuser -c <span class="hljs-string">"
+    cd /opt/myapp
+    ./backup.sh
+    ./cleanup.sh
+"</span>
+</code></pre>
+<h3>Automated Tasks</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Cron job running as specific user</span>
+<span class="hljs-comment"># Add to root's crontab:</span>
+<span class="hljs-comment"># 0 2 * * * su - backupuser -c '/usr/local/bin/backup.sh'</span>
+
+<span class="hljs-comment"># System service running as user</span>
+su - serviceuser -c <span class="hljs-string">'/opt/service/start.sh'</span> &amp;
+</code></pre>
+<h2>Options Reference</h2>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Option</strong></th>
+<th align="left"><strong>Long Form</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-</code></td>
+<td align="left"><code>--login</code></td>
+<td align="left">Start login shell, load user's environment</td>
+</tr>
+<tr>
+<td align="left"><code>-c CMD</code></td>
+<td align="left"><code>--command=CMD</code></td>
+<td align="left">Execute command and exit</td>
+</tr>
+<tr>
+<td align="left"><code>-f</code></td>
+<td align="left"><code>--fast</code></td>
+<td align="left">Pass -f to shell (for csh/tcsh)</td>
+</tr>
+<tr>
+<td align="left"><code>-g GRP</code></td>
+<td align="left"><code>--group=GRP</code></td>
+<td align="left">Specify primary group</td>
+</tr>
+<tr>
+<td align="left"><code>-G GRP</code></td>
+<td align="left"><code>--supp-group=GRP</code></td>
+<td align="left">Specify supplementary group</td>
+</tr>
+<tr>
+<td align="left"><code>-l</code></td>
+<td align="left"><code>--login</code></td>
+<td align="left">Same as <code>-</code> option</td>
+</tr>
+<tr>
+<td align="left"><code>-m</code></td>
+<td align="left"><code>--preserve-environment</code></td>
+<td align="left">Don't reset environment variables</td>
+</tr>
+<tr>
+<td align="left"><code>-p</code></td>
+<td align="left"><code>--preserve-environment</code></td>
+<td align="left">Same as <code>-m</code> option</td>
+</tr>
+<tr>
+<td align="left"><code>-s SHL</code></td>
+<td align="left"><code>--shell=SHL</code></td>
+<td align="left">Use specified shell</td>
+</tr>
+<tr>
+<td align="left"><code>-w VAR</code></td>
+<td align="left"><code>--whitelist-environment=VAR</code></td>
+<td align="left">Don't reset specified variables</td>
+</tr>
+<tr>
+<td align="left"><code>--help</code></td>
+<td align="left">-</td>
+<td align="left">Display help message</td>
+</tr>
+<tr>
+<td align="left"><code>--version</code></td>
+<td align="left">-</td>
+<td align="left">Display version information</td>
+</tr>
+</tbody>
+</table>
+<h2>Best Practices</h2>
+<h3>Security Best Practices</h3>
+<ul>
+<li>Use <code>sudo</code> instead of <code>su</code> when possible for better logging</li>
+<li>Always use login shell (<code>su -</code>) for administrative tasks</li>
+<li>Limit time spent as root user</li>
+<li>Use specific commands rather than interactive sessions when possible</li>
+<li>Regularly audit su usage through system logs</li>
+</ul>
+<h3>Operational Best Practices</h3>
+<ul>
+<li>Use descriptive comments when switching users in scripts</li>
+<li>Verify user existence before attempting to switch</li>
+<li>Handle authentication failures gracefully in scripts</li>
+<li>Document user switching requirements in system documentation</li>
+</ul>
+<h2>Important Notes</h2>
+<ul>
+<li><code>su</code> requires the target user's password (unless run as root)</li>
+<li>Using <code>su -</code> is recommended for administrative tasks as it provides a clean environment</li>
+<li><code>su</code> sessions are logged in <code>/var/log/auth.log</code> or similar system logs</li>
+<li>The <code>wheel</code> group restriction may be enabled on some systems</li>
+<li>Always exit su sessions when finished to return to original user</li>
+</ul>
+<p>The <code>su</code> command is essential for user switching and privilege management in Linux systems, but should be used carefully with proper security considerations.</p>
+<p>For more details, check the manual: <code>man su</code></p>
 <div style="page-break-after: always;"></div><h1>The <code>wget</code> command</h1>
 <p>The <code>wget</code> command is used for downloading files from the Internet. It supports downloading files using HTTP, HTTPS and FTP protocols. It allows you to download several files at once, download in the background, resume downloads, limit the bandwidth, mirror a website, and much more.</p>
 <h2>Syntax</h2>
@@ -5351,6 +6662,11 @@ You have the option to shut down your system immediately or after a specific tim
 <td align="left"><code>-S </code></td>
 <td align="left"><center>-</center></td>
 <td align="left">sort by file size, display largest first</td>
+</tr>
+<tr>
+<td align="left"><code>-d</code></td>
+<td align="left"><center><code>--directory</code></center></td>
+<td align="left">List directory entries instead of contents</td>
 </tr>
 </tbody>
 </table>
@@ -19543,6 +20859,271 @@ fdisk -l
 </ul>
 <p>The <code>cfdisk</code> command provides an excellent balance between ease of use and functionality for disk partitioning tasks.</p>
 <p>For more details, check the manual: <code>man cfdisk</code></p>
+<div style="page-break-after: always;"></div><h1>The ifplugstatus Command</h1>
+<p>The <code>ifplugstatus</code> command is a diagnostic utility used to check the <strong>physical link status</strong> of network interfaces on Linux systems. It reports whether an interface (such as eth0, enp0s3, or wlan0) has a network cable connected or not. This tool is particularly useful for troubleshooting wired network connectivity and detecting unplugged cables.</p>
+<h2>Syntax</h2>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus [options] [interface]
+</code></pre>
+<h3>Parameters</h3>
+<ul>
+<li>
+<p>interface — the network interface to check (e.g., eth0, enp0s3, wlan0).</p>
+</li>
+<li>
+<p>options — optional flags for customizing output.</p>
+</li>
+</ul>
+<h2>Installation</h2>
+<p><code>ifplugstatus</code> is part of the <code>ifplugd</code> package.
+It can be installed using the following commands depending on your distribution:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Ubuntu/Debian</span>
+sudo apt update
+sudo apt install ifplugd
+
+<span class="hljs-comment"># CentOS/RHEL/Fedora</span>
+sudo yum install ifplugd
+<span class="hljs-comment"># or</span>
+sudo dnf install ifplugd
+</code></pre>
+<h3>To verify installation:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">which</span> ifplugstatus
+</code></pre>
+<h2>Basic Usage</h2>
+<h3>1. Check the status of a single interface</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus eth0
+</code></pre>
+<h3>Sample Output:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">eth0: link beat detected
+</code></pre>
+<h3>or</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">eth0: link beat not detected
+</code></pre>
+<h3>Explanation:</h3>
+<ul>
+<li>
+<p>link beat detected → cable is plugged in and active.</p>
+</li>
+<li>
+<p>link beat not detected → cable is unplugged or inactive.
+<em>Note: 'link beat' is a legacy term from older Ethernet (10/100 Mbps). Modern Gigabit or higher interfaces may use different link detection signals, but the command generally reports an active physical link.</em></p>
+</li>
+</ul>
+<h3>2. Check multiple interfaces</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus eth0 wlan0
+</code></pre>
+<h3>Sample Output:</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">eth0: link beat detected
+wlan0: link beat not detected
+</code></pre>
+<p>This allows quick verification of all available interfaces.</p>
+<h2>Options</h2>
+<p>Some popular option flags include:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code></td>
+<td>Show all interfaces (default behavior).</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>Specify a particular interface.</td>
+</tr>
+<tr>
+<td><code>-s</code></td>
+<td>Display a short summary only.</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>Verbose output with more details.</td>
+</tr>
+<tr>
+<td><code>-q</code></td>
+<td>Quiet mode — minimal output.</td>
+</tr>
+<tr>
+<td><code>-h</code></td>
+<td>Display help information.</td>
+</tr>
+</tbody>
+</table>
+<h2>Practical Examples</h2>
+<h3>1. Check if the main Ethernet interface is connected</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus eth0
+</code></pre>
+<p>Displays the current cable connection status for eth0.</p>
+<h3>2. Check all available network interfaces</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus -a
+</code></pre>
+<p>Lists link status for every detected interface.</p>
+<h3>3. Use verbose mode for detailed results</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus -v eth0
+</code></pre>
+<p>Provides more descriptive information about the link state.</p>
+<h3>4. Quiet mode for scripting or automation</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus -q eth0
+</code></pre>
+<p>Outputs only the essential information, suitable for shell scripts.</p>
+<h2>Understanding the Output</h2>
+<p>A typical output may look like this:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">eth0: link beat detected
+enp0s3: link beat not detected
+</code></pre>
+<ul>
+<li>
+<p>Interface Name: eth0, enp0s3, etc.</p>
+</li>
+<li>
+<p>Link Status: Indicates whether a physical link (cable or signal) is present.</p>
+</li>
+</ul>
+<p>When integrated into scripts, this helps automate detection of disconnected interfaces or faulty cabling.</p>
+<h2>Common Use Cases</h2>
+<h3>1. Cable Connectivity Testing</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus eth0
+</code></pre>
+<p>Quickly verify if a cable is physically connected to the network port.</p>
+<h3>2. Multi-Interface Monitoring</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ifplugstatus eth0 wlan0
+</code></pre>
+<p>Check multiple interfaces simultaneously for link activity.</p>
+<h3>3. Continuous Monitoring</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">watch -n 5 ifplugstatus eth0
+</code></pre>
+<p>Updates the interface status every 5 seconds for real-time link monitoring.</p>
+<h2>Troubleshooting Common Issues</h2>
+<h3>1. Interface Not Found</h3>
+<p>If an incorrect interface name is given:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">eth5: No such device
+</code></pre>
+<p><strong>Fix:</strong> Use the ip a or ifconfig command to list valid interfaces.</p>
+<h3>2. Permission Denied</h3>
+<p>Some systems may require elevated privileges:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">sudo ifplugstatus eth0
+</code></pre>
+<h3>3. Command Not Found</h3>
+<p>If the command is missing:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash"> ifplugstatus: <span class="hljs-built_in">command</span> not found
+</code></pre>
+<p><strong>Fix:</strong> Install the ifplugd package using your package manager.</p>
+<p><strong>Tip:</strong> Always ensure the ifplugd package is installed and your user has permission to access network interfaces.</p>
+<h2>Related Commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ip a</code> (preferred) / <code>ifconfig</code></td>
+<td>Display all network interfaces and details. <code>ip a</code> is the modern tool; <code>ifconfig</code> is legacy.</td>
+</tr>
+<tr>
+<td><code>ethtool eth0</code></td>
+<td>Retrieve advanced information about the network interface.</td>
+</tr>
+<tr>
+<td><code>nmcli device status</code></td>
+<td>Check connection status via NetworkManager.</td>
+</tr>
+<tr>
+<td><code>ping</code></td>
+<td>Test network reachability after confirming cable connection.</td>
+</tr>
+</tbody>
+</table>
+<h2>Important Notes</h2>
+<ul>
+<li>
+<p>Works best with wired Ethernet interfaces.</p>
+</li>
+<li>
+<p>Wireless interfaces may not always report link status accurately.</p>
+</li>
+<li>
+<p>The tool is read-only — it does not modify system settings.</p>
+</li>
+<li>
+<p>Lightweight and safe for use in both desktop and server environments.</p>
+</li>
+</ul>
+<h2>Manual Reference</h2>
+<p>For additional information and advanced usage:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">man ifplugstatus
+</code></pre>
+<div style="page-break-after: always;"></div><h1>The <code>column</code> Command</h1>
+<p>The <code>column</code> command is used to format its input into multiple columns. It's particularly useful for making text-based tables and improving the readability of command output.</p>
+<h2>Command Syntax</h2>
+<pre><code class="language-bash hljs bash" data-lang="bash">column [options] [file]...
+</code></pre>
+<h2>Command Options</h2>
+<ul>
+<li><code>-t</code>: Determine the number of columns automatically and create a table</li>
+<li><code>-s</code>: Specify the column delimiter (default is whitespace)</li>
+<li><code>-n</code>: Don't merge multiple adjacent delimiters</li>
+<li><code>-c</code>: Output in column format with specified width</li>
+<li><code>-x</code>: Fill columns before rows</li>
+<li><code>-L</code>: Align all entries to the left</li>
+<li><code>-R</code>: Align all entries to the right</li>
+<li><code>-o</code>: Specify column separator for table output</li>
+</ul>
+<h2>Examples</h2>
+<ol>
+<li>Basic Column Formatting</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create a simple list and format it into columns</span>
+ls | column
+</code></pre>
+<ol start="2">
+<li>Creating a Table from Delimited Data</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Format /etc/passwd entries into a neat table</span>
+cut -d: -f1,6,7 /etc/passwd | column -t -s:
+</code></pre>
+<ol start="3">
+<li>Formatting Command Output</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Display mount information in a clean tabular format</span>
+mount | column -t
+</code></pre>
+<ol start="4">
+<li>Custom Column Separator</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Format CSV data with custom separator</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Name,Age,City\nJohn,25,NYC\nJane,30,LA"</span> | column -t -s,
+</code></pre>
+<ol start="5">
+<li>Left-aligned Table</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create a left-aligned table from space-separated data</span>
+ps aux | head -n 5 | column -t -L
+</code></pre>
+<h2>Additional Information</h2>
+<ul>
+<li>The <code>column</code> command is part of the <code>util-linux</code> package</li>
+<li>It's particularly useful in shell scripts for formatting output</li>
+<li>Can handle both file input and standard input (stdin)</li>
+<li>Works well with other text processing commands like <code>cut</code>, <code>sort</code>, and <code>grep</code></li>
+</ul>
+<h2>See Also</h2>
+<ul>
+<li><a href="098-the-cut-command.md"><code>cut</code></a> - remove sections from files</li>
+<li><a href="059-the-sort-command.md"><code>sort</code></a> - sort lines of text files</li>
+<li><a href="060-the-paste-command.md"><code>paste</code></a> - merge lines of files</li>
+<li><a href="119-the-tr-command.md"><code>tr</code></a> - translate or delete characters</li>
+</ul>
+<h2>Further Reading</h2>
+<ul>
+<li><code>man column</code> - manual page for the column command</li>
+<li><a href="https://www.gnu.org/software/coreutils/">GNU Coreutils</a></li>
+</ul>
 <div style="page-break-after: always;"></div><h1>Conclusion</h1>
 <p>Congratulations! You've reached the end of the <strong>101 Linux Commands eBook</strong>. Throughout this journey, you've explored over 135 essential Linux commands that form the foundation of system administration, development, and everyday Linux usage.</p>
 <h2>What You've Learned</h2>

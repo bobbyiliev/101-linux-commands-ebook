@@ -2,6 +2,8 @@ from typing import Dict, List
 
 import typer
 
+from states.global_state import debug, verbose_flag
+
 app = typer.Typer(
     help=("Search available commands by keyword " "(name or description).")
 )
@@ -66,6 +68,9 @@ def search(
     if not results:
         typer.echo("No commands found.")
         raise typer.Exit(code=1)
+
+    if verbose_flag["enabled"]:
+        debug(f"Found {len(results)} commands matching '{keyword}'")
 
     for cmd in results:
         name = cmd.get("name", "").strip()
