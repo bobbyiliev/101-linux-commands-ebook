@@ -1,39 +1,144 @@
 # The `ps` command
 
-The `ps` command is used to identify programs and processes that are running on the system and the resources they are using. 
-Its frequently [pipelined](<https://en.wikipedia.org/wiki/Pipeline_(Unix)>) with other commands like `grep` to search for a program/process or `less` 
-so that the user can analyze the output one page at a time.
+The `ps` command (process status) is used to display information about running processes on a Linux system — such as their PID, memory usage, CPU time, and associated users.
 
-Let's say you have a program like openshot which is notorious for hogging system resources when exporting a video, and you want to close it, but the GUI has become unresponsive.
+It’s often **piped** with commands like `grep` to search for a specific process or `less` to scroll through large outputs.
 
-### Example
+## Why Use `ps`
 
-1. You want to find the PID of openshot and kill it.
+Imagine your system feels slow or an app becomes unresponsive — you can use `ps` to:
+- Identify processes consuming high CPU/memory
+- Find a program’s PID (Process ID)
+- Kill or debug a stuck process
+- Check who’s running what on a shared system
+
+## Basic Syntax
+
+```
+ps [options]
+```
+
+Without any options, `ps` only shows processes in the current terminal session.
+
+Example:
+```bash
+ps
+```
+
+Output:
+```
+  PID TTY          TIME CMD
+ 4587 pts/0    00:00:00 bash
+ 4621 pts/0    00:00:00 ps
+```
+
+## Essential Usage
+
+**The one combo to remember:** `ps aux`
+- `a` = all processes (all users)
+- `u` = show user/owner info
+- `x` = include processes without terminals
+
+```
+ps aux
+```
+
+Output example:
+```
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1 168208  1100 ?        Ss   10:15   0:02 /sbin/init
+myuser    2471  0.5  1.2 431204 24500 ?        Sl   10:17   1:05 code
+myuser    2523  2.3  0.7 230940 14860 pts/0    R+   10:22   0:01 ps aux
+```
+
+## Some More Practical Day to Day Examples
+
+### Finding and Killing a process
+
+You want to stop a frozen **OpenShot** process.
 
 ```
 ps aux | grep openshot
-kill - <openshot PID>
 ```
 
-2. To Show all the running processes:
-
+Output:
 ```
-ps -A
+myuser   3625  99.9  6.1 1243924 252340 ?  Rl  10:30  25:17 openshot
+myuser   3649   0.0  0.0   6348   740 pts/0  S+  10:31   0:00 grep --color=auto openshot
 ```
 
+Now, kill it:
+```
+kill -9 3625
+```
 
-### Syntax
+### Show Processes by User
+```bash
+ps -u username
+```
 
-`ps [options]`
+Output:
+```
+  PID TTY          TIME CMD
+ 2284 ?        00:00:00 sshd
+ 2455 ?        00:00:02 bash
+```
 
-When run without any options, it's useless and will print: `CMD` - the executable processes/(program) running, their `PID` - process ID, `TTY` - terminal type and `Time` - How long the process has utilized the CPU or thread.
+### Filtering & Sorting Output
 
-### Common Option
+Show top 10 memory-consuming processes:
+```
+ps aux --sort=-%mem | head -10
+```
 
-If you are going to remember only one thing from this page let it be these three letter `aux`:
-`a` - which displays all processes running, including those being run by other users.
-`u` - which shows the effective user of a process, i.e. the person whose file access permissions are used by the process.
-`x` - which shows processes that do not have a `TTY` associated with them.
+Show top 10 CPU-consuming processes:
+```
+ps aux --sort=-%cpu | head -10
+```
+
+### Checking Parent/Child Process Hierarchy
+```bash
+ps -ef --forest
+```
+This gives a tree-like structure showing parent-child relationships — useful when debugging service spawns.
+
+### Custom Output Format
+To Show only PID, user, memory, and command:
+```
+ps -eo pid,user,%mem,cmd
+```
+
+## Real-Life DevOps Examples
+
+### 1. Checking which process uses a specific port
+```
+sudo ps -fp $(sudo lsof -t -i:8080)
+```
+
+### 2. Monitoring Jenkins, Nginx, or Docker processes
+```
+ps aux | grep nginx
+ps aux | grep jenkins
+ps aux | grep docker
+```
+
+### 3. Find Zombie Processes
+```
+ps aux | awk '{ if ($8 == "Z") print $0; }'
+```
+
+## Key Options for Quick Reference
+
+| Option | Description |
+|:-------|:------------|
+| `aux` | All processes with detailed info |
+| `-ef` | Full listing (alternative to aux) |
+| `-eo format` | Custom output columns |
+| `--sort` | Sort by column (-%mem, -%cpu) |
+| `-p PID` | Show specific PID |
+| `-C name` | Show processes by command name |
+| `-u user` | Show user's processes |
+| `f` | ASCII art process tree |
 
 ### Additional Options:
 
@@ -51,4 +156,15 @@ If you are going to remember only one thing from this page let it be these three
 |`--help simple`|Shows all the basic options|
 |`--help all`|Shows every available options|
 
-Another useful command which give a realtime snapshot of the processes and the resources they are using about every ten seconds is `top`.
+## Related Tools
+
+If you need **real-time** monitoring, use:
+```
+top
+```
+or the more user-friendly modern version:
+```
+htop
+```
+
+
