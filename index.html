@@ -4277,30 +4277,133 @@ It can be used for two distinct functions:</p>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div><h1>The <code>ps</code> command</h1>
-<p>The <code>ps</code> command is used to identify programs and processes that are running on the system and the resources they are using.
-Its frequently <a href="https://en.wikipedia.org/wiki/Pipeline_(Unix)">pipelined</a> with other commands like <code>grep</code> to search for a program/process or <code>less</code>
-so that the user can analyze the output one page at a time.</p>
-<p>Let's say you have a program like openshot which is notorious for hogging system resources when exporting a video, and you want to close it, but the GUI has become unresponsive.</p>
-<h3>Example</h3>
-<ol>
-<li>You want to find the PID of openshot and kill it.</li>
-</ol>
-<pre><code class="language-xml hljs xml" data-lang="xml">ps aux | grep openshot
-kill - <span class="hljs-tag">&lt;<span class="hljs-name">openshot</span> <span class="hljs-attr">PID</span>&gt;</span>
+<p>The <code>ps</code> command (process status) is used to display information about running processes on a Linux system — such as their PID, memory usage, CPU time, and associated users.</p>
+<p>It’s often <strong>piped</strong> with commands like <code>grep</code> to search for a specific process or <code>less</code> to scroll through large outputs.</p>
+<h2>Why Use <code>ps</code></h2>
+<p>Imagine your system feels slow or an app becomes unresponsive — you can use <code>ps</code> to:</p>
+<ul>
+<li>Identify processes consuming high CPU/memory</li>
+<li>Find a program’s PID (Process ID)</li>
+<li>Kill or debug a stuck process</li>
+<li>Check who’s running what on a shared system</li>
+</ul>
+<h2>Basic Syntax</h2>
+<pre><code class="language- hljs " data-lang="">ps [options]
 </code></pre>
-<ol start="2">
-<li>To Show all the running processes:</li>
-</ol>
-<pre><code class="language- hljs " data-lang="">ps -A
+<p>Without any options, <code>ps</code> only shows processes in the current terminal session.</p>
+<p>Example:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">ps
 </code></pre>
-<h3>Syntax</h3>
-<p><code>ps [options]</code></p>
-<p>When run without any options, it's useless and will print: <code>CMD</code> - the executable processes/(program) running, their <code>PID</code> - process ID, <code>TTY</code> - terminal type and <code>Time</code> - How long the process has utilized the CPU or thread.</p>
-<h3>Common Option</h3>
-<p>If you are going to remember only one thing from this page let it be these three letter <code>aux</code>:
-<code>a</code> - which displays all processes running, including those being run by other users.
-<code>u</code> - which shows the effective user of a process, i.e. the person whose file access permissions are used by the process.
-<code>x</code> - which shows processes that do not have a <code>TTY</code> associated with them.</p>
+<p>Output:</p>
+<pre><code class="language- hljs " data-lang="">  PID TTY          TIME CMD
+ 4587 pts/0    00:00:00 bash
+ 4621 pts/0    00:00:00 ps
+</code></pre>
+<h2>Essential Usage</h2>
+<p><strong>The one combo to remember:</strong> <code>ps aux</code></p>
+<ul>
+<li><code>a</code> = all processes (all users)</li>
+<li><code>u</code> = show user/owner info</li>
+<li><code>x</code> = include processes without terminals</li>
+</ul>
+<pre><code class="language- hljs " data-lang="">ps aux
+</code></pre>
+<p>Output example:</p>
+<pre><code class="language- hljs " data-lang="">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1 168208  1100 ?        Ss   10:15   0:02 /sbin/init
+myuser    2471  0.5  1.2 431204 24500 ?        Sl   10:17   1:05 code
+myuser    2523  2.3  0.7 230940 14860 pts/0    R+   10:22   0:01 ps aux
+</code></pre>
+<h2>Some More Practical Day to Day Examples</h2>
+<h3>Finding and Killing a process</h3>
+<p>You want to stop a frozen <strong>OpenShot</strong> process.</p>
+<pre><code class="language- hljs " data-lang="">ps aux | grep openshot
+</code></pre>
+<p>Output:</p>
+<pre><code class="language- hljs " data-lang="">myuser   3625  99.9  6.1 1243924 252340 ?  Rl  10:30  25:17 openshot
+myuser   3649   0.0  0.0   6348   740 pts/0  S+  10:31   0:00 grep --color=auto openshot
+</code></pre>
+<p>Now, kill it:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-built_in">kill</span> -9 3625
+</code></pre>
+<h3>Show Processes by User</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ps -u username
+</code></pre>
+<p>Output:</p>
+<pre><code class="language- hljs " data-lang="">  PID TTY          TIME CMD
+ 2284 ?        00:00:00 sshd
+ 2455 ?        00:00:02 bash
+</code></pre>
+<h3>Filtering &amp; Sorting Output</h3>
+<p>Show top 10 memory-consuming processes:</p>
+<pre><code class="language- hljs " data-lang="">ps aux --sort=-%mem | head -10
+</code></pre>
+<p>Show top 10 CPU-consuming processes:</p>
+<pre><code class="language- hljs " data-lang="">ps aux --sort=-%cpu | head -10
+</code></pre>
+<h3>Checking Parent/Child Process Hierarchy</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">ps -ef --forest
+</code></pre>
+<p>This gives a tree-like structure showing parent-child relationships — useful when debugging service spawns.</p>
+<h3>Custom Output Format</h3>
+<p>To Show only PID, user, memory, and command:</p>
+<pre><code class="language- hljs " data-lang="">ps -eo pid,user,%mem,cmd
+</code></pre>
+<h2>Real-Life DevOps Examples</h2>
+<h3>1. Checking which process uses a specific port</h3>
+<pre><code class="language-javascript hljs javascript" data-lang="javascript">sudo ps -fp $(sudo lsof -t -i:<span class="hljs-number">8080</span>)
+</code></pre>
+<h3>2. Monitoring Jenkins, Nginx, or Docker processes</h3>
+<pre><code class="language- hljs " data-lang="">ps aux | grep nginx
+ps aux | grep jenkins
+ps aux | grep docker
+</code></pre>
+<h3>3. Find Zombie Processes</h3>
+<pre><code class="language-php hljs php" data-lang="php">ps aux | awk <span class="hljs-string">'{ if ($8 == "Z") print $0; }'</span>
+</code></pre>
+<h2>Key Options for Quick Reference</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>aux</code></td>
+<td align="left">All processes with detailed info</td>
+</tr>
+<tr>
+<td align="left"><code>-ef</code></td>
+<td align="left">Full listing (alternative to aux)</td>
+</tr>
+<tr>
+<td align="left"><code>-eo format</code></td>
+<td align="left">Custom output columns</td>
+</tr>
+<tr>
+<td align="left"><code>--sort</code></td>
+<td align="left">Sort by column (-%mem, -%cpu)</td>
+</tr>
+<tr>
+<td align="left"><code>-p PID</code></td>
+<td align="left">Show specific PID</td>
+</tr>
+<tr>
+<td align="left"><code>-C name</code></td>
+<td align="left">Show processes by command name</td>
+</tr>
+<tr>
+<td align="left"><code>-u user</code></td>
+<td align="left">Show user's processes</td>
+</tr>
+<tr>
+<td align="left"><code>f</code></td>
+<td align="left">ASCII art process tree</td>
+</tr>
+</tbody>
+</table>
 <h3>Additional Options:</h3>
 <table>
 <thead>
@@ -4356,7 +4459,13 @@ kill - <span class="hljs-tag">&lt;<span class="hljs-name">openshot</span> <span 
 </tr>
 </tbody>
 </table>
-<p>Another useful command which give a realtime snapshot of the processes and the resources they are using about every ten seconds is <code>top</code>.</p>
+<h2>Related Tools</h2>
+<p>If you need <strong>real-time</strong> monitoring, use:</p>
+<pre><code class="language- hljs " data-lang="">top
+</code></pre>
+<p>or the more user-friendly modern version:</p>
+<pre><code class="language- hljs " data-lang="">htop
+</code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>kill</code> command</h1>
 <p><code>kill</code> command in Linux (located in /bin/kill), is a built-in command which is used to terminate processes manually. The <code>kill</code> command sends a signal to a process which terminates the process. If the user doesn’t specify any signal which is to be sent along with kill command then default <em>TERM</em> signal is sent that terminates the process.</p>
 <p>Signals can be specified in three ways:</p>
@@ -21123,6 +21232,201 @@ ps aux | head -n 5 | column -t -L
 <ul>
 <li><code>man column</code> - manual page for the column command</li>
 <li><a href="https://www.gnu.org/software/coreutils/">GNU Coreutils</a></li>
+</ul>
+<div style="page-break-after: always;"></div><h1>The <code>nmtui</code> Command</h1>
+<p>The <strong><code>nmtui</code></strong> (Network Manager Text User Interface) command is a <strong>menu-driven tool</strong> for configuring network connections in Linux.<br />
+It provides a simple, text-based interface to manage network settings such as Wi-Fi, Ethernet, hostname, and more — without using complex command-line options.</p>
+<hr />
+<h3>🔹 What it Does</h3>
+<p><code>nmtui</code> allows you to:</p>
+<ul>
+<li>View and edit <strong>network connections</strong></li>
+<li><strong>Activate or deactivate</strong> interfaces</li>
+<li><strong>Set or change</strong> the system <strong>hostname</strong></li>
+<li>Connect to <strong>Wi-Fi networks</strong></li>
+<li>Manage <strong>IPv4 / IPv6 settings</strong></li>
+</ul>
+<p>It is especially useful on servers or systems <strong>without a graphical desktop environment</strong>.</p>
+<hr />
+<h3>🧠 Syntax</h3>
+<p>nmtui [OPTION]</p>
+<hr />
+<h3>🖥️ Examples</h3>
+<ol>
+<li>
+<p><strong>Open the main menu interface:</strong></p>
+<p>nmtui<br />
+Opens the main TUI (text user interface) window with options to <em>Edit a connection</em>, <em>Activate a connection</em>, or <em>Set system hostname</em>.</p>
+</li>
+<li>
+<p><strong>Directly edit a network connection:</strong></p>
+<p>nmtui edit<br />
+Lets you create, modify, or delete network connections (both Ethernet and Wi-Fi).</p>
+</li>
+<li>
+<p><strong>Directly activate or deactivate connections:</strong></p>
+<p>nmtui connect<br />
+Opens the <em>Activate a connection</em> menu where you can enable or disable network interfaces.</p>
+</li>
+<li>
+<p><strong>Set or change the system hostname:</strong></p>
+<p>nmtui hostname<br />
+Opens a dialog box to set your system’s hostname (used for identification on a network).</p>
+</li>
+<li>
+<p><strong>Connect directly to a specific Wi-Fi network:</strong></p>
+<p>nmtui connect &quot;MyWiFiNetwork&quot;<br />
+Connects to the specified Wi-Fi network if it exists in range.</p>
+</li>
+<li>
+<p><strong>Quit the interface:</strong><br />
+Simply use <strong>Tab → Quit</strong> or press <strong>Esc</strong>.</p>
+</li>
+</ol>
+<hr />
+<h3>🧩 Common Options and Subcommands</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Command</strong></th>
+<th align="left"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>nmtui</code></td>
+<td align="left">Launches the interactive main menu</td>
+</tr>
+<tr>
+<td align="left"><code>nmtui edit</code></td>
+<td align="left">Opens the “Edit a connection” screen</td>
+</tr>
+<tr>
+<td align="left"><code>nmtui connect</code></td>
+<td align="left">Opens the “Activate a connection” screen</td>
+</tr>
+<tr>
+<td align="left"><code>nmtui hostname</code></td>
+<td align="left">Opens the “Set system hostname” dialog</td>
+</tr>
+<tr>
+<td align="left"><code>nmtui connect &lt;SSID&gt;</code></td>
+<td align="left">Connects to a specific Wi-Fi network directly</td>
+</tr>
+<tr>
+<td align="left"><code>nmtui help</code></td>
+<td align="left">Displays basic usage help</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>⚙️ Interface Navigation</h3>
+<ul>
+<li>Use the <strong>arrow keys</strong> or <strong>Tab</strong> to move between fields.</li>
+<li>Press <strong>Enter</strong> to select.</li>
+<li>Use <strong>Spacebar</strong> to toggle checkboxes or options.</li>
+<li>Press <strong>Esc</strong> or select <strong>Quit</strong> to exit safely.</li>
+</ul>
+<hr />
+<h3>📡 Common Use Cases</h3>
+<p><strong>1. Configure a static IP address:</strong></p>
+<p>nmtui edit<br />
+→ Choose your Ethernet connection<br />
+→ Set “IPv4 CONFIGURATION” to <em>Manual</em><br />
+→ Enter IP, Gateway, and DNS<br />
+→ Save → Activate connection</p>
+<hr />
+<p><strong>2. Connect to Wi-Fi from terminal:</strong></p>
+<p>nmtui connect<br />
+→ Select your wireless interface<br />
+→ Choose the SSID<br />
+→ Enter the password<br />
+→ Activate connection</p>
+<hr />
+<p><strong>3. Change the hostname:</strong></p>
+<p>nmtui hostname<br />
+→ Type your new hostname<br />
+→ Confirm and exit<br />
+→ The new hostname will apply immediately.</p>
+<hr />
+<h3>🛠 Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Issue</strong></th>
+<th align="left"><strong>Possible Solution</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>nmtui</code> command not found</td>
+<td align="left">Install NetworkManager TUI: <code>sudo apt install network-manager</code> (Debian/Ubuntu) or <code>sudo dnf install NetworkManager-tui</code> (Fedora/RHEL/CentOS)</td>
+</tr>
+<tr>
+<td align="left">Changes don’t take effect</td>
+<td align="left">Restart NetworkManager: <code>sudo systemctl restart NetworkManager</code></td>
+</tr>
+<tr>
+<td align="left">Interface not showing</td>
+<td align="left">Ensure your interface is managed by NetworkManager: check <code>/etc/NetworkManager/NetworkManager.conf</code></td>
+</tr>
+<tr>
+<td align="left">Wi-Fi missing</td>
+<td align="left">Make sure wireless drivers are installed and <code>nmcli device status</code> shows the Wi-Fi adapter</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>🧰 Related Commands</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Command</strong></th>
+<th align="left"><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>nmcli</code></td>
+<td align="left">Command-line (non-interactive) NetworkManager control</td>
+</tr>
+<tr>
+<td align="left"><code>ip addr</code></td>
+<td align="left">Show IP addresses of all interfaces</td>
+</tr>
+<tr>
+<td align="left"><code>ifconfig</code></td>
+<td align="left">(Deprecated) Interface configuration command</td>
+</tr>
+<tr>
+<td align="left"><code>systemctl restart NetworkManager</code></td>
+<td align="left">Restart NetworkManager service</td>
+</tr>
+<tr>
+<td align="left"><code>hostnamectl</code></td>
+<td align="left">Manage the system hostname directly</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>🧾 Example: Configuring Ethernet via <code>nmtui</code></h3>
+<p>sudo nmtui<br />
+→ Select <strong>Edit a connection</strong><br />
+→ Choose <strong>Wired connection 1</strong><br />
+→ Set IPv4 to <strong>Manual</strong><br />
+→ Fill in:
+Address: 192.168.1.50/24<br />
+Gateway: 192.168.1.1<br />
+DNS: 8.8.8.8<br />
+→ Save → Back → <strong>Activate a connection</strong> → Select <strong>Wired connection 1</strong></p>
+<p>✅ Your network connection will now use a static IP.</p>
+<hr />
+<h3>📘 Notes</h3>
+<ul>
+<li>Changes made with <code>nmtui</code> are persistent across reboots.</li>
+<li>Requires <strong>NetworkManager</strong> to be active.</li>
+<li><code>nmtui</code> provides the same functionality as <code>nmcli</code> but in a more user-friendly interface.</li>
+<li>Perfect for <strong>server environments</strong> or <strong>SSH sessions</strong> where GUI tools are unavailable.</li>
 </ul>
 <div style="page-break-after: always;"></div><h1>Conclusion</h1>
 <p>Congratulations! You've reached the end of the <strong>101 Linux Commands eBook</strong>. Throughout this journey, you've explored over 135 essential Linux commands that form the foundation of system administration, development, and everyday Linux usage.</p>
