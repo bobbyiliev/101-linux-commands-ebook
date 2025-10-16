@@ -924,6 +924,7 @@ Feel free to add new topics in case that you don't find one that you like from t
 - [159-the-lspci-command.md](ebook/en/content/159-the-lspci-command.md)
 - [160-the-cfdisk-command.md](ebook/en/content/160-the-cfdisk-command.md)
 - [161-the-column-command.md](ebook/en/content/162-the-column-command.md)
+- [162-the-nmtui-command.md](ebook/en/content/161-the-nmtui-command.md)
 
 # 🔗Links
 
