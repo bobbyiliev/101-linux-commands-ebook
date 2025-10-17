@@ -10819,100 +10819,219 @@ change the owner of a file or directory. It's also possible to change ownership 
 <h3>Syntax:</h3>
 <pre><code class="language- hljs " data-lang="">chown [-OPTION] [DIRECTORY_PATH]
 </code></pre>
-<div style="page-break-after: always;"></div><h1>The <code>find</code> command</h1>
-<p>The <code>find</code> command lets you <strong>search for files in a directory hierarchy</strong></p>
-<ul>
-<li>Search a file with specific name.</li>
-<li>Search a file with pattern</li>
-<li>Search for empty files and directories.</li>
-</ul>
-<h3>Examples:</h3>
-<ol>
-<li>Search a file with specific name:</li>
-</ol>
-<pre><code class="language-[linux]">find ./directory1 -name sample.txt
+<div style="page-break-after: always;"></div><h1>The <code>find</code> Command</h1>
+<p>The <code>find</code> command is one of the most powerful Linux utilities that lets you search for files and directories based on various conditions like name, size, modification time, permissions, and more.</p>
+<h2>Basic Syntax</h2>
+<pre><code class="language- hljs " data-lang="">find [path] [options] [expression]
 </code></pre>
-<ol start="2">
-<li>Search a file with pattern:</li>
-</ol>
-<pre><code class="language-[linux]">find ./directory1 -name '*.txt' 
+<p><strong>In simple words:</strong></p>
+<blockquote>
+<p>“Search starting from <code>[path]</code>, apply <code>[options or filters]</code>, and then perform an <code>[action]</code> on the result.”</p>
+</blockquote>
+<p>Example:</p>
+<pre><code class="language-php hljs php" data-lang="php">find /home/user -name <span class="hljs-string">"*.log"</span>
 </code></pre>
-<ol start="3">
-<li>To find all directories whose name is test in / directory.</li>
-</ol>
-<pre><code class="language-[linux]">find / -type d -name test
+<p>This searches for all <code>.log</code> files under <code>/home/user</code>.</p>
+<h2>Common Use Cases</h2>
+<h3>1. Search a File by Exact Name</h3>
+<pre><code class="language- hljs " data-lang="">find ./directory1 -name sample.txt
 </code></pre>
-<ol start="4">
-<li>Searching empty files in current directory</li>
-</ol>
-<pre><code class="language-[linux]">find . -size 0k
+<p>Finds <code>sample.txt</code> inside <code>directory1</code> and all its subdirectories.</p>
+<p>Case-insensitive search:</p>
+<pre><code class="language-php hljs php" data-lang="php">find ./directory1 -iname <span class="hljs-string">"sample.txt"</span>
 </code></pre>
-<h3>Syntax:</h3>
-<pre><code class="language-[linux]">find [options] [paths] [expression]
+<h3>2. Search Files by Pattern (Wildcard)</h3>
+<p>Find all <code>.txt</code> files under <code>directory1</code>.</p>
+<pre><code class="language-php hljs php" data-lang="php">find ./directory1 -name <span class="hljs-string">"*.txt"</span>
 </code></pre>
-<p><strong>In Simple words</strong></p>
-<pre><code class="language-[linux]">find [where to start searching from]
- [expression determines what to find] [-options] [what to find]
+<p>More examples:</p>
+<pre><code class="language-php hljs php" data-lang="php">find /<span class="hljs-keyword">var</span>/log -name <span class="hljs-string">"*.log"</span>
+find /etc -name <span class="hljs-string">"conf*"</span>
 </code></pre>
-<h3>Additional Flags and their Functionalities:</h3>
-<p>Commonly-used primaries include:</p>
-<ul>
-<li><code>name</code> pattern - tests whether the file name matches the shell-glob pattern given.</li>
-<li><code>type</code> type - tests whether the file is a given type. Unix file types accepted include:</li>
-</ul>
+<h3>3. Find Directories by Name</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">find / -<span class="hljs-built_in">type</span> d -name <span class="hljs-built_in">test</span>
+</code></pre>
+<p>Lists all directories named <code>test</code> from the root <code>/</code>.</p>
+<h3>4. Find Empty Files and Directories</h3>
+<pre><code class="language-php hljs php" data-lang="php">find . -<span class="hljs-keyword">empty</span>
+</code></pre>
+<p>Finds both empty files and directories in the current folder.</p>
+<p>Only empty files:</p>
+<pre><code class="language-php hljs php" data-lang="php">find . -type f -<span class="hljs-keyword">empty</span>
+</code></pre>
+<h3>5. Find Files by Modification or Access Time</h3>
 <table>
 <thead>
 <tr>
-<th align="left"><strong>options</strong></th>
-<th align="left"><strong>Description</strong></th>
+<th>Option</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>b</code></td>
-<td align="left">block device (buffered)</td>
+<td><code>-mtime n</code></td>
+<td>Modified <em>n</em> days ago</td>
 </tr>
 <tr>
-<td align="left"><code>d</code></td>
-<td align="left">directory</td>
+<td><code>-atime n</code></td>
+<td>Accessed <em>n</em> days ago</td>
 </tr>
 <tr>
-<td align="left"><code>f</code></td>
-<td align="left">regular file</td>
+<td><code>-ctime n</code></td>
+<td>Changed <em>n</em> days ago</td>
 </tr>
 <tr>
-<td align="left"><code>l</code></td>
-<td align="left">Symbolic link</td>
-</tr>
-<tr>
-<td align="left"><code>-print</code></td>
-<td align="left">always returns true; prints the name of the current file plus a newline to the stdout.</td>
-</tr>
-<tr>
-<td align="left"><code>-mtime n</code></td>
-<td align="left">find's all the files which are modified n days back.</td>
-</tr>
-<tr>
-<td align="left"><code>-atime n</code></td>
-<td align="left">find's all the files which are accessed 50 days back.</td>
-</tr>
-<tr>
-<td align="left"><code>-cmin n</code></td>
-<td align="left">find's all the files which are modified in the last 1 hour.</td>
-</tr>
-<tr>
-<td align="left"><code> -newer file</code></td>
-<td align="left">find's   file was modified more recently than file.</td>
-</tr>
-<tr>
-<td align="left"><code>-size n</code></td>
-<td align="left">File uses n units of space, rounding up.</td>
+<td><code>-mmin n</code></td>
+<td>Modified <em>n</em> minutes ago</td>
 </tr>
 </tbody>
 </table>
-<h3>Help Command</h3>
-<p>Run below command to view the complete guide to <code>find</code> command or <a href="https://en.wikipedia.org/wiki/Find_(Unix)">click here</a>.</p>
-<pre><code class="language-[linux]">man find
+<p>Examples:</p>
+<p>Find files modified within the last 2 days.</p>
+<pre><code class="language-php hljs php" data-lang="php">find /<span class="hljs-keyword">var</span>/log -mtime <span class="hljs-number">-2</span>
+</code></pre>
+<p>Find files modified within the last hour.</p>
+<pre><code class="language- hljs " data-lang="">find . -mmin -60
+</code></pre>
+<h3>6. Find Files by Size</h3>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+n</code></td>
+<td>Greater than n</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>Less than n</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>Exactly n</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<p>Find files larger than 100 MB.</p>
+<pre><code class="language- hljs " data-lang="">find / -size +100M
+</code></pre>
+<p>Find files smaller than 10 KB.</p>
+<pre><code class="language- hljs " data-lang="">find . -size -10k
+</code></pre>
+<h3>7. Find Files Modified More Recently than Another File</h3>
+<pre><code class="language- hljs " data-lang="">find . -newer reference.txt
+</code></pre>
+<p>Lists files modified after <code>reference.txt</code>.</p>
+<h3>8. Find Files by Type</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>f</code></td>
+<td>Regular file</td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td>Directory</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>Symbolic link</td>
+</tr>
+<tr>
+<td><code>b</code></td>
+<td>Block device</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>Character device</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p>Find all block devices.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">find /dev -<span class="hljs-built_in">type</span> b
+</code></pre>
+<h3>9. Find Files by Permission</h3>
+<p>Find files with exactly 644 permissions.</p>
+<pre><code class="language-php hljs php" data-lang="php">find /<span class="hljs-keyword">var</span>/www -type f -perm <span class="hljs-number">644</span>
+</code></pre>
+<p>Find files executable by anyone.</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">find /usr -<span class="hljs-built_in">type</span> f -perm /111
+</code></pre>
+<h3>10. Execute Commands on Found Files</h3>
+<p>You can use the <code>-exec</code> option to run a command on each file found:</p>
+<pre><code class="language-bash hljs bash" data-lang="bash">find . -<span class="hljs-built_in">type</span> f -name <span class="hljs-string">"*.log"</span> -<span class="hljs-built_in">exec</span> rm -f {} \;
+</code></pre>
+<p>Deletes all <code>.log</code> files under the current directory.</p>
+<p><strong>Alternative (faster):</strong></p>
+<pre><code class="language-bash hljs bash" data-lang="bash">find . -<span class="hljs-built_in">type</span> f -name <span class="hljs-string">"*.log"</span> | xargs rm -f
+</code></pre>
+<h3>11. Combine Multiple Conditions</h3>
+<p>You can combine filters together:</p>
+<pre><code class="language-php hljs php" data-lang="php">find /<span class="hljs-keyword">var</span>/log -name <span class="hljs-string">"*.log"</span> -size +<span class="hljs-number">50</span>M -mtime <span class="hljs-number">-2</span>
+</code></pre>
+<p>Finds <code>.log</code> files larger than 50 MB and modified within the last 2 days.</p>
+<h3>12. Print Only File Names (Quiet Output)</h3>
+<pre><code class="language-bash hljs bash" data-lang="bash">find /etc -<span class="hljs-built_in">type</span> f -name <span class="hljs-string">"*.conf"</span> -<span class="hljs-built_in">print</span>
+</code></pre>
+<p>The <code>-print</code> flag ensures output is displayed (it’s the default in most systems).</p>
+<h2>Quick Reference Table</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Find files with specific name</td>
+<td><code>find . -name filename.txt</code></td>
+</tr>
+<tr>
+<td>Case-insensitive search</td>
+<td><code>find . -iname filename.txt</code></td>
+</tr>
+<tr>
+<td>Find directories only</td>
+<td><code>find . -type d</code></td>
+</tr>
+<tr>
+<td>Find empty files</td>
+<td><code>find . -type f -empty</code></td>
+</tr>
+<tr>
+<td>Find files &gt; 1 GB</td>
+<td><code>find . -size +1G</code></td>
+</tr>
+<tr>
+<td>Find modified in last day</td>
+<td><code>find . -mtime -1</code></td>
+</tr>
+<tr>
+<td>Delete <code>.tmp</code> files</td>
+<td><code>find . -name &quot;*.tmp&quot; -delete</code></td>
+</tr>
+<tr>
+<td>Search and execute</td>
+<td><code>find . -name &quot;*.log&quot; -exec gzip {} \;</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Getting Help</h2>
+<p>To view the complete guide for the <code>find</code> command, run:</p>
+<pre><code class="language- hljs " data-lang="">man find
 </code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>rmdir</code> command</h1>
 <p>The <strong>rmdir</strong> command is used to remove empty directories from the filesystem in Linux. The rmdir command removes each and every directory specified in the command line only if these directories are empty.</p>
