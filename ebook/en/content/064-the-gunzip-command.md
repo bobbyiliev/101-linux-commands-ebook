@@ -2,7 +2,7 @@
 
 The `gunzip` command is an antonym command of [`gzip` command](015-the-gzip-command.md). In other words, it decompresses files deflated by the `gzip` command.
 
-`gunzip` takes a list of files on its command line and replaces each file whose name ends with _.gz_, _-gz_, _.z_, _-z_, or *\_z* (ignoring case) and which begins with the correct magic number with an uncompressed file without the original extension. `gunzip` also recognizes the special extensions *.tgz* and *.taz* as shorthands for *.tar.gz* and  *.tar.Z*  respectively.
+"`gunzip` takes a list of files as arguments. It replaces each file whose name ends with `.gz`, `-gz`, `.z`, `-z`, or `_z` (case-insensitive) and which begins with the correct magic number with an uncompressed file, removing the original extension."
 
 ### Examples:
 
@@ -12,13 +12,13 @@ The `gunzip` command is an antonym command of [`gzip` command](015-the-gzip-comm
 gunzip filename.gz
 ```
 
-2. Recursively uncompress content inside a directory, that match extension (suffix) compressed formats accepted by `gunzip`:
+2. "Recursively uncompress all files inside a directory that match the compressed file formats supported by `gunzip`:"
 
 ```
 gunzip -r directory_name/
 ```
 
-3. Uncompress all files in the current/working directory whose suffix match *.tgz*:
+3. "Uncompress all files in the current working directory whose suffix matches `.tgz`:
 
 ```
 gunzip -S .tgz *
@@ -55,3 +55,7 @@ gunzip [ -acfhklLnNrtvV ] [-S suffix] [ name ...  ]
 |-t|--test|test compressed file integrity|
 |-v|--verbose|verbose mode|
 |-V|--version|display version number|
+
+
+### **Note: gunzip filename.gz is equivalent to gzip -d filename.gz.
+### Warning: Running gunzip without -c deletes the original compressed file by default.
