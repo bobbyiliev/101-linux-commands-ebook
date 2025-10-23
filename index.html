@@ -21810,10 +21810,6 @@ DNS: 8.8.8.8<br />
     </button>
 
     <script>
-        // State management
-        let sidebarOpen = window.innerWidth > 1024;
-        let currentFontSize = 'medium';
-
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             initializeApp();
@@ -21889,7 +21885,6 @@ DNS: 8.8.8.8<br />
             
             sidebar.classList.toggle('open');
             mainContent.classList.toggle('sidebar-open');
-            sidebarOpen = sidebar.classList.contains('open');
         }
 
         // Reading progress
@@ -21942,7 +21937,6 @@ DNS: 8.8.8.8<br />
             const body = document.body;
             body.classList.remove('font-small', 'font-medium', 'font-large');
             body.classList.add('font-' + size);
-            currentFontSize = size;
             
             // Update button states
             document.querySelectorAll('.font-size-btn').forEach(btn => {
