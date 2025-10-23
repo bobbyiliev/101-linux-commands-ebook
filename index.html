@@ -455,7 +455,155 @@
             color: var(--code-text);
             font-weight: 400;
         }
+        /* Copy Button Styles - No Overlay Version */
+.code-block-wrapper {
+    position: relative;
+    margin: 2rem 0;
+    isolation: isolate;
+}
 
+.code-block-wrapper pre {
+    margin: 0;
+}
+
+.copy-button {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(91, 124, 153, 0.9);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-2px);
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.code-block-wrapper:hover .copy-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.copy-button:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.copy-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.copy-button:focus {
+    outline: none;
+}
+
+.copy-button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.copy-button.copied {
+    background: var(--success-color);
+    opacity: 1;
+}
+
+.copy-button i {
+    font-size: 0.875rem;
+    pointer-events: none;
+}
+
+.copy-button .copy-text {
+    pointer-events: none;
+    user-select: none;
+}
+
+.copy-button .copy-icon {
+    display: inline-block;
+}
+
+.copy-button .check-icon {
+    display: none;
+}
+
+.copy-button.copied .copy-icon {
+    display: none;
+}
+
+.copy-button.copied .check-icon {
+    display: inline-block;
+    animation: checkmark 0.3s ease;
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(0) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(0deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Completely remove all pseudo-elements that could show overlays */
+.copy-button::before,
+.copy-button::after {
+    display: none !important;
+    content: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.copy-button:hover::before,
+.copy-button:hover::after,
+.copy-button:focus::before,
+.copy-button:focus::after,
+.copy-button:active::before,
+.copy-button:active::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .copy-button {
+    background: rgba(127, 169, 155, 0.9);
+}
+
+body.dark-mode .copy-button:hover {
+    background: var(--accent-color);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .copy-button {
+        opacity: 1;
+        padding: 0.45rem 0.65rem;
+        font-size: 0.7rem;
+    }
+    
+    .copy-button i {
+        font-size: 0.8rem;
+    }
+}
         /* Blockquotes */
         .content-wrapper blockquote {
             margin: 2.5rem 0;
@@ -21677,6 +21825,7 @@ DNS: 8.8.8.8<br />
             loadPreferences();
             setupEventListeners();
             updateActiveNavigation();
+            initializeCopyButtons();
             
             if (window.innerWidth > 1024) {
                 toggleSidebar();
@@ -21937,6 +22086,97 @@ DNS: 8.8.8.8<br />
                 }
             }
         });
+
+         // Copy to Clipboard Functionality - No Overlays Version
+function initializeCopyButtons() {
+    const preElements = document.querySelectorAll('.content-wrapper pre');
+    
+    preElements.forEach((pre) => {
+        if (pre.parentElement.classList.contains('code-block-wrapper')) {
+            return;
+        }
+        
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+        
+        const copyButton = document.createElement('button');
+        copyButton.className = 'copy-button';
+        copyButton.type = 'button';
+        copyButton.setAttribute('aria-label', 'Copy code to clipboard');
+        copyButton.setAttribute('title', '');  // Prevent default tooltip
+        copyButton.innerHTML = `
+            <i class="fas fa-copy copy-icon" aria-hidden="true"></i>
+            <i class="fas fa-check check-icon" aria-hidden="true"></i>
+            <span class="copy-text">Copy</span>
+        `;
+        
+        copyButton.addEventListener('click', async function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            
+            const code = pre.querySelector('code');
+            const textToCopy = code ? code.textContent : pre.textContent;
+            
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                
+                // Visual feedback
+                copyButton.classList.add('copied');
+                const copyText = copyButton.querySelector('.copy-text');
+                if (copyText) copyText.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    copyButton.classList.remove('copied');
+                    if (copyText) copyText.textContent = 'Copy';
+                }, 2000);
+                
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    textArea.remove();
+                    
+                    copyButton.classList.add('copied');
+                    const copyText = copyButton.querySelector('.copy-text');
+                    if (copyText) copyText.textContent = 'Copied!';
+                    
+                    setTimeout(() => {
+                        copyButton.classList.remove('copied');
+                        if (copyText) copyText.textContent = 'Copy';
+                    }, 2000);
+                    
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                    textArea.remove();
+                }
+            }
+            
+            return false;
+        }, { capture: true });
+        
+        copyButton.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+        }, { passive: true });
+        
+        copyButton.addEventListener('touchend', function(e) {
+            e.stopPropagation();
+        }, { passive: true });
+        
+        wrapper.appendChild(copyButton);
+    });
+}
     </script>
 </body>
 </html>
