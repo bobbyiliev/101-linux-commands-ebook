@@ -22013,8 +22013,13 @@ DNS: 8.8.8.8<br />
                 }, 10);
             });
             
-            // Navigation click handlers
+            // Combined click handler for navigation and sidebar control
             document.addEventListener('click', function(e) {
+                const sidebar = document.getElementById('sidebar');
+                const mainContent = document.getElementById('main-content');
+                const isMobile = window.innerWidth <= 1024;
+                
+                // Handle navigation item clicks
                 if (e.target.closest('.nav-item[data-target]')) {
                     e.preventDefault();
                     const navItem = e.target.closest('.nav-item[data-target]');
@@ -22029,28 +22034,24 @@ DNS: 8.8.8.8<br />
                     }
                     
                     // Close sidebar on mobile after navigation
-                    if (window.innerWidth <= 1024) {
-                        const sidebar = document.getElementById('sidebar');
-                        const mainContent = document.getElementById('main-content');
+                    if (isMobile) {
+                        sidebar.classList.remove('open');
+                        mainContent.classList.remove('sidebar-open');
+                    }
+                    return; // Exit early
+                }
+                
+                // Handle clicking outside sidebar on mobile
+                if (isMobile && sidebar.classList.contains('open')) {
+                    const sidebarToggle = document.querySelector('.sidebar-toggle');
+                    
+                    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
                         sidebar.classList.remove('open');
                         mainContent.classList.remove('sidebar-open');
                     }
                 }
             });
             
-            // Close sidebar when clicking outside on mobile
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 1024) {
-                    const sidebar = document.getElementById('sidebar');
-                    const mainContent = document.getElementById('main-content');
-                    const sidebarToggle = document.querySelector('.sidebar-toggle');
-                    
-                    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target) && sidebar.classList.contains('open')) {
-                        sidebar.classList.remove('open');
-                        mainContent.classList.remove('sidebar-open');
-                    }
-                }
-            });
             
             // Handle window resize
             let resizeTimeout;
