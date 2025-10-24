@@ -4564,9 +4564,9 @@ ps aux | grep docker
 <span class="hljs-comment"># OR</span>
 killall -SIGTERM conky
 <span class="hljs-comment"># OR</span>
-kilall -15 conky
+killall -15 conky
 </code></pre>
-<p>I was able to kill Wine ( which are Windows exe files running on Linux ) applications this way too.</p>
+<p>You can also kill Wine processes (Windows executable files running on Linux) this way.</p>
 <pre><code class="language-sh hljs bash" data-lang="sh">killall TQ.exe
 </code></pre>
 <ol start="2">
@@ -4648,7 +4648,7 @@ killall -V, --version
 <tr>
 <td align="left"><code>-e</code></td>
 <td align="left"><code>--exact</code></td>
-<td align="left">require  an  exact  match for very long names</td>
+<td align="left">require an exact match for very long names</td>
 </tr>
 <tr>
 <td align="left"><code>-I</code></td>
@@ -4673,7 +4673,7 @@ killall -V, --version
 <tr>
 <td align="left"><code>-i</code></td>
 <td align="left"><code>--interactive</code></td>
-<td align="left">ask for confirmation before killing</td>
+<td align="left">Prompt before killing processes to avoid accidental termination.</td>
 </tr>
 <tr>
 <td align="left"><code>-l</code></td>
@@ -4713,7 +4713,7 @@ killall -V, --version
 <tr>
 <td align="left"><code>-n</code></td>
 <td align="left"><code>--ns PID</code></td>
-<td align="left">match processes that belong to the same namespaces as PID</td>
+<td align="left">Match processes belonging to the same namespace as the specified PID.</td>
 </tr>
 <tr>
 <td align="left"><code>-Z</code></td>
@@ -6780,7 +6780,7 @@ You have the option to shut down your system immediately or after a specific tim
 </tbody>
 </table>
 <div style="page-break-after: always;"></div><h1>The <code>reboot</code> Command</h1>
-<p>The <code>reboot</code> command is used to restart a linux system. However, it requires elevated permission using the <a href="https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/051-the-sudo-command.md">sudo</a> command. Necessity to use this command usually arises after significant system or network updates have been made to the system.</p>
+<p>The <code>reboot</code> command is used to restart a Linux system. However, it requires elevated permission using the <a href="https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/051-the-sudo-command.md">sudo</a> command. Necessity to use this command usually arises after significant system or network updates have been made to the system.</p>
 <h2>Syntax</h2>
 <pre><code class="language- hljs " data-lang="">reboot [OPTIONS...]
 </code></pre>
@@ -6788,7 +6788,7 @@ You have the option to shut down your system immediately or after a specific tim
 <ul>
 <li><strong>–help</strong> : This option prints a short help text and exit.</li>
 <li><strong>-halt</strong> : This command will stop the machine.</li>
-<li><strong>-w</strong>, <strong>–wtmp-only</strong> : This option only writes wtmp shutdown entry, it do not actually halt, power-off, reboot.</li>
+<li><strong>-w</strong>, <strong>–wtmp-only</strong> : This option only writes wtmp shutdown entry, it does not actually halt, power-off, reboot.</li>
 </ul>
 <h3>Examples</h3>
 <ol>
@@ -6799,9 +6799,9 @@ You have the option to shut down your system immediately or after a specific tim
 <p>However, alternatively the shutdown command with the <code>-r</code> option</p>
 <pre><code class="language- hljs " data-lang="">$ sudo shutdown -r now
 </code></pre>
-<p><strong>Note</strong> that the usage of the reboot, halt and power off is almost similar in syntax and effect. Run each of these commands with –help to see the details.</p>
+<p><strong>Note</strong> that the usage of the reboot, halt and power off is almost similar in syntax and effect. Run each of these commands with –-help to see the details.</p>
 <ol start="2">
-<li>The <code>reboot</code> command has limited usage, and the <code>shutdown</code> command is being used instead of reboot command to fulfill much more advance reboot and shutdown requirements. One of those situations is a scheduled restart. Syntax is as follows</li>
+<li>The <code>reboot</code> command has limited usage, and the <code>shutdown</code> command is being used instead of reboot command to fulfill much more advanced reboot and shutdown requirements. One of those situations is a scheduled restart. Syntax is as follows</li>
 </ol>
 <pre><code class="language- hljs " data-lang="">$ sudo shutdown –r [TIME] [MESSAGE]
 </code></pre>
@@ -6822,7 +6822,8 @@ You have the option to shut down your system immediately or after a specific tim
 <pre><code class="language-php hljs php" data-lang="php">$sudo shutdown -c <span class="hljs-string">"Scheduled reboot cancelled because the chicken crossed the road"</span>
 </code></pre>
 <ol start="4">
-<li>Checking your reboot logs</li>
+<li>Shows a history of system reboots
+<strong>Syntax</strong></li>
 </ol>
 <pre><code class="language- hljs " data-lang="">$ last reboot
 </code></pre>
@@ -7212,7 +7213,7 @@ Uttar pradesh
 </table>
 <div style="page-break-after: always;"></div><h1>The <code>gunzip</code> command</h1>
 <p>The <code>gunzip</code> command is an antonym command of <a href="015-the-gzip-command.md"><code>gzip</code> command</a>. In other words, it decompresses files deflated by the <code>gzip</code> command.</p>
-<p><code>gunzip</code> takes a list of files on its command line and replaces each file whose name ends with <em>.gz</em>, <em>-gz</em>, <em>.z</em>, <em>-z</em>, or <em>_z</em> (ignoring case) and which begins with the correct magic number with an uncompressed file without the original extension. <code>gunzip</code> also recognizes the special extensions <em>.tgz</em> and <em>.taz</em> as shorthands for <em>.tar.gz</em> and  <em>.tar.Z</em>  respectively.</p>
+<p>&quot;<code>gunzip</code> takes a list of files as arguments. It replaces each file whose name ends with <code>.gz</code>, <code>-gz</code>, <code>.z</code>, <code>-z</code>, or <code>_z</code> (case-insensitive) and which begins with the correct magic number with an uncompressed file, removing the original extension.&quot;</p>
 <h3>Examples:</h3>
 <ol>
 <li>Uncompress a file</li>
@@ -7220,12 +7221,12 @@ Uttar pradesh
 <pre><code class="language- hljs " data-lang="">gunzip filename.gz
 </code></pre>
 <ol start="2">
-<li>Recursively uncompress content inside a directory, that match extension (suffix) compressed formats accepted by <code>gunzip</code>:</li>
+<li>&quot;Recursively uncompress all files inside a directory that match the compressed file formats supported by <code>gunzip</code>:&quot;</li>
 </ol>
 <pre><code class="language- hljs " data-lang="">gunzip -r directory_name/
 </code></pre>
 <ol start="3">
-<li>Uncompress all files in the current/working directory whose suffix match <em>.tgz</em>:</li>
+<li>&quot;Uncompress all files in the current working directory whose suffix matches <code>.tgz</code>:</li>
 </ol>
 <pre><code class="language- hljs " data-lang="">gunzip -S .tgz *
 </code></pre>
@@ -7306,6 +7307,8 @@ Uttar pradesh
 </tr>
 </tbody>
 </table>
+<h3>**Note: gunzip filename.gz is equivalent to gzip -d filename.gz.</h3>
+<h3>Warning: Running gunzip without -c deletes the original compressed file by default.</h3>
 <div style="page-break-after: always;"></div><h1>The <code>hostnamectl</code> command</h1>
 <p>The <code>hostnamectl</code> command provides a proper API used to control Linux system hostname and change its related settings. The command also helps to change the hostname without actually locating and editing the <code>/etc/hostname</code> file on a given system.</p>
 <h2>Syntax</h2>
@@ -21325,7 +21328,12 @@ mount | column -t
 <li>Custom Column Separator</li>
 </ol>
 <pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Format CSV data with custom separator</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">"Name,Age,City\nJohn,25,NYC\nJane,30,LA"</span> | column -t -s,
+<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"Name,Age,City\nJohn,25,NYC\nJane,30,LA"</span> | column -t -s,
+
+Name  Age  City
+John  25   NYC
+Jane  30   LA
+
 </code></pre>
 <ol start="5">
 <li>Left-aligned Table</li>
@@ -21333,6 +21341,11 @@ mount | column -t
 <pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Create a left-aligned table from space-separated data</span>
 ps aux | head -n 5 | column -t -L
 </code></pre>
+<blockquote>
+<p><strong>Note:</strong> Options like <code>-L</code> and <code>-R</code> may not be available in all Linux distributions (mainly GNU <code>column</code>).</p>
+</blockquote>
+<div style="page-break-after: always;"></div><h1>Format a file into columns (e.g., data.txt)</h1>
+<p>column -t -s, data.txt</p>
 <h2>Additional Information</h2>
 <ul>
 <li>The <code>column</code> command is part of the <code>util-linux</code> package</li>
