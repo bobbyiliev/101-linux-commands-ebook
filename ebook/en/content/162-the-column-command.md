@@ -40,7 +40,12 @@ mount | column -t
 4. Custom Column Separator
 ```bash
 # Format CSV data with custom separator
-echo "Name,Age,City\nJohn,25,NYC\nJane,30,LA" | column -t -s,
+echo -e "Name,Age,City\nJohn,25,NYC\nJane,30,LA" | column -t -s,
+
+Name  Age  City
+John  25   NYC
+Jane  30   LA
+
 ```
 
 5. Left-aligned Table
@@ -48,6 +53,10 @@ echo "Name,Age,City\nJohn,25,NYC\nJane,30,LA" | column -t -s,
 # Create a left-aligned table from space-separated data
 ps aux | head -n 5 | column -t -L
 ```
+> **Note:** Options like `-L` and `-R` may not be available in all Linux distributions (mainly GNU `column`).
+
+# Format a file into columns (e.g., data.txt)
+column -t -s, data.txt
 
 ## Additional Information
 - The `column` command is part of the `util-linux` package

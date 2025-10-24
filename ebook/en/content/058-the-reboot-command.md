@@ -1,6 +1,6 @@
 # The `reboot` Command
 
-The `reboot` command is used to restart a linux system. However, it requires elevated permission using the [sudo](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/051-the-sudo-command.md) command. Necessity to use this command usually arises after significant system or network updates have been made to the system.
+The `reboot` command is used to restart a Linux system. However, it requires elevated permission using the [sudo](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/051-the-sudo-command.md) command. Necessity to use this command usually arises after significant system or network updates have been made to the system.
 
 ## Syntax
 ```
@@ -10,7 +10,7 @@ reboot [OPTIONS...]
 ### Options
 - **–help** : This option prints a short help text and exit.
 - **-halt** : This command will stop the machine.
-- **-w**, **–wtmp-only** : This option only writes wtmp shutdown entry, it do not actually halt, power-off, reboot.
+- **-w**, **–wtmp-only** : This option only writes wtmp shutdown entry, it does not actually halt, power-off, reboot.
 
 ### Examples
 1. Basic Usage. Mainly used to restart without any further details
@@ -22,9 +22,9 @@ However, alternatively the shutdown command with the `-r` option
 $ sudo shutdown -r now
 ```
 
-**Note** that the usage of the reboot, halt and power off is almost similar in syntax and effect. Run each of these commands with –help to see the details.
+**Note** that the usage of the reboot, halt and power off is almost similar in syntax and effect. Run each of these commands with –-help to see the details.
 
-2. The `reboot` command has limited usage, and the `shutdown` command is being used instead of reboot command to fulfill much more advance reboot and shutdown requirements. One of those situations is a scheduled restart. Syntax is as follows
+2. The `reboot` command has limited usage, and the `shutdown` command is being used instead of reboot command to fulfill much more advanced reboot and shutdown requirements. One of those situations is a scheduled restart. Syntax is as follows
 ```
 $ sudo shutdown –r [TIME] [MESSAGE]
 ```
@@ -50,7 +50,8 @@ $ sudo shutdown –c [MESSAGE]
 $sudo shutdown -c "Scheduled reboot cancelled because the chicken crossed the road"
 ```
 
-4. Checking your reboot logs
+4. Shows a history of system reboots
+**Syntax**
 ```
 $ last reboot
 ```

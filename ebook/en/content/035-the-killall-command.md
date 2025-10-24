@@ -19,10 +19,10 @@ killall conky
 # OR
 killall -SIGTERM conky
 # OR
-kilall -15 conky
+killall -15 conky
 ```
 
-I was able to kill Wine ( which are Windows exe files running on Linux ) applications this way too.
+You can also kill Wine processes (Windows executable files running on Linux) this way.
 
 ```sh
 killall TQ.exe
@@ -108,12 +108,12 @@ killall -V, --version
 
 |**Short Flag**   |**Long Flag**   |**Description**   |
 |:---|:---|:---|
-|`-e`|`--exact`|require  an  exact  match for very long names|
+|`-e`|`--exact`|require an exact match for very long names|
 |`-I`|`--ignore-case`|case insensitive process name match|
 |`-g`|`--process-group`|kill process group instead of process|
 |`-y`|`--younger-than`|kill processes younger than TIME|
 |`-o`|`--older-than`|kill processes older than TIME|
-|`-i`|`--interactive`|ask for confirmation before killing|
+|`-i`|`--interactive`|Prompt before killing processes to avoid accidental termination.|
 |`-l`|`--list`|list all known signal names|
 |`-q`|`--quiet`|don't print complaints|
 |`-r`|`--regexp`|interpret NAME as an extended regular expression|
@@ -121,7 +121,7 @@ killall -V, --version
 |`-u`|`--user USER`|kill only process(es) running as USER|
 |`-v`|`--verbose`|report if the signal was successfully sent|
 |`-w`|`--wait`|wait for processes to die|
-|`-n`|`--ns PID`|match processes that belong to the same namespaces as PID
+|`-n`|`--ns PID`|Match processes belonging to the same namespace as the specified PID.
 |`-Z`|`--context`|REGEXP kill only process(es) having context (must precede other arguments)
 
 ### Related commands
