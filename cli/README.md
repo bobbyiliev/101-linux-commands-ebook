@@ -21,6 +21,7 @@ The CLI will be installed as an editable package.
 ```bash
 linux-cli --help
 ```
+
 ### Options
 *   `--verbose`: Enable verbose output for debugging purposes.
     Example:
@@ -72,8 +73,13 @@ python scripts/generate_command_index.py
 
 That will create `cli/data/commands.json` which `show` and `search` will prefer when present. The test `tests/test_generate_index.py` exercises the generator.
 
-
 ## Development
+
+For development, ensure you have the development dependencies installed:
+
+```bash
+uv sync --frozen --group dev
+```
 
 ### Running Tests
 ```bash

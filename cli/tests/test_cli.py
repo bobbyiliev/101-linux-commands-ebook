@@ -49,7 +49,7 @@ def clean_output(text: str) -> str:
         ),
         (("show", "ls"), ("ls", "List"), 0),
         (("--verbose", "show", "ls"), ("[DEBUG] Showing details for command: ls"), 0),
-        (("show", "grep"), ("Search",), 0),
+        (("show", "grep"), ("searches",), 0),
         (
             ("--verbose", "show", "grep"),
             ("[DEBUG] Showing details for command: grep"),

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Tests for the generator script that builds cli/data/commands.json."""
 
-from pathlib import Path
+import json
 import subprocess
 import sys
-import json
+from pathlib import Path
 
 
 def test_generate_index_creates_file():

@@ -1,7 +1,7 @@
-from typing import Dict, TypedDict
-
 import json
 from pathlib import Path
+from typing import Dict, TypedDict
+
 import typer
 
 from states.global_state import debug, verbose_flag

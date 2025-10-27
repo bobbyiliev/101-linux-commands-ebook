@@ -1,11 +1,10 @@
-from typing import Dict, List
-
 import json
 from pathlib import Path
+from typing import Dict, List
+
 import typer
 
 from states.global_state import debug, verbose_flag
-
 
 app = typer.Typer(help=("Search available commands by keyword (name or description)."))
 
