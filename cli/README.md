@@ -58,6 +58,21 @@ Here are some examples of how to use the CLI:
     linux-cli show ls
     ```
 
+## Generating the CLI command index
+
+The CLI can consume a generated index of commands parsed from the ebook markdown. This keeps the CLI registry in sync with the eBook source.
+
+To generate or refresh the index, run the generator from the `cli/` directory:
+
+```powershell
+# from the repo root
+cd cli
+python scripts/generate_command_index.py
+```
+
+That will create `cli/data/commands.json` which `show` and `search` will prefer when present. The test `tests/test_generate_index.py` exercises the generator.
+
+
 ## Development
 
 ### Running Tests

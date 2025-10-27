@@ -21,7 +21,8 @@ class CustomTyper(TyperGroup):
 
             if "No such command" in original:
                 script_name = ctx.find_root().info_name or "cli"
-                hint = f"💡 Hint: Run '{script_name} --help' to see available commands."
+                # Keep hint ASCII-only to avoid UnicodeEncodeError on some consoles
+                hint = f"Hint: Run '{script_name} --help' to see available commands."
 
                 new_message = f"{original}\n{hint}"
                 raise click.exceptions.UsageError(new_message, ctx=ctx) from e
@@ -29,7 +30,7 @@ class CustomTyper(TyperGroup):
             raise
 
 
-app = typer.Typer(help="101 Linux Commands CLI 🚀", cls=CustomTyper)
+app = typer.Typer(help="101 Linux Commands CLI", cls=CustomTyper)
 app.add_typer(hello.app, name="hello")
 app.add_typer(list.app, name="list")
 app.add_typer(version.app, name="version")
@@ -40,7 +41,7 @@ app.command()(build.build)
 
 # Main callback to handle global options
 def main_callback(
-    verbose: bool = typer.Option(False, "--verbose", help="Enable verbose output")
+    verbose: bool = typer.Option(False, "--verbose", help="Enable verbose output"),
 ) -> None:
     verbose_flag["enabled"] = verbose
     if verbose:

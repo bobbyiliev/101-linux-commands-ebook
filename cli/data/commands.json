@@ -1,0 +1,1322 @@
+[
+  {
+    "name": "ebook",
+    "description": "This is an open-source eBook with 101 Linux commands that everyone should know. No matter if you are a DevOps/SysOps engineer, developer, or just a Linux enthusiast, you will most likely have to use the terminal at some point in your career.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "000-the-introduction-command.md"
+  },
+  {
+    "name": "ls",
+    "description": "The `ls` command lets you see the files and directories inside a specific directory *(current working directory by default)*. It normally lists the files and directories in ascending alphabetical order.",
+    "usage": "\nls [-OPTION] [DIRECTORY_PATH]\n",
+    "example": "ls",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-l`|<center>-</center>|Show results in long format|\n|`-S`|<center>-</center>|Sort results by file size|\n|`-t`|<center>-</center>|Sort results by modification time|\n|`-r`|`--reverse`|Show files and directories in reverse order *(descending alphabetical order)*|\n|`-a`|`--all`|Show all files, including hidden files *(file names which begin with a period `.`)*|\n|`-la`|<center>-</center>|Show long format files and directories including hidden files|\n|`-lh`|<center>-</center>|list long format files and directories with readable size|\n|`-A`|`--almost-all`|Shows all like `-a` but without showing `.`(current working directory) and `..` (parent directory)|\n|`-d`|`--directory`|Instead of listing the files and directories inside the directory, it shows any information about the directory itself, it can be used with `-l` to show long formatted information|\n|`-F`|`--classify`|Appends an indicator character to the end of each listed name, as an example: `/` character is appended after each directory name listed|\n|`-h`|`--human-readable`|like `-l` but displays file size in human-readable unit not in bytes|\n|`-i`|`--inode`|Display inode number for each file|\n|`-R`|`--recursive`|List subdirectories recursively|\n|`-1`|<center>-</center>|List one file per line|\n|`-c`|<center>-</center>|Sort by change time (when file metadata was last changed)|\n|`-u`|<center>-</center>|Sort by access time (when file was last accessed)|\n|`-X`|<center>-</center>|Sort alphabetically by file extension|\n|<center>-</center>|`--color=auto`|Colorize output to distinguish file types|\n|`-g`|<center>-</center>|Like `-l` but without showing owner|\n|`-o`|<center>-</center>|Like `-l` but without showing group|\n|`-C`|<center>-</center>|List entries by columns|\n|`-s`|<center>`--size`</center>|Print the allocated size of each file|\n|<center>-</center>|`--group-directories-first`|List directories before files|",
+    "source": "001-the-ls-command.md"
+  },
+  {
+    "name": "cd",
+    "description": "The `cd` command is used to change the current working directory *(i.e., the directory in which the current user is working)*. The \"cd\" stands for \"**c**hange **d**irectory\" and it is one of the most frequently used commands in the Linux terminal.",
+    "usage": "\ncd [OPTIONS] [directory]\n",
+    "example": "",
+    "notes": "|**Short flag**   |**Long flag**   |**Description**   |\n|:---|:---|:---|\n|`-L`|<center>-</center>|Follow symbolic links (default behavior). The `cd` command will follow symlinks and update the working directory to the target location.|\n|`-P`|<center>-</center>|Use the physical directory structure without following symbolic links. Shows the actual path instead of the symlink path.|\n\n**Example of `-L` vs `-P` with symbolic links:**\n```\n# Assume /var/www is a symlink to /home/user/web\ncd -L /var/www      # Working directory shows as /var/www\npwd                 # Outputs: /var/www\n\ncd -P /var/www      # Working directory resolves to actual path\npwd                 # Outputs: /home/user/web\n```",
+    "source": "002-the-cd-command.md"
+  },
+  {
+    "name": "cat",
+    "description": "---",
+    "usage": "\ncat [OPTION] [FILE]...\n",
+    "example": "",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-A`| `--show-all` |equivalent to -vET|\n|`-b`| `--number-nonblank` |number nonempty output lines, overrides -n|\n|`-e`|<center>-</center>| equivalent to -vE|\n|`-T`|<center>-</center>|Display tab separated lines in file opened with ```cat``` command.|\n|`-E`|<center>-</center>|To show $ at the end of each file.|\n|`-E`|<center>-</center>|Display file with line numbers.|\n|`-n`| `--number`|number all output lines|\n|`-s`| `--squeeze-blank`|suppress repeated empty output lines|\n|`-u`|<center>-</center>|(ignored)|\n|`-v`| `--show-nonprinting`|use ^ and M- notation, except for LFD and TAB|\n|<center>-</center>|`--help` |display this help and exit|\n|<center>-</center>|`--version`|output version information and exit|\n\n\n---\n\n\n# The `tac` command\n\n`tac` is a Linux command that allows you to view files line-by-line, beginning from the last line. (tac doesn't reverse the contents of each individual line, only the order in which the lines are presented.) It is named by analogy with `cat`.",
+    "source": "003-the-cat-tac-command.md"
+  },
+  {
+    "name": "head",
+    "description": "The `head` command prints the first ten lines of a file.",
+    "usage": "",
+    "example": "",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-c`|`--bytes=[-]NUM`|Print the first NUM bytes of each file; <br>with the leading '-', <br>print all but the last NUM bytes of each file|\n|`-n`|`--lines=[-]NUM`|Print the first NUM lines instead of the first 10;<br> with the leading '-', <br>print all but the last NUM lines of each file|\n|`-q`|`--quiet, --silent`|Never print headers giving file names|\n|`-v`|`--verbose`|Always print headers giving file names|\n|`-z`|`--zero-terminated`|Line delimiter is NUL, not newline|\n|` `|`--help`| Display this help and exit|\n|` `|`--version`|Output version information and exit|",
+    "source": "004-the-head-command.md"
+  },
+  {
+    "name": "tail",
+    "description": "The `tail` command prints the last ten lines of a file.",
+    "usage": "",
+    "example": "",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-c`|`--bytes=[+]NUM`|Output the last NUM bytes;<br> or use -c +NUM to <br>output starting with byte NUM of each file|\n|`-f`|<code>--follow[={name&#124;descriptor}]</code>|Output appended data as the file grows;<br>an absent option argument means 'descriptor'|\n|`-F`||Same as --follow=name --retry|\n|`-n`|`--lines=[+]NUM`|Output the last NUM lines, instead of the last 10;<br>or use -n +NUM to output starting with line NUM|\n||`--max-unchanged-stats=N`|with --follow=name, reopen a FILE which has not<br>changed size after N (default 5) iterations<br>to see if it has been unlinked or rename<br>(this is the usual case of rotated log files);<br>with inotify, this option is rarely useful|\n||`--pid=PID`|with -f, terminate after process ID, PID dies|\n|`-q`|`--quiet, --silent`|Never output headers giving file names|\n||`--retry`|keep trying to open a file if it is inaccessible|\n|`-s`|`--sleep-interval=N`|With -f, sleep for approximately N seconds<br>(default 1.0) between iterations;<br>with inotify and --pid=P, check process P at<br>least once every N seconds|\n|`-v`|`--verbose`|Always output headers giving file names|\n|`-z`|`--zero-terminated`|Line delimiter is NUL, not newline|\n||`--help`|Display this help and exit|\n||`--version`|Output version information and exit|",
+    "source": "005-the-tail-command.md"
+  },
+  {
+    "name": "pwd",
+    "description": "The `pwd` stands for Print Working Directory. It prints the path of the current working directory, starting from the root.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "006-the-pwd-command.md"
+  },
+  {
+    "name": "touch",
+    "description": "The `touch` command modifies a file's timestamps. If the file specified doesn't exist, an empty file with that name is created.",
+    "usage": "",
+    "example": "touch file.txt",
+    "notes": "WORD is `access`, `atime`, or `use`: equivalent to `-a`.; WORD is `modify` or `mtime`: equivalent to `-m`.",
+    "source": "007-the-touch-command.md"
+  },
+  {
+    "name": "cal",
+    "description": "The `cal` command displays a formatted calendar in the terminal. If no options are specified, cal displays the current month, with the current day highlighted.",
+    "usage": "\ncal [general options] [-jy] [[month] year]\n",
+    "example": "cal",
+    "notes": "",
+    "source": "008-the-cal-command.md"
+  },
+  {
+    "name": "bc",
+    "description": "The `bc` command provides the functionality of being able to perform mathematical calculations through the command line.",
+    "usage": "\nbc [ -hlwsqv ] [long-options] [  file ... ]\n",
+    "example": "Input : $ echo \"11+5\" | bc\nOutput : 16",
+    "notes": "*Note: This does not include an exhaustive list of options.*\n\n|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-i`|`--interactive`|Force interactive mode|\n|`-l`|`--mathlib`|Use the predefined math routines|\n|`-q`|`--quiet`|Opens the interactive mode for bc without printing the header|\n|`-s`|`--standard`|Treat non-standard bc constructs as errors|\n|`-w`|`--warn`|Provides a warning if non-standard bc constructs are used|",
+    "source": "009-the-bc-command.md"
+  },
+  {
+    "name": "df",
+    "description": "The `df` command in Linux/Unix is used to show the disk usage & information. `df` is an abbreviation for \"disk free\".",
+    "usage": "",
+    "example": "df",
+    "notes": "",
+    "source": "010-the-df-command.md"
+  },
+  {
+    "name": "help",
+    "description": "The `help` command displays information about builtin commands. Display information about builtin commands.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "011-the-help-command.md"
+  },
+  {
+    "name": "factor",
+    "description": "The `factor` command prints the prime factors of each specified integer `NUMBER`. If none are specified on the command line, it will read them from the standard input.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "012-the-factor-command.md"
+  },
+  {
+    "name": "uname",
+    "description": "The `uname` command lets you print out system information and defaults to outputting the kernel name.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "013-the-uname-command.md"
+  },
+  {
+    "name": "mkdir",
+    "description": "The `mkdir` command is used to create directories (folders) in Linux/Unix systems. It's one of the most fundamental file system commands and provides various options for creating single directories, multiple directories, and nested directory structures.",
+    "usage": "$0 <project_name>\"",
+    "example": "",
+    "notes": "**Single Directory Creation**: Create individual directories; **Multiple Directory Creation**: Create several directories at once; **Nested Directory Creation**: Create parent directories automatically; **Permission Setting**: Set directory permissions during creation; **Verbose Output**: Display creation progress; **SELinux Support**: Set security contexts; Use `-p` flag to avoid errors when directories already exist; Be careful with permissions when creating system directories; Always use quotes around directory names with spaces; Consider using `tree` command to visualize created directory structures",
+    "source": "014-the-mkdir-command.md"
+  },
+  {
+    "name": "gzip",
+    "description": "The `gzip` command in Linux/Unix is used to compress/decompress data.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "015-the-gzip-command.md"
+  },
+  {
+    "name": "whatis",
+    "description": "The `whatis` command is used to display one-line manual page descriptions for commands. It can be used to get a basic understanding of what a (unknown) command is used for.",
+    "usage": "\nwhatis [-OPTION] [KEYWORD]\n",
+    "example": "",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-d`|`--debug`|Show debugging messages|\n|`-r`|`--regex`|Interpret each keyword as a regex|\n|`-w`|`--wildcard`|The keyword(s) contain wildcards|",
+    "source": "016-the-whatis-command.md"
+  },
+  {
+    "name": "who",
+    "description": "The `who` command lets you print out a list of logged-in users, the current run level of the system and the time of last system boot.",
+    "usage": "\nwho [options] [filename] \n",
+    "example": "who -a",
+    "notes": "|**Short Flag**    |**Description**   |\n|---|---|\n| `-r` |prints all the current runlevel  |\n| `-d` |print all the dead processes  |\n|`-q`|print all the login names and total number of logged on users |\n|`-h`|print the heading of the columns displayed |\n|`-b`|print the time of last system boot |",
+    "source": "017-the-who-command.md"
+  },
+  {
+    "name": "free",
+    "description": "The `free` command in Linux/Unix is used to show memory (RAM/SWAP) information.",
+    "usage": "available and used, as well as swap",
+    "example": "",
+    "notes": "",
+    "source": "018-the-free-command.md"
+  },
+  {
+    "name": "command",
+    "description": "`top` is the default command-line utility that comes pre-installed on Linux distributions and Unix-like operating systems. It is used for displaying information about the system and its top CPU-consuming processes as well as RAM usage.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "019-the-top-htop-command.md"
+  },
+  {
+    "name": "sl",
+    "description": "The `sl` command in Linux is a humorous program that runs a steam locomotive(sl) across your terminal.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "020-the-sl-command.md"
+  },
+  {
+    "name": "echo",
+    "description": "The `echo` command is used to display text strings to the terminal. It's one of the most fundamental commands in Linux/Unix systems and is commonly used in shell scripts, command-line operations, and system administration tasks for outputting text, variables, and formatted content.",
+    "usage": "$(free -h | grep Mem | awk '{print $3\"/\"$2}')\"",
+    "example": "",
+    "notes": "**Text Output**: Display simple text strings; **Variable Expansion**: Show values of environment variables; **Escape Sequences**: Format output with special characters; **File Operations**: Write or append text to files; **Script Integration**: Essential for shell scripting; `echo` behavior may vary between different shells (bash, dash, zsh); Use `printf` for more portable and precise formatting; Single quotes preserve literal values, double quotes allow variable expansion; Always quote variables to prevent word splitting; Use `echo -e` only when you need escape sequence interpretation",
+    "source": "021-the-echo-command.md"
+  },
+  {
+    "name": "finger",
+    "description": "The `finger` command displays information about local system users by querying files such as `/etc/passwd`, `/var/run/utmp`, and `/var/log/wtmp`. It is a local command and does not rely on any service or daemon to run. This command helps to quickly retrieve user-related details such as login times, idle status, and other system information.",
+    "usage": "\nfinger [-l] [-m] [-p] [-s] [username]\n",
+    "example": "finger abc",
+    "notes": "| **Flag** | **Description** |\n|:---|:---|\n| `-l` | Force long output format. |\n| `-m` | Match arguments only on username (not first or last name). |\n| `-p` | Suppress printing of the .plan file in a long format printout. |\n| `-s` | Force short output format. |",
+    "source": "022-the-finger-command.md"
+  },
+  {
+    "name": "groups",
+    "description": "In Linux, there can be multiple users (those who use/operate the system), and groups (a collection of users). Groups make it easy to manage users with the same security and access privileges. A user can be part of different groups.",
+    "usage": "\ngroups [username]\n",
+    "example": "",
+    "notes": "",
+    "source": "023-the-groups-command.md"
+  },
+  {
+    "name": "man",
+    "description": "The `man` command is used to display the manual of any command that we can run on the terminal. It provides information like: DESCRIPTION, OPTIONS, AUTHORS and more.",
+    "usage": "\nman [SECTION-NUM] [COMMAND NAME]\n",
+    "example": "man printf",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-f`|<center>-</center>|Return the sections of an command|\n|`-a`|<center>-</center>|Display all the manual pages of an command|\n|`-k`|<center>-</center>|Searches the given command with RegEx in all man pages|\n|`-w`|<center>-</center>|Returns the location of a given command man page|\n|`-I`|<center>-</center>|Searches the command manual case sensitive|",
+    "source": "024-the-man-command.md"
+  },
+  {
+    "name": "passwd",
+    "description": "In Linux, `passwd` command changes the password of user accounts. A normal user may only change the password for their own account, but a superuser may change the password for any account. `passwd` also changes the account or associated password validity period.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "025-the-passwd-command.md"
+  },
+  {
+    "name": "w",
+    "description": "The `w`  command displays information about the users that are currently active on the machine and their [processes](https://www.computerhope.com/jargon/p/process.htm).",
+    "usage": "\nfinger [-l] [-m] [-p] [-s] [username]\n",
+    "example": "w",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-h`|`--no-header`|Don't print the header.|\n|`-u`|`--no-current`|Ignores the username while figuring out the current process and cpu times. *(To see an example of this, switch to the root user with `su` and then run both `w` and `w -u`.)*|\n|`-s`|`--short`|Display abbreviated output *(don't print the login time, JCPU or PCPU times).*|\n|`-f`|`--from`|Toggle printing the from *(remote hostname)* field. The default as released is for the from field to not be printed, although your system administrator or distribution maintainer may have compiled a version where the from field is shown by default.|\n|`--help`|<center>-</center>|Display a help message, and exit.|\n|`-V`|`--version`|Display version information, and exit.|\n|`-o`|`--old-style`|Old style output *(prints blank space for idle times less than one minute)*.|\n|*`user`*|<center>-</center>|Show information about the specified the user only.|",
+    "source": "026-the-w-command.md"
+  },
+  {
+    "name": "whoami",
+    "description": "--- The `whoami` command displays the username of the current effective user. In other words it just prints the username of the currently logged-in user when executed.",
+    "usage": "whoami [OPTION]...",
+    "example": "",
+    "notes": "",
+    "source": "027-the-whoami-command.md"
+  },
+  {
+    "name": "history",
+    "description": "The `history` command displays a list of previously executed commands from your current shell session and past sessions. This allows you to review, search, and re-execute commands without retyping them.",
+    "usage": "",
+    "example": "history",
+    "notes": "**Bash**: `~/.bash_history`; **Zsh**: `~/.zsh_history`; `HISTSIZE`: Maximum number of commands to keep in memory during a session; `HISTFILESIZE`: Maximum number of commands to keep in the history file; `history n` - Display the last `n` commands; `history -c` - Clear the history list (current session only); `history -d offset` - Delete the history entry at position `offset`; `history -a` - Append new history lines to the history file; `history -w` - Write the current history to the history file; **Debugging**: Review the sequence of commands that led to an error",
+    "source": "028-the-history-command.md"
+  },
+  {
+    "name": "login",
+    "description": "The `login` command initiates a user session.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "029-the-login-command.md"
+  },
+  {
+    "name": "lscpu",
+    "description": "`lscpu` in Linux/Unix is used to display CPU Architecture info. `lscpu` gathers CPU architecture information from `sysfs` and `/proc/cpuinfo` files.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "030-the-lscpu-command.md"
+  },
+  {
+    "name": "cp",
+    "description": "The `cp` is a command-line utility for copying files and directory. `cp` stands for copy. This command is used to copy files or group of files or directory. It creates an exact image of a file on a disk with different file name. The cp command requires at least two filenames in its arguments.",
+    "usage": "",
+    "example": "cp sourceFile destFile",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-i`|<center>--interactive</center>|prompt before overwrite|\n|`-f`|<center>--force</center>|If an existing destination file cannot be opened, remove it and try again|\n|`-b`|<center>-</center>|Creates the backup of the destination file in the same folder with the different name and in different format.|\n|`-r or -R`|`--recursive`|**cp** command shows its recursive behavior by copying the entire directory structure recursively.|\n|`-n`|`--no-clobber`|do not overwrite an existing file (overrides a previous -i option)|\n|`-p`|<center>-</center>|preserve the specified attributes (default: mode,ownership,timestamps), if possible additional attributes: context, links, xattr, all|",
+    "source": "031-the-cp-command.md"
+  },
+  {
+    "name": "mv",
+    "description": "The `mv` command lets you **move one or more files or directories** from one place to another in a file system like UNIX. It can be used for two distinct functions:",
+    "usage": "[linux]\nmv [options] source (file or directory)  destination\n",
+    "example": "mv old_name.txt new_name.txt",
+    "notes": "| **Short Flag** | **Long Flag**   | **Description**                                                                                           |\n| :------------- | :-------------- | :-------------------------------------------------------------------------------------------------------- |\n| `-f`           | `--force`       | Force move by overwriting destination file without prompt                                                 |\n| `-i`           | `--interactive` | Interactive prompt before overwrite                                                                       |\n| `-u`           | `--update`      | Move only when the source file is newer than the destination file or when the destination file is missing |\n| `-n`           | `--no-clobber`  | Do not overwrite an existing file                                                                         |\n| `-v`           | `--verbose`     | Print source and destination files                                                                        |\n| `-b`           | `--backup`      | Create a Backup of Existing Destination File                                                              |",
+    "source": "032-the-mv-command.md"
+  },
+  {
+    "name": "ps",
+    "description": "The `ps` command (process status) is used to display information about running processes on a Linux system — such as their PID, memory usage, CPU time, and associated users.",
+    "usage": "",
+    "example": "",
+    "notes": "|**Option**   |**Description**   |\n|:---|:---|\n|`a`|Shows list all processes with a terminal (tty)|\n|`-A`|Lists all processes. Identical to `-e`|\n|`-a`|Shows all processes except both session leaders and processes not associated with a terminal|\n|`-d`|Select all processes except session leaders|\n|`--deselect`|Shows all processes except those that fulfill the specified conditions. Identical to `-N`|\n|`-e`|Lists all processes. Identical to `-A`|\n|`-N`|Shows all processes except those that fulfill the specified conditions. Identical to `-deselect`|\n|`T`|Select all processes associated with this terminal. Identical to the `-t` option without any argument|\n|`r`|Restrict the selection to only running processes|\n|`--help simple`|Shows all the basic options|\n|`--help all`|Shows every available options|",
+    "source": "033-the-ps-command.md"
+  },
+  {
+    "name": "kill",
+    "description": "`kill` command in Linux (located in /bin/kill), is a built-in command which is used to terminate processes manually. The `kill` command sends a signal to a process which terminates the process. If the user doesn’t specify any signal which is to be sent along with kill command then default _TERM_ signal is sent that terminates the process.",
+    "usage": "",
+    "example": "kill -l",
+    "notes": "**By number (e.g. -5)**; **With SIG prefix (e.g. -SIGkill)**; **Without SIG prefix (e.g. -kill)**; using numbers as signals ; using SIG prefix in signals; without SIG prefix in signals",
+    "source": "034-the-kill-command.md"
+  },
+  {
+    "name": "killall",
+    "description": "`killall` sends a signal to **all** processes running any of the specified commands.  If no signal name is specified, `SIGTERM` is sent. In general, `killall` command kills all processes by knowing the name of the process.",
+    "usage": "sh\nkillall [OPTION]... [--] NAME...\nkillall -l, --list\nkillall -V, --version\n",
+    "example": "killall conky\n# OR\nkillall -SIGTERM conky\n# OR\nkillall -15 conky",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-e`|`--exact`|require an exact match for very long names|\n|`-I`|`--ignore-case`|case insensitive process name match|\n|`-g`|`--process-group`|kill process group instead of process|\n|`-y`|`--younger-than`|kill processes younger than TIME|\n|`-o`|`--older-than`|kill processes older than TIME|\n|`-i`|`--interactive`|Prompt before killing processes to avoid accidental termination.|\n|`-l`|`--list`|list all known signal names|\n|`-q`|`--quiet`|don't print complaints|\n|`-r`|`--regexp`|interpret NAME as an extended regular expression|\n|`-s`|`--signal SIGNAL`|send this signal instead of SIGTERM|\n|`-u`|`--user USER`|kill only process(es) running as USER|\n|`-v`|`--verbose`|report if the signal was successfully sent|\n|`-w`|`--wait`|wait for processes to die|\n|`-n`|`--ns PID`|Match processes belonging to the same namespace as the specified PID.\n|`-Z`|`--context`|REGEXP kill only process(es) having context (must precede other arguments)",
+    "source": "035-the-killall-command.md"
+  },
+  {
+    "name": "env",
+    "description": "The `env` command in Linux/Unix is used to either print a list of the current environment variables or to run a program in a custom environment without changing the current one.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "036-the-env-command.md"
+  },
+  {
+    "name": "printenv",
+    "description": "The `printenv` prints the values of the specified [environment  _VARIABLE(s)_](https://www.computerhope.com/jargon/e/envivari.htm). If no [_VARIABLE_](https://www.computerhope.com/jargon/v/variable.htm) is specified, print name and value pairs for them all.",
+    "usage": "\nprintenv [OPTION]... PATTERN...\n",
+    "example": "printenv",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-0`|`--null`|End each output line with **0** byte rather than [newline](https://www.computerhope.com/jargon/n/newline.htm).|\n|`--help`|<center>-</center>|Display a help message, and exit.|",
+    "source": "037-the-printenv-command.md"
+  },
+  {
+    "name": "hostname",
+    "description": "`hostname`  is used to display the system's DNS name, and to display or set its hostname or NIS domain name.",
+    "usage": "\nhostname [-a|--alias] [-d|--domain] [-f|--fqdn|--long] [-A|--all-fqdns] [-i|--ip-address] [-I|--all-ip-addresses] [-s|--short] [-y|--yp|--nis]\n",
+    "example": "Display the alias name of the host (if used). This option is deprecated and should not be used anymore.\n\n2.",
+    "notes": "",
+    "source": "038-the-hostname-command.md"
+  },
+  {
+    "name": "nano",
+    "description": "The `nano` command lets you create/edit text files.",
+    "usage": "",
+    "example": "nano /path/to/filename",
+    "notes": "",
+    "source": "039-the-nano-command.md"
+  },
+  {
+    "name": "rm",
+    "description": "`rm` which stands for \"remove\" is a command used to remove *(delete)* specific files. It can also be used to remove directories by using the appropriate flag.",
+    "usage": "",
+    "example": "",
+    "notes": "`rm -- -foo`; `rm ./-foo`",
+    "source": "040-the-rm-command.md"
+  },
+  {
+    "name": "ifconfig",
+    "description": "`ifconfig` is used to configure the kernel-resident network interfaces.  It is used at boot time to set up interfaces as necessary.  After that, it is usually only needed when debugging or when system tuning is needed.",
+    "usage": "\nifconfig [-v] [-a] [-s] [interface]\nifconfig [-v] interface [aftype] options\n",
+    "example": "ifconfig",
+    "notes": "",
+    "source": "041-the-ifconfig-command.md"
+  },
+  {
+    "name": "ip",
+    "description": "The `ip` command is a powerful utility from the iproute2 package used for network administration tasks. It serves as the modern replacement for older networking tools like `ifconfig`, `route`, and `arp`. The `ip` command can show or manipulate routing, network devices, interfaces, and tunnels.",
+    "usage": "",
+    "example": "",
+    "notes": "**Interface Management**: Configure and monitor network interfaces; **IP Address Management**: Add, remove, and display IP addresses; **Routing Control**: Manage routing tables and routes; **Neighbor Management**: Handle ARP/neighbor cache entries; **Network Namespaces**: Work with network namespaces; **Tunneling**: Create and manage network tunnels; The `ip` command requires root privileges for most configuration changes; Changes made with `ip` are immediate but not persistent across reboots; For persistent configuration, use network configuration files or NetworkManager; Always backup network configuration before making changes",
+    "source": "042-the-ip-command.md"
+  },
+  {
+    "name": "clear",
+    "description": "In linux, the `clear` command is used to clear terminal screen.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "043-the-clear-command.md"
+  },
+  {
+    "name": "su",
+    "description": "The `su` (substitute user) command allows you to run commands as another user account. It's commonly used to switch to the root account for administrative tasks or to run commands as a different user without logging out and logging back in.",
+    "usage": "",
+    "example": "",
+    "notes": "**User Switching**: Switch to any user account on the system; **Environment Control**: Choose whether to inherit or reset environment variables; **Shell Selection**: Specify which shell to use; **Group Management**: Switch primary and supplementary groups; **Command Execution**: Run specific commands as another user; Use `sudo` instead of `su` when possible for better logging; Always use login shell (`su -`) for administrative tasks; Limit time spent as root user; Use specific commands rather than interactive sessions when possible; Regularly audit su usage through system logs",
+    "source": "044-the-su-command.md"
+  },
+  {
+    "name": "wget",
+    "description": "The `wget` command is used for downloading files from the Internet. It supports downloading files using HTTP, HTTPS and FTP protocols. It allows you to download several files at once, download in the background, resume downloads, limit the bandwidth, mirror a website, and much more.",
+    "usage": "",
+    "example": "wget https://releases.ubuntu.com/20.04/ubuntu-20.04.3-desktop-amd64.iso",
+    "notes": "| **Short Flag** | **Description**                                                               |\n| -------------- | ----------------------------------------------------------------------------- |\n| `-v`           | prints version of the wget available on your system                           |\n| `-h`           | print help message displaying all the possible options                        |\n| `-b`           | This option is used to send a process to the background as soon as it starts. |\n| `-t`           | This option is used to set number of retries to a specified number of times   |\n| `-c`           | This option is used to resume a partially downloaded file                     |",
+    "source": "045-the-wget-command.md"
+  },
+  {
+    "name": "curl",
+    "description": "In Linux, curl is a powerful command-line tool used to transfer data from or to a server using a wide variety of protocols, including HTTP, HTTPS, and FTP. It is often used for testing APIs, downloading files, and automating web-related tasks.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "046-the-curl-command.md"
+  },
+  {
+    "name": "yes",
+    "description": "The `yes` command in linux is used to print a continuous output stream of given _STRING_. If _STRING_ is not mentioned then it prints ‘y’.  It outputs a string repeatedly unit killed (using something like ctrl + c).",
+    "usage": "",
+    "example": "yes hello world",
+    "notes": "",
+    "source": "047-the-yes-command.md"
+  },
+  {
+    "name": "last",
+    "description": "This command shows you a list of all the users that have logged in and out since the creation of the `var/log/wtmp` file. There are also some parameters you can add which will show you for example when a certain user has logged in and how long he was logged in for.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "048-the-last-command.md"
+  },
+  {
+    "name": "locate",
+    "description": "The `locate` command searches the file system for files and directories whose name matches a given pattern through a database file that is generated by the `updatedb` command.",
+    "usage": "\n1.  locate [OPTION]... PATTERN...\n",
+    "example": "locate .bashrc",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-A`|`--all`|It is used to display only entries that match all PATTERNs instead of requiring only one of them to match.|\n|`-b`|`--basename`|It is used to match only the base name against the specified patterns.|\n|`-c`|`--count`|It is used for writing the number matching entries instead of writing file names on standard output.|\n|`-d`|`--database DBPATH`|It is used to replace the default database with DBPATH.|\n|`-e`|`--existing`|It is used to display only entries that refer to existing files during the command is executed.|\n|`-L`|`--follow`|If the `--existing` option is specified, It is used for checking whether files exist and follow trailing symbolic links. It will omit the broken symbolic links to the output. This is the default behavior. The opposite behavior can be specified using the `--nofollow` option.|\n|`-h`|`--help`|It is used to display the help documentation that contains a summary of the available options.|\n|`-i`|`--ignore-case`|It is used to ignore case sensitivity of the specified patterns.|\n|`-p`|`--ignore-spaces`|It is used to ignore punctuation and spaces when matching patterns.|\n|`-t`|`--transliterate`|It is used to ignore accents using iconv transliteration when matching patterns.|\n|`-l`|`--limit, -n LIMIT`|If this option is specified, the command exit successfully after finding LIMIT entries.|\n|`-m`|`--mmap`|It is used to ignore the compatibility with BSD, and GNU locate.|\n|`-0`|`--null`|It is used to separate the entries on output using the ASCII NUL character instead of writing each entry on a separate line.|\n|`-S`|`--statistics`|It is used to write statistics about each read database to standard output instead of searching for files.|\n|`-r`|`--regexp REGEXP`|It is used for searching a basic regexp REGEXP.|\n|`--regex`|<center>-</center>|It is used to describe all PATTERNs as extended regular expressions.|\n|`-V`|`--version`|It is used to display the version and license information.|\n|`-w`|` --wholename`|It is used for matching only the whole path name in specified patterns.|",
+    "source": "049-the-locate-command.md"
+  },
+  {
+    "name": "iostat",
+    "description": "The `iostat` command in Linux is used for monitoring system input/output statistics for devices and partitions. It monitors system input/output by observing the time the devices are active in relation to their average transfer rates. The iostat produce reports may be used to change the system configuration to raised balance the input/output between the physical disks. iostat is being included in sysstat package. If you don’t have it, you need to install first.",
+    "usage": "[linux]\niostat [ -c ] [ -d ] [ -h ] [ -N ] [ -k | -m ] [ -t ] [ -V ] [ -x ]\n       [ -z ] [ [ [ -T ] -g group_name ] { device [...] | ALL } ]\n       [ -p [ device [,...] | ALL ] ] [ interval [ count ] ]\n",
+    "example": "iostat -d 2",
+    "notes": "| **Short Flag**                  | **Description**                                            |                                                                      \n| :------------------------------ | :--------------------------------------------------------- |\n| `-x`                            | Show more details statistics information.                  |                                                                      \n| `-c`                            | Show only the cpu statistic.                               |                                                                      \n| `-d`                            | Display only the device report                             |                                                                       \n| `-xd                            | Show extended I/O statistic for device only.               |                                                           \n| `-k`                            | Capture the statistics in kilobytes or megabytes.          |                                                                      \n| `-k23`                          | Display cpu and device statistics with delay.              |\n| `-j ID mmcbkl0 sda6 -x -m 2 2`  | Display persistent device name statistics.                 |                                                                      \n| `-p `                           | Display statistics for block devices.                      |                                                                \n| `-N `                           |  Display lvm2 statistic information.                       |",
+    "source": "050-the-iostat-command.md"
+  },
+  {
+    "name": "sudo",
+    "description": "The `sudo` (\"substitute user do\" or \"super user do\") command allows a user with proper permissions to execute a command as another user, such as the superuser.",
+    "usage": "\nsudo [-OPTION] command\n",
+    "example": "",
+    "notes": "|**Flag**  |**Description**   |\n|:---|:---|\n|`-V`|The -V (version) option causes sudo to print the version number and exit. If the invoking user is already root, the -V option prints out a list of the defaults sudo was compiled with and the machine's local network addresses|\n|`-l`|The -l (list) option prints out the commands allowed (and forbidden) the user on the current host.|\n|`-L`|The -L (list defaults) option lists out the parameters set in a Defaults line with a short description for each. This option is useful in conjunction with grep.|\n|`-h`|The -h (help) option causes sudo to print a usage message and exit.|\n|`-v`|If given the `-v` (validate) option, `sudo` updates the user's timestamp, prompting for the user's password if necessary. This extends the sudo timeout for another 5 minutes (or whatever the timeout is set to in sudoers) but does not run a command.|\n|`-K`|The -K (sure kill) option to sudo removes the user's timestamp entirely. Likewise, this option does not require a password.|\n|`-u`|The -u (user) option causes sudo to run the specified command as a user other than root. To specify a uid instead of a username, use #uid.|\n|`-s`|The -s (shell) option runs the shell specified by the SHELL environment variable if it's set or the shell as specified in the file passwd.|\n|`--`|The -- flag indicates that sudo should stop processing command line arguments. It is most useful in conjunction with the -s flag.|",
+    "source": "051-the-sudo-command.md"
+  },
+  {
+    "name": "apt",
+    "description": "`apt` (Advantage package system) command is used for interacting with `dpkg` (packaging system used by debian). There is already the `dpkg` command to manage `.deb` packages. But `apt` is a more user-friendly and efficient way.",
+    "usage": "\nsudo apt install package_name\n",
+    "example": "",
+    "notes": "",
+    "source": "052-the-apt-command.md"
+  },
+  {
+    "name": "yum",
+    "description": "The `yum`command is the primary package management tool for installing, updating, removing, and managing software packages in Red Hat Enterprise Linux. It is an acronym for _`Yellow Dog Updater, Modified`_.",
+    "usage": "[linux]\nyum -option command\n",
+    "example": "yum history",
+    "notes": "| **Short Flag**    | **Long Flag**   | **Description**                                                                                                                                                      |\n| :---------------- | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `-C`              | `--cacheonly`   | Runs entirely from system cache, doesn’t update the cache and use it even in case it is expired.                                                                     |\n| <center>-<center> | `--security`    | Includes packages that provide a fix for a security issue. Applicable for the upgrade command.                                                                       |\n| `-y`              | `--assumeyes`   | Automatically answer yes for all questions.                                                                                                                          |\n| <center>-<center> | `--skip-broken` | Resolves depsolve problems by removing packages that are causing problems from the transaction. It is an alias for the strict configuration option with value False. |\n| `-v`              | `--verbose`     | Verbose operation, show debug messages.                                                                                                                              |",
+    "source": "053-the-yum-command.md"
+  },
+  {
+    "name": "zip",
+    "description": "The `zip` command is used to compress files and reduce their size. It outputs an archive containing one or more compressed files or directories.",
+    "usage": "\nzip [OPTION] zipFileName filesList\n",
+    "example": "zip myZipFile.zip filename.txt",
+    "notes": "",
+    "source": "054-the-zip-command.md"
+  },
+  {
+    "name": "unzip",
+    "description": "The `unzip` command extracts all files from the specified ZIP archive to the current directory.",
+    "usage": "\nunzip zipFileName [OPTION] [PARAMS]\n",
+    "example": "unzip myZipFile.zip",
+    "notes": "",
+    "source": "055-the-unzip-command.md"
+  },
+  {
+    "name": "shutdown",
+    "description": "The `shutdown` command lets you bring your system down in a secure way. When `shutdown` is executed the system will notify all logged-in users and disallow further logins. You have the option to shut down your system immediately or after a specific time.",
+    "usage": "\nshutdown [OPTIONS] [TIME] [MESSAGE]\n",
+    "example": "sudo shutdown now",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-r`|<center>-</center>|Reboot the system|\n|`-c`|<center>-</center>|Cancel an scheduled shut down|",
+    "source": "056-the-shutdown-command.md"
+  },
+  {
+    "name": "dir",
+    "description": "The `dir` command lists the contents of a directory(_the current directory by default_). **It differs from ls command in the format of listing the content**. By default, the dir command lists the files and folders in columns, sorted vertically and special characters are represented by backslash escape sequences.",
+    "usage": "[linux]\ndir [OPTIONS] [FILE]\n",
+    "example": "dir",
+    "notes": "| **Short Flag**     | **Long Flag**               | **Description**                                                                                                                   |\n| :----------------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |\n| `-a`               | `--all`                     | It displays all the hidden files(starting with `.`) along with two files denoted by `.` and `..`                                  |\n| `-A`               | `--almost-all`              | It is **similar to -a** option except that it _does not display files that signals the current directory and previous directory._ |\n| `-l`               | <center>-</center>          | Display detailed information for each entry                                                                                       |\n| `-s`               | `--size`                    | Print the allocated size of each file, in blocks File                                                                             |\n| `-h`               | `--human-readable`          | Used with with -l and -s, to print sizes like in human readable format like 1K, 2M and so on                                      |\n| `-F`               | <center>-</center>          | Classifies entries into their type based on appended symbol (`/`, `*`, `@`, `%`, `=`)                                             |\n| `-v`               | `--verbose`                 | Print source and destination files                                                                                                |\n| <center>-</center> | `--group-directories-first` | To group directories before files                                                                                                 |\n| `-R `              | `--recursive`               | To List subdirectories recursively.                                                                                               |\n| `-S `              | <center>-</center>          | sort by file size, display largest first                                                                                          |\n| `-d`              | <center>`--directory`</center>          | List directory entries instead of contents                                                                                          |",
+    "source": "057-the-dir-command.md"
+  },
+  {
+    "name": "reboot",
+    "description": "The `reboot` command is used to restart a Linux system. However, it requires elevated permission using the [sudo](https://github.com/bobbyiliev/101-linux-commands/blob/main/ebook/en/content/051-the-sudo-command.md) command. Necessity to use this command usually arises after significant system or network updates have been made to the system.",
+    "usage": "",
+    "example": "$ sudo reboot",
+    "notes": "**–help** : This option prints a short help text and exit.; **-halt** : This command will stop the machine.; **-w**, **–wtmp-only** : This option only writes wtmp shutdown entry, it does not actually halt, power-off, reboot.",
+    "source": "058-the-reboot-command.md"
+  },
+  {
+    "name": "sort",
+    "description": "the `sort` command is used to sort a file, arranging the records in a particular order. By default, the sort command sorts a file assuming the contents are ASCII. Using options in the sort command can also be used to sort numerically.",
+    "usage": "",
+    "example": "Command : \n$ cat > file.txt\nabhishek\nchitransh\nsatish\nrajan\nnaveen\ndivyam\nharsh",
+    "notes": "",
+    "source": "059-the-sort-command.md"
+  },
+  {
+    "name": "paste",
+    "description": "The `paste` command writes lines of two or more files, sequentially and separated by TABs, to the standard output",
+    "usage": "[linux]\npaste [OPTIONS]... [FILE]...\n",
+    "example": "paste file1 file2",
+    "notes": "| **Short Flag**     | **Long Flag**               | **Description**                                                                                                                   |\n| :----------------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |\n| `-d`               | `--delimiter`                     | use charater of TAB |\n| `-s`               | `--serial`              | paste one file at a time instead of in parallel |\n| `-z`               | `--zero-terminated`          | set line delimiter to NUL, not newline |\n|                | `--help`                    | print command help |\n|                | `--version`          | print version information |",
+    "source": "060-the-paste-command.md"
+  },
+  {
+    "name": "exit",
+    "description": "The `exit` command is used to terminate (close) an active shell session",
+    "usage": "\nexit\n",
+    "example": "",
+    "notes": "",
+    "source": "061-the-exit-command.md"
+  },
+  {
+    "name": "command",
+    "description": "This command is used to display the differences in the files by comparing the files line by line.",
+    "usage": "\ndiff [options] File1 File2 \n",
+    "example": "",
+    "notes": "",
+    "source": "062-the-diff-sdiff-command.md"
+  },
+  {
+    "name": "tar",
+    "description": "The `tar` command  stands for tape archive, is used to create Archive and extract the Archive files. This command  provides archiving functionality in Linux. We can use tar command to create compressed or uncompressed Archive files and also maintain and modify them.",
+    "usage": "\ntar [options] [archive-file] [file or directory to be archived\n",
+    "example": "tar -cvf file-14-09-12.tar /home/abel/",
+    "notes": "|**Use Flag**   |**Description**   |\n|:---|:---|\n|`-c`|Creates Archive |\n|`-x`|Extract the archive |\n|`-f`|Creates archive with given filename|\n|`-t`|Displays or lists files in archived file |\n|`-u`|Archives and adds to an existing archive file|\n|`-v`|Displays Verbose Information |\n|`-A`|Concatenates the archive files |\n|`-z`|zip, tells tar command that creates tar file using gzip |\n|`-j`|Filter archive tar file using tbzip |\n|`w`|Verify a archive file |\n|`r`|update or add file or directory in already existed .tar file |\n|`-?`|Displays a short summary of the project |\n|`-d`|Find the difference between an archive and file system |\n|`--usage`|shows available tar options |\n|`--version`|Displays the installed tar version |\n|`--show-defaults`|Shows default enabled options |\n\n|**Option Flag**   |**Description**   |\n|:---|:---|\n|`--check-device`| Check device numbers during incremental archive|\n|`-g`|Used to allow compatibility with GNU-format incremental ackups|\n|`--hole-detection`|Used to detect holes in the sparse files|\n|`-G`| Used to allow compatibility with old GNU-format incremental backups|\n|`--ignore-failed-read`|Don't exit the program on file read errors|\n|`--level`|Set the dump level for created archives|\n|`-n`|Assume the archive is seekable|\n|`--no-check-device`|Do not check device numbers when creating archives|\n|`--no-seek`|Assume the archive is not seekable|\n|`--occurrence=N`|`Process only the Nth occurrence of each file|\n|`--restrict`|`Disable use of potentially harmful options|\n|`--sparse-version=MAJOR,MINOR`|Set version of the sparce format to use|\n|`-S`|Handle sparse files efficiently.|\n\n|**Overwright control Flag** |**Description**|\n|:---|:---|\n|`-k`|Don't replace existing files|\n|`--keep-newer-files`|Don't replace existing files that are newer than the archives version|\n|`--keep-directory-symlink`|Don't replace existing symlinks|\n|`--no-overwrite-dir`|Preserve metadata of existing directories|\n|`--one-top-level=DIR`|Extract all files into a DIR|\n|`--overwrite`| Overwrite existing files|\n|`--overwrite-dir`| Overwrite metadata of directories|\n|`--recursive-unlink`| Recursivly remove all files in the directory before extracting|\n|`--remove-files`| Remove files after adding them to a directory|\n|`--skip-old-files`| Don't replace existing files when extracting|\n|`-u`| Remove each file before extracting over it|\n|`-w`| Verify the archive after writing it|",
+    "source": "063-the-tar-command.md"
+  },
+  {
+    "name": "gunzip",
+    "description": "The `gunzip` command is an antonym command of [`gzip` command](015-the-gzip-command.md). In other words, it decompresses files deflated by the `gzip` command.",
+    "usage": "\ngunzip [ -acfhklLnNrtvV ] [-S suffix] [ name ...  ]\n",
+    "example": "gunzip filename.gz",
+    "notes": "|**Short Flag**|**Long Flag**|**Description**|\n|:---|:---|:---|\n|-c|--stdout|write on standard output, keep original files unchanged|\n|-h|--help|give help information|\n|-k|--keep|keep (don't delete) input files|\n|-l|--list|list compressed file contents|\n|-q|--quiet|suppress all warnings|\n|-r|--recursive|operate recursively on directories|\n|-S|--suffix=SUF|use suffix SUF on compressed files|\n||--synchronous|synchronous output (safer if system crashes, but slower)|\n|-t|--test|test compressed file integrity|\n|-v|--verbose|verbose mode|\n|-V|--version|display version number|",
+    "source": "064-the-gunzip-command.md"
+  },
+  {
+    "name": "hostnamectl",
+    "description": "The `hostnamectl` command provides a proper API used to control Linux system hostname and change its related settings. The command also helps to change the hostname without actually locating and editing the `/etc/hostname` file on a given system.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "065-the-hostnamectl-command.md"
+  },
+  {
+    "name": "iptables",
+    "description": "The `iptables` command is a powerful firewall administration tool for Linux systems. It allows you to configure the Linux kernel firewall (netfilter) by setting up, maintaining, and inspecting the tables of IP packet filter rules.",
+    "usage": "",
+    "example": "",
+    "notes": "**filter**: Default table for packet filtering (INPUT, OUTPUT, FORWARD); **nat**: Network Address Translation (PREROUTING, POSTROUTING, OUTPUT); **mangle**: Packet alteration (PREROUTING, POSTROUTING, INPUT, OUTPUT, FORWARD); **raw**: Connection tracking exemption (PREROUTING, OUTPUT); **INPUT**: Incoming packets to local system; **OUTPUT**: Outgoing packets from local system; **FORWARD**: Packets routed through the system; **PREROUTING**: Packets before routing decision; **POSTROUTING**: Packets after routing decision; **ACCEPT**: Allow the packet",
+    "source": "066-the-iptables-command.md"
+  },
+  {
+    "name": "netstat",
+    "description": "The term `netstat` stands for Network Statistics. In layman’s terms, netstat command displays the current network connections, networking protocol statistics, and a variety of other interfaces.",
+    "usage": "",
+    "example": "",
+    "notes": "`Netstat` command with `-nr` flag shows the routing table detail on the terminal.; `Netstat` command with  `-i` flag shows statistics for the currently configured network interfaces.; `Netstat` command with `-tunlp` will gives a list of networks, their current states, and their associated ports.; You can get the list of all TCP port connection by using `-at` with  `netstat`.; You can get the list of all UDP port connection by using `-au` with  `netstat`.; You can get the list of all active connection by using `-l` with  `netstat`.",
+    "source": "067-the-netstat-command.md"
+  },
+  {
+    "name": "lsof",
+    "description": "The `lsof` command shows **file infomation** of all the files opened by a running process. It's name is also derived from the fact that, list open files > `lsof`",
+    "usage": "\nlsof [-OPTION] [USER_NAME]\n",
+    "example": "lsof",
+    "notes": "",
+    "source": "068-the-lsof-command.md"
+  },
+  {
+    "name": "bzip2",
+    "description": "The `bzip2` command lets you compress and decompress the files i.e. it helps in binding the files into a single file which takes less storage space as the original file use to take.",
+    "usage": "\nbzip2 [OPTIONS] filenames ...\n",
+    "example": "bzip2 -z input.txt",
+    "notes": "",
+    "source": "069-the-bzip2-command.md"
+  },
+  {
+    "name": "service",
+    "description": "Service runs a System V init script in as predictable environment as possible, removing most environment variables and with current working directory set to /.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "070-the-service-command.md"
+  },
+  {
+    "name": "vmstat",
+    "description": "The `vmstat` command lets you monitor the performance of your system. It shows you information about your memory, disk, processes, CPU scheduling, paging, and block IO. This command is also referred to as **virtual memory statistic report**.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "071-the-vmstat-command.md"
+  },
+  {
+    "name": "mpstat",
+    "description": "The `mpstat` command is used to report processor related statistics. It accurately displays the statistics of the CPU usage of the system and information about CPU utilization and performance.",
+    "usage": "\nmpstat [options] [<interval> [<count>]]\n",
+    "example": "mpstat",
+    "notes": "",
+    "source": "072-the-mpstat-command.md"
+  },
+  {
+    "name": "ncdu",
+    "description": "`ncdu` (NCurses Disk Usage) is a curses-based version of the well-known `du` command. It provides a fast way to see what directories are using your disk space.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "073-the-ncdu-command.md"
+  },
+  {
+    "name": "uniq",
+    "description": "The `uniq` command in Linux is a command line utility that reports or filters out the repeated lines in a file. In simple words, `uniq` is the tool that helps you to detect the adjacent duplicate lines and also deletes the duplicate lines. It filters out the adjacent matching lines from the input file(that is required as an argument) and writes the filtered data to the output file .",
+    "usage": "\nuniq [OPTION] [INPUT[OUTPUT]]\n",
+    "example": "uniq kt.txt",
+    "notes": "",
+    "source": "074-the-uniq-command.md"
+  },
+  {
+    "name": "RPM",
+    "description": "`rpm` - RPM Package Manager",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "075-the-rpm-command.md"
+  },
+  {
+    "name": "scp",
+    "description": "SCP (secure copy) is a command-line utility that allows you to securely copy files and directories between two locations.",
+    "usage": "\nscp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2\n",
+    "example": "scp /home/documents/local-file root@{remote-ip-address}:/home/",
+    "notes": "From local system to a remote system.; From a remote system to a local system.; Between two remote systems from the local system.; `OPTION` - scp options such as cipher, ssh configuration, ssh port, limit, recursive copy …etc.; `[user@]SRC_HOST:]file1` - Source file; `[user@]DEST_HOST:]file2` - Destination file",
+    "source": "076-the-scp-command.md"
+  },
+  {
+    "name": "sleep",
+    "description": "The `sleep` command is used to create a dummy job. A dummy job helps in delaying the execution. It takes time in seconds by default but a small suffix(s, m, h, d) can be added at the end to convert it into any other format. This command pauses the execution for an amount of time which is defined by NUMBER.",
+    "usage": "",
+    "example": "sleep 10s",
+    "notes": "",
+    "source": "077-the-sleep-command.md"
+  },
+  {
+    "name": "split",
+    "description": "The `split` command in Linux is used to split a file into smaller files.",
+    "usage": "\nsplit [options] filename [prefix]\n",
+    "example": "split filename.txt",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-a`|`--suffix-length=N`|Generate suffixes of length N (default 2)| \n||`--additional-suffix=SUFFIX`|Append an additional SUFFIX to file names|\n|`-b`|`--bytes=SIZE`|Put SIZE bytes per output file|\n|`-C`|`--line-bytes=SIZE`|Put at most SIZE bytes of records per output file|\n|`-d`| |Use numeric suffixes starting at 0, not alphabetic|\n||`--numeric-suffixes[=FROM]`|Same as -d, but allow setting the start value|\n|`-x`||Use hex suffixes starting at 0, not alphabetic|\n||`--hex-suffixes[=FROM]`|Same as -x, but allow setting the start value|\n|`-e`|`--elide-empty-files`|Do not generate empty output files with '-n'|\n||`--filter=COMMAND`|Write to shell COMMAND;<br>file name is $FILE|\n|`-l`|`--lines=NUMBER`|Put NUMBER lines/records per output file|\n|`-n`|`--number=CHUNKS`|Generate CHUNKS output files;<br>see explanation below|\n|`-t`|`--separator=SEP`|Use SEP instead of newline as the record separator;<br>'\\0' (zero) specifies the NUL character|\n|`-u`|`--unbuffered`|Immediately copy input to output with '-n r/...'|\n||`--verbose`|Print a diagnostic just before each<br>output file is opened|\n||`--help`|Display this help and exit|\n||`--version`|Output version information and exit|\n\nThe SIZE argument is an integer and optional unit (example: 10K is 10*1024).\nUnits are K,M,G,T,P,E,Z,Y (powers of 1024) or KB,MB,... (powers of 1000).\n\nCHUNKS may be:\n|**CHUNKS**   |**Description**   |\n|:---|:---|\n|`N`|Split into N files based on size of input|\n|`K/N`|Output Kth of N to stdout|\n|`l/N`|Split into N files without splitting lines/records|\n|`l/K/N`|Output Kth of N to stdout without splitting lines/records|\n|`r/N`|Like 'l' but use round robin distribution|\n|`r/K/N`|Likewise but only output Kth of N to stdout|",
+    "source": "078-the-split-command.md"
+  },
+  {
+    "name": "stat",
+    "description": "The `stat` command lets you display file or file system status. It gives you useful information about the file (or directory) on which you use it.",
+    "usage": "\nstat [OPTION] [FILE]\n",
+    "example": "stat file.txt",
+    "notes": "| Short Flag | Long Flag         | Description                                                                   |\n| ---------- | ----------------- | ----------------------------------------------------------------------------- |\n| `-L`       | `--dereference`   | Follow links                                                                  |\n| `-f`       | `--file-system`   | Display file system status instead of file status                             |\n| `-c`       | `--format=FORMAT` | Specify the format (see below)                                                |\n| `-t`       | `--terse`         | Print the information in terse form                                           |\n| -          | `--cached=MODE`   | Specify how to use cached attributes. Can be: `always`, `never`, or `default` |\n| -          | `--printf=FORMAT` | Like `--format`, but interpret backslash escapes (`\\n`, `\\t`, ...)            |\n| -          | `--help`          | Display the help and exit                                                     |\n| -          | `--version`       | Output version information and exit                                           |",
+    "source": "079-the-stat-command.md"
+  },
+  {
+    "name": "useradd",
+    "description": "The `useradd` command is used to add or update user accounts to the system.",
+    "usage": "\nuseradd [OPTIONS] NameOfUser\n",
+    "example": "useradd NewUser",
+    "notes": "",
+    "source": "080-the-useradd-command.md"
+  },
+  {
+    "name": "userdel",
+    "description": "The `userdel` command is used to delete a user account and related files",
+    "usage": "\nuserdel [OPTIONS] userName\n",
+    "example": "userdel userName",
+    "notes": "",
+    "source": "081-the-userdel-command.md"
+  },
+  {
+    "name": "usermod",
+    "description": "The `usermod` command lets you change the properties of a user in Linux through the command line. After creating a user we sometimes have to change their attributes, like their password or login directory etc. So in order to do that we use the `usermod` command.",
+    "usage": "\nusermod [options] USER\n",
+    "example": "sudo usermod -c \"This is test user\" test_user",
+    "notes": "",
+    "source": "082-the-usermod-command.md"
+  },
+  {
+    "name": "ionice",
+    "description": "The `ionice` command is used to set or get process I/O scheduling class and priority.",
+    "usage": "",
+    "example": "",
+    "notes": "### Idle; ### Best Effort; ### Real Time",
+    "source": "083-the-ionice-command.md"
+  },
+  {
+    "name": "du",
+    "description": "The `du` command, which is short for `disk usage` lets you retrieve information about disk space usage information in a specified directory. In order to customize the output according to the information you need, this command can be paired with the appropriate options or flags.",
+    "usage": "\ndu [OPTION]... [FILE]...\ndu [OPTION]... --files0-from=F\n",
+    "example": "du",
+    "notes": "*Note: This does not include an exhaustive list of options.*\n\n|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-a`|`--all`|Includes information for both files and directories|\n|`-c`|`--total`|Provides a grand total at the end of the list of files/directories|\n|`-d`|`--max-depth=N`|Provides information up to `N` levels from the directory where the command was executed|\n|`-h`|`--human-readable`|Displays file size in human-readable units, not in bytes|\n|`-s`|`--summarize`|Display only the total filesize instead of a list of files/directories|",
+    "source": "084-the-du-command.md"
+  },
+  {
+    "name": "ping",
+    "description": "The `ping` (Packet Internet Groper) command is a network utility used to check network connectivity between a host and a server or another host. It sends ICMP (Internet Control Message Protocol) echo requests to a specified IP address or URL and measures the time it takes to receive a response. This time delay is referred to as \"latency.\" Ping is a fundamental tool for network troubleshooting and monitoring.",
+    "usage": "",
+    "example": "sudo ping -v",
+    "notes": "**Network Performance**: Lower latency means faster data transmission and more responsive network connections, which is critical for real-time applications.; **Troubleshooting**: High latency can indicate network congestion, packet loss, or connectivity issues that need attention.; **Quality of Service (QoS)**: Service providers and network administrators use latency metrics to ensure that network services meet quality standards.",
+    "source": "085-the-ping-command.md"
+  },
+  {
+    "name": "rsync",
+    "description": "The `rsync` command is probably one of the most used commands out there. It is used to securely copy files from one server to another over SSH.",
+    "usage": "",
+    "example": "",
+    "notes": "`-a`: is used to specify that you want recursion and want to preserve the file permissions and etc.; `-v`: is verbose mode, it increases the amount of information you are given during the transfer.; `-z`:  this option, rsync compresses the file data as it is sent to the destination machine, which reduces the amount of data being transmitted -- something that is useful over a slow connection.",
+    "source": "086-the-rsync-command.md"
+  },
+  {
+    "name": "dig",
+    "description": "dig - DNS lookup utility",
+    "usage": "\ndig [server] [name] [type] [q-type] [q-class] {q-opt}\n            {global-d-opt} host [@local-server] {local-d-opt}\n            [ host [@local-server] {local-d-opt} [...]]\n",
+    "example": "dig google.com",
+    "notes": "```bash\n\ndomain    is in the Domain Name System\n        q-class  is one of (in,hs,ch,...) [default: in]\n        q-type   is one of (a,any,mx,ns,soa,hinfo,axfr,txt,...) [default:a]\n                 (Use ixfr=version for type ixfr)\n        q-opt    is one of:\n                 -4                  (use IPv4 query transport only)\n                 -6                  (use IPv6 query transport only)\n                 -b address[#port]   (bind to source address/port)\n                 -c class            (specify query class)\n                 -f filename         (batch mode)\n                 -k keyfile          (specify tsig key file)\n                 -m                  (enable memory usage debugging)\n                 -p port             (specify port number)\n                 -q name             (specify query name)\n                 -r                  (do not read ~/.digrc)\n                 -t type             (specify query type)\n                 -u                  (display times in usec instead of msec)\n                 -x dot-notation     (shortcut for reverse lookups)\n                 -y [hmac:]name:key  (specify named base64 tsig key)\n        d-opt    is of the form +keyword[=value], where keyword is:\n                 +[no]aaflag         (Set AA flag in query (+[no]aaflag))\n                 +[no]aaonly         (Set AA flag in query (+[no]aaflag))\n                 +[no]additional     (Control display of additional section)\n                 +[no]adflag         (Set AD flag in query (default on))\n                 +[no]all            (Set or clear all display flags)\n                 +[no]answer         (Control display of answer section)\n                 +[no]authority      (Control display of authority section)\n                 +[no]badcookie      (Retry BADCOOKIE responses)\n                 +[no]besteffort     (Try to parse even illegal messages)\n                 +bufsize[=###]      (Set EDNS0 Max UDP packet size)\n                 +[no]cdflag         (Set checking disabled flag in query)\n                 +[no]class          (Control display of class in records)\n                 +[no]cmd            (Control display of command line -\n                                      global option)\n                 +[no]comments       (Control display of packet header\n                                      and section name comments)\n                 +[no]cookie         (Add a COOKIE option to the request)\n                 +[no]crypto         (Control display of cryptographic\n                                      fields in records)\n                 +[no]defname        (Use search list (+[no]search))\n                 +[no]dnssec         (Request DNSSEC records)\n                 +domain=###         (Set default domainname)\n                 +[no]dscp[=###]     (Set the DSCP value to ### [0..63])\n                 +[no]edns[=###]     (Set EDNS version) [0]\n                 +ednsflags=###      (Set EDNS flag bits)\n                 +[no]ednsnegotiation (Set EDNS version negotiation)\n                 +ednsopt=###[:value] (Send specified EDNS option)\n                 +noednsopt          (Clear list of +ednsopt options)\n                 +[no]expandaaaa     (Expand AAAA records)\n                 +[no]expire         (Request time to expire)\n                 +[no]fail           (Don't try next server on SERVFAIL)\n                 +[no]header-only    (Send query without a question section)\n                 +[no]identify       (ID responders in short answers)\n                 +[no]idnin          (Parse IDN names [default=on on tty])\n                 +[no]idnout         (Convert IDN response [default=on on tty])\n                 +[no]ignore         (Don't revert to TCP for TC responses.)\n                 +[no]keepalive      (Request EDNS TCP keepalive)\n                 +[no]keepopen       (Keep the TCP socket open between queries)\n                 +[no]mapped         (Allow mapped IPv4 over IPv6)\n                 +[no]multiline      (Print records in an expanded format)\n                 +ndots=###          (Set search NDOTS value)\n                 +[no]nsid           (Request Name Server ID)\n                 +[no]nssearch       (Search all authoritative nameservers)\n                 +[no]onesoa         (AXFR prints only one soa record)\n                 +[no]opcode=###     (Set the opcode of the request)\n                 +padding=###        (Set padding block size [0])\n                 +[no]qr             (Print question before sending)\n                 +[no]question       (Control display of question section)\n                 +[no]raflag         (Set RA flag in query (+[no]raflag))\n                 +[no]rdflag         (Recursive mode (+[no]recurse))\n                 +[no]recurse        (Recursive mode (+[no]rdflag))\n                 +retry=###          (Set number of UDP retries) [2]\n                 +[no]rrcomments     (Control display of per-record comments)\n                 +[no]search         (Set whether to use searchlist)\n                 +[no]short          (Display nothing except short\n                                      form of answers - global option)\n                 +[no]showsearch     (Search with intermediate results)\n                 +[no]split=##       (Split hex/base64 fields into chunks)\n                 +[no]stats          (Control display of statistics)\n                 +subnet=addr        (Set edns-client-subnet option)\n                 +[no]tcflag         (Set TC flag in query (+[no]tcflag))\n                 +[no]tcp            (TCP mode (+[no]vc))\n                 +timeout=###        (Set query timeout) [5]\n                 +[no]trace          (Trace delegation down from root [+dnssec])\n                 +tries=###          (Set number of UDP attempts) [3]\n                 +[no]ttlid          (Control display of ttls in records)\n                 +[no]ttlunits       (Display TTLs in human-readable units)\n                 +[no]unexpected     (Print replies from unexpected sources\n                                      default=off)\n                 +[no]unknownformat  (Print RDATA in RFC 3597 \"unknown\" format)\n                 +[no]vc             (TCP mode (+[no]tcp))\n                 +[no]yaml           (Present the results as YAML)\n                 +[no]zflag          (Set Z flag in query)\n        global d-opts and servers (before host name) affect all queries.\n        local d-opts and servers (after host name) affect only that lookup.\n        -h                           (print help and exit)\n        -v                           (print version and exit)\n\n```",
+    "source": "087-the-dig-command.md"
+  },
+  {
+    "name": "whois",
+    "description": "The `whois` command in Linux to find out information about a domain, such as the owner of the domain, the owner’s contact information, and the nameservers that the domain is using.",
+    "usage": "\nwhois [ -h HOST ] [ -p PORT ] [ -aCFHlLMmrRSVx ] [ -g SOURCE:FIRST-LAST ] \n      [ -i ATTR ] [ -S SOURCE ] [ -T TYPE ] object\n",
+    "example": "whois {Domain_name}",
+    "notes": "|**Flag**   |**Description**   |\n|:---|:---|\n|`-h HOST`, `--host HOST`|Connect to HOST.|\n|`-H`|Do not display the legal disclaimers some registries like to show you.|\n|`-p`, `--port PORT`|Connect to PORT.|\n|`--verbose`|Be verbose.|\n|`--help`|Display online help.|\n|`--version`|Display client version information. Other options are flags understood by whois.ripe.net and some other RIPE-like servers.|\n|`-a`|Also search all the mirrored databases.|\n|`-b`|Return brief IP address ranges with abuse contact.|\n|`-B`|Disable object filtering *(show the e-mail addresses)*|\n|`-c`|Return the smallest IP address range with a reference to an irt object.|\n|`-d`|Return the reverse DNS delegation object too.|\n|`-g SOURCE:FIRST-LAST`|Search updates from SOURCE database between FIRST and LAST update serial number. It's useful to obtain Near Real Time Mirroring stream.|\n|`-G`|Disable grouping of associated objects.|\n|`-i ATTR[,ATTR]...`|Search objects having associated attributes. ATTR is attribute name. Attribute value is positional OBJECT argument.|\n|`-K`|Return primary key attributes only. Exception is members attribute of set object which is always returned. Another exceptions are all attributes of objects organisation, person, and role that are never returned.|\n|`-l`|Return the one level less specific object.|\n|`-L`|Return all levels of less specific objects.|\n|`-m`|Return all one level more specific objects.|\n|`-M`|Return all levels of more specific objects.|\n|`-q KEYWORD`|Return list of keywords supported by server. KEYWORD can be version for server version, sources for list of source databases, or types for object types.|\n|`-r`|Disable recursive look-up for contact information.|\n|`-R`|Disable following referrals and force showing the object from the local copy in the server.|\n|`-s SOURCE[,SOURCE]...`|Request the server to search for objects mirrored from SOURCES. Sources are delimited by comma and the order is significant. Use `-q` sources option to obtain list of valid sources.|\n|`-t TYPE`|Return the template for a object of TYPE.|\n|`-T TYPE[,TYPE]...`|Restrict the search to objects of TYPE. Multiple types are separated by a comma.|\n|`-v TYPE`|Return the verbose template for a object of TYPE.|\n|`-x`|Search for only exact match on network address prefix.|",
+    "source": "088-the-whois-command.md"
+  },
+  {
+    "name": "ssh",
+    "description": "The `ssh` command in Linux stands for \"Secure Shell\". It is a protocol used to securely connect to a remote server/system. ssh is more secure in the sense that it transfers the data in encrypted form between the host and the client. ssh runs at TCP/IP port 22.",
+    "usage": "\nssh user_name@host(IP/Domain_Name)\n",
+    "example": "ssh test.server.com -p 3322",
+    "notes": "|**Flag**   |**Description**   |\n|:---|:---|\n|`-1`|Forces ssh to use protocol SSH-1 only.|\n|`-2`|Forces ssh to use protocol SSH-2 only.|\n|`-4`|Allows IPv4 addresses only.|\n|`-A`|Authentication agent connection forwarding is enabled..|\n|`-a`|Authentication agent connection forwarding is disabled.|\n|`-B bind_interface`|Bind to the address of bind_interface before attempting to connect to the destination host.  This is only useful on systems with more than one address.|\n|`-b bind_address`|Use bind_address on the local machine as the source address of the connection.  Only useful on systems with more than one address.\n|`-C`|Compresses all data (including stdin, stdout, stderr, and data for forwarded X11 and TCP connections) for a faster transfer of data.|\n|`-c cipher_spec`|Selects the cipher specification for encrypting the session.|\n|`-D [bind_address:]port`|Dynamic application-level port forwarding. This allocates a socket to listen to port on the local side. When a connection is made to this port, the connection is forwarded over the secure channel, and the application protocol is then used to determine where to connect to from the remote machine.|\n|`-E log_file`|Append debug logs instead of standard error.|\n|`-e escape_char`|Sets the escape character for sessions with a pty (default: ‘~’).  The escape character is only recognized at the beginning of a line.  The escape character followed by a dot (‘.’) closes the connection; followed by control-Z suspends the connection; and followed by itself sends the escape character once.  Setting the character to “none” disables any escapes and makes the session fully transparent.|\n|`-F configfile`|Specifies a per-user configuration file. The default for the per-user configuration file is ~/.ssh/config.|\n|`-f`|Requests ssh to go to background just before command execution.|\n|`-G`|Causes ssh to print its configuration after evaluating Host and Match blocks and exit.|\n|`-g`|Allows remote hosts to connect to local forwarded ports.|\n|`-I pkcs11`|Specify the PKCS#11 shared library ssh should use to communicate with a PKCS#11 token providing keys.|\n|`-i identity_file`|A file from which the identity key (private key) for public key authentication is read.|\n|`-J [user@]host[:port]`|Connect to the target host by first making a ssh connection to the pjump host[(/iam/jump-host) and then establishing a TCP forwarding to the ultimate destination from there.|\n|`-K`|Enables GSSAPI-based authentication and forwarding (delegation) of GSSAPI credentials to the server.|\n|`-k`|Disables forwarding (delegation) of GSSAPI credentials to the server.|\n|`-L [bind_address:]port:host:hostport`, `-L [bind_address:]port:remote_socket`, `-L local_socket:host:hostport`, `-L local_socket:remote_socket`|Specifies that connections to the given TCP port or Unix socket on the local (client) host are to be forwarded to the given host and port, or Unix socket, on the remote side.  This works by allocating a socket to listen to either a TCP port on the local side, optionally bound to the specified bind_address, or to a Unix socket.  Whenever a connection is made to the local port or socket, the connection is forwarded over the secure channel, and a connection is made to either host port hostport, or the Unix socket remote_socket, from the remote machine.|\n|`-l login_name`|Specifies the user to log in as on the remote machine.|\n|`-M`|Places the ssh client into “master” mode for connection sharing.  Multiple -M options places ssh into “master” mode but with confirmation required using ssh-askpass before each operation that changes the multiplexing state (e.g. opening a new session).|\n|`-m mac_spec`|A comma-separated list of MAC (message authentication code) algorithms, specified in order of preference.|\n|`-N`|Do not execute a remote command.  This is useful for just forwarding ports.|\n|`-n`|Prevents reading from stdin.|\n|`-O ctl_cmd`|Control an active connection multiplexing master process.  When the -O option is specified, the ctl_cmd argument is interpreted and passed to the master process.  Valid commands are: “check” (check that the master process is running), “forward” (request forwardings without command execution), “cancel” (cancel forwardings), “exit” (request the master to exit), and “stop” (request the master to stop accepting further multiplexing requests).|\n|`-o`|Can be used to give options in the format used in the configuration file.  This is useful for specifying options for which there is no separate command-line flag.|\n|`-p`, `--port PORT`|Port to connect to on the remote host.|\n|`-Q query_option`|Queries ssh for the algorithms supported for the specified version 2.  The available features are: cipher (supported symmetric ciphers), cipher-auth (supported symmetric ciphers that support authenticated encryption), help (supported query terms for use with the -Q flag), mac (supported message integrity codes), kex (key exchange algorithms), kex-gss (GSSAPI key exchange algorithms), key (keytypes), key-cert (certificate key types), key-plain (non-certificate key types), key-sig (all keytypes and signature algorithms), protocol-version (supported SSH protocol versions), and sig (supported signature algorithms).  Alternatively, any keyword from ssh_config(5) or sshd_config(5) thattakes an algorithm list may be used as an alias for the corresponding query_option.|\n|`-q`| Qiet mode. Causes most warning and diagnostic messages to be suppressed.|\n|`-R [bind_address:]port:host:hostport, -R [bind_address:]port:local_socket, -R remote_socket:host:hostport, -R remote_socket:local_socket, -R [bind_address:]port`|Specifies that connections to the given TCP port or Unix socket on the remote (server) host are to be forwarded to the local side.|\n|`-S ctl_path`|Specifies the location of a control socket for connection sharing, or the string “none” to disable connection sharing.|\n|`-s`|May be used to request invocation of a subsystem on the remote system.  Subsystems facilitate the use of SSH as a secure transport for other applications (e.g. sftp(1)).  The subsystem is specified as the remote command.|\n|`-T`| Disable pseudo-terminal allocation.|\n|`-t`|Force pseudo-terminal allocation.  This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services.  Multiple -t options force tty allocation, even if ssh has no local tty.\n|`-V`|Display the version number.|\n|`-v`|Verbose mode. It echoes everything it is doing while establishing a connection. It is very useful in the debugging of connection failures.|\n|`-W host:port`|Requests that standard input and output on the client be forwarded to host on port over the secure channel.  Implies -N, -T, ExitOnForwardFailure and ClearAllForwardings, though these can be overridden in the configuration file or using -o command line options.|\n|`-w local_tun[remote_tun]`|Requests tunnel device forwarding with the specified tun devices between the client (local_tun) and the server (remote_tun).\tThe devices may be specified by numerical ID or the keyword “any”, which uses the next available tunnel device.  If remote_tun is not specified, it defaults to “any”.\tIf the Tunnel directive is unset, it will be set to the default tunnel mode, which is “point-to-point”.  If a different Tunnel forwarding mode it desired, then it should be specified before -w.|\n|`-X`|Enables X11 forwarding (GUI Forwarding).|\n|`-x`|Disables X11 forwarding (GUI Forwarding).|\n|`-Y`|Enables trusted X11 Forwarding.|\n|`-y`|Send log information using the syslog system module.  By default this information is sent to stderr.|",
+    "source": "089-the-ssh-command.md"
+  },
+  {
+    "name": "awk",
+    "description": "Awk is a general-purpose scripting language designed for advanced text processing. It is mostly used as a reporting and analysis tool.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "090-the-awk-command.md"
+  },
+  {
+    "name": "crontab",
+    "description": "`crontab` is used to maintain crontab files for individual users (Vixie Cron)",
+    "usage": "\ncrontab [ -u user ] file\ncrontab [ -u user ] [ -i ] { -e | -l | -r }\n",
+    "example": "crontab -l",
+    "notes": "",
+    "source": "091-the-crontab-command.md"
+  },
+  {
+    "name": "xargs",
+    "description": "`xargs` is used to build and execute command lines from standard input",
+    "usage": "\nxargs [options] [command [initial-arguments]]\n",
+    "example": "find /tmp -name core -type f -print | xargs /bin/rm -f",
+    "notes": "",
+    "source": "092-the-xargs-command.md"
+  },
+  {
+    "name": "nohup",
+    "description": "When a shell exits (maybe while logging out of an SSH session), the HUP ('hang up') signal is send to all of its child processes, causing them to terminate. If you require a long-running process to continue after exiting shell, you'll need the `nohup` command. Prefixing any command with `nohup` causes the command to become _immune_ to HUP signals. Additionally, STDIN is being ignored and all output gets redirected to local file `./nohup.out`.",
+    "usage": "\nnohup COMMAND [ARG]...\nnohup OPTION\n",
+    "example": "nohup apt-get -y upgrade",
+    "notes": "",
+    "source": "093-the-nohup-command.md"
+  },
+  {
+    "name": "pstree",
+    "description": "The `pstree` command is similar to `ps`, but instead of listing the running processes, it shows them as a tree. The tree-like format is sometimes more suitable way to display the processes hierarchy which is a much simpler way to visualize running processes. The root of the tree is either init or the process with the given pid.",
+    "usage": "",
+    "example": "pstree",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-a`|`--arguments`|Show command line arguments|\n|`-A`|`--ascii`|use ASCII line drawing characters|\n|`-c`|`--compact`|Don't compact identical subtrees|\n|`-h`|`--highlight-all`|Highlight current process and its ancestors|\n|`-H PID`|`--highlight-pid=PID`|highlight this process and its ancestors|\n|`-g`|`--show-pgids`|show process group ids; implies `-c`|\n|`-G`|`--vt100`|use VT100 line drawing characters|\n|`-l`|`--long`|Don't truncate long lines|\n|`-n`|`--numeric-sort`|Sort output by PID|\n|`-N type`|`--ns-sort=type`|Sort by namespace type (cgroup, ipc, mnt, net, pid, user, uts)|\n|`-p`|`--show-pids`|show PIDs; implies -c|\n|`-s`|`--show-parents`|Show parents of the selected process|\n|`-S`|`--ns-changes`|show namespace transitions|\n|`-t`|`--thread-names`|Show full thread names|\n|`-T`|`--hide-threads`|Hide threads, show only processes|\n|`-u`|`--uid-changes`|Show uid transitions|\n|`-U`|`--unicode`|Use UTF-8 (Unicode) line drawing characters|\n|`-V`|`--version`|Display version information|\n|`-Z`|`--security-context`|Show SELinux security contexts|",
+    "source": "094-the-pstree-command.md"
+  },
+  {
+    "name": "tree",
+    "description": "The `tree` command in Linux recursively lists directories as tree structures. Each listing is indented according to its depth relative to root of the tree.",
+    "usage": "\ntree  [-acdfghilnpqrstuvxACDFQNSUX]  [-L  level [-R]] [-H baseHREF] [-T title]\n      [-o filename] [--nolinks] [-P pattern] [-I  pattern]  [--inodes]\n      [--device] [--noreport] [--dirsfirst] [--version] [--help] [--filelimit #]\n      [--si] [--prune] [--du] [--timefmt  format]  [--matchdirs]  [--from-file]\n      [--] [directory ...]\n",
+    "example": "tree",
+    "notes": "|**Flag**   |**Description**   |\n|:---|:---|\n|`-a`|Print all files, including hidden ones.|\n|`-d`|Only list directories.|\n|`-l`|Follow symbolic links into directories.|\n|`-f`|Print the full path to each listing, not just its basename.|\n|`-x`|Do not move across file-systems.|\n|`-L #`|Limit recursion depth to #.|\n|`-P REGEX`|Recurse, but only list files that match the REGEX.|\n|`-I REGEX`|Recurse, but do not list files that match the REGEX.|\n|`--ignore-case`|Ignore case while pattern-matching.|\n|`--prune`|Prune empty directories from output.|\n|`--filelimit #`|Omit directories that contain more than # files.|\n|`-o FILE`|Redirect STDOUT output to FILE.|\n|`-i`|Do not output indentation.|",
+    "source": "095-the-tree-command.md"
+  },
+  {
+    "name": "whereis",
+    "description": "The `whereis` command is used to find the location of source/binary file of a command and manuals sections for a specified file in Linux system. If we compare `whereis` command with find command they will appear similar to each other as both can be used for the same purposes but `whereis` command produces the result more accurately by consuming less time comparatively.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "096-the-whereis-command.md"
+  },
+  {
+    "name": "printf",
+    "description": "This command lets you print the value of a variable by formatting it using rules. It is pretty similar to the printf in C language.",
+    "usage": "\n$printf [-v variable_name] format [arguments]\n",
+    "example": "$printf \"%s\\n\" \"Printf command documentation!\"",
+    "notes": "_ordinary characters_, which are copied exactly the same characters as were used originally to the output.; _interpreted character_ sequences, which are escaped with a backslash (\"\\\\\").; _conversion specifications_, this one will define the way the ARGUMENTs will be expressed as part of the output.; `printf` requires the number of conversion strings to match the number of ARGUMENTs ; `printf` maps the conversion strings one-to-one, and expects to find exactly one ARGUMENT for each conversion string; Conversion strings are always interpreted from left to right.; %s; `%b` - Prints arguments by expanding backslash escape sequences.; `%q` - Prints arguments in a shell-quoted format which is reusable as input.; `%d` , `%i` - Prints arguments in the format of signed decimal integers.",
+    "source": "097-the-printf-command.md"
+  },
+  {
+    "name": "cut",
+    "description": "The `cut` command lets you remove sections from each line of files. Print selected parts of lines from each FILE to standard output. With no FILE, or when FILE is -, read standard input.",
+    "usage": "\ncut OPTION... [FILE]...\n",
+    "example": "",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-b`|`--bytes=LIST`|select only these bytes|\n|`-c`|`--characters=LIST`|select only these characters|\n|`-d`|`--delimiter=DELIM`|use DELIM instead of TAB for field delimiter|\n|`-f`|`--fields`|select only these fields;  also print any line that contains no delimiter character, unless the -s option is specified|\n|`-s`|`--only-delimited`|do not print lines not containing delimiters|\n|`-z`|`--zero-terminated`|line delimiter is NUL, not newline|",
+    "source": "098-the-cut-command.md"
+  },
+  {
+    "name": "sed",
+    "description": "`sed` command stands for stream editor. A stream editor is used to perform basic text transformations on an input stream (a file or input from a pipeline). For instance, it can perform lot’s of functions on files like searching, find and replace, insertion or deletion. While in some ways it is similar to an editor which permits scripted edits (such as `ed`), `sed` works by making only one pass over the input(s), and is consequently more efficient. But it is sed's ability to filter text in a pipeline that particularly distinguishes it from other types of editors.",
+    "usage": "\nsed [OPTION]... {script-only-if-no-other-script} [INPUT-FILE]... \n",
+    "example": "sed -i 's/{search_regex}/{replace_value}/g' input-file",
+    "notes": "`OPTION` - sed options in-place, silent, follow-symlinks, line-length, null-data ...etc.; `{script-only-if-no-other-script}` - Add the script to command if available.; `INPUT-FILE` - Input Stream, A file or input from a pipeline.",
+    "source": "099-the-sed-command.md"
+  },
+  {
+    "name": "vim",
+    "description": "The [vim](https://www.vim.org/) is a text editor for Unix that comes with Linux, BSD, and macOS. It is known to be fast and powerful, partly because it is a small program that can run in a terminal (although it has a graphical interface). Vim text editor is developed by [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar). It supports most file types and the vim editor is also known as a programmer's editor. It is mainly because it can be managed entirely without menus or a mouse with a keyboard.",
+    "usage": "\nvim [FILE_PATH/FILE_NAME]\n",
+    "example": "vim demo.txt",
+    "notes": "|**Flags/Options**  |<center>**Description**</center>   |\n|:---|:---|\n|`-e`|Start in Ex mode (see [Ex-mode](http://vimdoc.sourceforge.net/htmldoc/intro.html#Ex-mode))|\n|`-R`|Start in read-only mode|\n|`-R`|Start in read-only mode|\n|`-g`|Start the [GUI](http://vimdoc.sourceforge.net/htmldoc/gui.html#GUI)|\n|`-eg`|Start the GUI in Ex mode|\n|`-Z`|Like \"vim\", but in restricted mode|\n|`-d`|Start in diff mode [diff-mode](http://vimdoc.sourceforge.net/htmldoc/diff.html#diff-mode)|\n|`-h`|Give usage (help) message and exit|\n|`+NUMBER`|Open a file and place the cursor on the line number specified by NUMBER|",
+    "source": "100-the-vim-command.md"
+  },
+  {
+    "name": "chown",
+    "description": "The `chown` command makes it possible to change the ownership of a file or directory.  Users and groups are fundamental in Linux, with `chown` you can change the owner of a file or directory. It's also possible to change ownership on folders recursively",
+    "usage": "\nchown [-OPTION] [DIRECTORY_PATH]\n",
+    "example": "chown user file.txt",
+    "notes": "",
+    "source": "101-the-chown-command.md"
+  },
+  {
+    "name": "find",
+    "description": "The `find` command is one of the most powerful Linux utilities that lets you search for files and directories based on various conditions like name, size, modification time, permissions, and more.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "102-the-find-command.md"
+  },
+  {
+    "name": "rmdir",
+    "description": "The **rmdir** command is used to remove empty directories from the filesystem in Linux. The rmdir command removes each and every directory specified in the command line only if these directories are empty.",
+    "usage": "\nrmdir [OPTION]... DIRECTORY...\n",
+    "example": "",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-`|`--ignore-fail-on-non-empty`|ignore each failure that is solely because a directory is non-empty|\n|`-p`|`--parents`|remove DIRECTORY and its ancestors|\n|`-d`|`--delimiter=DELIM`|use DELIM instead of TAB for field delimiter|\n|`-v`|`--verbose`|output a diagnostic for every directory processed|",
+    "source": "103-the-rmdir-command.md"
+  },
+  {
+    "name": "lsblk",
+    "description": "## Summary The ``lsblk`` command displays the block and loop devices on the system. It is especially useful when you want to format disks, write filesystems, check the filesystem and know the mount point of a device.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "104-the-lsblk-command.md"
+  },
+  {
+    "name": "cmatrix",
+    "description": "This command doesn't come by default in Linux. It has to be installed, and as seen in chapter [052](/ebook/en/content/052-the-apt-command.md) we need to run the following command:",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "105-the-cmatrix-command.md"
+  },
+  {
+    "name": "chmod",
+    "description": "The `chmod` command allows you to change the permissions on a file using either a symbolic or numeric mode or a reference file.",
+    "usage": "\nchmod [OPTIONS] MODE FILE(s)\n",
+    "example": "chmod u=rwx,g=rx,o=r myfile",
+    "notes": "user can read, write, execute `myfile`; group can read, execute `myfile`; other can read `myfile`; user can read, write, execute `myfile`; group can read, execute `myfile`; other can read `myfile`; `[OPTIONS]` :; `MODE`: different way to set permissions:; **Symbolic mode explained**; u: user",
+    "source": "106-the-chmod-command.md"
+  },
+  {
+    "name": "grep",
+    "description": "The `grep` filter searches a file for a particular pattern of characters, and displays all lines that contain that pattern. grep stands for globally search for regular expression and print out. The pattern that is searched in the file is referred to as the regular expression.",
+    "usage": "",
+    "example": "grep -i \"KeY\" destination.txt",
+    "notes": "| **Short Flag** | **Long Flag**          | **Description**                                                                                 |\n| :------------- | :--------------------- | :---------------------------------------------------------------------------------------------- |\n| `-c`           | `--count`              | print a count of matching lines for each input file                                             |\n| `-h`           | `--no-filename`        | Display the matched lines, but do not display the filenames                                     |\n| `-i`           | `--ignore-case`        | Ignores, case for matching                                                                      |\n| `-l`           | `--files-with-matches` | Displays list of a filenames only.                                                              |\n| `-n`           | `--line-number`        | Display the matched lines and their line numbers.                                               |\n| `-v`           | `--invert-match`       | This prints out all the lines that do not matches the pattern                                   |\n| `-e`           | `--regexp=`            | Specifies expression with this option. Can use multiple times                                   |\n| `-f`           | `--file=`              | Takes patterns from file, one per line.                                                         |\n| `-F`           | `--fixed-strings=`     | Interpret patterns as fixed strings, not regular expressions.                                   |\n| `-E`           | `--extended-regexp`    | Treats pattern as an extended regular expression (ERE)                                          |\n| `-w`           | `--word-regexp`        | Match whole word                                                                                |\n| `-o`           | `--only-matching`      | Print only the matched parts of a matching line, with each such part on a separate output line. |\n|                | `--line-buffered`      | Force output to be line buffered.                                                               |",
+    "source": "107-the-grep-command.md"
+  },
+  {
+    "name": "screen",
+    "description": "`screen` - With screen you can start a screen session and then open any number of windows (virtual terminals) inside that session. Processes running in Screen will continue to run when their window is not visible even if you get disconnected.  This is very handy for running long during session such as bash scripts that run very long.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "108-the-screen-command.md"
+  },
+  {
+    "name": "nc",
+    "description": "The `nc` (or netcat) command is used to perform any operation involving TCP (Transmission Control Protocol, connection oriented), UDP (User Datagram Protocol, connection-less, no guarantee of data delivery) or UNIX-domain sockets. It can be thought of as swiss-army knife for communication protocol utilities.",
+    "usage": "\nnc [options] [ip] [port]\n",
+    "example": "$ nc -p 1337 -w 5 host.ip 80",
+    "notes": "",
+    "source": "109-the-nc-command.md"
+  },
+  {
+    "name": "make",
+    "description": "The `make` command is used to automate the reuse of multiple commands in certain directory structure.",
+    "usage": "\nmake [ -f makefile ] [ options ] ... [ targets ] ...\n",
+    "example": "",
+    "notes": "",
+    "source": "110-the-make-command.md"
+  },
+  {
+    "name": "basename",
+    "description": "The `basename` is a command-line utility that strips directory from given file names. Optionally, it can also remove any trailing suffix. It is a simple command that accepts only a few options.",
+    "usage": "",
+    "example": "basename /etc/bar/foo.txt",
+    "notes": "**Removing a Trailing Suffix**: To remove any trailing suffix from the file name, pass the suffix as a second argument:\n\n```bash\nbasename /etc/hostname name\nhost\n```\n\nGenerally, this feature is used to strip file extensions",
+    "source": "111-the-basename-command.md"
+  },
+  {
+    "name": "banner",
+    "description": "The `banner` command writes ASCII character Strings to standard output in large letters. Each line in the output can be up to 10 uppercase or lowercase characters in length. On output, all characters appear in uppercase, with the lowercase input characters appearing smaller than the uppercase input characters.",
+    "usage": "",
+    "example": "banner LINUX!",
+    "notes": "",
+    "source": "112-the-banner-command.md"
+  },
+  {
+    "name": "alias",
+    "description": "The `alias` command lets you create shortcuts for commands or define your own commands. This is mostly used to avoid typing long commands.",
+    "usage": "\nalias [-p] [name[=value]]\n",
+    "example": "alias -p",
+    "notes": "**Bash**: ~/.bashrc; **ZSH**: ~/.zshrc; **Fish** – ~/.config/fish/config.fish",
+    "source": "113-the-alias-command.md"
+  },
+  {
+    "name": "which",
+    "description": "`which` command identifies the executable binary that launches when you issue a command to the shell. If you have different versions of the same program on your computer, you can use which to find out which one the shell will use.",
+    "usage": "",
+    "example": "which ls",
+    "notes": "",
+    "source": "114-the-which-command.md"
+  },
+  {
+    "name": "date",
+    "description": "The `date` command is used to print the system current date and time.",
+    "usage": "\ndate [OPTION]... [+FORMAT]\ndate [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]\n",
+    "example": "date",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-d`|`--date=STRING`|convert the provided string into formatted date|\n|`-f`|`--file=DATEFILE`|like `--date` but for files|\n|`-I[FMT]`|`--iso-8601[=FMT]`|Display date and time in ISO 8601 format|\n|`-r`|`--reference=FILE`|Display the last modification time of FILE|\n|`-s`|`--set=STRING`|sets the time to the one described by STRING|\n|`-u`|`--universal`|show the date and time in UTC *(Coordinated Universal Time)* time zone|\n|`-R`|`--rfc-email`|Display date and time in ISO 8601 format Example: (Fri, 22 Oct 2021 05:18:42 +0200)|\n|<center>-<center>|`rfc-3339=FMT`|Display date and time in RFC 3339 format|\n|<center>-<center>|`--debug`|Usually used with `--date` to annotate the parsed date and warn about questionable  usage  to stderr|",
+    "source": "115-the-date-command.md"
+  },
+  {
+    "name": "mount",
+    "description": "The `mount` command is used to mount 'attach' a filesystem and make it accessible by an existing directory structure tree.",
+    "usage": "",
+    "example": "mount -V",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-h`|<center>`--help`</center>|Dispaly a  help message and exists|\n|`-n`|<center>`--no-mtab`</center>|Mount without writing in /etc/mtab|\n|`-a`|<center>`--all`</center>|Mount all filesystems (of the given types) mentioned in fstab|\n|`-r`|`--read-only`|Mount the filesystem read-only|\n|`-w`|`--rw`|Mount the filesystem as read/write.|\n|`-M`|`--move`|Move a subtree to some other place.|\n|`-B`|`--bind`|Remount a subtree somewhere else *(so that its contents are available in both places)*.|",
+    "source": "116-the-mount-command.md"
+  },
+  {
+    "name": "command",
+    "description": "The `nice/renice` commands is used to modify the priority of the program to be executed. The priority range is between -20 and 19 where 19 is the lowest priority.",
+    "usage": "\nnice [  -Increment|  -n Increment ] Command [ Argument ... ]\n",
+    "example": "nice -n 15 cc -c *.c &",
+    "notes": "",
+    "source": "117-the-nice-command.md"
+  },
+  {
+    "name": "wc",
+    "description": "the `wc` command stands for word count. It's used to count the number of lines, words, and bytes *(characters)* in a file or standard input then prints the result to the standard output.",
+    "usage": "bash\nwc [OPTION]... [FILE]...\n",
+    "example": "wc file.txt",
+    "notes": "|**Short Flag**   |**Long Flag**   |**Description**   |\n|:---|:---|:---|\n|`-c` | `--bytes` | print the byte counts|\n|`-m` | `--chars` | print the character counts|\n|`-l` | `--lines` | print the newline counts|\n|<center>-</center> | `--files0-from=F` | read  input  from the files specified by NUL-terminated names in file F. If F is `-` then read names from standard input|\n|`-L` | `--max-line-length` | print the maximum display width|\n|`-w` | `--words` | print the word counts|",
+    "source": "118-the-wc-command.md"
+  },
+  {
+    "name": "tr",
+    "description": "The tr command in UNIX is a command line utility for translating or deleting characters. It supports a range of transformations including uppercase to lowercase, squeezing repeating characters, deleting specific characters and basic find and replace. It can be used with UNIX pipes to support more complex translation. tr stands for translate.",
+    "usage": "",
+    "example": "$ cat file1\nfoo\nbar\nbaz\ntr a-z A-Z < file1\nFOO\nBAR\nBAZ",
+    "notes": "| **Short Flag** | **Long Flag** | **Description**                                                                                               |\n| :------------- | :------------ | :------------------------------------------------------------------------------------------------------------ |\n| `-C`           |               | Complement the set of characters in string1, that is `-C ab` includes every character except for `a` and `b`. |\n| `-c`           |               | Same as -C.                                                                                                   |\n| `-d`           |               | Delete characters in string1 from the input.                                                                  |\n| `-s`           |               | If there is a sequence of characters in string1, combine them into one.                                       |",
+    "source": "119-the-tr-command.md"
+  },
+  {
+    "name": "fdisk",
+    "description": "The `fdisk` command is used for controlling the disk partition table and making changes to it and this is a list of some of options provided by it : </b> - Organize space for new drives. - Modify old drives. - Create space for new partitions. - Move data to new partitions.",
+    "usage": "\nfdisk [options] device\n",
+    "example": "fdisk -l",
+    "notes": "Organize space for new drives.; Modify old drives.; Create space for new partitions.; Move data to new partitions.",
+    "source": "120-the-fdisk-command.md"
+  },
+  {
+    "name": "Wait",
+    "description": "The wait command is a shell builtin that pauses script execution until a specific background process, or all running child processes, have finished.",
+    "usage": "",
+    "example": "",
+    "notes": "&: The ampersand runs the echo command in the background, allowing the script to immediately continue to the next line.; $!: This is a special shell variable that holds the Process ID (PID) of the most recently executed background command. We save it to the process_id variable.; wait $process_id: This is the key command. The script pauses here until the process with that specific ID is complete.; $?: This variable holds the exit status of the last command that finished. An exit status of 0 means success.",
+    "source": "121-the-wait-command.md"
+  },
+  {
+    "name": "zcat",
+    "description": "The `zcat` allows you to look at a compressed file.",
+    "usage": "",
+    "example": "~$ zcat test.txt.gz\nHello World",
+    "notes": "",
+    "source": "122-the-zcat-command.md"
+  },
+  {
+    "name": "fold",
+    "description": "The `fold`  command in Linux wraps each line in an input file to fit a specified width and prints it to the standard output.",
+    "usage": "\nfold [OPTION]... [FILE]...\n",
+    "example": "",
+    "notes": "",
+    "source": "123-the-fold-command.md"
+  },
+  {
+    "name": "quota",
+    "description": "The `quota` display disk usage and limits.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "124-the-quota-command.md"
+  },
+  {
+    "name": "aplay",
+    "description": "`aplay` is a command-line audio player for ALSA(Advanced Linux Sound Architecture) sound card drivers. It supports several file formats and multiple soundcards with multiple devices. It is basically used to play audio on command-line interface. aplay is much the same as arecord only it plays instead of recording. For supported soundfile formats, the sampling rate, bit depth, and so forth can be automatically determined from the soundfile header.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "125-the-aplay-command.md"
+  },
+  {
+    "name": "spd-say",
+    "description": "`spd-say` sends text-to-speech output request to speech-dispatcher process which handles it and ideally outputs the result to the audio system.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "126-the-spd-say-command.md"
+  },
+  {
+    "name": "xeyes",
+    "description": "Xeyes is a graphical user interface program that creates a set of eyes on the desktop that follow the movement of the mouse cursor. It seems much of a funny command, than of any useful use. Being funny is as much useful, is another aspect.",
+    "usage": "\nxeyes\n",
+    "example": "",
+    "notes": "",
+    "source": "127-the-xeyes-command.md"
+  },
+  {
+    "name": "parted",
+    "description": "The `parted` command is used to manage hard disk partitions on Linux. It can be used to add, delete, shrink and extend disk partitions along with the file systems located on them. You will need root access to the system to run `parted` commands.",
+    "usage": "",
+    "example": "sudo parted -l",
+    "notes": "",
+    "source": "128-the-parted-command.md"
+  },
+  {
+    "name": "nl",
+    "description": "The “nl” command enumerates lines in a file. A different way of viewing the contents of a file, the “nl” command can be very useful for many tasks.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "129-the-nl-command.md"
+  },
+  {
+    "name": "pidof",
+    "description": "The `pidof` is a command-line utility that allows you to find the process ID of a running program.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "130-the-pidof-command.md"
+  },
+  {
+    "name": "shuf",
+    "description": "The `shuf` command in Linux writes a random permutation of the input lines to standard output. It pseudo randomizes an input in the same way as the cards are shuffled. It is a part of GNU Coreutils and is not a part of POSIX. This command reads either from a file or standard input in bash and randomizes those input lines and displays the output.",
+    "usage": "shuf [OPTION]... [FILE]",
+    "example": "",
+    "notes": "",
+    "source": "131-the-shuf-command.md"
+  },
+  {
+    "name": "less",
+    "description": "The less command is a Linux terminal pager which shows a file's content one screen at a time. Useful when dealing with a large text file because it doesn't load the entire file but accesses it page by page, resulting in fast loading speeds.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "132-the-less-command.md"
+  },
+  {
+    "name": "nslookup",
+    "description": "The `nslookup` command is a network administration command-line tool for querying the Domain Name System (DNS) to obtain domain name or IP address mapping or any other specific DNS record.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "133-the-nslookup-command.md"
+  },
+  {
+    "name": "cmp",
+    "description": "The `cmp` command is a simple utility used to compare two files byte by byte.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "134-the-cmp-command.md"
+  },
+  {
+    "name": "expr",
+    "description": "The `expr` command evaluates a given expression and displays its corresponding output. It is used for basic operations like addition, subtraction, multiplication, division, and modulus on integers and Evaluating regular expressions, string operations like substring, length of strings etc.",
+    "usage": "",
+    "example": "",
+    "notes": "|**Flag** |**Description**   |\n:---|:---|\n|`--version`|output version information and exit|\n|`--help`|Display this help and exit|\n\n\nFor more details: [Expr on Wikipedia](https://en.wikipedia.org/wiki/Expr)",
+    "source": "135-the-expr-command.md"
+  },
+  {
+    "name": "wall",
+    "description": "The `wall` command (short for *write all*) is used to send a message to all logged-in users on a Linux system. It is commonly used by system administrators to broadcast important information, such as planned maintenance or urgent announcements.",
+    "usage": "",
+    "example": "",
+    "notes": "",
+    "source": "136-the-wall-command.md"
+  },
+  {
+    "name": "ln",
+    "description": "The `ln` command is used to create links between files in Linux. It can create both hard links and symbolic (soft) links, which are essential for file system management and organization.",
+    "usage": "",
+    "example": "",
+    "notes": "Point directly to the file's inode; Cannot span across different filesystems; Cannot link to directories; If original file is deleted, hard link still contains the data; Point to the file path (like shortcuts); Can span across different filesystems; Can link to directories; If original file is deleted, symbolic link becomes broken; Creating shortcuts to frequently used files or directories; Maintaining multiple versions of configuration files",
+    "source": "137-the-ln-command.md"
+  },
+  {
+    "name": "systemctl",
+    "description": "The `systemctl` command is used to control and manage systemd services and the systemd system and service manager in Linux. It's the primary tool for managing services in modern Linux distributions.",
+    "usage": "",
+    "example": "",
+    "notes": "**Active (running)**: Service is currently running; **Active (exited)**: Service completed successfully; **Inactive (dead)**: Service is not running; **Failed**: Service failed to start; Managing web servers (nginx, apache); Controlling database services (mysql, postgresql); Managing system services (ssh, networking); Troubleshooting service issues; Automating service management in scripts; System administration and maintenance",
+    "source": "138-the-systemctl-command.md"
+  },
+  {
+    "name": "journalctl",
+    "description": "The `journalctl` command is used to view and query the systemd journal, which collects and stores system logs in a structured, indexed format. It's the primary tool for viewing system logs in modern Linux distributions.",
+    "usage": "-vacuum-size=[size] Remove logs to reduce size",
+    "example": "",
+    "notes": "`\"2024-01-01 12:00:00\"`; `\"yesterday\"`; `\"today\"`; `\"1 hour ago\"`; `\"30 minutes ago\"`; `\"2 days ago\"`; Troubleshooting system issues; Monitoring service behavior; Security auditing; Performance analysis",
+    "source": "139-the-journalctl-command.md"
+  },
+  {
+    "name": "watch",
+    "description": "The `watch` command is used to execute a command repeatedly at regular intervals and display the output. It's particularly useful for monitoring changes in system status, file contents, or command output over time.",
+    "usage": "",
+    "example": "",
+    "notes": "System monitoring and performance analysis; Watching log files for changes; Monitoring network connectivity; Tracking file system changes; Observing process behavior; Debugging system issues; Automation and scripting; Real-time status monitoring; **Real-time updates**: Continuously refreshes output; **Difference highlighting**: Shows what changed between updates",
+    "source": "140-the-watch-command.md"
+  },
+  {
+    "name": "jobs",
+    "description": "The `jobs` command is used to display information about active jobs in the current shell session. Jobs are processes that have been started from the shell and can be managed using job control commands.",
+    "usage": "",
+    "example": "",
+    "notes": "**Running**: Job is currently executing; **Stopped**: Job is suspended (paused); **Done**: Job has completed successfully; **Terminated**: Job was killed or ended abnormally; `%1` - Job number 1; `%+` or `%%` - Current job (most recent); `%-` - Previous job; `%string` - Job whose command line starts with string; `%?string` - Job whose command line contains string; **Multitasking**: Running multiple commands simultaneously",
+    "source": "141-the-jobs-command.md"
+  },
+  {
+    "name": "bg",
+    "description": "The `bg` command is used to put stopped jobs in the background, allowing them to continue running while you use the terminal for other tasks. It's part of the job control features in Unix-like shells.",
+    "usage": "1. Start a long-running command",
+    "example": "",
+    "notes": "`%1` - Job number 1; `%+` or `%%` - Current job (most recent); `%-` - Previous job; `%string` - Job whose command line starts with string; `%?string` - Job whose command line contains string; `fg` - Bring job to foreground; `jobs` - List active jobs; `kill` - Terminate job; `nohup` - Run command immune to hangups; `disown` - Remove job from job table",
+    "source": "142-the-bg-command.md"
+  },
+  {
+    "name": "fg",
+    "description": "The `fg` command is used to bring background or stopped jobs to the foreground, making them the active process in your terminal. It's an essential part of job control in Unix-like shells.",
+    "usage": "1. Start a background job",
+    "example": "",
+    "notes": "`%1` - Job number 1; `%+` or `%%` - Current job (most recent); `%-` - Previous job; `%string` - Job whose command line starts with string; `%?string` - Job whose command line contains string; `bg` - Put job in background; `jobs` - List active jobs; `kill` - Terminate job; `Ctrl+Z` - Stop (suspend) current job; `Ctrl+C` - Terminate current job",
+    "source": "143-the-fg-command.md"
+  },
+  {
+    "name": "time",
+    "description": "The `time` command is used to measure the execution time of programs and commands. It provides detailed information about how long a command takes to run, including user time, system time, and real (wall-clock) time.",
+    "usage": "",
+    "example": "",
+    "notes": "Total elapsed time from start to finish; Includes time spent waiting for I/O, other processes, etc.; Time spent executing user-level code; CPU time used by the process itself; Time spent in kernel mode; CPU time used for system calls; Maximum resident set size (memory usage); Page faults; Context switches; File system inputs/outputs",
+    "source": "144-the-time-command.md"
+  },
+  {
+    "name": "export",
+    "description": "The `export` command is used to set environment variables that will be available to child processes. It makes variables available to all processes started from the current shell session.",
+    "usage": "",
+    "example": "",
+    "notes": "**Local variables**: Only available in the current shell; **Environment variables**: Available to current shell and all child processes; `export` converts local variables to environment variables; **Development environments**: Setting up language-specific paths; **Application configuration**: Database URLs, API keys, feature flags; **System administration**: Custom PATH modifications, proxy settings; **CI/CD pipelines**: Build configuration, deployment targets; **Security**: Sensitive data that shouldn't be in scripts; Exported variables are inherited by child processes; Changes to exported variables in child processes don't affect parent",
+    "source": "145-the-export-command.md"
+  },
+  {
+    "name": "ufw",
+    "description": "UFW (Uncomplicated Firewall) is a user-friendly command-line frontend for managing iptables firewall rules on Ubuntu and other Debian-based systems. It provides a simple way to configure firewall rules without dealing with complex iptables syntax.",
+    "usage": "",
+    "example": "",
+    "notes": "UFW is a frontend for iptables, not a replacement; Rules are processed in order (first match wins); Default policies apply when no specific rule matches; UFW doesn't interfere with existing iptables rules by default; Always test rules before enabling in production; Keep SSH access rule before enabling UFW remotely",
+    "source": "146-the-ufw-command.md"
+  },
+  {
+    "name": "traceroute",
+    "description": "The `traceroute` command is used to trace the path that packets take from your computer to a destination host across a network. It shows each hop (router) along the path and measures the time it takes to reach each hop.",
+    "usage": "",
+    "example": "",
+    "notes": "**Hop number**: Sequential number of each router; **Hostname/IP**: Name and IP address of the router; **Three times**: Round-trip time for three probe packets; ***** : Indicates timeout or filtered response; Traceroute may not show the actual path in load-balanced networks; Some routers don't respond to traceroute probes; Results can vary between runs due to route changes; ICMP traceroute often works better than UDP; Modern networks may use ECMP (Equal Cost Multi-Path) routing; VPNs and proxies will alter the apparent route",
+    "source": "147-the-traceroute-command.md"
+  },
+  {
+    "name": "nmcli",
+    "description": "The `nmcli` command is used for managing network connections by controlling the NetworkManager, a daemon that handles networking, through command line. The command stands for Network Manager Command Line Interface.",
+    "usage": "",
+    "example": "nmcli device wifi list",
+    "notes": "",
+    "source": "148-the-nmcli-command.md"
+  },
+  {
+    "name": "badblocks",
+    "description": "The `badblocks` command is used to search for bad blocks on a storage device. It can scan hard drives, SSDs, USB drives, and other storage media to identify sectors that cannot reliably store data. This is essential for maintaining data integrity and system reliability.",
+    "usage": "",
+    "example": "",
+    "notes": "**Non-destructive Testing**: Read-only tests by default; **Destructive Testing**: Write tests for thorough checking; **Pattern Testing**: Uses specific patterns to detect errors; **Progress Reporting**: Shows scan progress and results; **Output Options**: Various formats for different use cases; Read tests are safe and non-destructive; Write tests destroy all data on the device; Always unmount devices before testing; Test results should be interpreted with other health indicators; Regular testing helps prevent data loss",
+    "source": "149-the-badblocks-command.md"
+  },
+  {
+    "name": "fsck",
+    "description": "The `fsck` (file system check) command is used to check and repair Linux file systems. It can detect and fix various file system inconsistencies, corruption issues, and structural problems. It's an essential tool for maintaining file system integrity and recovering from system crashes.",
+    "usage": "",
+    "example": "",
+    "notes": "**Multiple File System Support**: Works with ext2, ext3, ext4, XFS, and more; **Automatic Detection**: Can auto-detect file system type; **Interactive Repair**: Prompts for confirmation before fixes; **Batch Mode**: Can run automatically without user interaction; **Read-Only Mode**: Check without making changes; **Always unmount** file systems before checking; **Backup important data** before repairs; **Never interrupt** fsck during operation; **Use read-only mode** first to assess damage; **Understand risks** of automatic repair modes",
+    "source": "150-the-fsck-command.md"
+  },
+  {
+    "name": "mkfs",
+    "description": "The `mkfs` (make file system) command is used to create file systems on storage devices. It formats partitions or entire disks with specific file system types like ext4, XFS, FAT32, and others. This is essential for preparing storage devices for use with Linux systems.",
+    "usage": "",
+    "example": "",
+    "notes": "**Multiple File System Support**: ext2/3/4, XFS, FAT32, NTFS, and more; **Custom Parameters**: Block size, inode ratio, labels, and features; **Quick vs Full Format**: Fast formatting or thorough initialization; **Advanced Options**: Encryption, compression, and performance tuning; **Always backup data** before formatting; **Verify device name** carefully to avoid data loss; **Unmount filesystem** before formatting; **Choose appropriate filesystem** for your use case; **Consider performance requirements** when selecting options; **Test filesystem** after creation",
+    "source": "151-the-mkfs-command.md"
+  },
+  {
+    "name": "cpio",
+    "description": "The `cpio` (copy in, copy out) command is a versatile archiving utility that can create and extract archives, copy files, and handle special file types. It's particularly useful for system backups, creating initramfs images, and working with tape archives.",
+    "usage": "",
+    "example": "",
+    "notes": "**Choose appropriate format**: Use `newc` format for modern systems; **Preserve permissions**: Use `-m` and run as appropriate user; **Test archives**: Always verify archive integrity; **Use compression**: Combine with gzip/bzip2/xz for space efficiency; **Handle special files**: Be careful with device files and symlinks; **Network security**: Use secure channels for remote operations; **Backup strategy**: Regular backups with verification",
+    "source": "152-the-cpio-command.md"
+  },
+  {
+    "name": "lsb_release",
+    "description": "The `lsb_release` command displays information about the Linux Standard Base (LSB) and distribution-specific information. It provides details about the Linux distribution version, codename, and other identifying information.",
+    "usage": "",
+    "example": "",
+    "notes": "**Distribution Information**: Name, version, codename; **LSB Compliance**: Shows LSB version support; **Standard Format**: Consistent output across distributions; **Scripting Friendly**: Easy to parse output; **Installation Required**: lsb_release may not be installed by default; **LSB Standard**: Follows Linux Standard Base specifications; **Distribution Specific**: Output format may vary between distributions; **Scripting Use**: Excellent for distribution-aware scripts; **Modern Alternative**: Consider using /etc/os-release for newer systems; **Fallback Methods**: Always have alternative detection methods",
+    "source": "153-the-lsb_release-command.md"
+  },
+  {
+    "name": "dmidecode",
+    "description": "The `dmidecode` command is used to retrieve hardware information from the Desktop Management Interface (DMI) table, also known as SMBIOS (System Management BIOS). It provides detailed information about system hardware components including motherboard, CPU, RAM, BIOS, and other system components.",
+    "usage": "",
+    "example": "",
+    "notes": "**Hardware Information**: CPU, memory, motherboard, BIOS details; **SMBIOS Access**: Direct access to system management information; **Structured Output**: Well-formatted hardware inventory; **System Identification**: Serial numbers, model information; **No Root Required**: Basic information accessible to all users; **Root Access**: Full functionality requires root privileges; **Hardware Dependent**: Output depends on BIOS/UEFI implementation; **Virtual Machines**: Information may be virtualized or limited; **Manufacturer Specific**: Some fields may be manufacturer-specific; **Version Differences**: Output format may vary between dmidecode versions",
+    "source": "154-the-dmidecode-command.md"
+  },
+  {
+    "name": "apropos",
+    "description": "The `apropos` command searches the manual page names and descriptions for keywords. It's essentially equivalent to `man -k` and helps users find relevant commands and documentation when they know what they want to do but don't know the exact command name.",
+    "usage": "",
+    "example": "",
+    "notes": "**Keyword Search**: Searches manual page names and descriptions; **Regular Expression Support**: Allows pattern matching; **Multiple Keywords**: Search for multiple terms; **Section Filtering**: Limit search to specific manual sections; **Exact Matching**: Find exact word matches; **Database Dependency**: Requires updated manual database (`mandb`); **Keyword Quality**: Results depend on quality of search terms; **Manual Completeness**: Only finds documented commands; **Regular Expressions**: Use `-r` for pattern matching; **Section Awareness**: Use `-s` for section-specific searches",
+    "source": "155-the-apropos-command.md"
+  },
+  {
+    "name": "dmesg",
+    "description": "The `dmesg` command displays messages from the kernel ring buffer. It shows boot messages, hardware detection, driver loading, and system events. This is essential for troubleshooting hardware issues, driver problems, and understanding system startup processes.",
+    "usage": "",
+    "example": "",
+    "notes": "**Kernel Messages**: Shows kernel ring buffer contents; **Boot Information**: Hardware detection and driver loading; **Real-time Monitoring**: Can follow new messages; **Filtering Options**: Filter by facility, level, or time; **Multiple Formats**: Human-readable and raw formats; **Root Access**: Some distributions restrict dmesg to root users; **Buffer Size**: Ring buffer has limited size; old messages are overwritten; **Timestamps**: Use `-T` for human-readable timestamps; **Levels**: Understand message levels for effective filtering; **Real-time**: Use `-w` for monitoring new messages",
+    "source": "156-the-dmesg-command.md"
+  },
+  {
+    "name": "expansion",
+    "description": "The `!!` command is a bash history expansion feature that repeats the last command. It's part of a broader set of history expansion capabilities that allow you to quickly re-execute, modify, or reference previous commands. This is extremely useful for correcting mistakes, adding sudo, or repeating complex commands.",
+    "usage": "",
+    "example": "",
+    "notes": "**Last Command Repetition**: Quickly re-run the previous command; **Command Modification**: Modify and re-execute previous commands; **Argument Extraction**: Extract specific arguments from previous commands; **Pattern Matching**: Find commands by pattern; **Time Saving**: Avoid retyping complex commands; **Interactive Only**: History expansion primarily works in interactive shells; **Not in Scripts**: Usually disabled in scripts for safety; **Shell Specific**: This is a bash/zsh feature, not available in all shells; **Verification**: Use `histverify` option for safety with destructive commands; **Case Sensitive**: History expansion is case-sensitive",
+    "source": "157-the-bangbang-command.md"
+  },
+  {
+    "name": "tty",
+    "description": "The `tty` command prints the filename of the terminal connected to standard input. It shows which terminal device you're currently using and can determine if the input is coming from a terminal or being redirected from a file or pipe.",
+    "usage": "",
+    "example": "",
+    "notes": "**Terminal Identification**: Shows current terminal device; **Redirection Detection**: Determines if input is from terminal or file; **Session Information**: Helps identify terminal sessions; **Scripting Support**: Exit codes indicate terminal vs non-terminal; **Exit Codes**: tty returns 0 if stdin is a terminal, non-zero otherwise; **Silent Mode**: Use `-s` for scripts that only need to check terminal status; **Redirection**: Output changes when stdin is redirected from files or pipes; **Security**: Be aware of terminal permissions and write access; **Portability**: Available on most Unix-like systems; **Session Management**: Useful for multiplexing and session tracking",
+    "source": "158-the-tty-command.md"
+  },
+  {
+    "name": "lspci",
+    "description": "The `lspci` command lists all PCI (Peripheral Component Interconnect) devices connected to the system. It provides detailed information about hardware components including graphics cards, network adapters, sound cards, storage controllers, and other PCI-based devices.",
+    "usage": "analyze_device_config \"00:02.0\"",
+    "example": "",
+    "notes": "**Hardware Detection**: Lists all PCI devices; **Detailed Information**: Vendor, device, class, and capabilities; **Tree View**: Shows device hierarchy and relationships; **Filtering Options**: Search by vendor, device, or class; **Verbose Output**: Multiple levels of detail; **Root Access**: Some detailed information requires root privileges; **Hardware Detection**: Only shows devices connected to PCI bus; **Driver Status**: Shows currently loaded drivers, not all available drivers; **Updates**: Device information is read from kernel, may require hardware rescan; **Vendor IDs**: Numeric IDs are standardized, names come from PCI ID database",
+    "source": "159-the-lspci-command.md"
+  },
+  {
+    "name": "cfdisk",
+    "description": "The `cfdisk` command is a curses-based disk partitioning tool for Linux. It provides a user-friendly, text-based interface for creating, deleting, and managing disk partitions. Unlike `fdisk`, `cfdisk` offers a more intuitive menu-driven approach.",
+    "usage": "",
+    "example": "",
+    "notes": "- **Bootable**: Toggle bootable flag\n- **Verify**: Check partition table consistency\n- **Print**: Display partition information",
+    "source": "160-the-cfdisk-command.md"
+  },
+  {
+    "name": "command",
+    "description": "The `ifplugstatus` command is a diagnostic utility used to check the **physical link status** of network interfaces on Linux systems. It reports whether an interface (such as eth0, enp0s3, or wlan0) has a network cable connected or not. This tool is particularly useful for troubleshooting wired network connectivity and detecting unplugged cables.",
+    "usage": "```bash",
+    "example": "",
+    "notes": "interface — the network interface to check (e.g., eth0, enp0s3, wlan0).; options — optional flags for customizing output.; link beat detected → cable is plugged in and active.; link beat not detected → cable is unplugged or inactive.; Interface Name: eth0, enp0s3, etc.; Link Status: Indicates whether a physical link (cable or signal) is present.; Works best with wired Ethernet interfaces.; Wireless interfaces may not always report link status accurately.; The tool is read-only — it does not modify system settings.; Lightweight and safe for use in both desktop and server environments.",
+    "source": "161-the-ifplugstatus-command.md"
+  },
+  {
+    "name": "column",
+    "description": "The `column` command is used to format its input into multiple columns. It's particularly useful for making text-based tables and improving the readability of command output.",
+    "usage": "",
+    "example": "",
+    "notes": "`-t`: Determine the number of columns automatically and create a table; `-s`: Specify the column delimiter (default is whitespace); `-n`: Don't merge multiple adjacent delimiters; `-c`: Output in column format with specified width; `-x`: Fill columns before rows; `-L`: Align all entries to the left; `-R`: Align all entries to the right; `-o`: Specify column separator for table output; The `column` command is part of the `util-linux` package; It's particularly useful in shell scripts for formatting output",
+    "source": "162-the-column-command.md"
+  },
+  {
+    "name": "nmtui",
+    "description": "The **`nmtui`** (Network Manager Text User Interface) command is a **menu-driven tool** for configuring network connections in Linux. It provides a simple, text-based interface to manage network settings such as Wi-Fi, Ethernet, hostname, and more — without using complex command-line options.",
+    "usage": "",
+    "example": "",
+    "notes": "View and edit **network connections**; **Activate or deactivate** interfaces; **Set or change** the system **hostname**; Connect to **Wi-Fi networks**; Manage **IPv4 / IPv6 settings**; Use the **arrow keys** or **Tab** to move between fields.  ; Press **Enter** to select.  ; Use **Spacebar** to toggle checkboxes or options.  ; Press **Esc** or select **Quit** to exit safely.; Changes made with `nmtui` are persistent across reboots.  ",
+    "source": "162-the-nmtui-command.md"
+  },
+  {
+    "name": "conclusion",
+    "description": "Congratulations! You've reached the end of the **101 Linux Commands eBook**. Throughout this journey, you've explored over 135 essential Linux commands that form the foundation of system administration, development, and everyday Linux usage.",
+    "usage": "",
+    "example": "",
+    "notes": "Navigation commands (`cd`, `ls`, `pwd`); File manipulation (`cp`, `mv`, `rm`, `mkdir`); Content viewing (`cat`, `head`, `tail`, `less`); Search and find operations (`find`, `grep`, `locate`); Process management (`ps`, `kill`, `top`, `htop`); User and group management (`useradd`, `usermod`, `chmod`, `chown`); System monitoring (`df`, `du`, `free`, `vmstat`); Service management (`systemctl`, `service`); Network configuration (`ip`, `ifconfig`, `netstat`); Remote access (`ssh`, `scp`, `rsync`)",
+    "source": "999-wrap-up.md"
+  }
+]

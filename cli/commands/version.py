@@ -5,10 +5,11 @@ from pathlib import Path
 
 import typer
 
+# Ensure parent package path is available before importing package-level metadata
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from __version__ import __version__
 from states.global_state import debug, verbose_flag
-
-sys.path.insert(0, str(Path(__file__).parent.parent))
 
 app = typer.Typer(help="version command")
 

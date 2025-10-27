@@ -1,19 +1,36 @@
 from typing import Dict, List
 
+import json
+from pathlib import Path
 import typer
 
 from states.global_state import debug, verbose_flag
 
-app = typer.Typer(
-    help=("Search available commands by keyword " "(name or description).")
-)
+
+app = typer.Typer(help=("Search available commands by keyword (name or description)."))
 
 
 def _get_available_commands() -> List[Dict[str, str]]:
     """
-    Mocked list of available commands.
-    Replace with real registry/source when available.
+    Return commands loaded from cli/data/commands.json if available, else fall back
+    to the mocked in-code list.
     """
+    data_path = Path(__file__).parent.parent / "data" / "commands.json"
+    if data_path.exists():
+        try:
+            data = json.loads(data_path.read_text(encoding="utf-8"))
+            # normalize to list of dicts with name/description
+            return [
+                {
+                    "name": item.get("name", ""),
+                    "description": item.get("description", ""),
+                }
+                for item in data
+            ]
+        except Exception:
+            pass
+
+    # fallback mocked data
     return [
         {"name": "ls", "description": "List directory contents"},
         {"name": "grep", "description": "Search for PATTERN in files"},
@@ -27,13 +44,13 @@ def _get_available_commands() -> List[Dict[str, str]]:
         },
         {
             "name": "cat",
-            "description": ("Concatenate files and print on the standard " "output"),
+            "description": ("Concatenate files and print on the standard output"),
         },
         {"name": "head", "description": "Output the first part of files"},
         {"name": "tail", "description": "Output the last part of files"},
         {
             "name": "sed",
-            "description": ("Stream editor for filtering and transforming " "text"),
+            "description": ("Stream editor for filtering and transforming text"),
         },
     ]
 
