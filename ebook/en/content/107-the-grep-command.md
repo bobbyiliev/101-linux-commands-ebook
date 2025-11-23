@@ -59,4 +59,69 @@ grep [options] pattern [files]
 | `-E`           | `--extended-regexp`    | Treats pattern as an extended regular expression (ERE)                                          |
 | `-w`           | `--word-regexp`        | Match whole word                                                                                |
 | `-o`           | `--only-matching`      | Print only the matched parts of a matching line, with each such part on a separate output line. |
-|                | `--line-buffered`      | Force output to be line buffered.                                                               |
+|                | `--line-buffered`      | Force output to be line buffered.                  
+
+### Additional Practical Examples:
+
+6. Search recursively in all files within a directory
+
+```bash
+grep -r "pattern" /path/to/directory
+```
+
+7. Search for whole words only (not partial matches)
+
+```bash
+grep -w "key" destination.txt
+```
+
+8. Display lines that do NOT contain the pattern (invert match)
+
+```bash
+grep -v "unwanted" destination.txt
+```
+
+9. Search for multiple patterns using extended regex
+
+```bash
+grep -E "pattern1|pattern2" destination.txt
+```
+
+10. Search and show context lines (lines before and after match)
+
+```bash
+# Show 2 lines before and 2 lines after each match
+grep -C 2 "error" logfile.txt
+
+# Show only 3 lines before each match
+grep -B 3 "error" logfile.txt
+
+# Show only 3 lines after each match
+grep -A 3 "error" logfile.txt
+```
+
+11. Search for pattern at the beginning or end of line
+
+```bash
+# Lines starting with "Error"
+grep "^Error" logfile.txt
+
+# Lines ending with ".txt"
+grep "\.txt$" filelist.txt
+```
+
+12. Count total matches across multiple files
+
+```bash
+grep -c "pattern" file1.txt file2.txt file3.txt
+```
+
+13. Find files containing a pattern and pipe to other commands
+
+```bash
+# Find all Python files containing "import numpy"
+grep -r "import numpy" --include="*.py" .
+
+# Search in compressed log files
+zgrep "error" /var/log/syslog.*.gz
+```|
