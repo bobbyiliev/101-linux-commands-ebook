@@ -11553,6 +11553,63 @@ grep stands for globally search for regular expression and print out. The patter
 </tr>
 </tbody>
 </table>
+<h3>Additional Practical Examples:</h3>
+<ol start="6">
+<li>Search recursively in all files within a directory</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash">grep -r <span class="hljs-string">"pattern"</span> /path/to/directory
+</code></pre>
+<ol start="7">
+<li>Search for whole words only (not partial matches)</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash">grep -w <span class="hljs-string">"key"</span> destination.txt
+</code></pre>
+<ol start="8">
+<li>Display lines that do NOT contain the pattern (invert match)</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash">grep -v <span class="hljs-string">"unwanted"</span> destination.txt
+</code></pre>
+<ol start="9">
+<li>Search for multiple patterns using extended regex</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash">grep -E <span class="hljs-string">"pattern1|pattern2"</span> destination.txt
+</code></pre>
+<ol start="10">
+<li>Search and show context lines (lines before and after match)</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Show 2 lines before and 2 lines after each match</span>
+grep -C 2 <span class="hljs-string">"error"</span> logfile.txt
+
+<span class="hljs-comment"># Show only 3 lines before each match</span>
+grep -B 3 <span class="hljs-string">"error"</span> logfile.txt
+
+<span class="hljs-comment"># Show only 3 lines after each match</span>
+grep -A 3 <span class="hljs-string">"error"</span> logfile.txt
+</code></pre>
+<ol start="11">
+<li>Search for pattern at the beginning or end of line</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Lines starting with "Error"</span>
+grep <span class="hljs-string">"^Error"</span> logfile.txt
+
+<span class="hljs-comment"># Lines ending with ".txt"</span>
+grep <span class="hljs-string">"\.txt$"</span> filelist.txt
+</code></pre>
+<ol start="12">
+<li>Count total matches across multiple files</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash">grep -c <span class="hljs-string">"pattern"</span> file1.txt file2.txt file3.txt
+</code></pre>
+<ol start="13">
+<li>Find files containing a pattern and pipe to other commands</li>
+</ol>
+<pre><code class="language-bash hljs bash" data-lang="bash"><span class="hljs-comment"># Find all Python files containing "import numpy"</span>
+grep -r <span class="hljs-string">"import numpy"</span> --include=<span class="hljs-string">"*.py"</span> .
+
+<span class="hljs-comment"># Search in compressed log files</span>
+zgrep <span class="hljs-string">"error"</span> /var/<span class="hljs-built_in">log</span>/syslog.*.gz
+```|
+</code></pre>
 <div style="page-break-after: always;"></div><h1>The <code>screen</code> command</h1>
 <p><code>screen</code> - With screen you can start a screen session and then open any number of windows (virtual terminals) inside that session.
 Processes running in Screen will continue to run when their window is not visible even if you get disconnected.  This is very
